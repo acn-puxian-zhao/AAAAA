@@ -1,0 +1,113 @@
+﻿<div class="row">
+    <div class="row">
+        <label for="CreateTime" class="col-md-2 control-labelh">
+            Assessment Date:
+        </label>
+        <div class="col-md-2">
+            <!--<div datetimepicker value="assessmentDate" readonly="true" />-->
+            <select id="internal" class="form-control input-sm" ng-model="assessmentDate" ng-change="selectAssessmentLogDate()" >
+                <option ng-repeat="sal in AssessmentLogDateList">{{sal}}</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary col-md-1" ng-click="reAnalyse()">
+            Re-Analyse
+            
+        </button>
+        <button id="caSave" type="button" class="btn btn-primary col-md-1" ng-click="saveCA()" ng-disabled="allowSave">
+            Save
+        </button>
+        <button class="btn btn-primary col-md-1" ng-click="searchYY()">
+            Search
+        </button>
+        <button class="btn btn-primary col-md-1" ng-click="export()">
+            Export
+        </button>
+    </div>
+</div>
+<div class="row" style="height:10px;"></div>
+<div id="searchItem" class="row" style="padding:10px; display:none; background-color:rgba(236, 236, 236, 1);">
+    <div class="row">
+        <label for="customerCode" class="col-md-1 control-labelh">
+            Customer NO.:
+        </label>
+        <div class="col-md-2">
+            <input id="customerCode" name="customerCode" ng-model="custCode" type="text" class="form-control" />
+        </div>
+        <label for="assessmentType" class="col-md-1 control-labelh">
+            Customer Class:
+        </label>
+        <div class="col-md-2">
+            <select class="form-control" ng-model="assessmentType" ng-options="x.id as x.name for x in assessmentTypeList" >
+            </select>
+        </div>
+        <label for="siteUseId" class="col-md-1 control-labelh">
+            Site Use Id:
+        </label>
+        <div class="col-md-2">
+            <input id="siteUseId" name="siteUseId" type="text" class="form-control" ng-model="custSiteUesId" />
+        </div>
+    </div>
+    <div class="row" style="height:10px;"></div>
+    <div class="row">
+        <label for="customerName" class="col-md-1 control-labelh">
+            Customer Name:
+        </label>
+        <div class="col-md-2">
+            <input id="customerName" name="customerName" type="text" class="form-control" ng-model="custName" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1" style="float:right;">
+            <button type="button" class="btn btn-primary form-control" ng-click="SearchCustomerAssessment()">
+                Submit
+            </button>
+        </div>
+        <div class="col-md-1" style="float:right;">
+            <button type="button" class="btn btn-primary form-control" ng-click="resetSearch()">
+                Clear
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row" style="height:10px;"></div>
+<div id="listGrid" class="row">
+    <div class="form-group col-md-9" style="padding-left:0px; padding-right:0px; float:right;">
+        <div class="grid-style" ui-grid="CustomerAssessmentList" ui-grid-resize-columns ui-grid-selection ui-grid-edit>
+        </div>
+    </div>
+    <div class="form-group col-md-3" style="padding-left:0px; padding-right:0px; float:right;">
+        <div class="grid-style" ui-grid="CustomerAssessmentLogList" ui-grid-resize-columns ui-grid-selection>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-1">
+        <select id="pagesize" name="pagesize" ng-model="selectedLevelCAL" ng-options="s.id as s.levelName for s in levelList"
+                ng-change="CALpagesizechange(selectedLevelCAL)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+    </div>
+    <div class="col-md-2" style="margin-top:-5px;margin-left:-10px;">
+        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpageCAL" total-items="totalItemsCAL"
+                    ng-model="currentPageCAL" ng-change="CALpageChanged()"></ul>
+    </div>
+    <div class="col-md-1">
+        <!--<div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total:</div>-->
+        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItemsCAL}}</div>
+    </div>
+    <div class="col-md-1">
+        <select id="pagesize" name="pagesize" ng-model="selectedLevelCA" ng-options="s.id as s.levelName for s in levelList"
+                ng-change="CApagesizechange(selectedLevelCA)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+    </div>
+    <div class="col-md-5" style="margin-top:-5px;margin-left:-10px;">
+        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpageCA" total-items="totalItemsCA"
+                    ng-model="currentPageCA" ng-change="CApageChanged()"></ul>
+    </div>
+    <div class="col-md-2">
+        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItemsCA}}</div>
+    </div>
+</div>
+
+
+
+

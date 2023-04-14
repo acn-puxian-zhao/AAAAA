@@ -1,0 +1,44 @@
+﻿<div class="modal-header">
+ <h3 class="modal-title">Contact History Records:</h3>
+</div>
+<div class="modal-body" >
+    <div class="row">
+        <label for="ContactType" class="col-md-2 control-label" >
+            Contact Type:</label>
+        <div class="col-md-3" >
+            <select id="ContactType" class="form-control input-sm" ng-model="contactTypeValue" ng-options="a.detailValue as a.detailName for a in ContactTypeDPlist">
+                <option value="">All</option>
+            </select>
+        </div>
+        <label for="contactDate" class="col-md-2 control-label">
+            Date:</label>
+         <div class="col-md-3">
+            <div datetimepicker value="selectedDate" />
+        </div>
+        <div class="col-md-2" style="float:right">
+            <button type="button" class="btn btn-primary form-control" ng-click="searchContactHis()">
+                Search</button>
+        </div>
+    </div>
+</div>
+<div class="modal-body" >
+    <div  ui-grid="contactHistoryList">
+    </div>
+</div>
+<div class="modal-body" align="right">
+
+    <div class="row"   style="margin-right:5px">
+        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems" 
+            ng-model="currentPage" ng-change="pageChanged()" ></ul>
+    </div>
+
+
+</div>
+<div class="modal-footer">
+    <div class="row"   style="margin-right:5px">
+            <button type="button" class="btn btn-primary" ng-click="closeContactHistory()" >
+                Close</button>
+    </div>
+</div>
+
+

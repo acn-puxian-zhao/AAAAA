@@ -1,0 +1,18 @@
+﻿<div class="modal-header">
+  <h3>customer information</h3>
+</div>
+<div class="modal-body">
+    <div>
+        <div>
+            <form name="form" crud-edit="cust">
+                <label for="firstName">Customer code</label>
+                <input type="text" id="firstName" class="form-control" name="code" ng-model="cust.customerCode" required/>
+                <label for="lastName">Customer Name</label>
+                <input type="text" id="lastName" class="form-control" name="Name" ng-model="cust.customerClass" required/>
+                <crud-buttons></crud-buttons> 
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+</div>

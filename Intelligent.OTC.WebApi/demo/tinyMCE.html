@@ -1,0 +1,8 @@
+<div ng-controller="DemoCtrl as demo">
+  <form method="post">
+    <textarea ui-tinymce="{trusted: true}"
+      ng-model="demo.tinymce"
+      ng-change="demo.updateHtml()"></textarea>
+  </form>
+  <div ng-bind-html="demo.tinymceHtml"></div>
+</div>

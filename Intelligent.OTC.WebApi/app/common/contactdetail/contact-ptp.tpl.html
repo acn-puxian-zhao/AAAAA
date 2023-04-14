@@ -1,0 +1,86 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">PTP</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 control-label" style="color:red">Promise Date*:</label>
+        <div class="col-md-3">
+            <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup ng-model="promiseDate" is-open="popupPromiseDate.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="openPromiseDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+        <label class="col-md-2 control-label">Partial Pay:</label>
+        <div class="col-md-3" style="">
+            <select id="parpay" name="parpay" class="form-control" ng-model="partialpay" ng-change="partialpayChange()">
+                <option value="false" label="No">no</option>
+                <option value="true" label="Yes">yes</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">IsForwarder:</label>
+        <div class="col-md-3" style="">
+            <input type="checkbox" ng-model="IsForwarder">
+        </div>
+        <label class="col-md-2 control-label">Payer:</label>
+        <div class="col-md-3" style="">
+            <div class="dropdown">
+                <input class="form-control dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" ng-model="payer" ng-change="searchPayer()">
+                <ul class="dropdown-menu" role="menu" style="width:194px; max-height:200px; overflow-y:scroll;">
+                    <li ng-repeat="x in paryerList">
+                        <a ng-click="payerClick(x)">{{x}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Promise Amount</label>
+        <div class="col-md-3" style="">
+            <input class="form-control " type="text" ng-model="proamount" ng-disabled='canEdit' onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">
+            <!--<input class="form-control " ng-model="proamount" >-->
+            <!--onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"-->
+            <!--onkeypress="return event.keyCode>=48&&event.keyCode<=57" ng-pattern="/[^a-zA-Z]/" onkeyup="value=value.replace(/[^\d]/g,'') "-->
+        </div>
+        <label class="col-md-2 control-label">Payment Method:</label>
+        <div class="col-md-3" style="">
+            <!--<select id="" class="form-control" ng-model="paymethod">
+                <option value=""></option>
+                <option value="bill">Bill of Exchange</option>
+                <option value="bank">Bank Transfer</option>
+                <option value="cheque">Cheque</option>
+                <option value="other">Other</option>
+            </select>-->
+            <select id="paymethod" class="form-control input-sm" ng-model="paymethod" ng-options="a.detailValue as a.detailName for a in payMethodList" ng-required="true"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Call Contact:</label>
+        <div class="col-md-3" style="">
+            <input class="form-control " ng-model="contacter" />
+        </div>
+        <label class="col-md-2 control-label">Related email:</label>
+        <div class="col-md-3" style="">
+            <input id="inputRelatedEmail" class="form-control" ng-model="relatedEmail" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Comments:</label>
+        <div class="col-sm-8">
+            <textarea id="comments" class="form-control" style="height:150px" ng-model="comss"></textarea>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">
+            Close
+        </button>
+        <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+            Submit
+        </button>
+    </div>
+</div>

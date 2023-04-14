@@ -1,0 +1,32 @@
+﻿{
+  "dataRows": [
+    {
+      "transactionNumber": "1",
+      "transactionAmount": "10000",
+      "reference2": "xxxx",
+      "agentCustomerNumber": "1001",
+      "siteUseId": "100101",
+      "agentCustomerName": "HW",
+      "valueDate": "2019-01-01"
+    },
+    {
+      "transactionNumber": "1",
+      "transactionAmount": "10000",
+      "reference2": "xxxx",
+      "agentCustomerNumber": "1001",
+      "siteUseId": "100101",
+      "agentCustomerName": "HW",
+      "valueDate": "2019-01-01"
+    },
+    {
+      "transactionNumber": "1",
+      "transactionAmount": "10000",
+      "reference2": "xxxx",
+      "agentCustomerNumber": "1001",
+      "siteUseId": "100101",
+      "agentCustomerName": "HW",
+      "valueDate": "2019-01-01"
+    }
+  ],
+  "count": 3
+}

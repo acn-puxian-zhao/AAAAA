@@ -1,0 +1,43 @@
+﻿
+<div class="form-group col-md-12">
+    <div class="row">
+        <div style="float:left; padding-right:10px; width: 342px;" >
+            <label for="ValueDateF" style="font-size:12px;">
+                Value Date From:
+            </label>
+            <div style="width:200px" datetimepicker value="valueDateF" readonly="true" />
+        </div>
+        <div style=" float: left; padding-right: 16px;margin-left: -103px;width: 355px;" >
+            <label for="ValueDateT"  style="font-size:12px;">
+                Value Date To:
+            </label>
+            <div style="width:200px"  datetimepicker value="valueDateT" readonly="true" />
+        </div>
+        <!--<div style="float:right; padding-right:10px;" class="col-md-3">
+        <button type="button" class="btn btn-primary " style="width:100px" ng-click="export()">
+            Export
+        </button>
+    </div>-->
+
+        <div style="float:right">
+            <button type="button" class="btn-filter" ng-click="pageChanged()">
+                <img src="~/../Content/images/Search.png">&nbsp;&nbsp;Search
+            </button>
+            <button type="button" class="btn-filter" ng-click="export()">
+                Export
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div class="grid-style" ui-grid="dataList" ui-grid-resize-columns ui-grid-selection ui-grid-pinning >
+    </div>
+</div>
+<div class="form-group col-md-10">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>

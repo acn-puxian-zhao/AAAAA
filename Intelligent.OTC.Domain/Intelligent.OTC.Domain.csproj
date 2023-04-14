@@ -1,0 +1,955 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D2D0FCE-DCBE-469D-B848-B3DD6661F865}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Intelligent.OTC.Domain</RootNamespace>
+    <AssemblyName>Intelligent.OTC.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataModel\AppFile.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Call.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Collector.cs" />
+    <Compile Include="DataModel\CollectorAlert.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CollectorAlertPermission.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CollectorSignature.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CollectorSoaView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CollectorTeam.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ContactCustomerView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ContactHistory.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ContactLanguage.cs" />
+    <Compile Include="DataModel\Contactor.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ContactorDomain.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CusAgingView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Customer.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerAging.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerAgingStaging.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerChangeHis.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerCommon.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerContactorView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerGroupCfg.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerGroupCfgHistory.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerGroupCfgStaging.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerLegalView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerLevelView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerMail.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerMasterData.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerMasterView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerPaymentBank.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerPaymentCircle.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerPrioritizationExceptionList.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerTeam.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Dispute.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DisputeHis.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DisputeInvoice.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DisputeReason.cs" />
+    <Compile Include="DataModel\DisputeStatus.cs" />
+    <Compile Include="DataModel\DisputeTrackingView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DunningReminderConfig.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DunningReminderView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FileDownloadHistory.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FileUploadHistory.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\HoldCustomer.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\HoldCustomerView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\InvoiceAging.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\InvoiceAgingStaging.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\InvoiceLog.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\InvoiceStatus.cs" />
+    <Compile Include="DataModel\Mail.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\MailRaw.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\MailTemplate.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\MailTemplateType.cs" />
+    <Compile Include="DataModel\MailTmp.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\OTCEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OTCEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\OTCEntities1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\OTCEntities1.Designer.cs">
+      <DependentUpon>OTCEntities.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModel\PeriodControl.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\PeriodStatus.cs" />
+    <Compile Include="DataModel\CustomerClass.cs" />
+    <Compile Include="DataModel\FileType.cs" />
+    <Compile Include="DataModel\PaymentBankStatus.cs" />
+    <Compile Include="DataModel\RateTran.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\RiskRule.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\RiskRuleIndex.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\RiskRuleValue.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\RoleType.cs" />
+    <Compile Include="DataModel\Sites.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SpecialNote.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StartSoaAlertView.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SysConfig.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\sysdiagram.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SysType.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SysTypeDetail.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Team.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TrackStatus.cs" />
+    <Compile Include="DataModel\T_ALLACCOUNT_TMP.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_AssessmentFactor.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_AssessmentStandards.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_AssessmentType.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CollectionStrategy.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_Collection_Job_Log.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_COLLECTOR_STATISTICS_HIS.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CommunicationMethod.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CONTACTOR_REPLACE.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CustomerAssessment.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CustomerAssessment_History.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CustomerAssessment_Log.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CustomerScore.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_Customer_AccountPeriod.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CUSTOMER_AGING_DAYBACK.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_Customer_ExpirationDateHis.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_CUSTOMER_STAGING.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_Deal.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_Feedback_Report_History.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_INVOICE_AGING_ExpirationDateHis.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_Invoice_Detail.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_Invoice_Detail_Staging.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_INVOICE_STATUS_STAGING.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_INVOICE_VARDATA.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_INVOICE_VAT.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_INVOICE_VAT_STAGING.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_LeglalEB.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_LSRFSR_CHANGE.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_MailAccount.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_MailServer.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_MD_EXCEPTIONS.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_ORG_CENTER.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_ORG_DEAL.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_ORG_GROUP.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_ORG_REGION.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_ORG_TEAM.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_PermissionAgent.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_PTPPayment.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_PTPPayment_Invoice.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_SYS_LOG.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_TASK.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_USERS.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_USER_EMPLOYEE.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_Activity.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_Application.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_CurrentTask.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_DetailTask.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_HistoryTask.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_PostCondition.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_PreCondition.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_ProcessDefine.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_ProcessInstance.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_RelateData.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_Rule.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WF_Webservice.cs">
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_WORKING_CALENDAR.cs">
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\UnHoldCustomer.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\UploadStates.cs" />
+    <Compile Include="DataModel\ValueClass.cs" />
+    <Compile Include="DataModel\v_AutoSendMailInvoice.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_CashCollected.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_CollectionReport.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_CustomerAssessment.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_CustomerAssessmentHistory.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_CUSTOMER_CONTACTOR_TITLE.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_DailyAgingReport.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_DisputReason.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_DUN_COUNT.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_Invoice_PTPDate.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_Open_AR.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_Open_AR1.cs" />
+    <Compile Include="DataModel\v_PTPEntry1.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_PTPPayment.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\v_PTPVATEntry1.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_Report_Feedback_SUM_HasBackDetail.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_Report_Feedback_SUM_NotBackDetail.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_STATISTICS_COLLECT.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_STATISTICS_COLLECTOR.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_STATISTICS_CUSTOMER_CONTACT_COUNT.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\V_STATISTICS_CUSTOMER_COUNT.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\WorkflowEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkflowEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\WorkflowEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkflowEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\WorkflowEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkflowEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\WorkflowHistory.cs">
+      <DependentUpon>OTCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\XcceleratorEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XcceleratorEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\XcceleratorEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XcceleratorEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\XcceleratorEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XcceleratorEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\CollectingReportDto.cs" />
+    <Compile Include="DomainModel\CustomerAssessmentItem.cs" />
+    <Compile Include="DomainModel\ReportModel.cs" />
+    <Compile Include="DomainModel\DashBoardModel.cs" />
+    <Compile Include="DomainModel\ReportItem.cs" />
+    <Compile Include="Dtos\AgingReportDto.cs" />
+    <Compile Include="Dtos\AgingExpDateHisDto.cs" />
+    <Compile Include="Dtos\CaAllCustomerDto.cs" />
+    <Compile Include="Dtos\CustomerAgingBucketDto.cs" />
+    <Compile Include="Dtos\CustomerCommentsDto.cs" />
+    <Compile Include="Dtos\CaReconMsgDetailAllDto.cs" />
+    <Compile Include="Dtos\CashApplicationCountReportDto.cs" />
+    <Compile Include="Dtos\CusExpDateHisDto.cs" />
+    <Compile Include="Dtos\CaActionTaskDto.cs" />
+    <Compile Include="Dtos\CaAmtDto.cs" />
+    <Compile Include="Dtos\CaBsFileWithPathDto.cs" />
+    <Compile Include="Dtos\CaBsIdPmtIdDto.cs" />
+    <Compile Include="Dtos\CaBankStatementPostClearDto.cs" />
+    <Compile Include="Dtos\CaBsReportPage.cs" />
+    <Compile Include="Dtos\CaClearResultCheck.cs" />
+    <Compile Include="Dtos\CaClearResultMedian.cs" />
+    <Compile Include="Dtos\CaCustomerInputrDto.cs" />
+    <Compile Include="Dtos\CaARViewDto.cs" />
+    <Compile Include="Dtos\CaBankCustomerDto.cs" />
+    <Compile Include="Dtos\CaBankStatementClearDto.cs" />
+    <Compile Include="Dtos\CaBankStatementPostDto.cs" />
+    <Compile Include="Dtos\CaBsFileDto.cs" />
+    <Compile Include="Dtos\CaContactorDto.cs" />
+    <Compile Include="Dtos\CallBackReconResultDto.cs" />
+    <Compile Include="Dtos\CaPMTHisDto.cs" />
+    <Compile Include="Dtos\CaPostResultCheck.cs" />
+    <Compile Include="Dtos\CaStatusReportDto.cs" />
+    <Compile Include="Dtos\CaGroupDto.cs" />
+    <Compile Include="Dtos\CaReconGroupDto.cs" />
+    <Compile Include="Dtos\CaReconMsgDetailDto.cs" />
+    <Compile Include="Dtos\CaReconCallBackMsgDto.cs" />
+    <Compile Include="Dtos\CaReconTaskDto.cs" />
+    <Compile Include="Dtos\CaARDto.cs" />
+    <Compile Include="Dtos\CaPmtDtoPage.cs" />
+    <Compile Include="Dtos\CaReconMsgDto.cs" />
+    <Compile Include="Dtos\CaBankStatementDto.cs" />
+    <Compile Include="Dtos\CaBankStatementHeadDto.cs" />
+    <Compile Include="Dtos\CAForwarderListDto.cs" />
+    <Compile Include="Dtos\CaCustomerAttributeDto.cs" />
+    <Compile Include="Dtos\CaCallBackResult.cs" />
+    <Compile Include="Dtos\CaReconAdjustmentDto.cs" />
+    <Compile Include="Dtos\CaTaskDto.cs" />
+    <Compile Include="Dtos\CaMailAlertDto.cs" />
+    <Compile Include="Dtos\CaTaskResult.cs" />
+    <Compile Include="Dtos\CaPTPDto.cs" />
+    <Compile Include="Dtos\CaPMTBSDto.cs" />
+    <Compile Include="Dtos\CaPMTDetailDto.cs" />
+    <Compile Include="Dtos\CaPMTDto.cs" />
+    <Compile Include="Dtos\CaReconBSDto.cs" />
+    <Compile Include="Dtos\CaReconDetailDto.cs" />
+    <Compile Include="Dtos\CaReconDto.cs" />
+    <Compile Include="Dtos\CaTaskMsg.cs" />
+    <Compile Include="Dtos\CollectorStatisticsGraphDto.cs" />
+    <Compile Include="Dtos\ContactHistoryCreateDto.cs" />
+    <Compile Include="Dtos\ContactHistoryUpdateDto.cs" />
+    <Compile Include="Dtos\ContactorDto.cs" />
+    <Compile Include="Dtos\ContactorExportDto.cs" />
+    <Compile Include="Dtos\ContactorImportDto.cs" />
+    <Compile Include="Dtos\ContactorNameDto.cs" />
+    <Compile Include="Dtos\CopyContactDto.cs" />
+    <Compile Include="Dtos\CACustomerMappingDto.cs" />
+    <Compile Include="Dtos\CustomerCommentStatusDto.cs" />
+    <Compile Include="Dtos\CustomerMappingDto.cs" />
+    <Compile Include="Dtos\CustomerMasterDto.cs" />
+    <Compile Include="Dtos\CustomerMailStatusDto.cs" />
+    <Compile Include="Dtos\CustomerLevelDto.cs" />
+    <Compile Include="Dtos\ContactCustomerDto.cs" />
+    <Compile Include="DomainModel\DailyAgingDto.cs" />
+    <Compile Include="Dtos\CountDto.cs" />
+    <Compile Include="Dtos\CustomerMenuDto.cs" />
+    <Compile Include="Dtos\CustomerResponseCount.cs" />
+    <Compile Include="Dtos\DeleteDto.cs" />
+    <Compile Include="Dtos\DisputeDto.cs" />
+    <Compile Include="Dtos\DisputReasonDto.cs" />
+    <Compile Include="Dtos\DsoAnalysisDto.cs" />
+    <Compile Include="Dtos\ExportCadaliyReportDto.cs" />
+    <Compile Include="Dtos\FeedbackHistoryDto.cs" />
+    <Compile Include="Dtos\FileDto.cs" />
+    <Compile Include="Dtos\GetSOAMailInstanceDto.cs" />
+    <Compile Include="Dtos\InvoiceVatDto.cs" />
+    <Compile Include="Dtos\InvoiceAgingDto.cs" />
+    <Compile Include="Dtos\InvoicesStatusDto.cs" />
+    <Compile Include="Dtos\IsMustPMTDetailDto.cs" />
+    <Compile Include="Dtos\LegalEBDto.cs" />
+    <Compile Include="Dtos\MailInvoiceDto.cs" />
+    <Compile Include="Dtos\MailQueryDto.cs" />
+    <Compile Include="Dtos\MailTemplateDto.cs" />
+    <Compile Include="Dtos\NewCustomerRemdindingSum.cs" />
+    <Compile Include="Dtos\NewCustomerRemdindingDetail.cs" />
+    <Compile Include="Dtos\NoContactorSiteUseId.cs" />
+    <Compile Include="Dtos\NoContactorSummary.cs" />
+    <Compile Include="Dtos\NoContactor.cs" />
+    <Compile Include="Dtos\OpenARDto.cs" />
+    <Compile Include="Dtos\OutResult.cs" />
+    <Compile Include="Dtos\OverdueReasonDto.cs" />
+    <Compile Include="Dtos\PageResultDto.cs" />
+    <Compile Include="Dtos\PaginationQueryDto.cs" />
+    <Compile Include="Dtos\ReportFeedbackSumBySalesItem.cs" />
+    <Compile Include="Dtos\ReportFeedbackSumByCsItem.cs" />
+    <Compile Include="Dtos\ReportFeedbackSumItem.cs" />
+    <Compile Include="Dtos\ReportPTPSumItem.cs" />
+    <Compile Include="Dtos\ReportUnApplySumItem.cs" />
+    <Compile Include="Dtos\ReportODSumItem.cs" />
+    <Compile Include="Dtos\SendContactorNameDto.cs" />
+    <Compile Include="Dtos\SendMailDto.cs" />
+    <Compile Include="Dtos\DunningReminderDto.cs" />
+    <Compile Include="Dtos\AgingReport.cs" />
+    <Compile Include="Dtos\AlertExtention.cs" />
+    <Compile Include="Dtos\LegalEntityAssessmentDateDto.cs" />
+    <Compile Include="Dtos\MailAttachmentDto.cs" />
+    <Compile Include="Dtos\MailMessageDto.cs" />
+    <Compile Include="Dtos\MyinvoicesDto.cs" />
+    <Compile Include="Dtos\SendPMTSummary.cs" />
+    <Compile Include="Dtos\SendSoaRemindingSum.cs" />
+    <Compile Include="Dtos\SoaDto.cs" />
+    <Compile Include="Dtos\AssessmentFactorDto.cs" />
+    <Compile Include="Dtos\AssessmentStandardsDto.cs" />
+    <Compile Include="Dtos\AssessmentTypeDto.cs" />
+    <Compile Include="Dtos\CollectionStrategyDto.cs" />
+    <Compile Include="Dtos\CommunicationMethodDto.cs" />
+    <Compile Include="Dtos\CustomerAssessmentDto.cs" />
+    <Compile Include="Dtos\CustomerScoreDto.cs" />
+    <Compile Include="Dtos\DealDto.cs" />
+    <Compile Include="Dtos\CustomerAssessmentHistoryDto.cs" />
+    <Compile Include="Dtos\CustomerAssessmentLogDto.cs" />
+    <Compile Include="Dtos\SendSoaRemindingDetail.cs" />
+    <Compile Include="Dtos\StatisticsCollectDto.cs" />
+    <Compile Include="Dtos\StatisticsCollectGridDto.cs" />
+    <Compile Include="Dtos\StatisticsCollectorGridDto.cs" />
+    <Compile Include="Dtos\StatisticsCollectSumDto.cs" />
+    <Compile Include="Dtos\submitWaitInvDet.cs" />
+    <Compile Include="Dtos\submitWaitInvDetModel.cs" />
+    <Compile Include="Dtos\submitWaitVat.cs" />
+    <Compile Include="Dtos\submitWaitVatModel.cs" />
+    <Compile Include="Dtos\SysUserDto.cs" />
+    <Compile Include="Dtos\TaskDetailDto.cs" />
+    <Compile Include="Dtos\TaskDisputeDetailDto.cs" />
+    <Compile Include="Dtos\TaskDisputeDto.cs" />
+    <Compile Include="Dtos\TaskDto.cs" />
+    <Compile Include="Dtos\TaskGridDto.cs" />
+    <Compile Include="Dtos\TaskPmtDetailDto.cs" />
+    <Compile Include="Dtos\TaskPmtDto.cs" />
+    <Compile Include="Dtos\TaskPtpDetailDto.cs" />
+    <Compile Include="Dtos\TaskPtpDto.cs" />
+    <Compile Include="Dtos\TaskReminddingDto.cs" />
+    <Compile Include="Dtos\TaskReportDto.cs" />
+    <Compile Include="Dtos\TaskSendSoaPmtList.cs" />
+    <Compile Include="Dtos\T_Customer_Comments.cs" />
+    <Compile Include="Dtos\T_INVOICE_STATUS_CUSTOMER_STAGING.cs" />
+    <Compile Include="Dtos\T_MailAdvisor_CAPMTDto.cs" />
+    <Compile Include="Dtos\T_MailAdvisor_CASendMailDto.cs" />
+    <Compile Include="Dtos\UnknownMatchedDto.cs" />
+    <Compile Include="Dtos\UpdateInvoceStatusDto.cs" />
+    <Compile Include="Dtos\UploadLegal.cs" />
+    <Compile Include="Dtos\UploadLegalHis.cs" />
+    <Compile Include="Dtos\UploadLegalHisModel.cs" />
+    <Compile Include="Dtos\UserMailInput.cs" />
+    <Compile Include="Dtos\VCustomerAssessmentDto.cs" />
+    <Compile Include="Partials\AllAccountInfo.cs" />
+    <Compile Include="Dtos\UploadInfo.cs" />
+    <Compile Include="Dtos\PeroidReport.cs" />
+    <Compile Include="Dtos\CustomerDetail.cs" />
+    <Compile Include="Dtos\ODataMetadata.cs" />
+    <Compile Include="DataModel\OTCEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OTCEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dtos\UploadInfoHis.cs" />
+    <Compile Include="Partials\AppFile.cs" />
+    <Compile Include="Partials\Call.cs" />
+    <Compile Include="Partials\T_Customer_ExpirationDateHis.cs" />
+    <Compile Include="Partials\T_INVOICE_AGING_ExpirationDateHis.cs" />
+    <Compile Include="Partials\PeriodControl.cs" />
+    <Compile Include="Partials\T_Feedback_Report_History.cs" />
+    <Compile Include="Partials\T_PermissionAgent.cs" />
+    <Compile Include="Partials\T_ALLACCOUNT_TMP.cs" />
+    <Compile Include="Partials\T_COLLECTOR_STATISTICS_HIS.cs" />
+    <Compile Include="Partials\T_CONTACTOR_REPLACE.cs" />
+    <Compile Include="Partials\T_CUSTOMER_AGING_DAYBACK.cs" />
+    <Compile Include="Partials\T_INVOICE_VARDATA.cs" />
+    <Compile Include="Partials\T_LSRFSR_CHANGE.cs" />
+    <Compile Include="Partials\T_TASK.cs" />
+    <Compile Include="Partials\V_CashCollected.cs" />
+    <Compile Include="Partials\V_CUSTOMER_CONTACTOR_TITLE.cs" />
+    <Compile Include="Partials\V_DailyAgingReport.cs" />
+    <Compile Include="Partials\V_DisputReason.cs" />
+    <Compile Include="Partials\V_Invoice_PTPDate.cs" />
+    <Compile Include="Partials\CollectionTimerWrapper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Partials\ContactDomain.cs" />
+    <Compile Include="Partials\CurrentTracking.cs" />
+    <Compile Include="Partials\CustomerCommon.cs" />
+    <Compile Include="Partials\CustomerMail.cs" />
+    <Compile Include="Partials\DunningReminderConfig.cs" />
+    <Compile Include="Partials\CollectorAlert.cs" />
+    <Compile Include="Partials\CollectorSignature.cs" />
+    <Compile Include="Partials\CollectorSoa.cs" />
+    <Compile Include="Partials\CollectorTeam.cs" />
+    <Compile Include="Partials\ContactCustomer.cs" />
+    <Compile Include="Partials\Contacter.cs" />
+    <Compile Include="Partials\contactHistory.cs" />
+    <Compile Include="Partials\ContactCustomerView.cs" />
+    <Compile Include="Partials\DisputeHis.cs" />
+    <Compile Include="Partials\DisputeTracking.cs" />
+    <Compile Include="Partials\DisputeTrackingView.cs" />
+    <Compile Include="Partials\CusAgingView.cs" />
+    <Compile Include="Partials\CustomerContactorView.cs" />
+    <Compile Include="Partials\CustomerLegalView.cs" />
+    <Compile Include="Partials\CustomerMasterData.cs" />
+    <Compile Include="Partials\CustomerMasterView.cs" />
+    <Compile Include="Partials\DisputeInvoice.cs" />
+    <Compile Include="Partials\Dispute.cs" />
+    <Compile Include="Partials\CustomerGroupCfgHistory.cs" />
+    <Compile Include="Partials\CustomerGroupCfgStaging.cs" />
+    <Compile Include="Partials\CustomerLevelView.cs" />
+    <Compile Include="Partials\CustomerTeam.cs" />
+    <Compile Include="Partials\CustomerChangeHis.cs" />
+    <Compile Include="Partials\CustomerPaymentCircle.cs" />
+    <Compile Include="Partials\CustomerPaymentCircleP.cs" />
+    <Compile Include="Partials\HoldCustomer.cs" />
+    <Compile Include="Partials\HoldCustomerView.cs" />
+    <Compile Include="Partials\InvoiceLog.cs" />
+    <Compile Include="Partials\MailTmp.cs" />
+    <Compile Include="Partials\Mail.cs" />
+    <Compile Include="Partials\MailTimerWrapper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Partials\PageTotalItem.cs" />
+    <Compile Include="Partials\FileDownloadHistory.cs" />
+    <Compile Include="Partials\CustomerPaymentBank.cs" />
+    <Compile Include="Partials\FileUploadHistory.cs" />
+    <Compile Include="Partials\MailTemplate.cs" />
+    <Compile Include="Partials\CustomerGroupCfg.cs" />
+    <Compile Include="Partials\CustomerAgingStaging.cs" />
+    <Compile Include="Partials\RateTran.cs" />
+    <Compile Include="Partials\CustomerPrioritizationExceptionList.cs" />
+    <Compile Include="Partials\RiskRule.cs" />
+    <Compile Include="Partials\RiskRuleIndex.cs" />
+    <Compile Include="Partials\SendSoa.cs" />
+    <Compile Include="Partials\Sites.cs" />
+    <Compile Include="Partials\InvoiceAging.cs" />
+    <Compile Include="Partials\InvoiceAgingStaging.cs" />
+    <Compile Include="Partials\SoaContact.cs" />
+    <Compile Include="Partials\SoaInvoice.cs" />
+    <Compile Include="Partials\SoaLegal.cs" />
+    <Compile Include="Partials\SoaPaymentBank.cs" />
+    <Compile Include="Partials\SoaPaymentCalender.cs" />
+    <Compile Include="Partials\SpecialNote.cs" />
+    <Compile Include="Partials\StartSoaAlertView.cs" />
+    <Compile Include="Partials\SubContactHistory.cs" />
+    <Compile Include="Partials\SysConfig.cs" />
+    <Compile Include="Partials\SysType.cs" />
+    <Compile Include="Partials\Customer.cs" />
+    <Compile Include="Partials\CustomerAging.cs" />
+    <Compile Include="Partials\SysTypeDetail.cs" />
+    <Compile Include="Partials\T_AssessmentFactor.cs" />
+    <Compile Include="Partials\T_AssessmentStandards.cs" />
+    <Compile Include="Partials\T_AssessmentType.cs" />
+    <Compile Include="Partials\T_CollectionStrategy.cs" />
+    <Compile Include="Partials\T_CommunicationMethod.cs" />
+    <Compile Include="Partials\T_CustomerAssessment.cs" />
+    <Compile Include="Partials\T_CustomerAssessment_History.cs" />
+    <Compile Include="Partials\T_CustomerAssessment_Log.cs" />
+    <Compile Include="Partials\T_CustomerScore.cs" />
+    <Compile Include="Partials\T_Customer_AccountPeriod.cs" />
+    <Compile Include="Partials\T_CUSTOMER_STAGING.cs" />
+    <Compile Include="Partials\T_Deal.cs" />
+    <Compile Include="Partials\T_Invoice_Detail.cs" />
+    <Compile Include="Partials\T_Invoice_Detail_Staging.cs" />
+    <Compile Include="Partials\T_INVOICE_STATUS_STAGING.cs" />
+    <Compile Include="Partials\T_INVOICE_VAT.cs" />
+    <Compile Include="Partials\T_INVOICE_VAT_STAGING.cs" />
+    <Compile Include="Partials\T_LeglalEB.cs" />
+    <Compile Include="Partials\T_MailAccount.cs" />
+    <Compile Include="Partials\T_MailServer.cs" />
+    <Compile Include="Partials\T_MD_EXCEPTIONS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Partials\T_ORG_DEAL.cs" />
+    <Compile Include="Partials\T_PTPPayment_Invoice.cs" />
+    <Compile Include="Partials\T_PTPPayment.cs" />
+    <Compile Include="Partials\T_USER_EMPLOYEE.cs" />
+    <Compile Include="Partials\T_WF_CurrentTask.cs" />
+    <Compile Include="Partials\T_WF_ProcessInstance.cs" />
+    <Compile Include="Partials\UnHoldCustomer.cs" />
+    <Compile Include="Partials\v_AutoSendMailInvoice.cs" />
+    <Compile Include="Partials\V_CollectionReport.cs" />
+    <Compile Include="Partials\V_CustomerAssessment.cs" />
+    <Compile Include="Partials\V_CustomerAssessmentHistory.cs" />
+    <Compile Include="Partials\V_DUN_COUNT.cs" />
+    <Compile Include="Partials\V_Open_AR.cs" />
+    <Compile Include="Partials\v_PTPEntry1.cs" />
+    <Compile Include="Partials\V_PTPPayment.cs" />
+    <Compile Include="Partials\v_PTPVATEntry1.cs" />
+    <Compile Include="Partials\V_STATISTICS_COLLECT.cs" />
+    <Compile Include="Partials\V_STATISTICS_COLLECTOR.cs" />
+    <Compile Include="Partials\V_STATISTICS_CUSTOMER_CONTACT_COUNT.cs" />
+    <Compile Include="Partials\V_STATISTICS_CUSTOMER_COUNT.cs" />
+    <Compile Include="Partials\WorkflowHistory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Partials\MailRaw.cs" />
+    <Compile Include="Proxy\Reconservice\ReconServiceProxy.cs" />
+    <Compile Include="Proxy\Mailservice\MailServiceProxy.cs" />
+    <Compile Include="Proxy\Menu\MapProperty.cs" />
+    <Compile Include="Proxy\Menu\Sitemap.cs" />
+    <Compile Include="Proxy\Permission\UserLoginDto.cs" />
+    <Compile Include="Proxy\Permission\UserLoginResultDto.cs" />
+    <Compile Include="Proxy\Permission\UserPermission.cs" />
+    <Compile Include="Proxy\Workflow\ActivityResultDTO.cs" />
+    <Compile Include="Proxy\Workflow\ProcessInstanceDTO.cs" />
+    <Compile Include="Proxy\Workflow\TaskAcceptDTO.cs" />
+    <Compile Include="Proxy\Workflow\TaskResult.cs" />
+    <Compile Include="Proxy\Workflow\TerminateProcessInstanceDTO.cs" />
+    <Compile Include="Proxy\Workflow\WorkflowClient.cs" />
+    <Compile Include="Repositories\OTCRepository.cs" />
+    <Compile Include="Repositories\OTCTimerRepository.cs" />
+    <Compile Include="Repositories\WorkflowRepository.cs" />
+    <Compile Include="Repositories\XcceleratorRepository.cs" />
+    <Compile Include="Partials\T_USERS.cs" />
+    <Compile Include="Dtos\T_MailAdvisor_CAPMT_DetailDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DataModel\OTCEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OTCEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DataModel\WorkflowEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WorkflowEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DataModel\XcceleratorEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>XcceleratorEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Intelligent.OTC.Common\Intelligent.OTC.Common.csproj">
+      <Project>{185F1FF0-CD4B-4EE7-8883-40D25619B71E}</Project>
+      <Name>Intelligent.OTC.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModel\OTCEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OTCEntities.Context.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="DataModel\OTCEntities.edmx.sql" />
+    <Content Include="DataModel\OTCEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OTCEntities1.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\WorkflowEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WorkflowEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\WorkflowEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WorkflowEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\XcceleratorEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>XcceleratorEntities.Context.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="DataModel\XcceleratorEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>XcceleratorEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

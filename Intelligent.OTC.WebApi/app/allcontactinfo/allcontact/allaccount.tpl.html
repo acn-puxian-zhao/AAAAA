@@ -1,0 +1,300 @@
+﻿<editpartial controller-name='mailListCtrl' template-url='app/common/mail/mail-list.tpl.html' params='custInfo' callback='reSeachContactList()'></editpartial>
+<div id="box" class="box"></div>
+<div id="boxEdit" class="box2">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="editMemoClose()">&times;</span></button>
+    <p id="lblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+    <label hidden id="hiddenInvId"></label>
+    <textarea id="txtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px" ng-model="selectText"></textarea>
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="editMemoSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="editMemoClose()">Close</button>
+</div>
+<div id="boxEditBatch" class="box2">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="batcheditMemoClose()">&times;</span></button>
+    <p id="batchlblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+    <label hidden id="batchhiddenInvId"></label>
+    <textarea id="batchtxtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px"></textarea>
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="batcheditMemoSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="batcheditMemoClose()">Close</button>
+</div>
+
+<div id="REdit" class="box3">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="editDunDateClose()">&times;</span></button>
+    <div>
+        <label class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;">{{rEditTitle}}</label>
+    </div>
+    <label hidden id="hiddenTrackId"></label>
+    <div style="margin-left:10px;margin-right:10px">Reminder Date</div>
+    <div style="width:250px;margin-left:10px;margin-right:10px" datetimepicker value="editDunDate" readonly="true" />
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="editDunDateSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="editDunDateClose()">Close</button>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px; height:22px;font-size:medium">
+    <div style="float:left">  
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" style="width:150px"  id="asend" ng-click="check()">
+                <p class="glyphicon glyphicon-envelope"></p>&nbsp;Send Mail
+            </button>
+        </div>
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" ng-click="changetab('call')" id="apause">
+                <p class="glyphicon glyphicon-earphone"></p>&nbsp;Call
+            </button>
+        </div>
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" style="width:120px" ng-click="batcheditMemoShow()">
+                <p class="glyphicon glyphicon-pencil"></p>&nbsp;Invoice Memo
+            </button>
+        </div>
+        <div style="float:left; padding-right:10px;display:none">
+            <button type="button" class="btn-filter" ng-click="changetab('dispute')">
+                <img src="~/../Content/images/dispute.png" />&nbsp;&nbsp;Dispute
+            </button>
+        </div>
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" ng-click="changetab('ptp')">
+                <img src="~/../Content/images/PTP.png" />&nbsp;&nbsp;PTP
+            </button>
+        </div>
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" style="width:100px" ng-click="changetab('notice')">
+                <img src="~/../Content/images/Notice.png" />&nbsp;&nbsp;Payment
+            </button>
+        </div>
+        <!--<div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" style="width:150px" ng-click="changetab('confirmbreakptp')">
+                <img src="~/../Content/images/ConfirmBreakPTP.png" />&nbsp;&nbsp;Confirm Break PTP
+            </button>
+        </div>-->
+        
+    </div>
+</div>
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;" ng-repeat="items in sendsoa">
+    <table style="border:1px solid #ececec">
+        <tr>
+            <td>
+
+                <div style="float:left; width:1138px; padding-left:10px; padding-top:10px; padding-right:10px;">
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Customer Name: <span style="font-weight:lighter">{{items.customerName}}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Customer NO.: <span style="font-weight:lighter">{{items.customerCode}}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Legal Entity: <span style="font-weight:lighter">{{items.legalEntity }}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Sales: <span style="font-weight:lighter">{{items.sales }}</span></label>
+                    </div>
+                </div>
+                <div style="float:left; width:1138px; padding-left:10px; padding-bottom:10px; padding-right:10px;">
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Site Use Id: <span style="font-weight:lighter">{{items.siteUseId }}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Customer Class: <span style="font-weight:lighter">{{items.customerClass}}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Total Balance: <span style="font-weight:lighter">{{items.total_Balance | number:2}}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Current Balance: <span style="font-weight:lighter">{{items.current_Balance | number:2}}</span></label>
+                    </div>
+                </div>
+                <div style="float:left; width:1138px; padding-left:10px; padding-bottom:10px; padding-right:10px;">
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">F-Collectable Amount: <span style="font-weight:lighter">{{items.amount | number:2}}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Credit Limit: <span style="font-weight:lighter">{{items.creditLimit | number:2}}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Payment Term: <span style="font-weight:lighter">{{items.creditTremDescription}}</span></label>
+                    </div>
+                    <div style="float:left" class="col-md-3">
+                        <label style="font-weight:bold">Assessment Name: <span style="font-weight:lighter">{{items.assessment}}</span></label>
+                    </div>
+                </div>
+                <div class="col-md-11">
+                    <div style="margin-left:10px; margin-top:10px;">
+                        <div>
+                            <label style="font-size:inherit;width:100px;vertical-align: top;">Special Notes</label>
+                        </div>
+                        <div>
+                            <textarea style="width:1000px; height:50px; font-size:11px; resize:none" ng-model="specialnote"></textarea>
+                            <button type="button" class="filter-button" style="float:right; margin-right:70px; margin-top:24px;" ng-click="saveNote(items.customerCode,items.legalEntity,subl.specialNotes,items.siteUseId)">Save</button>
+                        </div>
+                    </div>
+                </div>
+                             
+                <!--<div class="col-md-12">
+                    <label style="font-weight:bold; margin-left:10px;">Dispute List</label>
+                    <div class="smallgrid-style" ui-grid="items.disputeList" style="margin:10px;" ui-grid-resize-columns ui-grid-grouping></div>
+                </div>-->
+            </td>
+        </tr>
+    </table>
+    <uib-tabset active="active" type="tabs">
+        <uib-tab index="1">
+            <uib-tab-heading>
+                <i class="fa fa-list"></i> Current Tracking Detail
+            </uib-tab-heading>
+            <div class="col-md-12" style="padding-right:30px;" ng-repeat="subl in items.subLegal">
+                <div style="margin:5px">
+                    <div class="btn-group" role="group" aria-label="First group">
+                        <a href="javascript:;" class="btn btn-success m-btn m-btn--icon">
+                            <!--ng-click="changetab('notice')"-->
+                            <span>
+                                <i class="fa flaticon-comment"></i>
+                                <span>
+                                    First Confirm PTP
+                                </span>
+                                <span class="badge badge-success">{{items.count1PTP}} </span>
+                            </span>
+                        </a>
+
+                        <a href="javascript:;" class="btn btn-info m-btn m-btn--icon">
+                            <span>
+                                <i class="fa flaticon-chat-1"></i>
+                                <span>
+                                    Second Confirm PTP
+                                </span>
+                                <span class="badge badge-success"> {{items.count2PTP}} </span>
+                            </span>
+                        </a>
+
+                        <a href="javascript:;" class="btn btn-warning m-btn m-btn--icon">
+                            <span>
+                                <i class="fa flaticon-bell"></i>
+                                <span>
+                                    Reminding
+                                </span>
+                                <span class="badge badge-success"> {{items.countPaymentReminding}}</span>
+                            </span>
+                        </a>
+
+                        <a href="javascript:;" class="btn btn-primary m-btn m-btn--icon">
+                            <span>
+                                <i class="fa flaticon-light"></i>
+                                <span>
+                                    1st Over Due Follow Up
+                                </span>
+                                <span class="badge badge-success"> {{items.count1Dunning}}</span>
+                            </span>
+                        </a>
+
+                        <a href="javascript:;" class="btn btn-danger m-btn m-btn--icon">
+                            <span>
+                                <i class="fa flaticon-warning-sign"></i>
+                                <span>
+                                    2nd Over Due Follow Up
+                                </span>
+                                <span class="badge badge-success">  {{items.count2Dunning}} </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid-style col-md-12" ui-grid="subl.gridoption" style="min-height:300px; margin:10px;" ui-grid-resize-columns ui-grid-selection ui-grid-auto-resize ui-grid-edit ui-grid-move-columns ui-grid-pinning>
+                    <div class="footer-statistics">
+                        <div style="float:right">
+                            <label style="padding-right:20px" id="{{items.customerCode}}{{subl.legalEntity.replace(' ','').replace(' ','')}}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <uib-tab index="2" ng-click="conshow(items.customerCode,items.siteUseId)">
+            <uib-tab-heading>
+                <i class="fa fa-address-book-o"></i>Contact
+            </uib-tab-heading>
+            <a class="glyphicon glyphicon-plus" ng-click="addContactor(items.customerCode + ',' + items.siteUseId,items.deal)"></a>
+            <div class="smallgrid-style" ui-grid="items.cg" style="" ui-grid-resize-columns></div>
+        </uib-tab>
+
+
+        <uib-tab index="3" ng-click="pcshow(items.customerCode,items.siteUseId)">
+            <uib-tab-heading>
+                <i class="fa fa-calendar"></i>Payment Schedule
+            </uib-tab-heading>
+            <table style="margin-top:5px; margin-left:10px;">
+                <tr>
+                    <td style="width:260px">
+                        <div>
+                            <label for="File" style="width:80px">Legal Entity</label>
+                        </div>
+                        <div>
+                            <select id="legalEntity" class="form-control" style="width:150px;" ng-change="changeLegal(items.customerCode + ',' + items.siteUseId,entityFlg)" ng-model="entityFlg" ng-options="a.legalEntity as a.legalEntity for a in legallist"><option value="">All</option></select>
+                        </div>
+                    </td>
+                    <td style="width:260px">
+                        <div>
+                            <label for="File" style="width:100px">Reconciliation Day</label>
+                        </div>
+                        <div style="float:left">
+                            <div datetimepicker style="width:190px;" value="reconciliationDay" readonly="true" />
+                        </div>
+                    </td>
+                    <td style="width:260px">
+                        <div>
+                            <label for="File" style="width:80px">Payment Day</label>
+                        </div>
+                        <div style="float:left">
+                            <div datetimepicker style="width:190px;" value="soapaymentCircle" readonly="true" />
+                        </div>
+                        <div style="float:left; padding-left:5px; padding-top:7px;">
+                            <button class="filter-button" ng-click="addPayBankCircle(items.customerCode,items.siteUseId,soapaymentCircle,reconciliationDay)">Add</button>
+                        </div>
+                    </td>
+                    <td style="width:260px">
+                        <div>
+                            <label for="File" style="width:80px">Upload File</label>
+                        </div>
+                        <div style="float:left; margin-top:10px;">
+                            <input type="file" id="uploadCalendar" nv-file-select="" uploader="uploader" />
+                        </div>
+                        <div style="float:left; padding-top:8px;">
+                            <button class="filter-button" ng-click="addFileCircle(items.customerCode)">Upload</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div style="height:4px;"></div>
+            <div class="smallgrid-style" ui-grid="items.pcg" style=""></div>
+        </uib-tab>
+
+        <uib-tab index="4">
+            <uib-tab-heading>
+                <i class="fa fa-phone"></i> Contact List
+            </uib-tab-heading>
+            <div class="smallgrid-style" ui-grid="items.hisg" style="margin:0px;" ui-grid-resize-columns ui-grid-grouping></div>
+        </uib-tab>
+
+        <uib-tab index="5">
+            <uib-tab-heading>
+                <i class="fa fa-legal"></i> Dispute List
+            </uib-tab-heading>
+            <div class="smallgrid-style" ui-grid="items.disputeList" style="margin:10px;" ui-grid-resize-columns ui-grid-grouping></div>
+        </uib-tab>
+
+        <uib-tab ng-if="false" index="6" ng-click="pbshow(items.customerCode,items.siteUseId)">
+            <uib-tab-heading>
+                <i class="glyphicon glyphicon-bell"></i> Pay Bank
+            </uib-tab-heading>
+            <a class="glyphicon glyphicon-plus" ng-click="addPayBank(items.customerCode)"></a>
+            <div class="smallgrid-style" ui-grid="items.pbg" style=""></div>
+        </uib-tab>
+
+
+        <uib-tab ng-if="false" index="7" ng-click="cdgshow(items.customerCode,items.siteUseId)">
+            <uib-tab-heading>
+                <i class="glyphicon glyphicon-bell"></i> Contact Domain
+            </uib-tab-heading>
+            <a class="glyphicon glyphicon-plus" ng-click="addContactDomain(items.customerCode)"></a>
+            <div class="smallgrid-style" ui-grid="items.cdg" style="" ui-grid-resize-columns>
+            </div>
+        </uib-tab>
+
+      </uib-tabset>
+</div>

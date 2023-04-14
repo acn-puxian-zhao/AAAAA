@@ -1,0 +1,53 @@
+﻿<div class="well">
+    <h4>
+        {{cust.customerName}}</h4>
+    <hr>
+    <form name="form" class="form-horizontal" crud-edit="cust">
+    <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">
+            Customer code</label>
+        <div class="col-sm-3">
+            <input type="text" id="firstName" class="form-control" name="code" ng-model="cust.customerCode"
+                required autofocus/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">
+            Customer Name</label>
+        <div class="col-sm-3">
+            <input type="text" id="Text1" class="form-control" name="Name" ng-model="cust.customerName"
+                required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">
+            Country</label>
+        <div class="col-sm-3">
+            <input type="text" id="lastName" class="form-control" name="Name" ng-model="cust.country"
+                required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">
+            State</label>
+        <div class="col-sm-3">
+            <input type="text" id="Text2" class="form-control" name="Name" ng-model="cust.state"
+                required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">
+            Status</label>
+        <div class="col-sm-3">
+            <input type="text" id="Text3" class="form-control" name="Name" ng-model="cust.status"
+                required />
+        </div>
+    </div>
+    <hr>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <crud-buttons></crud-buttons>
+        </div>
+    </div>
+    </form>
+</div>

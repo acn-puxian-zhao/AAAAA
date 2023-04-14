@@ -1,0 +1,46 @@
+﻿
+<div class="form-group col-md-12">
+    <div class="row" style="padding-top:10px">
+        <div style="float:left; padding-right:10px;padding-left:10px">
+            <label for="ValueDateF" style="font-size:12px;float:left;padding-right:5px;padding-top:5px">
+                ValueDate From:
+            </label>
+            <div style="width:200px;float:left" datetimepicker value="valueDateF" readonly="true" />
+        </div>
+        <div style=" float: left; padding-right: 16px;">
+            <label for="ValueDateT" style="font-size:12px;float:left;padding-right:5px;padding-top:5px;padding-left:10px">
+                ValueDate To:
+            </label>
+            <div style="width:200px;float:left" datetimepicker value="valueDateT" readonly="true" />
+        </div>
+
+        <div style="float:right;padding-right:10px">
+            <button type="button" class="btn-filter" ng-click="pageChanged()">
+                <img src="~/../Content/images/Search.png">&nbsp;&nbsp;Search
+            </button>
+            <button type="button" class="btn-filter" ng-click="export()">
+                Export
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div class="grid-style" ui-grid="bsReport" ui-grid-resize-columns ui-grid-selection ui-grid-pinning style="width:100%;max-width:1567px;">
+    </div>
+</div>
+
+<div class="form-group col-md-10">
+    <div class="row">
+        <div class="col-md-2">
+            <select id="bsReportPagesize" name="bsReportPagesize" ng-model="bsReportSelectedLevel" ng-options="s.id as s.levelName for s in levelList_bsReport"
+                    ng-change="bsReportPageSizeChange(bsReportSelectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+        </div>
+        <div style="float:left; margin-right:20px;">
+            <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem_bsReport}}</span>&nbsp;to&nbsp;<span>{{toItem_bsReport}}</span>&nbsp;of&nbsp;<span>{{bsReportTotalItems}}</span>&nbsp;items</label>
+        </div>
+        <ul uib-pagination max-size="bsReportMaxSize" items-per-page="bsReportItemsperpage" total-items="bsReportTotalItems"
+            ng-model="$parent.$parent.bsReportCurrentPage" ng-change="bsReportPageChanged()"></ul>
+    </div>
+</div>

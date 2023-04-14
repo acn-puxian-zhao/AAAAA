@@ -1,0 +1,101 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">EB Setting</h4>
+</div>
+<div class="modal-body">
+    <div>
+        <form name="contform" novalidate>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="region" class="control-label col-md-2">* Region</label>
+                <div class="col-md-4">
+                    <!--<input type="text" id="region" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="region" ng-model="cont.region">-->
+                    <select id="region" class="form-control input-sm ng-valid ng-not-empty" ng-model="cont.region" ng-options="a.detailValue as a.detailValue for a in regionEditList"></select>
+                </div>
+                <label for="legaL_ENTITY" class="control-label col-md-2">* LegalEntity</label>
+                <div class="col-md-4">
+                    <!--<input type="text" id="legaL_ENTITY" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="legaL_ENTITY" ng-model="cont.legaL_ENTITY">-->
+                    <select id="legaL_ENTITY" class="form-control input-sm ng-valid ng-not-empty" ng-model="cont.legaL_ENTITY" ng-options="a.detailValue as a.detailValue for a in legalEntityEditlist"></select>
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="eb" class="control-label col-md-2">* EB Name</label>
+                <div class="col-md-4">
+                    <input type="text" id="eb" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="eb" ng-model="cont.eb">
+                </div>
+                <label for="contacT_LANGUAGE" class="control-label col-md-2">* Language</label>
+                <div class="col-md-4">
+                    <!--<input type="text" id="contacT_LANGUAGENAME" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="contacT_LANGUAGENAME" ng-model="cont.contacT_LANGUAGENAME">-->
+                    <select id="contacT_LANGUAGE" class="form-control input-sm ng-valid ng-not-empty" ng-model="cont.contacT_LANGUAGE" ng-options="a.detailValue as a.detailName for a in languageEditlist"></select>
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="collector" class="control-label col-md-2">* Collector</label>
+                <div class="col-md-4">
+                    <input type="text" id="collector" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="collector" ng-model="cont.collector">
+                </div>
+                <label for="collectorEmail" class="control-label col-md-2">* Collector Email</label>
+                <div class="col-md-4">
+                    <input type="text" id="collectorEmail" class="form-control" name="collectorEmail" ng-model="cont.collectorEmail" ng-pattern="/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)+$/" required>
+                </div>
+                <label ng-show="contform.collectorEmail.$error.pattern"><font color=red>邮箱格式不正确!</font></label>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="crediT_TREM" class="control-label col-md-2">Credit Term</label>
+                <div class="col-md-4">
+                    <!--<input type="text" id="crediT_TREM" class="form-control input-sm ng-pristine ng-untouched" name="crediT_TREM" ng-model="cont.crediT_TREM">-->
+                    <select id="crediT_TREM" class="form-control input-sm ng-valid ng-not-empty" ng-model="cont.crediT_TREM" ng-options="a.detailValue as a.detailName for a in TermList"></select>
+                </div>
+                <label for="creditOfficer" class="control-label col-md-2">CreditOfficer</label>
+                <div class="col-md-4">
+                    <input type="text" id="creditOfficer" class="form-control input-sm ng-pristine ng-untouched" name="creditOfficer" ng-model="cont.creditOfficer">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="financialController" class="control-label col-md-2">FinancialController</label>
+                <div class="col-md-4">
+                    <input type="text" id="financialController" class="form-control input-sm ng-pristine ng-untouched" name="financialController" ng-model="cont.financialController">
+                </div>
+                <label for="csManager" class="control-label col-md-2">CS Manager</label>
+                <div class="col-md-4">
+                    <input type="text" id="csManager" class="form-control input-sm ng-pristine ng-untouched" name="csManager" ng-model="cont.csManager">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="financialManagers" class="control-label col-md-2">FinancialManagers</label>
+                <div class="col-md-4">
+                    <input type="text" id="financialManagers" class="form-control input-sm ng-pristine ng-untouched" name="financialManagers" ng-model="cont.financialManagers">
+                </div>
+                <label for="financeLeader" class="control-label col-md-2">FinanceLeader</label>
+                <div class="col-md-4">
+                    <input type="text" id="financeLeader" class="form-control input-sm ng-pristine ng-untouched" name="financeLeader" ng-model="cont.financeLeader">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="localFinance" class="control-label col-md-2">LocalFinance</label>
+                <div class="col-md-4">
+                    <input type="text" id="localFinance" class="form-control input-sm ng-pristine ng-untouched" name="localFinance" ng-model="cont.localFinance">
+                </div>
+                <label for="branchManager" class="control-label col-md-2">BranchManager</label>
+                <div class="col-md-4">
+                    <input type="text" id="branchManager" class="form-control input-sm ng-pristine ng-untouched" name="branchManager" ng-model="cont.branchManager">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div style="float:right; margin:10px">
+            <button type="button" class="btn btn-primary" ng-click="closeModal()" style="float:right; margin-left:5px;">Close</button>
+            <button type="button" class="btn btn-primary save" ng-click="save()" style="float:right;">Save</button>
+        </div>
+    </div>
+</div>

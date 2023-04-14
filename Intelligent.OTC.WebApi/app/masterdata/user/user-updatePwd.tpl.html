@@ -1,0 +1,26 @@
+﻿<div ng-hide="hidflg">
+    <label style="color:Red">Update Password</label>
+</div>
+<div class="form-group" style="border:1px solid;border-color:#000; width:1140px; padding-right:20px;" ng-hide="hidflg">
+    <div class="row" style="height:20px;"></div>
+    <div class="row">
+        <label class="control-label col-md-2">Old Password:</label>
+        <div class="col-md-2">
+            <input type="password" class="form-control" ng-model="oldPwd" />
+        </div>
+        <label class="control-label col-md-2">New Password:</label>
+        <div class="col-md-2">
+            <input type="password" class="form-control" ng-model="newPwd" />
+        </div>
+        <label class="control-label col-md-2">Confirm Password:</label>
+        <div class="col-md-2">
+            <input type="password" class="form-control" ng-model="confirmPwd" />
+        </div>
+    </div>
+    <div class="row" style="height:10px;"></div>
+    <div class="row">
+`       <input type="button" class="btn btn-primary" style="margin-left:100px;" value="Submit" ng-click="savePwd()"/>
+    </div>
+    <div class="row" style="height:10px;"></div>
+</div>
+

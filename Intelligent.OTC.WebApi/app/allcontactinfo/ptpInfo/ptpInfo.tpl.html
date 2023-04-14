@@ -1,0 +1,31 @@
+﻿<div class="modal-header" style="height:100px">
+    <b>Account PTP Information</b>
+</div>
+<div class="modal-body" style="border: 0px; ">
+    <div class="grid-style" ui-grid="ptpInfo" ui-grid-resize-columns ui-grid-selection>
+    </div>
+        <div class="col-md-2">
+            <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                    ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+        </div>
+        <div class="col-md-8" style="margin-top:-5px;margin-left:-10px;">
+            <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                ng-model="currentPage" ng-change="pageChanged()"></ul>
+        </div>
+        <div class="col-md-2 ">
+            <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems}}</div>
+        </div>
+</div>
+
+
+
+<div class="modal-footer" style="border:0px;">
+    <div class="row">
+        <button type="button" class="btn btn-primary" ng-click="close()" style="float:right; margin-right:15px">
+            Close
+        </button>
+        <!--<button type="button" class="btn btn-primary" ng-click="save()" style="float:right; margin-right:10px">
+            Save
+        </button>-->
+    </div>
+</div>

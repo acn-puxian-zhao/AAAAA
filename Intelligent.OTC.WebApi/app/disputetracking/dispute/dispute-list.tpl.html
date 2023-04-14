@@ -1,0 +1,163 @@
+﻿<div style="height:40px;">
+    <div class="col-md-12">
+        <h4 class="modal-title">Dispute Tracking</h4>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <!--<div>
+        <editpartial controller-name='mailListCtrl' template-url='app/common/mail/mail-list.tpl.html' params='custInfo' callback='reSeachContactList()'></editpartial>
+    </div>-->
+    <!--<div class="col-md-2"></div>-->
+    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px; height:22px;">
+        <div style="float:left ;padding-right:100px">
+            <div style="float:left;margin-right:5px">
+                <select id="fileType" name="fileType" ng-model="fileType" style="width:70px" ng-options="s.id as s.levelName for s in fileTypeList"
+                        class="form-control input-sm"></select>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" style="width:150px" ng-click="changetab('sendmail')">
+                    <img src="~/../Content/images/SendMail.png" />&nbsp;&nbsp;Send Mail
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" ng-click="changetab('call')">
+                    <img src="~/../Content/images/Call_log.png" />&nbsp;&nbsp;Call
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" style="width:120px" ng-click="batcheditMemoShow()">
+                    <p class="glyphicon glyphicon-pencil"></p>&nbsp;&nbsp;Invoice Memo
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" ng-click="changetab('ptp')">
+                    &nbsp;&nbsp;PTP
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" ng-click="clearPTP()">
+                    &nbsp;&nbsp;Clear PTP
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" ng-click="changetab('payment')">
+                    &nbsp;&nbsp;Payment
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" style="width:150px" ng-click="changetab('changestatus')">
+                    <img src="~/../Content/images/ChangeStatus.png" />&nbsp;&nbsp;Change Status
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button ng-disabled="pagereadonly" type="button" class="btn-filter" style="width:170px" ng-click="changetab('changeinvoicestatus')">
+                    <img src="~/../Content/images/ChangeStatus.png" />&nbsp;&nbsp;Change Invoice Status
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="box" class="box"></div>
+    <div id="boxEdit" class="box2">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="editMemoClose()">&times;</span></button>
+        <p id="lblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+        <label hidden id="hiddenInvId"></label>
+        <textarea id="txtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px" ng-model="selectText"></textarea>
+        <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="editMemoSave()">Save</button>
+        <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="editMemoClose()">Close</button>
+    </div>
+    <div id="boxEditBatch" class="box2">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="batcheditMemoClose()">&times;</span></button>
+        <p id="batchlblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+        <label hidden id="batchhiddenInvId"></label>
+        <textarea id="batchtxtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px"></textarea>
+        <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="batcheditMemoSave()">Save</button>
+        <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="batcheditMemoClose()">Close</button>
+    </div>
+    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+        <table style="border:1px solid #ececec; background-color:white;">
+            <tr>
+                <td>
+                    <div class="form-group" style="margin-top:20px">
+                        <div class="col-md-3">
+                            <label class="control-label">Customer NO.:<span style="font-weight:lighter">{{customerNumber}}</span></label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Customer Name:<span style="font-weight:lighter">{{customerNameHead}}</span></label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Legal Entity:<span style="font-weight:lighter">{{legalEntity}}</span></label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Site Use Id:<span style="font-weight:lighter">{{siteUseId}}</span></label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group" style="margin-top:20px">
+                        <div class="col-md-3">
+                            <label class="control-label">Dispute Reason: <span style="font-weight:lighter">{{disputeReason}}</span></label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Dispute Status :<span style="font-weight:lighter">{{disputeStatusName}}</span></label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Dispute Date: <span style="font-weight:lighter">{{disputeDate}}</span></label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Action Owner Dept.: <span style="font-weight:lighter">{{actionOwnerDepartmentName}}</span></label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class=" form-group" style="margin-top:20px">
+                        <div class="col-md-5">
+                            <label class="control-label col-md-2 text-left">Dispute Notes:</label>
+                            <textarea ng-disabled="pagereadonly" class="col-md-10"  ng-model="disputeNotes"></textarea>
+                        </div>
+                        <div class="col-md-6"><button ng-disabled="pagereadonly" class="filter-button" style="float:left; " ng-click="saveNote(disputeNotes)">Save</button></div>
+                    </div>
+
+                    <!--<div style="float:left; width:700px; padding-left:10px; padding-top:10px; padding-right:10px;">
+                        <div style="width:500px; float:left;">
+                            <label style="font-weight:bold">Customer Name: <span style="font-weight:lighter">{{customerName}}</span></label>
+                        </div>
+                        <div style="width:100px; float:right">
+                            <label style="font-weight:bold">Dispute Status: <span style="font-weight:lighter">{{disputeStatus}}</span></label>
+                        </div>
+                    </div>-->
+                    <!--<div style="float:left; width:1138px; padding-left:10px; padding-bottom:10px; padding-right:10px;">
+                        <div style="float:left">
+                            <label style="font-weight:bold">Issue Reason: <span style="font-weight:lighter">{{issReason}}</span></label>
+                        </div>
+                        <div style="float:right">
+                            <label style="font-weight:bold">Dispute Date: <span style="font-weight:lighter">{{disputeDate | date:"yyyy-MM-dd hh:mm:ss"}}</span></label>
+                        </div>
+                    </div>-->
+                    <!--<div style="margin-left:10px; margin-top:10px;">
+                        <div>
+                            <label style="font-size:inherit; width:100px; vertical-align:top;">Comments</label>
+                        </div>
+                        <div>
+                            <textarea style="width:1000px; height:50px; font-size:11px; resize:none;" ng-model="disputeNotes"></textarea>
+                            <button class="filter-button" style="float:right; margin-right:70px; margin-top:24px;" ng-click="saveNote(disputeNotes)">Save</button>
+                        </div>
+                    </div>-->
+                    <div class="grid-style form-group col-md-11" ui-grid="disputeList" style="min-height:300px; margin:10px;" ui-grid-resize-columns ui-grid-auto-resize ui-grid-edit ui-grid-move-columns ui-grid-pinning ui-grid-selection>
+                    </div>
+
+                    <div style="float:left; width:1138px;">
+                        <label style="font-weight:bold; margin-left:10px;">Status Change History</label>
+                        <div class="smallgrid-style" ui-grid="disputeStatusChangeList" style="margin:10px;" ui-grid-resize-columns></div>
+                    </div>
+                    <div style="float:left; width:1138px;">
+                        <label style="font-weight:bold; margin-left:10px;">Call History</label>
+                        <div class="smallgrid-style" ui-grid="callHistoryList" style="margin:10px;" ui-grid-resize-columns></div>
+                    </div>
+                    <div style="float:left; width:1138px;">
+                        <label style="font-weight:bold; margin-left:10px;">Mail History</label>
+                        <div class="smallgrid-style" ui-grid="mailList" style="margin:10px;" ui-grid-resize-columns></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

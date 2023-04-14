@@ -1,0 +1,31 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Permission Agent Information</h4>
+</div>
+<div class="modal-body">
+    <div style="width:858px;">
+        <form name="contform"  novalidate>
+            <div class="row" style="margin-top:10px">
+                <div class="col-md-6">
+                    <label for="principal">* Principal</label>
+                    <div>
+                        <select id="principal" class="form-control" name="principal" ng-model="cont.eId" ng-options="t.eid as t.eid for t in teamUsers" required></select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="agent">* Agent</label>
+                    <div>
+                        <select id="agent" class="form-control" name="agent" ng-model="cont.agent" ng-options="t.eid as t.eid for t in teamUsers" required></select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div style="float:right; margin:10px">
+            <button type="button" class="btn btn-primary" ng-click="closeModal()" style="float:right; margin-left:5px;">Close</button>
+            <button type="button" class="btn btn-primary save" ng-click="save()" style="float:right;">Save</button>
+        </div>
+    </div>
+</div>

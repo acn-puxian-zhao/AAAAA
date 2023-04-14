@@ -1,0 +1,209 @@
+﻿<div class="col-md-12" style="padding-left:0px; padding-right:70px;">
+    <div style="height:30px; margin-bottom:10px;">
+        <div style="float:left">
+            <button type="button" class="btn-newmail" ng-click="newMail()">
+                <img src="~/../Content/images/New_mail.png" />&nbsp;New Email
+            </button>
+        </div>
+        <div style="float:right">
+            <button type="button" class="btn-filter" style="margin-right:10px" ng-click="ProcessMultiple()" ng-show="ProcessShow">
+                <p class="fa fa-check"></p>&nbsp;&nbsp;Finish
+            </button>
+            <button type="button" class="btn-filter" style="margin-right:10px" ng-click="PendingMultiple()" ng-show="PendingShow">
+                <p class="fa fa-hourglass"></p>&nbsp;&nbsp;Pending
+            </button>
+            <button type="button" class="btn-filter" style="margin-right:10px" ng-click="RestoreMultiple()" ng-show="RestoreShow">
+                <p class="fa fa-hourglass"></p>&nbsp;&nbsp;Resume
+            </button>
+            <button type="button" class="btn-filter" style="margin-right:10px" ng-click="DeleteMultiple()">
+                <p class="fa fa-times"></p>&nbsp;&nbsp;Delete
+            </button>
+            <button type="button" class="btn-filter" style="margin-right:10px" ng-click="openFilter()">
+                <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+            </button>
+        </div>
+    </div>
+    <div id="divAgingSearch" class="tag col-md-12" style="display:none">
+        <em></em>
+        <div class="row" style="height:5px"></div>
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div style="float:left">
+                    <label for="inputSubject" style="font-size:12px;">
+                        Subject
+                    </label>
+                    <div style="width:500px; padding-right:10px;">
+                        <input id="inputSubject" class="form-control input-sm" ng-model="subject" />
+                    </div>
+                </div>
+                <div style="float:left">
+                    <label for="inputSubject" style="font-size:12px;">
+                        Content
+                    </label>
+                    <div style="width:500px; padding-right:10px;">
+                        <input id="inputContent" class="form-control input-sm" ng-model="Content" />
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div style="width:250px; float:left;">
+                    <label for="inputFrom" style="font-size:12px;">
+                        From
+                    </label>
+                    <div style="width:250px; padding-right:10px;">
+                        <input id="inpFrom" class="form-control input-sm" ng-model="from" />
+                    </div>
+                </div>
+                <div style="width:250px; float:left;">
+                    <label for="inputTo" style="font-size:12px;">
+                        To
+                    </label>
+                    <div style="width:250px; padding-right:10px;">
+                        <input id="inpTo" class="form-control input-sm" ng-model="to" />
+                    </div>
+                </div>
+                <div style="width:250px; float:left;display:none">
+                    <label for="inpCustNum" style="font-size:12px;">
+                        Customer Num
+                    </label>
+                    <div style="width:250px; padding-right:10px;">
+                        <input id="inpCustNum" class="form-control input-sm" ng-model="customerNum" ng-readonly="fixedCustomer" />
+                    </div>
+                </div>
+                <div style="width:250px; float:left;display:none">
+                    <label for="inpCustName" style="font-size:12px;">
+                        Customer Name
+                    </label>
+                    <div style="width:250px; padding-right:10px;">
+                        <input id="inpCustName" class="form-control input-sm" ng-model="customerName" />
+                    </div>
+                </div>
+                <div style="width:250px; float:left;">
+                    <label for="inputMailDateFrom" style="font-size:12px;">
+                        Mail Date From
+                    </label>
+                    <div>
+                        <div style="width:230px" datetimepicker value="mailFrom" readonly="true" />
+                    </div>
+                </div>
+                <div style="width:250px; float:left;">
+                    <label for="inputMailDateTo" style="font-size:12px;">
+                        Mail Date To
+                    </label>
+                    <div>
+                        <div style="width:230px" datetimepicker value="mailTo" readonly="true" />
+                    </div>
+                </div>
+                <div style="float:left">
+                    <label style="height:12px"></label>
+                    <div>
+                        <button type="button" class="filter-button" ng-click="resetSearch()">
+                            Clear
+                        </button>
+                        <button type="button" class="filter-button" ng-click="queryMailBox()">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div style="width:250px; float:left;display:none">
+                    <label for="inpSiteUseId" style="font-size:12px;">
+                       Site Use Id
+                    </label>
+                    <div style="width:250px; padding-right:10px;">
+                        <input id="inpSiteUseId" class="form-control input-sm" ng-model="siteUseId" ng-readonly="fixedsiteuseid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px; margin-bottom:0px;">
+    <table style="width:100%; background-color:transparent;">
+        <tr>
+            <td style="width:220px;" valign="top">
+                <table style="width:220px; background-color:transparent;">
+                    <tr style="height:38px"  ng-click="getDatasInfo('inbox')">
+                        <td id="in" style="height:15px">
+                            <a style="color:#2e2e2e; padding-left:10px;">
+                                Customer New Mail&nbsp;&nbsp;<label id="inbox" style="color:#0072c6;"></label>
+                            </a>                            
+                        </td>
+                    </tr>
+                    <tr style="height:38px" ng-click="getDatasInfo('unknow')">
+                        <td id="unk" style="height:15px">
+                            <a style="color:#2e2e2e; padding-left:10px;">
+                                Unknow&nbsp;&nbsp;<label id="unknow" style="color:#0072c6;"></label>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="height:38px" ng-click="getDatasInfo('dra')">
+                        <td id="dra" style="height:15px">
+                            <a style="color:#2e2e2e; padding-left:10px;">
+                                Draft&nbsp;&nbsp;<label id="draft" style="color:#0072c6;"></label>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="height:38px" ng-click="getDatasInfo('seItems')">
+                        <td id="seItems" style="height:15px">
+                            <a style="color:#2e2e2e; padding-left:10px;">
+                                Sent Items&nbsp;&nbsp;<label id="sentItems" style="color:#0072c6;"></label>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="height:38px" ng-click="getDatasInfo('process')">
+                        <td id="process" style="height:15px">
+                            <a style="color:#2e2e2e; padding-left:10px;">
+                                Processed&nbsp;&nbsp;<label id="processed" style="color:#0072c6;"></label>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="height:38px" ng-click="getDatasInfo('pending')">
+                        <td id="pen" style="height:15px">
+                            <a style="color:#2e2e2e; padding-left:10px;">
+                                Pending&nbsp;&nbsp;<label id="pending" style="color:#0072c6;"></label>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table style="width:100%;">
+                    <tr>
+                        <td>
+                            <div class="smallgrid-style" ng-style="{'height' : gridHeight }" ui-grid="getMailGrid()" ui-grid-resize-columns ui-grid-selection>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:220px"></td>
+            <td>
+                <div style="float:left; width:23%;">
+                    <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{totalItems}}</span>&nbsp;items</label>
+                </div>
+                <div class="col-md-8" style="padding-left:0px; padding-right:0px; width:50%;">
+                    <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                                ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" boundary-links="true"></ul>
+                </div>
+                <div style="width:15%; float:left;">
+                    <div style="float:left">
+                        <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                    </div>
+                    <div style="float:left">
+                        <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 19px;"></select>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

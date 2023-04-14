@@ -1,0 +1,181 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Bank Statement Information</h4>
+</div>
+<div class="modal-body">
+    <div>
+        <form name="contform" novalidate>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label class="control-label col-md-2">* Match Status</label>
+                <div class="col-md-3">
+                    <div style="float:left;margin-right:10px">
+                        <select id="MatchStatus" class="form-control input-sm" ng-model="bank.MATCH_STATUS" ng-options="m.detailValue as m.detailName for m in matchStatusList"></select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label class="control-label col-md-2">* BS Type</label>
+                <div class="col-md-3">
+                    <div style="float:left;margin-right:10px">
+                        <select id="bsType" class="form-control input-sm" ng-model="bank.BSTYPE" ng-options="bt.detailValue as bt.detailName for bt in bstypeList"></select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="legalEntity" class="control-label col-md-2">* Legal Entity</label>
+                <div class="col-md-3">
+                    <div style="float:left;margin-right:10px">
+                        <select id="legalEntity" class="form-control input-sm" ng-model="bank.LegalEntity" ng-options="l.detailValue as l.detailName for l in legalList"></select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label for="transactionNum" class="control-label col-md-2">* Transaction Number</label>
+                <div class="col-md-3">
+                    <input type="text" maxlength="50" id="transactionNum" ng-blur="isExistedTransactionNum()" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="transactionNum" ng-model="bank.TRANSACTION_NUMBER">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="transactionAmount" class="control-label col-md-2">* Transaction Amount</label>
+                <div class="col-md-3">
+                    <input type="number" decimals="2" step="0.01" id="transactionAmount" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="transactionAmount" ng-model="bank.TRANSACTION_AMOUNT">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label for="currentAmount" class="control-label col-md-2">* Current Amount</label>
+                <div class="col-md-3">
+                    <input type="number" decimals="2" step="0.01" id="currentAmount" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="currentAmount" ng-model="bank.CURRENT_AMOUNT">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="valueDate" class="control-label col-md-2">* Value Date</label>
+                <div class="col-md-3">
+                    <div id="valueDate" style="width:180px" datetimepicker value="valueDate" readonly="true" />
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label for="currency" class="control-label col-md-2">* Currency</label>
+                <div class="col-md-3">
+                    <div style="float:left;margin-right:10px">
+                        <select id="currency" class="form-control input-sm" ng-model="bank.CURRENCY" ng-options="c.detailName as c.detailName for c in currencyList"></select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="description" class="control-label col-md-2">* Description</label>
+                <div class="col-md-9">
+                    <input type="text" id="description" maxlength="500" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="description" ng-model="bank.Description">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="ReceiptsMethod" class="control-label col-md-2">Receipts Method</label>
+                <div class="col-md-3">
+                    <input type="text" maxlength="250" id="ReceiptsMethod" step="1" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="ReceiptsMethod" ng-model="bank.ReceiptsMethod">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label for="BankAccountNumber" class="control-label col-md-2">Bank Account Number</label>
+                <div class="col-md-3">
+                    <input type="text" maxlength="50" id="BankAccountNumber" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="BankAccountNumber" ng-model="bank.BankAccountNumber">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="chargeFrom" class="control-label col-md-2">Charge From</label>
+                <div class="col-md-3">
+                    <input type="number" decimals="2" step="0.01" id="chargeFrom" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="chargeFrom" ng-model="bank.BankChargeFrom">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label for="chargeTo" class="control-label col-md-2">Charge To</label>
+                <div class="col-md-3">
+                    <input type="number" decimals="2" step="0.01" id="chargeTo" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="chargeTo" ng-model="bank.BankChargeTo">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label class="control-label col-md-2">Ishistory</label>
+                <div class="col-md-3">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label id="ishistoryYesLabel" class="btn btn-default" ng-click="changeHistory(1)">
+                            <input type="radio" name="options" id="ishistoryYes"> Yes
+                        </label>
+                        <label id="ishistoryNoLabel" class="btn btn-default active" ng-click="changeHistory(0)">
+                            <input type="radio" name="options" id="ishistoryNo"> No
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label for="comment" class="control-label col-md-2">Comments</label>
+                <div class="col-md-3">
+                    <input type="text" maxlength="500" id="comments" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="comment" ng-model="bank.Comments">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label class="control-label col-md-2">PMTDetailFileName</label>
+                <div class="col-md-3">
+                    <input type="text" maxlength="250" id="PMTDetailFileName" step="1" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="PMTDetailFileName" ng-model="bank.PMTDetailFileName">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <label for="PMTReceiveDate" class="control-label col-md-2">PMTReceiveDate</label>
+                <div class="col-md-3">
+                    <div datetimepicker id="PMTReceiveDate" style="width:200px" value="bank.PMTReceiveDate" readonly="true" />
+                    <!--<div id="valueDate" style="width:180px" datetimepicker value="valueDate" readonly="true" />-->
+                    <!--<input type="text" maxlength="500" id="PMTReceiveDate" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="comment" ng-model="bank.Comments">-->
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div style="float:right; margin:10px">
+            <button type="button" class="btn btn-primary" ng-click="closeModal()" style="float:right; margin-left:5px;">Close</button>
+            <button type="button" class="btn btn-primary save" ng-click="save()" style="float:right;">Save</button>
+        </div>
+    </div>
+</div>

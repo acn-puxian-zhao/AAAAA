@@ -1,0 +1,286 @@
+﻿<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <editpartial controller-name='floatmenuListCtrl' template-url='app/common/floatmenu/floatMenu-list.tpl.html' params='floatMenuOwner'></editpartial>
+    </div>
+    <div id="page-content-wrapper">
+        <div style="height:30px; margin-bottom:10px;">
+            <i class="fa fa-bars" style="float:left;font-size:20px;color:cornflowerblue;cursor:pointer; margin-right:30px;" aria-hidden="true" ng-click="menuToggle()"></i>
+            <div style="float:right;display:none" ng-show="lblfilter">
+                <button type="button" class="btn-filter" ng-click="openFilter()">
+                    <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                </button>
+            </div>
+        </div>
+
+        <div id="divAgingSearch" class="tag col-md-12" style="display:none">
+            <em></em>
+            <div class="row" style="height:5px"></div>
+            <div class="form-group col-md-12">
+                <div class="row">
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputCustCode" style="font-size:12px;">
+                            Month:
+                        </label>
+                        <div style="width:180px">
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM" ng-model="startDate" is-open="popup.opened" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="float:left;">
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputLegal" style="font-size:12px;">
+                                Legal Entity
+                            </label>
+                            <div style="width:180px">
+                                <select id="Legal" class="form-control input-sm" ng-model="legalEntity" ng-options="d.legalEntity as d.legalEntity for d in legallist">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputCustCode" style="font-size:12px;">
+                            Customer NO.
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputCustCode" class="form-control input-sm" ng-model="custNum" />
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputCustName" style="font-size:12px;">
+                            Customer Name
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputCustName" class="form-control input-sm" ng-model="custName" />
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputSiteUseId" style="font-size:12px;">
+                            Site User Id
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputSiteUseId" class="form-control input-sm" ng-model="SiteUseId" />
+                        </div>
+                    </div>
+                    <div style="float:left;padding-left:10px">
+                        <label style="height:12px"></label>
+                        <div>
+                            <button type="button" class="filter-button" ng-click="resetSearch()">
+                                Clear
+                            </button>
+                            <button type="button" class="filter-button" ng-click="init()">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <uib-tabset active="active" type="tabs">
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> PMT
+                </uib-tab-heading>
+                <div class="col-md-12" style="float:left; padding-right:10px;padding-top:5px;padding-bottom:5px;">
+                    <div class="col-md-7" style="float:left;">
+                        <div style="float:left; padding-right:5px;padding-top:5px;padding-bottom:5px;">
+
+                            <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                                Status:
+                            </label>
+                            <div style="float:left;width:100px">
+                                <select id="Legal" class="form-control input-sm" ng-model="pmtStatus" ng-change="searchPMT(pmtStatus)" ng-options="d.detailValue as d.detailName for d in pmtStatusList"></select>
+                            </div>
+                        </div>
+                        <div id="PMT_F" class="ng-hide" style="float:left; padding-right:5px;padding-top:5px;padding-bottom:5px;">
+                            <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                                StatusDate:
+                            </label>
+                            <div style="float:left;width:180px">
+                                <div style="width:180px" datetimepicker value="DateFPMT" readonly="true" />
+                            </div>
+                        </div>
+                        <div id="PMT_T" class="ng-hide" style="float:left; padding-right:5px;padding-top:5px;padding-bottom:5px;">
+                            <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                                To:
+                            </label>
+                            <div style="float:left;width:180px">
+                                <div style="width:180px" datetimepicker value="DateTPMT" readonly="true" />
+                            </div>
+                        </div>
+                        <button style="width:80px;" type="button" class="btn btn-primary" ng-click="exportPMT()">
+                            Export
+                        </button>
+                        <button ng-show="isshow" style="width:120px;margin-left:50px" type="button" class="btn btn-warning" ng-click="BatchIgnore()">
+                            Batch Ignore
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="float:left;width:190px;">
+                            <button style="width:80px" type="button" class="btn btn-primary" ng-click="sendmail()">
+                                SendMail
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:right;">
+                        <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                            PMT:  {{PMTTotal|number:2}} + Selected: {{PMTSelected|number:2}} = {{PMTTotal+PMTSelected|number:2}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="col-md-9" style="float:left;padding-right: 0px;">
+                        <div class="grid-style" ui-grid="pmtList" ui-grid-resize-columns ui-grid-selection ui-grid-pinning style="min-height:400px;height:400px;width:1000px">
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left;padding-left:0px">
+                        <div class="grid-style" ui-grid="pmtDetailList" ui-grid-resize-columns ui-grid-selection ui-grid-pinning style="min-height:400px;height:400px;width:350px">
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="2">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> PTP
+                </uib-tab-heading>
+                <div style="float:left; padding-right:10px;padding-top:5px;padding-bottom:5px;">
+                    <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-top:5px;padding-right:5px;padding-top:5px;">
+                        Status:
+                    </label>
+                    <div style="float:left;padding-top:5px;width:130px;padding-right:10px">
+                        <select id="Legal" class="form-control input-sm" ng-model="ptpStatus" ng-change="searchPTP(ptpStatus)" ng-options="d.detailValue as d.detailName for d in ptpStatusList"></select>
+                    </div>
+                    <div id="PTP_F" class="ng-hide" style="float:left; padding-right:5px;padding-top:5px;padding-bottom:5px;">
+                        <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                            PTPDate:
+                        </label>
+                        <div style="float:left;width:180px">
+                            <div style="width:180px" datetimepicker value="DateFPTP" readonly="true" />
+                        </div>
+                    </div>
+                    <div id="PTP_T" class="ng-hide" style="float:left; padding-right:5px;padding-top:5px;padding-bottom:5px;">
+                        <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                            To:
+                        </label>
+                        <div style="float:left;width:180px">
+                            <div style="width:180px" datetimepicker value="DateTPTP" readonly="true" />
+                        </div>
+                    </div>
+                    <button style="width:80px;margin-top:5px;padding-left:5px" type="button" class="filter-button" ng-click="exportPTP()">
+                        Export
+                    </button>
+                </div>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="col-md-9" style="float:left;padding-right: 0px;">
+                        <div class="grid-style" ui-grid="ptpList" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:1000px">
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left;padding-left:0px">
+                        <div class="grid-style" ui-grid="ptpDetailList" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns style="min-height:400px;height:400px;width:350px">
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="3" style="display:none">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Dispute
+                </uib-tab-heading>
+                <div style="float:left; padding-right:10px;padding-top:5px;padding-bottom:5px;">
+                    <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                        Status:
+                    </label>
+                    <div style="float:left;width:180px">
+                        <select id="Legal" class="form-control input-sm" ng-model="disputeStatus" ng-change="searchDispute(disputeStatus)" ng-options="d.detailValue as d.detailName for d in disputeStatusList"></select>
+                    </div>
+                </div>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="col-md-9" style="float:left;padding-right: 0px;">
+                        <div class="grid-style" ui-grid="disputeList" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:1000px">
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left;padding-left:0px">
+                        <div class="grid-style" ui-grid="disputeDetailList" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns style="min-height:400px;height:400px;width:350px">
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="4">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Remindding
+                </uib-tab-heading>
+                <div id="Remind_F" class="ng-hide" style="float:left; padding-right:10px;padding-top:5px;padding-bottom:5px;">
+                    <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                        Date From:
+                    </label>
+                    <div style="float:left;width:180px">
+                        <div style="width:180px" datetimepicker value="DateF" readonly="true" />
+                    </div>
+                </div>
+                <div id="Remind_T" class="ng-hide" style="float:left; padding-right:10px;padding-top:5px;padding-bottom:5px;">
+                    <label for="inputLegal" style="display:block;float:left;font-size:12px;padding-left:15px;padding-right:5px;padding-top:5px;">
+                        To:
+                    </label>
+                    <div style="float:left;width:180px">
+                        <div style="width:180px" datetimepicker value="DateT" readonly="true" />
+                    </div>
+                </div>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="grid-style" ui-grid="reminddingList" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;">
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="5">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Task-PMT
+                </uib-tab-heading>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="grid-style" ui-grid="taskPMTList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:1385px">
+                    </div>
+                </div>
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize_taskPMT" name="pagesize_taskPMT" ng-model="selectedLevel_taskPMT" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pageSizeChanged_taskPMT(selectedLevel_taskPMT)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">   
+                        <ul uib-pagination max-size="maxSize_taskPMT" items-per-page="itemsperpage_taskPMT" total-items="totalItems_taskPMT"
+                            ng-model="currentPage_taskPMT" ng-change="pageChanged_taskPMT()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems_taskPMT}}</div>
+                    </div>
+                </div>
+            </uib-tab>
+
+            <uib-tab index="6">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Task-SOA
+                </uib-tab-heading>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="grid-style" ui-grid="taskSOAList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:1385px">
+                    </div>
+                </div>
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize_taskSOA" name="pagesize_taskSOA" ng-model="selectedLevel_taskSOA" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pageSizeChanged_taskSOA(selectedLevel_taskSOA)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+                        <ul uib-pagination max-size="maxSize_taskSOA" items-per-page="itemsperpage_taskSOA" total-items="totalItems_taskSOA"
+                            ng-model="currentPage_taskSOA" ng-change="pageChanged_taskSOA()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems_taskSOA}}</div>
+                    </div>
+                </div>
+            </uib-tab>
+
+        </uib-tabset>
+    </div>
+</div>

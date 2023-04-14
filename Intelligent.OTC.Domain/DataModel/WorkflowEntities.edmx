@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WorkflowV20_OTC_DEVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_WF_Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Maxtime" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Memo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Number" Type="nvarchar" MaxLength="10" />
+          <Property Name="Startmode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="SystemTypeTaskTypeID" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProcessDefine_Id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_WF_Application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="activity_id" Type="bigint" Nullable="false" />
+          <Property Name="DllName" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CallBackUrl" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="T_WF_CurrentTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AcceptPeople" Type="nvarchar" MaxLength="10" />
+          <Property Name="AcceptTime" Type="datetime" />
+          <Property Name="CauseObjectNumber" Type="nvarchar(max)" />
+          <Property Name="FinishTime" Type="datetime" />
+          <Property Name="SequenceNumber" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activity_Id" Type="bigint" />
+          <Property Name="ProcessInstance_Id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_WF_DetailTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityId" Type="bigint" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="ProcessInstanceId" Type="bigint" Nullable="false" />
+          <Property Name="ProcessStatus" Type="nvarchar(max)" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="TaskId" Type="bigint" Nullable="false" />
+          <Property Name="TaskStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_WF_HistoryTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id2" Type="bigint" Nullable="false" />
+          <Property Name="AcceptPeople" Type="nvarchar(max)" />
+          <Property Name="AcceptTime" Type="datetime" />
+          <Property Name="CauseObjectNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="FinishTime" Type="datetime" />
+          <Property Name="SequenceNumber" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activity_Id" Type="bigint" />
+          <Property Name="ProcessInstance_Id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_WF_PostCondition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="255" />
+          <Property Name="TargetActivityId" Type="bigint" Nullable="false" />
+          <Property Name="Activity_Id" Type="bigint" />
+          <Property Name="Message" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="T_WF_PreCondition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activity_Id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_WF_ProcessDefine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Enableflag" Type="bit" Nullable="false" />
+          <Property Name="Makeupdate" Type="datetime" />
+          <Property Name="Memo" Type="nvarchar" MaxLength="500" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Number" Type="nvarchar" MaxLength="10" />
+          <Property Name="Version" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="T_WF_ProcessInstance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CauseObjectNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatePerson" Type="nvarchar" MaxLength="10" />
+          <Property Name="Createtime" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProcessDefine_Id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_WF_RelateData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataType" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProcessDefine_Id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_WF_Rule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="ViewGroup" Type="nvarchar" MaxLength="255" />
+          <Property Name="ViewRole" Type="nvarchar" MaxLength="255" />
+          <Property Name="ViewEmployee" Type="nvarchar" MaxLength="255" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="255" />
+          <Property Name="Execution" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ProcessId" Type="bigint" />
+          <Property Name="ValidStartTime" Type="datetime" />
+          <Property Name="ValidEndTime" Type="datetime" />
+          <Property Name="ExecuteStartTime" Type="bigint" />
+          <Property Name="ExecuteEndTime" Type="bigint" />
+          <Property Name="StepId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_WF_Webservice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="255" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activity_Id" Type="bigint" />
+          <Property Name="CallbackURL" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__T_WF_Acti__Proce__4BAC3F29">
+          <End Role="T_WF_ProcessDefine" Type="Self.T_WF_ProcessDefine" Multiplicity="0..1" />
+          <End Role="T_WF_Activity" Type="Self.T_WF_Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessDefine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_Activity">
+              <PropertyRef Name="ProcessDefine_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Appl__activ__4CA06362">
+          <End Role="T_WF_Activity" Type="Self.T_WF_Activity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_WF_Application" Type="Self.T_WF_Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_Application">
+              <PropertyRef Name="activity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Curr__Activ__4D94879B">
+          <End Role="T_WF_Activity" Type="Self.T_WF_Activity" Multiplicity="0..1" />
+          <End Role="T_WF_CurrentTask" Type="Self.T_WF_CurrentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_CurrentTask">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Curr__Proce__4E88ABD4">
+          <End Role="T_WF_ProcessInstance" Type="Self.T_WF_ProcessInstance" Multiplicity="0..1" />
+          <End Role="T_WF_CurrentTask" Type="Self.T_WF_CurrentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessInstance">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_CurrentTask">
+              <PropertyRef Name="ProcessInstance_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Hist__Activ__4F7CD00D">
+          <End Role="T_WF_Activity" Type="Self.T_WF_Activity" Multiplicity="0..1" />
+          <End Role="T_WF_HistoryTask" Type="Self.T_WF_HistoryTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_HistoryTask">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Hist__Proce__5070F446">
+          <End Role="T_WF_ProcessInstance" Type="Self.T_WF_ProcessInstance" Multiplicity="0..1" />
+          <End Role="T_WF_HistoryTask" Type="Self.T_WF_HistoryTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessInstance">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_HistoryTask">
+              <PropertyRef Name="ProcessInstance_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Post__Activ__5165187F">
+          <End Role="T_WF_Activity" Type="Self.T_WF_Activity" Multiplicity="0..1" />
+          <End Role="T_WF_PostCondition" Type="Self.T_WF_PostCondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_PostCondition">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_PreC__Activ__52593CB8">
+          <End Role="T_WF_Activity" Type="Self.T_WF_Activity" Multiplicity="0..1" />
+          <End Role="T_WF_PreCondition" Type="Self.T_WF_PreCondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_PreCondition">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Proc__Proce__534D60F1">
+          <End Role="T_WF_ProcessDefine" Type="Self.T_WF_ProcessDefine" Multiplicity="0..1" />
+          <End Role="T_WF_ProcessInstance" Type="Self.T_WF_ProcessInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessDefine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_ProcessInstance">
+              <PropertyRef Name="ProcessDefine_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Rela__Proce__5441852A">
+          <End Role="T_WF_ProcessDefine" Type="Self.T_WF_ProcessDefine" Multiplicity="0..1" />
+          <End Role="T_WF_RelateData" Type="Self.T_WF_RelateData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessDefine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_RelateData">
+              <PropertyRef Name="ProcessDefine_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Webs__Activ__5535A963">
+          <End Role="T_WF_Activity" Type="Self.T_WF_Activity" Multiplicity="0..1" />
+          <End Role="T_WF_Webservice" Type="Self.T_WF_Webservice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_Webservice">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WorkflowV20_OTC_DEVModelStoreContainer">
+          <EntitySet Name="T_WF_Activity" EntityType="Self.T_WF_Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_Application" EntityType="Self.T_WF_Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_CurrentTask" EntityType="Self.T_WF_CurrentTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_DetailTask" EntityType="Self.T_WF_DetailTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_HistoryTask" EntityType="Self.T_WF_HistoryTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_PostCondition" EntityType="Self.T_WF_PostCondition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_PreCondition" EntityType="Self.T_WF_PreCondition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_ProcessDefine" EntityType="Self.T_WF_ProcessDefine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_ProcessInstance" EntityType="Self.T_WF_ProcessInstance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_RelateData" EntityType="Self.T_WF_RelateData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_Rule" EntityType="Self.T_WF_Rule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WF_Webservice" EntityType="Self.T_WF_Webservice" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__T_WF_Acti__Proce__4BAC3F29" Association="Self.FK__T_WF_Acti__Proce__4BAC3F29">
+            <End Role="T_WF_ProcessDefine" EntitySet="T_WF_ProcessDefine" />
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Appl__activ__4CA06362" Association="Self.FK__T_WF_Appl__activ__4CA06362">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_Application" EntitySet="T_WF_Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Curr__Activ__4D94879B" Association="Self.FK__T_WF_Curr__Activ__4D94879B">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_CurrentTask" EntitySet="T_WF_CurrentTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Curr__Proce__4E88ABD4" Association="Self.FK__T_WF_Curr__Proce__4E88ABD4">
+            <End Role="T_WF_ProcessInstance" EntitySet="T_WF_ProcessInstance" />
+            <End Role="T_WF_CurrentTask" EntitySet="T_WF_CurrentTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Hist__Activ__4F7CD00D" Association="Self.FK__T_WF_Hist__Activ__4F7CD00D">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_HistoryTask" EntitySet="T_WF_HistoryTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Hist__Proce__5070F446" Association="Self.FK__T_WF_Hist__Proce__5070F446">
+            <End Role="T_WF_ProcessInstance" EntitySet="T_WF_ProcessInstance" />
+            <End Role="T_WF_HistoryTask" EntitySet="T_WF_HistoryTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Post__Activ__5165187F" Association="Self.FK__T_WF_Post__Activ__5165187F">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_PostCondition" EntitySet="T_WF_PostCondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_PreC__Activ__52593CB8" Association="Self.FK__T_WF_PreC__Activ__52593CB8">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_PreCondition" EntitySet="T_WF_PreCondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Proc__Proce__534D60F1" Association="Self.FK__T_WF_Proc__Proce__534D60F1">
+            <End Role="T_WF_ProcessDefine" EntitySet="T_WF_ProcessDefine" />
+            <End Role="T_WF_ProcessInstance" EntitySet="T_WF_ProcessInstance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Rela__Proce__5441852A" Association="Self.FK__T_WF_Rela__Proce__5441852A">
+            <End Role="T_WF_ProcessDefine" EntitySet="T_WF_ProcessDefine" />
+            <End Role="T_WF_RelateData" EntitySet="T_WF_RelateData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Webs__Activ__5535A963" Association="Self.FK__T_WF_Webs__Activ__5535A963">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_Webservice" EntitySet="T_WF_Webservice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WorkflowV20_OTC_DEVModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="WorkflowEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="T_WF_CurrentTask" EntityType="WorkflowV20_OTC_DEVModel.T_WF_CurrentTask" />
+          <EntitySet Name="T_WF_ProcessInstance" EntityType="WorkflowV20_OTC_DEVModel.T_WF_ProcessInstance" />
+          <AssociationSet Name="FK__T_WF_Curr__Proce__4E88ABD4" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Proce__4E88ABD4">
+            <End Role="T_WF_ProcessInstance" EntitySet="T_WF_ProcessInstance" />
+            <End Role="T_WF_CurrentTask" EntitySet="T_WF_CurrentTask" />
+          </AssociationSet>
+          <EntitySet Name="T_WF_Activity" EntityType="WorkflowV20_OTC_DEVModel.T_WF_Activity" />
+          <EntitySet Name="T_WF_Application" EntityType="WorkflowV20_OTC_DEVModel.T_WF_Application" />
+          <EntitySet Name="T_WF_DetailTask" EntityType="WorkflowV20_OTC_DEVModel.T_WF_DetailTask" />
+          <EntitySet Name="T_WF_HistoryTask" EntityType="WorkflowV20_OTC_DEVModel.T_WF_HistoryTask" />
+          <EntitySet Name="T_WF_PostCondition" EntityType="WorkflowV20_OTC_DEVModel.T_WF_PostCondition" />
+          <EntitySet Name="T_WF_PreCondition" EntityType="WorkflowV20_OTC_DEVModel.T_WF_PreCondition" />
+          <EntitySet Name="T_WF_ProcessDefine" EntityType="WorkflowV20_OTC_DEVModel.T_WF_ProcessDefine" />
+          <EntitySet Name="T_WF_RelateData" EntityType="WorkflowV20_OTC_DEVModel.T_WF_RelateData" />
+          <EntitySet Name="T_WF_Rule" EntityType="WorkflowV20_OTC_DEVModel.T_WF_Rule" />
+          <EntitySet Name="T_WF_Webservice" EntityType="WorkflowV20_OTC_DEVModel.T_WF_Webservice" />
+          <AssociationSet Name="FK__T_WF_Acti__Proce__4BAC3F29" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Acti__Proce__4BAC3F29">
+            <End Role="T_WF_ProcessDefine" EntitySet="T_WF_ProcessDefine" />
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Appl__activ__4CA06362" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Appl__activ__4CA06362">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_Application" EntitySet="T_WF_Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Curr__Activ__4D94879B" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Activ__4D94879B">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_CurrentTask" EntitySet="T_WF_CurrentTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Hist__Activ__4F7CD00D" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Activ__4F7CD00D">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_HistoryTask" EntitySet="T_WF_HistoryTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Post__Activ__5165187F" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Post__Activ__5165187F">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_PostCondition" EntitySet="T_WF_PostCondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_PreC__Activ__52593CB8" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_PreC__Activ__52593CB8">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_PreCondition" EntitySet="T_WF_PreCondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Webs__Activ__5535A963" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Webs__Activ__5535A963">
+            <End Role="T_WF_Activity" EntitySet="T_WF_Activity" />
+            <End Role="T_WF_Webservice" EntitySet="T_WF_Webservice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Hist__Proce__5070F446" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Proce__5070F446">
+            <End Role="T_WF_ProcessInstance" EntitySet="T_WF_ProcessInstance" />
+            <End Role="T_WF_HistoryTask" EntitySet="T_WF_HistoryTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Proc__Proce__534D60F1" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Proc__Proce__534D60F1">
+            <End Role="T_WF_ProcessDefine" EntitySet="T_WF_ProcessDefine" />
+            <End Role="T_WF_ProcessInstance" EntitySet="T_WF_ProcessInstance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_WF_Rela__Proce__5441852A" Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Rela__Proce__5441852A">
+            <End Role="T_WF_ProcessDefine" EntitySet="T_WF_ProcessDefine" />
+            <End Role="T_WF_RelateData" EntitySet="T_WF_RelateData" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_WF_CurrentTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="AcceptPeople" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="AcceptTime" Type="DateTime" Precision="3" />
+          <Property Name="CauseObjectNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FinishTime" Type="DateTime" Precision="3" />
+          <Property Name="SequenceNumber" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Activity_Id" Type="Int64" />
+          <Property Name="ProcessInstance_Id" Type="Int64" />
+          <NavigationProperty Name="T_WF_ProcessInstance" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Proce__4E88ABD4" FromRole="T_WF_CurrentTask" ToRole="T_WF_ProcessInstance" />
+          <NavigationProperty Name="T_WF_Activity" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Activ__4D94879B" FromRole="T_WF_CurrentTask" ToRole="T_WF_Activity" />
+        </EntityType>
+        <EntityType Name="T_WF_ProcessInstance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="CauseObjectNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatePerson" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Createtime" Precision="3" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="ProcessDefine_Id" />
+          <NavigationProperty Name="T_WF_CurrentTask" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Proce__4E88ABD4" FromRole="T_WF_ProcessInstance" ToRole="T_WF_CurrentTask" />
+          <NavigationProperty Name="T_WF_HistoryTask" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Proce__5070F446" FromRole="T_WF_ProcessInstance" ToRole="T_WF_HistoryTask" />
+          <NavigationProperty Name="T_WF_ProcessDefine" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Proc__Proce__534D60F1" FromRole="T_WF_ProcessInstance" ToRole="T_WF_ProcessDefine" />
+        </EntityType>
+        <Association Name="FK__T_WF_Curr__Proce__4E88ABD4">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_ProcessInstance" Role="T_WF_ProcessInstance" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_CurrentTask" Role="T_WF_CurrentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessInstance">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_CurrentTask">
+              <PropertyRef Name="ProcessInstance_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_WF_Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Maxtime" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Memo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Startmode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SystemTypeTaskTypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessDefine_Id" Type="Int64" />
+          <NavigationProperty Name="T_WF_ProcessDefine" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Acti__Proce__4BAC3F29" FromRole="T_WF_Activity" ToRole="T_WF_ProcessDefine" />
+          <NavigationProperty Name="T_WF_Application" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Appl__activ__4CA06362" FromRole="T_WF_Activity" ToRole="T_WF_Application" />
+          <NavigationProperty Name="T_WF_CurrentTask" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Activ__4D94879B" FromRole="T_WF_Activity" ToRole="T_WF_CurrentTask" />
+          <NavigationProperty Name="T_WF_HistoryTask" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Activ__4F7CD00D" FromRole="T_WF_Activity" ToRole="T_WF_HistoryTask" />
+          <NavigationProperty Name="T_WF_PostCondition" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Post__Activ__5165187F" FromRole="T_WF_Activity" ToRole="T_WF_PostCondition" />
+          <NavigationProperty Name="T_WF_PreCondition" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_PreC__Activ__52593CB8" FromRole="T_WF_Activity" ToRole="T_WF_PreCondition" />
+          <NavigationProperty Name="T_WF_Webservice" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Webs__Activ__5535A963" FromRole="T_WF_Activity" ToRole="T_WF_Webservice" />
+        </EntityType>
+        <EntityType Name="T_WF_Application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="activity_id" Type="Int64" Nullable="false" />
+          <Property Name="DllName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CallBackUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_WF_Activity" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Appl__activ__4CA06362" FromRole="T_WF_Application" ToRole="T_WF_Activity" />
+        </EntityType>
+        <EntityType Name="T_WF_DetailTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityId" Type="Int64" Nullable="false" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="ProcessInstanceId" Type="Int64" Nullable="false" />
+          <Property Name="ProcessStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="TaskId" Type="Int64" Nullable="false" />
+          <Property Name="TaskStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_WF_HistoryTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id2" Type="Int64" Nullable="false" />
+          <Property Name="AcceptPeople" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AcceptTime" Type="DateTime" Precision="3" />
+          <Property Name="CauseObjectNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FinishTime" Type="DateTime" Precision="3" />
+          <Property Name="SequenceNumber" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activity_Id" Type="Int64" />
+          <Property Name="ProcessInstance_Id" Type="Int64" />
+          <NavigationProperty Name="T_WF_Activity" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Activ__4F7CD00D" FromRole="T_WF_HistoryTask" ToRole="T_WF_Activity" />
+          <NavigationProperty Name="T_WF_ProcessInstance" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Proce__5070F446" FromRole="T_WF_HistoryTask" ToRole="T_WF_ProcessInstance" />
+        </EntityType>
+        <EntityType Name="T_WF_PostCondition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Condition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TargetActivityId" Type="Int64" Nullable="false" />
+          <Property Name="Activity_Id" Type="Int64" />
+          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_WF_Activity" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Post__Activ__5165187F" FromRole="T_WF_PostCondition" ToRole="T_WF_Activity" />
+        </EntityType>
+        <EntityType Name="T_WF_PreCondition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Condition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Activity_Id" Type="Int64" />
+          <NavigationProperty Name="T_WF_Activity" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_PreC__Activ__52593CB8" FromRole="T_WF_PreCondition" ToRole="T_WF_Activity" />
+        </EntityType>
+        <EntityType Name="T_WF_ProcessDefine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Enableflag" Type="Boolean" Nullable="false" />
+          <Property Name="Makeupdate" Type="DateTime" Precision="3" />
+          <Property Name="Memo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_WF_Activity" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Acti__Proce__4BAC3F29" FromRole="T_WF_ProcessDefine" ToRole="T_WF_Activity" />
+          <NavigationProperty Name="T_WF_ProcessInstance" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Proc__Proce__534D60F1" FromRole="T_WF_ProcessDefine" ToRole="T_WF_ProcessInstance" />
+          <NavigationProperty Name="T_WF_RelateData" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Rela__Proce__5441852A" FromRole="T_WF_ProcessDefine" ToRole="T_WF_RelateData" />
+        </EntityType>
+        <EntityType Name="T_WF_RelateData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessDefine_Id" Type="Int64" />
+          <NavigationProperty Name="T_WF_ProcessDefine" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Rela__Proce__5441852A" FromRole="T_WF_RelateData" ToRole="T_WF_ProcessDefine" />
+        </EntityType>
+        <EntityType Name="T_WF_Rule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="ViewGroup" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ViewRole" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ViewEmployee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Condition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Execution" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessId" Type="Int64" />
+          <Property Name="ValidStartTime" Type="DateTime" Precision="3" />
+          <Property Name="ValidEndTime" Type="DateTime" Precision="3" />
+          <Property Name="ExecuteStartTime" Type="Int64" />
+          <Property Name="ExecuteEndTime" Type="Int64" />
+          <Property Name="StepId" Type="Int64" />
+        </EntityType>
+        <EntityType Name="T_WF_Webservice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MethodName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Activity_Id" Type="Int64" />
+          <Property Name="CallbackURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_WF_Activity" Relationship="WorkflowV20_OTC_DEVModel.FK__T_WF_Webs__Activ__5535A963" FromRole="T_WF_Webservice" ToRole="T_WF_Activity" />
+        </EntityType>
+        <Association Name="FK__T_WF_Acti__Proce__4BAC3F29">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_ProcessDefine" Role="T_WF_ProcessDefine" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Activity" Role="T_WF_Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessDefine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_Activity">
+              <PropertyRef Name="ProcessDefine_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Appl__activ__4CA06362">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Activity" Role="T_WF_Activity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Application" Role="T_WF_Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_Application">
+              <PropertyRef Name="activity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Curr__Activ__4D94879B">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Activity" Role="T_WF_Activity" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_CurrentTask" Role="T_WF_CurrentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_CurrentTask">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Hist__Activ__4F7CD00D">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Activity" Role="T_WF_Activity" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_HistoryTask" Role="T_WF_HistoryTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_HistoryTask">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Post__Activ__5165187F">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Activity" Role="T_WF_Activity" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_PostCondition" Role="T_WF_PostCondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_PostCondition">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_PreC__Activ__52593CB8">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Activity" Role="T_WF_Activity" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_PreCondition" Role="T_WF_PreCondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_PreCondition">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Webs__Activ__5535A963">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Activity" Role="T_WF_Activity" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_Webservice" Role="T_WF_Webservice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_Webservice">
+              <PropertyRef Name="Activity_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Hist__Proce__5070F446">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_ProcessInstance" Role="T_WF_ProcessInstance" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_HistoryTask" Role="T_WF_HistoryTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessInstance">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_HistoryTask">
+              <PropertyRef Name="ProcessInstance_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Proc__Proce__534D60F1">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_ProcessDefine" Role="T_WF_ProcessDefine" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_ProcessInstance" Role="T_WF_ProcessInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessDefine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_ProcessInstance">
+              <PropertyRef Name="ProcessDefine_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_WF_Rela__Proce__5441852A">
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_ProcessDefine" Role="T_WF_ProcessDefine" Multiplicity="0..1" />
+          <End Type="WorkflowV20_OTC_DEVModel.T_WF_RelateData" Role="T_WF_RelateData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_WF_ProcessDefine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_WF_RelateData">
+              <PropertyRef Name="ProcessDefine_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WorkflowV20_OTC_DEVModelStoreContainer" CdmEntityContainer="WorkflowEntities">
+          <EntitySetMapping Name="T_WF_CurrentTask">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_CurrentTask">
+              <MappingFragment StoreEntitySet="T_WF_CurrentTask">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AcceptPeople" ColumnName="AcceptPeople" />
+                <ScalarProperty Name="AcceptTime" ColumnName="AcceptTime" />
+                <ScalarProperty Name="CauseObjectNumber" ColumnName="CauseObjectNumber" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+                <ScalarProperty Name="SequenceNumber" ColumnName="SequenceNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Activity_Id" ColumnName="Activity_Id" />
+                <ScalarProperty Name="ProcessInstance_Id" ColumnName="ProcessInstance_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_ProcessInstance">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_ProcessInstance">
+              <MappingFragment StoreEntitySet="T_WF_ProcessInstance">
+                <ScalarProperty Name="ProcessDefine_Id" ColumnName="ProcessDefine_Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Createtime" ColumnName="Createtime" />
+                <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+                <ScalarProperty Name="CauseObjectNumber" ColumnName="CauseObjectNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_Activity">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_Activity">
+              <MappingFragment StoreEntitySet="T_WF_Activity">
+                <ScalarProperty Name="ProcessDefine_Id" ColumnName="ProcessDefine_Id" />
+                <ScalarProperty Name="SystemTypeTaskTypeID" ColumnName="SystemTypeTaskTypeID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Startmode" ColumnName="Startmode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Maxtime" ColumnName="Maxtime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_Application">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_Application">
+              <MappingFragment StoreEntitySet="T_WF_Application">
+                <ScalarProperty Name="CallBackUrl" ColumnName="CallBackUrl" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="DllName" ColumnName="DllName" />
+                <ScalarProperty Name="activity_id" ColumnName="activity_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_DetailTask">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_DetailTask">
+              <MappingFragment StoreEntitySet="T_WF_DetailTask">
+                <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+                <ScalarProperty Name="ProcessInstanceId" ColumnName="ProcessInstanceId" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_HistoryTask">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_HistoryTask">
+              <MappingFragment StoreEntitySet="T_WF_HistoryTask">
+                <ScalarProperty Name="ProcessInstance_Id" ColumnName="ProcessInstance_Id" />
+                <ScalarProperty Name="Activity_Id" ColumnName="Activity_Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SequenceNumber" ColumnName="SequenceNumber" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+                <ScalarProperty Name="CauseObjectNumber" ColumnName="CauseObjectNumber" />
+                <ScalarProperty Name="AcceptTime" ColumnName="AcceptTime" />
+                <ScalarProperty Name="AcceptPeople" ColumnName="AcceptPeople" />
+                <ScalarProperty Name="Id2" ColumnName="Id2" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_PostCondition">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_PostCondition">
+              <MappingFragment StoreEntitySet="T_WF_PostCondition">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Activity_Id" ColumnName="Activity_Id" />
+                <ScalarProperty Name="TargetActivityId" ColumnName="TargetActivityId" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_PreCondition">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_PreCondition">
+              <MappingFragment StoreEntitySet="T_WF_PreCondition">
+                <ScalarProperty Name="Activity_Id" ColumnName="Activity_Id" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_ProcessDefine">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_ProcessDefine">
+              <MappingFragment StoreEntitySet="T_WF_ProcessDefine">
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Makeupdate" ColumnName="Makeupdate" />
+                <ScalarProperty Name="Enableflag" ColumnName="Enableflag" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_RelateData">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_RelateData">
+              <MappingFragment StoreEntitySet="T_WF_RelateData">
+                <ScalarProperty Name="ProcessDefine_Id" ColumnName="ProcessDefine_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_Rule">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_Rule">
+              <MappingFragment StoreEntitySet="T_WF_Rule">
+                <ScalarProperty Name="StepId" ColumnName="StepId" />
+                <ScalarProperty Name="ExecuteEndTime" ColumnName="ExecuteEndTime" />
+                <ScalarProperty Name="ExecuteStartTime" ColumnName="ExecuteStartTime" />
+                <ScalarProperty Name="ValidEndTime" ColumnName="ValidEndTime" />
+                <ScalarProperty Name="ValidStartTime" ColumnName="ValidStartTime" />
+                <ScalarProperty Name="ProcessId" ColumnName="ProcessId" />
+                <ScalarProperty Name="Execution" ColumnName="Execution" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="ViewEmployee" ColumnName="ViewEmployee" />
+                <ScalarProperty Name="ViewRole" ColumnName="ViewRole" />
+                <ScalarProperty Name="ViewGroup" ColumnName="ViewGroup" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WF_Webservice">
+            <EntityTypeMapping TypeName="WorkflowV20_OTC_DEVModel.T_WF_Webservice">
+              <MappingFragment StoreEntitySet="T_WF_Webservice">
+                <ScalarProperty Name="CallbackURL" ColumnName="CallbackURL" />
+                <ScalarProperty Name="Activity_Id" ColumnName="Activity_Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="WorkflowEntities" ZoomLevel="61">
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_CurrentTask" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_ProcessInstance" Width="1.5" PointX="0.875" PointY="5" Height="2.3648893229166656" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Proce__4E88ABD4">
+          <ConnectorPoint PointX="1.5" PointY="5" />
+          <ConnectorPoint PointX="1.5" PointY="3.6917936197916665" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_Activity" Width="1.5" PointX="3.125" PointY="0.5" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_Application" Width="1.5" PointX="5.5" PointY="9.625" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_DetailTask" Width="1.5" PointX="8.375" PointY="1.375" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_HistoryTask" Width="1.5" PointX="6.125" PointY="2.5" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_PostCondition" Width="1.5" PointX="2.625" PointY="9.375" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_PreCondition" Width="1.5" PointX="5.5" PointY="7" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_ProcessDefine" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_RelateData" Width="1.5" PointX="0.625" PointY="11.875" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_Rule" Width="1.5" PointX="7.625" PointY="6.25" />
+        <EntityTypeShape EntityType="WorkflowV20_OTC_DEVModel.T_WF_Webservice" Width="1.5" PointX="5.375" PointY="12.25" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Acti__Proce__4BAC3F29" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Appl__activ__4CA06362" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Curr__Activ__4D94879B" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Activ__4F7CD00D" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Post__Activ__5165187F" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_PreC__Activ__52593CB8" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Webs__Activ__5535A963" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Hist__Proce__5070F446" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Proc__Proce__534D60F1" />
+        <AssociationConnector Association="WorkflowV20_OTC_DEVModel.FK__T_WF_Rela__Proce__5441852A" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

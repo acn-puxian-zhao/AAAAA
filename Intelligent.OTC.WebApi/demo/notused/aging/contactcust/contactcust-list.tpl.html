@@ -1,0 +1,149 @@
+﻿<div class="modal-header" style="height:30px">
+</div>
+<div class="modal-body" style="height:800px;">
+<!--    <div id="divcust" class="form-group" style="width:870px; border-bottom-color:#000; border-bottom:1px solid">
+        <div class="row" style="margin:auto">
+            <label class="control-label" style="font-size:inherit;width:100px;">Contact Name: </label>
+            <label class="control-label" style="font-size:smaller;width:100px;">{{cont.name}}</label>
+            <label class="control-label" style="font-size:inherit;width:100px;">Department: </label>
+            <label class="control-label" style="font-size:smaller;width:100px;">{{cont.department}}</label>
+            <label class="control-label" style="font-size:inherit;width:100px;">Title: </label>
+            <label class="control-label" style="font-size:smaller;width:100px;">{{cont.title}}</label>
+            <label class="control-label" style="font-size:inherit;width:100px;">Contact Num: </label>
+            <label class="control-label" style="font-size:smaller;width:100px;">{{cont.number}}</label>
+        </div>
+    </div>-->
+    <div  class="form-group" style="height:10px"></div>
+    <div id="divinvoice" class="form-group" style="width:870px; border-color:#000; border:1px solid;">
+        <div class="row" style="height:5px" />
+
+        <div class="row" style="margin:auto">
+
+        <label for="invoiceNo" class="col-md-2 control-label" style="margin-left:-40px">
+            Invoice #:</label>
+        <div class="col-md-2" style="margin-left:-20px">
+            <input id="invoiceNo" class="form-control input-sm" ng-model="invoiceNo" />
+        </div>
+        <label for="invoiceStatus" class="col-md-2 control-label" style="margin-left:-80px">
+            Status:</label>
+        <div class="col-md-2" style="margin-left:-20px">
+            <select id="invoiceStatus" class="form-control input-sm" ng-model="invoiceStatus" ng-options="a.detailValue as a.detailName for a in istatus">
+                <option value="">All</option>
+            </select>
+        </div>
+        <label for="dueDate" class="col-md-2 control-label" style="margin-left:-50px">
+            Due Date:</label>
+         <div class="col-md-3" style="margin-left:-20px">
+            <div datetimepicker value="selectedDate" />
+        </div>
+        <div class="col-md-2" style="float:right">
+            <button type="button" class="btn btn-primary form-control" ng-click="searchInvoiceD()">
+                Search</button>
+        </div>
+
+        </div>
+
+        <div class="row" style="height:5px" />
+
+        <div class="row" style="text-align:center; margin:auto">
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','Closed')" style="width:100px">Closed</button>
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','Cancelled')" style="width:100px">Cancelled</button>
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','Partial Pay')" style="width:100px">Partial Pay</button>
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','Uncollectable')" style="width:100px">Uncollectable</button>
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','Write-Off')" style="width:100px">Write-Off</button>
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','Dispute')" style="width:100px">Dispute</button>
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','Paid')" style="width:100px">Paid</button>
+        <button type="button" class="btn-default" ng-click="InvoiceStateUpdate('sm','PTP')" style="width:100px">PTP</button>
+        </div>
+
+        <div class="row" style="height:5px" />
+        <div class="contactcustinvoicegrid-style" ui-grid="invoiceList" style="margin:auto"  ui-grid-selection ui-grid-grouping ui-grid-resize-columns>
+        </div>
+    </div>
+<!--</div>-->
+    <div class="row" style="margin-right:5px">
+            <button type="button" class="btn btn-primary" ng-click="startsoa()" style=" float:right">Start SOA</button>  
+            <button type="button" class="btn btn-primary" ng-click="finishsoa()" style=" float:right">Finish SOA</button>  
+    </div>
+    
+<!--<div class="modal-body" style="height:400px;">-->
+    <div id="divHistory" class="form-group" style=" border:1px solid;border-color:#000; width:870px;height:50px;">
+      <div class="row" style="height:10px"></div>
+      <div class="row" style="margin:auto">
+         <label for="ContactType" class="col-md-2 control-label" >
+            Contact Type:</label>
+        <div class="col-md-3" >
+            <select id="ContactType" class="form-control input-sm" ng-model="contactTypeValue" ng-options="a.detailValue as a.detailName for a in ContactTypeDPlist">
+                <option value="">All</option>
+            </select>
+        </div>
+        <label for="contactDate" class="col-md-2 control-label">
+            Date:</label>
+         <div class="col-md-3">
+            <div datetimepicker value="selectedDate" />
+        </div>
+        <div class="col-md-2" style="float:right">
+            <button type="button" class="btn btn-primary form-control" ng-click="searchContactHis()">
+                Search</button>
+        </div>
+      </div>
+    </div>
+    <div id="divHistoryGrid" class="form-group" style=" border:1px solid;border-color:#000; width:870px;height:280px;">
+        <div class="row" style="height:10px"></div>
+        <div class="row" style="margin:auto">
+            <div class="contactcustinvoicegrid-style" ui-grid="contactHistoryList">
+            </div>
+        </div>
+        <div class="row"   style="margin-right:5px;float:right" >
+            <pagination max-size="maxSize" items_per_page="itemsperpage" total-items="totalItems" 
+                ng-model="currentPage" ng-change="pageChanged()" ></pagination>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div class="row"   style="margin-right:5px">
+            <button type="button" class="btn btn-primary" ng-click="closeConCust()" >Close</button>  
+    </div>
+</div>
+
+<div>
+    <script type="text/ng-template" id="myModalContent2.html">
+    <div class="modal-body" style="height:150px;">
+        <div class="row" style="margin:auto">
+            <label for="paymentType" class="col-md-3 control-label" style="margin-right:-30px">
+                Payment Type:</label>
+            <div class="col-md-3" >
+                <select id="paymentType" class="form-control input-sm" ng-model="paymentType" ng-options="a.detailValue as a.detailName for a in paymenttypelist" >
+                </select>
+            </div>
+            <label for="promisedDate" class="col-md-3 control-label" style="margin-right:-70px">Due Date:</label>
+            
+             <div class="col-md-5" >
+                <div datetimepicker value="selectedDate1" />
+            </div>
+        </div>
+        <div class="row" style="height:5px" />
+
+        <div class="row" style="margin:auto">
+            <label for="comments" class="col-md-3 control-label" style="margin-right:-30px">
+                Comments:</label>
+            <div class="col-md-9" style="width:450px">
+                <input id="comments" class="form-control input-sm" ng-model="comments" />
+            </div>
+        </div>
+        <div class="row" style="height:5px" />
+
+        <div class="row" style="margin:auto">
+        <div class="col-md-3" style="float:right">
+            <button type="button" class="btn-default" style="width:100px" ng-click="updateInvoice()">
+                Submit</button>
+        </div>
+        <div class="col-md-3"  style="float:right">
+            <button type="button" class="btn-default" style="width:100px" ng-click="closestateupdate()">
+                Close</button>
+        </div>
+    </div>
+    </div>
+    </script>
+</div>

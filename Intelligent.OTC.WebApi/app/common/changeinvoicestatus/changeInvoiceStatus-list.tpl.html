@@ -1,0 +1,27 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 control-label">Status:</label>
+        <div class="col-md-6">
+            <select id="statuschange" class="form-control input-sm" ng-model="invstatusValue" ng-options="a.detailValue as a.detailName for a in invstatuslist" >
+                <!--<option value=""></option>
+                <option >Wait for Round Table</option>
+                <option >write off uncollectible accounts</option>
+                <option >Closed</option>
+                <option >PTP Confirmed</option>-->
+            </select>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">
+            Close
+        </button>
+        <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+            Submit
+        </button>
+    </div>
+</div>

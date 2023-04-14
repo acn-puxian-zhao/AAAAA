@@ -1,0 +1,40 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Contactor Domain</h4>
+</div>
+<div class="modal-body">
+    <div style="width:858px; height:66px;">
+        <form name="contform" crud-edit="cont" novalidate>
+            <div style="width:858px; height:73px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterNum">Customer Num</label>
+                    <div>
+                        <input type="text" id="customerNum" class="form-control" name="CustomerNum" ng-model="cont.customerNum" readonly />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="legalEntity">Legal Entity</label>
+                    <div>
+                        <select id="legalEntity" class="form-control" ng-model="cont.legalEntity"
+                                ng-options="a.legalEntity as a.legalEntity for a in legallist">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterDomain">Contactor Domain</label>
+                    <div>
+                        <input type="text" id="custDomain" class="form-control" name="Domain" ng-model="cont.mailDomain"  required/>
+                    </div>
+                </div>
+            </div>
+            <div style="float:right; margin-top:30px;">
+                <button type="button" class="btn btn-primary" ng-click="closeContact()" style="float:right; margin-left:5px;">Close</button>
+                <button type="button" class="btn btn-warning revert" ng-click="revertChanges()" ng-disabled="!canRevert()" style="float:right; margin-left:5px;">Revert changes</button>
+                <button type="button" class="btn btn-primary save" ng-disabled="!canSave()" ng-click="updateCommon()" style="float:right;">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+
+</div>

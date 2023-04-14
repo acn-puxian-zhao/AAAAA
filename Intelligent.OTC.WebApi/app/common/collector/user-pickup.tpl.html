@@ -1,0 +1,66 @@
+﻿<div class="form-group col-md-12">
+    <div class="row" style="height:30px" />
+    <div class="row">
+    <label class="col-md-3 "  style="margin-right:-80px" >Current Operator:</label>
+    <div style="font-size:12px ;font-weight:bold">{{operating.name}}</div>
+    </div>
+</div>
+<div class="form-group col-md-12">
+ <div class="row ">
+       <label for="inputOperateEid" class="col-md-1 control-labelh "  >
+            EID:</label>
+    <div class="col-md-2">
+       <input id="inputOperateEid" class="form-control" ng-model="operateEid" />
+    </div>
+       <label for="inputOperateName" class="col-md-1 control-labelh">
+            Name:</label>
+    <div class="col-md-2">
+       <input id="inputOperateName" class="form-control" ng-model="operateName" />
+    </div>
+
+<!--        <label for="inputOperateRole" class="col-md-1 control-label">
+            Role:</label>
+     <div class="col-md-2"> 
+        <input id="inputOperateRole" class="form-control" ng-model="operatetRole" />
+     </div>-->
+
+
+     <label for="inputLegal" class="col-md-1 control-labelh">
+             Role:</label>
+         <div class="col-md-2">
+            <select id="role" class="form-control " ng-model="operateRole" ng-options="a.roleId as a.roleName for a in RoleList">
+                <option value="">All</option>
+            </select>
+         </div>
+       
+        <label for="inputTeam" class="col-md-1 control-labelh">
+            Team:</label>
+     <div class="col-md-2"> 
+        <input id="inputTeam" class="form-control" ng-model="team" />
+     </div>
+ </div>
+ <div class="row" style="height:5px" />
+ <div class="row" >
+    <div class="col-md-2" style="float:right">
+        <button type="button" class="btn btn-primary form-control"  ng-click="searchCollection()">Search</button>  
+    </div> 
+</div>
+</div>
+
+<div class="form-group col-md-12">
+   <div ui-grid="operateList" ui-grid-resize-columns ui-grid-selection>
+   </div>
+</div> 
+
+<div class="form-group " >
+ <div class="row" style="margin-right:5px">
+    <div class="col-md-2" style="float:right  ">
+    <button type="button" class="btn btn-primary form-control" ng-click="cancel()">
+                Cancel</button>
+    </div>
+    <div class="col-md-2" style="float:right ">
+    <button type="button" class="btn btn-primary form-control" ng-click="changItem()">
+                OK</button>
+    </div>
+ </div>
+</div> 

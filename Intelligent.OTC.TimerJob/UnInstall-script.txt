@@ -1,0 +1,9 @@
+REM install tool
+C:
+cd C:\Windows\Microsoft.NET\Framework\v4.0.30319
+
+REM stop service
+net stop Intelligent.OTC.TimerJob
+REM un-install service
+installutil.exe "D:\IISROOT\XcceleratorUAT\OTC\TimerJob\Intelligent.OTC.TimerJob.exe" /u
+

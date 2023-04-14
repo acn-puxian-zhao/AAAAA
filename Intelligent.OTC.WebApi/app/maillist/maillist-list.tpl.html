@@ -1,0 +1,9 @@
+﻿<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <editpartial controller-name='floatmenuListCtrl' template-url='app/common/floatmenu/floatMenu-list.tpl.html' params='floatMenuOwner'></editpartial>
+    </div>
+    <div id="page-content-wrapper">
+        <i class="fa fa-bars" style="float:left;font-size:20px;color:cornflowerblue;cursor:pointer;margin-right:30px;" aria-hidden="true" ng-click="menuToggle()"></i>
+        <editpartial controller-name='mailListCtrl' template-url='app/common/mail/mail-list.tpl.html' params='mailInfo'></editpartial>
+    </div>
+</div>

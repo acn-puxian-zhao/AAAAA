@@ -1,0 +1,35 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 control-label">Status:</label>
+        <div class="col-md-6">
+            <select id="statuschange" class="form-control input-sm" ng-model="statusValue" ng-options="a.detailValue as a.detailName for a in statuslist">
+                <!--<option value="">All</option>-->
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Dispute Reason:</label>
+        <div class="col-sm-6">
+            <select id="disputereason" class="form-control input-sm" ng-model="disputereason" ng-options="a.detailValue as a.detailName for a in disputereasonList"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Action Owner Department:</label>
+        <div class="col-sm-6">
+            <select id="actionownerdept" class="form-control input-sm" ng-model="actionownerdept" ng-options="a.detailValue as a.detailName for a in actionOwnerDeptList" ></select>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">
+            Close
+        </button>
+        <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+            Submit
+        </button>
+    </div>
+</div>

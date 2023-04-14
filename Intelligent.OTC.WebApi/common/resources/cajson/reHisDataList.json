@@ -1,0 +1,21 @@
+﻿{
+    "dataRows": [
+      {
+        "taxInvoiceNumber": "1",
+        "agentCustomerNumber": "1001",
+        "agentCustomerName": "HW",
+        "paymentCustomerNumber": "1001",
+        "paymentCustomerName": "HW",
+        "attachment": "附件1",
+        "siteUseId": "100101",
+        "fixedBankCharge": "100",
+        "systemInvoiceNumber": "86223",
+        "transactionAmount": 1000,
+        "invoiceTransactionDate": "2019-01-01",
+        "status": "Unmatched",
+        "updateDate": "2019-01-01",
+        "createDate": "2019-01-01"
+      }
+    ],
+    "count": 1
+  }

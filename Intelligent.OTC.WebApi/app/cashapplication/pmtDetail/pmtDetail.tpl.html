@@ -1,0 +1,46 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Customer Info</h3>
+</div>
+
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+            <div class="smallgrid-style" ui-grid="PmtDetailHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:200px;height:202px;margin-left:28px;width:1050px;">
+            </div>
+        </div>
+
+        <div class="col-md-4" style="">
+            <div class="form-group">
+                <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                    <div class="smallgrid-style" ui-grid="PmtDetailBSHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="height:220px;margin-left:28px;width:90%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8" style="">
+            <div class="form-group">
+                <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                    <div class="smallgrid-style" ui-grid="PmtDetailDetailHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="height:220px;margin-left:28px;width:93%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <div class="col-md-8" style="text-align:left">
+
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" ng-click="cancel()">
+                Close
+            </button>
+            <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+                Submit
+            </button>
+        </div>
+    </div>
+</div>

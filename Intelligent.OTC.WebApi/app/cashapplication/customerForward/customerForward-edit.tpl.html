@@ -1,0 +1,89 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">CA CustomerMapping Information</h4>
+</div>
+<div class="modal-body">
+    <div style="width:858px;">
+        <form name="contform" novalidate>
+            <!--<div class="row">
+        <label for="menuregion" class="control-label col-md-4">* Menuregion</label>
+        <div class="col-md-6">
+            <select id="menuregion" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="menuregion" ng-model="cont.menuregion" ng-options="t.name as t.name for t in MenuregionList" required></select>
+        </div>
+    </div>-->
+            <div class="row">
+                <label for="legalEntity" class="control-label col-md-4">* legalEntity</label>
+                <div class="col-md-6">
+                    <input type="text" id="legalEntity" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="legalEntity" ng-model="cont.legalEntity" ng-blur="searchCustomer()">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="forwardGroup" class="control-label col-md-4"> ForwardGroup</label>
+                <div class="col-md-6">
+                    <input type="text" id="forwardGroup" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="forwardGroup" ng-model="cont.forwardGroup">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="forwardNum" class="control-label col-md-4">* ForwardNum</label>
+                <div class="col-md-6">
+                    <input type="text" id="forwardNum" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="forwardNum" ng-model="cont.forwardNum">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="forwardName" class="control-label col-md-4">* ForwardName</label>
+                <div class="col-md-6">
+                    <input type="text" id="forwardName" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="forwardName" ng-model="cont.forwardName">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="customerNum" class="control-label col-md-4">* CustomerNum</label>
+                <div class="col-md-6">
+                    <input type="text" id="customerNum" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="customerNum" ng-model="cont.customerNum" ng-blur="searchCustomer()">
+                </div>
+                <div class="col-md-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;color:red;" id="error">
+                <div class="col-md-4">
+                    &nbsp;
+                </div>
+                <div class="col-md-6">
+                    {{error}}
+                </div>
+                <div class="col-md-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <label for="customerName" class="control-label col-md-4">* CustomerName</label>
+                <div class="col-md-6">
+                    <input type="text" id="customerName" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="customerName" ng-model="cont.customerName" readonly="readonly">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="localizeCustomerName" class="control-label col-md-4">* LocalizeCustomerName</label>
+                <div class="col-md-6">
+                    <input type="text" id="localizeCustomerName" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="localizeCustomerName" ng-model="cont.localizeCustomerName" readonly="readonly">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div style="float:right; margin:10px">
+            <button type="button" class="btn btn-primary" ng-click="closeModal()" style="float:right; margin-left:5px;">Close</button>
+            <button type="button" class="btn btn-primary save" ng-click="save()" style="float:right;">Save</button>
+        </div>
+    </div>
+</div>

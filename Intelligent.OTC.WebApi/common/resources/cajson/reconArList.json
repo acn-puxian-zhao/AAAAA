@@ -1,0 +1,27 @@
+﻿{
+  "dataRows": [
+    {
+      "systemInvoiceNumber": "1",
+      "transactionAmount": "10000",
+      "customerNumber": "1001",
+      "siteUseId": "100101",
+      "customerName": "HW",
+      "dueDate": "2019-01-01"
+    },{
+      "systemInvoiceNumber": "1",
+      "transactionAmount": "10000",
+      "customerNumber": "1001",
+      "siteUseId": "100101",
+      "customerName": "HW",
+      "dueDate": "2019-01-01"
+    },{
+      "systemInvoiceNumber": "1",
+      "transactionAmount": "10000",
+      "customerNumber": "1001",
+      "siteUseId": "100101",
+      "customerName": "HW",
+      "dueDate": "2019-01-01"
+    }
+  ],
+  "count": 3
+}

@@ -1,0 +1,195 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Payment Detail Information</h4>
+</div>
+<div class="modal-body">
+    <div>
+        <!-- <form name="contform" novalidate> -->
+        <div class="row">
+            <label for="customerNumber" class="control-label-pmt col-md-2">* Customer</label>
+            <div class="col-md-2">
+                <input type="text" id="customerNumber" ng-blur="getCustomerInfoByNo()" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="customerNumber" ng-model="pmt.CustomerNumber">
+            </div>
+            <div class="col-md-8">
+                <input type="text" id="customerName" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="customerName" ng-model="customerName" readonly="readonly">
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <label for="legalEntity" class="control-label-pmt col-md-2">* Legal Entity</label>
+            <div class="col-md-2">
+                <select id="legalEntity" class="form-control input-sm" ng-model="pmt.LegalEntity" ng-options="l.detailValue as l.detailName for l in legalList">
+                </select>
+            </div>
+            <label for="legalEntity" class="control-label-pmt col-md-2">* Receive Date</label>
+            <div class="col-md-2">
+                <div id="receiveDate" style="width:180px" datetimepicker value="receiveDate" readonly="true" />
+            </div>
+        </div>
+        <!--</form>-->
+        <div class="row" style="height:10px;"></div>
+    </div>
+
+    <div id="pmtbsDiv" style="padding-bottom:0px; padding-left:30px;">
+        <div>
+            <h4 style="color:#0072c6">
+                <label class="modal-title">
+                    <i class="fa fa-minus-square-o">&nbsp;PMT BS Info</i>
+                </label>
+                <span style="float:right; margin-right:35px;">
+                    <button id="addPMTBSBtn" class="btn btn-primary form-control" style="height:30px;"  ng-click="addPMTBS()">Add</button>
+                </span>
+            </h4>
+        </div>
+        <table style="border: 1px #ececec solid; background-color: white; width: 1000px">
+            <tr>
+                <td>
+                    <div class="form-group col-md-12">
+                        <div class="row" style="padding-left:20px;">
+                            <div style="float:left; padding-right:10px;">
+                                <label for="transactionNumber" style="font-size:12px;">Transaction No.</label>
+                                <div style="width:180px">
+                                    <input type="text" id="transactionNumber" class="form-control input-sm" ng-blur="getBankInfoByTranINC()" ng-model="bs.transactionNumber" />
+                                </div>
+                            </div>
+
+                            <div style="float:left; padding-right:10px;">
+                                <label for="valueDate" style="font-size:12px;">* Date</label>
+                                <div style="width:180px">
+                                    <div id="valueDate" style="width:180px" datetimepicker value="valueDate" readonly="true" />
+                                </div>
+                            </div>
+
+                            <div style="float:left; padding-right:10px;">
+                                <label for="localCurrency" style="font-size:12px;">* Currency</label>
+                                <div style="width:180px">
+                                    <select id="localCurrency" class="form-control input-sm" ng-model="bs.currency" ng-options="c.detailName as c.detailName for c in currencyList">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style="float:left; padding-right:10px;">
+                                <label for="bsAmount" style="font-size:12px;">* Clear Amount</label>
+                                <div style="width:180px">
+                                    <input id="bsAmount" type="number" step="0.01" class="form-control input-sm" ng-model="bs.amount" />
+                                </div>
+                            </div>
+                            <div style="float:left; padding-right:10px;">
+                                <label for="bankCharge" style="font-size:12px;">Bank Charge</label>
+                                <div style="width:180px">
+                                    <input id="bankCharge" type="number" step="0.01" class="form-control input-sm" ng-model="bs.bankCharge" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-left:20px;">
+                            <div style="float:left; padding-right:10px;">
+                                <label for="transactionAmount" style="font-size:12px;"> Transaction Amount</label>
+                                <div style="width:180px">
+                                    <input id="transactionAmount" type="number" step="0.01" class="form-control input-sm" ng-model="bs.transactionAmount" />
+                                </div>
+                            </div>
+                            <div style="float:left; padding-right:10px;">
+                                <label for="description" style="font-size:12px;">Description</label>
+                                <div style="width:780px">
+                                    <input type="text" id="description" class="form-control input-sm" ng-model="bs.description" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>              
+            </tr>   
+            <tr>
+                <td>
+                    <div style="padding-top:10px; margin-left:20px; margin-right:20px;">
+                        <div class="grid-style" ui-grid="pmtBSEditGrid" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:80px;height:80px;width:100%;max-width:1000px;">
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="pmtDetailDiv" style="padding-bottom:0px; padding-left:30px;">
+        <div>
+            <h4 style="color:#0072c6">
+                <label class="modal-title">
+                    <i class="fa fa-minus-square-o">&nbsp;PMT Detail Info</i>
+                </label>
+                <span style="float:right; margin-right:35px;">
+                    <button id="addPMTDetailBtn" class="btn btn-primary form-control" style="height:30px;" ng-click="addPMTDetail()">Add</button>
+                </span>
+            </h4>
+        </div>
+        <table style="border: 1px #ececec solid; background-color: white; width: 1000px;">
+            <tr>
+                <td>
+                    <div class="form-group col-md-12">
+                        <div class="row" style="padding-left:20px;">
+                            <div style="float:left; padding-right:10px;">
+                                <label for="invoiceNum" style="font-size:12px;">* Invoice Number</label>
+                                <div style="width:180px">
+                                    <input type="text" id="invoiceNum" class="form-control input-sm" ng-blur="getInvoiceInfoByNo()" ng-model="invoice.invoiceNum" />
+                                </div>
+                            </div>
+
+                            <div style="float:left; padding-right:10px;">
+                                <label for="localCurrency" style="font-size:12px;">* Currency</label>
+                                <div style="width:180px">
+                                    <select id="localCurrency" class="form-control input-sm" ng-model="invoice.currency" ng-options="c.detailName as c.detailName for c in currencyList">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style="float:left; padding-right:10px;">
+                                <label for="localAmount" style="font-size:12px;">* Amount</label>
+                                <div style="width:180px">
+                                    <input id="localAmount" type="number" step="0.01" class="form-control input-sm" ng-model="invoice.amount" />
+                                </div>
+                            </div>
+
+                            <div style="float:left; padding-right:10px;">
+                                <label for="invCurrency" style="font-size:12px;">Inv Currency</label>
+                                <div style="width:180px">
+                                    <select id="invCurrency" class="form-control input-sm" ng-model="invoice.localCurrency" ng-options="c.detailName as c.detailName for c in currencyList">
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="float:left; padding-right:10px;">
+                                <label for="invAmount" style="font-size:12px;">Inv Amount</label>
+                                <div style="width:220px">
+                                    <input id="invAmount" type="number" step="0.01" class="form-control input-sm" ng-model="invoice.localAmount" />
+                                </div>
+                            </div>
+
+                            <div style="float:left; padding-right:10px;">
+                                <label for="description" style="font-size:12px;">Description</label>
+                                <div style="width:980px">
+                                    <input type="text" id="description" class="form-control input-sm" ng-model="invoice.description" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="padding-top:10px; margin-left:20px; margin-right:20px;">
+                        <div class="grid-style" ui-grid="pmtDetailEditGrid" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:150px;height:150px;width:100%;max-width:1000px;">
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+    <div class="modal-footer">
+        <div class="row">
+            <div style="float:right; margin-right:30px">
+                <button type="button" class="btn btn-primary" ng-click="closeModal()" style="float:right; margin-left:10px;">Close</button>
+                <button type="button" class="btn btn-primary save" ng-click="save()" style="float:right;">Save</button>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,65 @@
+﻿<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <h4 class="col-md-11 panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion">
+                        OD 统计
+                    </a>
+                </h4>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary " style="width:70px; " ng-click="exportReport()">
+                        Export
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:0px">
+                <div class="grid-style" ui-grid="reportODList" ui-grid-resize-columns ui-grid-selection>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <h4 class="col-md-10 panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion">
+                        OD 详细
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in">
+            <div class="panel-body"  style="padding:0px">
+
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="grid-style" ui-grid="reportList" ui-grid-resize-columns ui-grid-selection>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pageSizeChanged(selectedLevel)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+                        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                            ng-model="currentPage" ng-change="pageChanged()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems}}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

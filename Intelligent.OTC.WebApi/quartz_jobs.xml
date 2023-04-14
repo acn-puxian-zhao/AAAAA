@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- This file contains job definitions in schema version 2.0 format -->
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" 
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     version="2.0">
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+  <schedule>
+
+    <job>
+      <name>DownFTPFileJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>AR Report FTP Down Job</description>
+      <job-type>Intelligent.OTC.Job.DownFTPFileJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>DownFTPFileTrigger</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>AR Report FTP Down trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>DownFTPFileJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 35,40 10 ? * 3,4,5,6,7</cron-expression>
+      </cron>
+    </trigger>
+
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>DownFTPFileTrigger2</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>AR Report FTP Down trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>DownFTPFileJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 0 22 ? * 1</cron-expression>
+      </cron>
+    </trigger>
+
+    <job>
+      <name>AutoImportARJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>AR Report Import Job</description>
+      <job-type>Intelligent.OTC.Job.AutoImportARJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoImportARTrigger</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>AR Report Import Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoImportARJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 41 10 ? * 3,4,5,6,7</cron-expression>
+      </cron>
+    </trigger>    
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoImportARTrigger2</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>AR Report Import Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoImportARJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 10 22 ? * 1</cron-expression>
+      </cron>
+    </trigger>
+	
+    <job>
+      <name>AutoImportCusJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>Cus Report Import Job</description>
+      <job-type>Intelligent.OTC.Job.AutoImportCusJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoImportCusTrigger</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Cus Report Import Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoImportCusJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+	<start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 5 8 * * ? *</cron-expression>
+      </cron>
+    </trigger>
+
+
+    <job>
+      <name>SubmitAndBuildAgingDataJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>AR Report 提交 Job</description>
+      <job-type>Intelligent.OTC.Job.SubmitAndBuildAgingDataJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+        <job-data-map>
+	  <entry>
+              <key>WarnMailReceiver</key>
+		<value>fujie.wan@accenture.com;saihao.wang@arrowasia.com;zaichen.yin@accenture.com;xiaodong.wang@arrow.com;tian.meng@arrowasia.com;xintong.li@arrowasia.com;qin.wang@arrowasia.com;wenwen.dong@arrowasia.com;yongtang.li@arrowasia.com;xin.b.sun@accenture.com;xiaoyi.yang@arrowasia.com;hong.chen@arrowasia.com;xin.xin@arrow.com;mingyue.xia@arrowasia.com;shuhan.liu@arrowasia.com;qian.li@arrowasia.com;yushan.bai@arrowasia.com;xichao.meng@arrowasia.com;atmotc.ap@arrowasia.com;twar.ap@arrowasia.com;chinasoa.ap@arrowasia.com;KRACCN.AR@ARROWASIA.COM;meina.jin@arrowasia.com;tian.li@arrowasia.com;lanmei.li@arrowasia.com;xintong.li@arrowasia.com;SHUHAN.LIU@arrowasia.com;WENWEN.DONG@arrowasia.com;XIN.LIANG@arrowasia.com;ning.lu@accenture.com;xianghui.li@accenture.com;zhen.wang@arrowasia.com;dan.sun@arrowasia.com;ASEANAR.AP@arrowasia.com;CREDIT.HK@arrowasia.com;</value>
+          </entry>
+        </job-data-map>
+    </job>
+
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>SubmitAndBuildAgingDataTrigger</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>AR Report Import Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>SubmitAndBuildAgingDataJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 50 10 ? * 3,4,5,6,7</cron-expression>
+      </cron>
+    </trigger>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>SubmitAndBuildAgingDataTrigger2</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>AR Report Import Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>SubmitAndBuildAgingDataJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 30 22 ? * 1</cron-expression>
+      </cron>
+    </trigger>
+
+    <job>
+      <name>AutoReceiveMailJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>自动收邮件任务</description>
+      <job-type>Intelligent.OTC.Job.AutoReceiveMailJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoReceiveMailJob</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Auto Receive Mail Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoReceiveMailJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 */5 * * * ? *</cron-expression>
+      </cron>
+    </trigger>
+
+    <job>
+      <name>AutoExportFeedbackReportJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>自动生成FeedbackReport</description>
+      <job-type>Intelligent.OTC.Job.AutoExportFeedbackReportJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoExportFeedbackReportJob</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Auto Export FeedbackReport Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoExportFeedbackReportJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>00 00 22 ? * 7</cron-expression>
+      </cron>
+    </trigger>
+
+    <job>
+      <name>AutoSendSOAJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>自动发送SOA及Reminding邮件任务</description>
+      <job-type>Intelligent.OTC.Job.AutoSendSOAJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+        <job-data-map>
+          <entry>
+            <key>Deal</key>
+            <value>Arrow</value>
+          </entry>
+          <entry>
+              <key>SubJobEndTimeUTC8</key>
+              <value>09:00:00</value>
+          </entry>
+	  <entry>
+              <key>WarnMailReceiver</key>
+		<value>jenny.lu.dong@accenture.com;fujie.wan@accenture.com;saihao.wang@arrowasia.com;zaichen.yin@accenture.com;xiaodong.wang@arrow.com;tian.meng@arrowasia.com;xintong.li@arrowasia.com;qin.wang@arrowasia.com;wenwen.dong@arrowasia.com;yongtang.li@arrowasia.com;xin.b.sun@accenture.com;xiaoyi.yang@arrowasia.com;hong.chen@arrowasia.com;xin.xin@arrow.com;mingyue.xia@arrowasia.com;shuhan.liu@arrowasia.com;qian.li@arrowasia.com;yushan.bai@arrowasia.com;xichao.meng@arrowasia.com;atmotc.ap@arrowasia.com;twar.ap@arrowasia.com;chinasoa.ap@arrowasia.com;KRACCN.AR@ARROWASIA.COM;meina.jin@arrowasia.com;tian.li@arrowasia.com;lanmei.li@arrowasia.com;xintong.li@arrowasia.com;SHUHAN.LIU@arrowasia.com;WENWEN.DONG@arrowasia.com;ning.lu@accenture.com;dan.sun@arrowasia.com;CREDIT.HK@arrowasia.com;</value>
+          </entry>
+        </job-data-map>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoSendSOAJob</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Auto Send SOA Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoSendSOAJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>59 59 23 ? * 1,2,3,4,5</cron-expression>
+      </cron>
+    </trigger>
+
+   <job>
+      <name>AutoSendSOAJobASEAN</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>自动发送SOA及Reminding邮件任务</description>
+      <job-type>Intelligent.OTC.Job.AutoSendSOAJobASEAN, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+        <job-data-map>
+          <entry>
+            <key>Deal</key>
+            <value>Arrow</value>
+          </entry>
+          <entry>
+              <key>SubJobEndTimeUTC8</key>
+              <value>23:00:00</value>
+          </entry>
+	  <entry>
+              <key>WarnMailReceiver</key>
+		<value>jenny.lu.dong@accenture.com;fujie.wan@accenture.com;XIN.LIANG@arrowasia.com;xianghui.li@accenture.com;zhen.wang@arrowasia.com;ASEANAR.AP@arrowasia.com;</value>
+          </entry>
+        </job-data-map>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoSendSOAJobASEAN</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Auto Send SOA ASEAN Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoSendSOAJobASEAN</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 30 11 ? * 2,3,4,5,6</cron-expression>
+      </cron>
+    </trigger>
+
+    <job>
+      <name>AutoSendSOAJobAZN</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>自动发送SOA及Reminding邮件任务</description>
+      <job-type>Intelligent.OTC.Job.AutoSendSOAJobAZN, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>Deal</key>
+          <value>Arrow</value>
+        </entry>
+        <entry>
+          <key>SubJobEndTimeUTC8</key>
+          <value>23:00:00</value>
+        </entry>
+        <entry>
+          <key>WarnMailReceiver</key>
+          <value>jenny.lu.dong@accenture.com;fujie.wan@accenture.com;XIN.LIANG@arrowasia.com;xianghui.li@accenture.com;zhen.wang@arrowasia.com;ASEANAR.AP@arrowasia.com;</value>
+        </entry>
+      </job-data-map>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoSendSOAJobAZN</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Auto Send SOA AZN Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoSendSOAJobAZN</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 30 11 ? * 2,3,4,5,6</cron-expression>
+      </cron>
+    </trigger>
+    
+    <job>
+      <name>AutoSendPMTJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>自动发送PMT邮件任务</description>
+      <job-type>Intelligent.OTC.Job.AutoSendPMTJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+        <job-data-map>
+          <entry>
+            <key>Deal</key>
+            <value>Arrow</value>
+          </entry>
+          <entry>
+              <key>SubJobEndTimeUTC8</key>
+              <value>23:59:59</value>
+          </entry>
+	  <entry>
+              <key>PMTMailReceiver</key>
+		<value>MEIYAN.QU@arrowasia.com;SOUTHCHINA.COLLECTION@arrowasia.com;CCHINAAR.AP@arrowasia.com;jenny.lu.dong@accenture.com;fujie.wan@accenture.com;saihao.wang@arrowasia.com;zaichen.yin@accenture.com;xiaodong.wang@arrow.com;tian.meng@arrowasia.com;xintong.li@arrowasia.com;qin.wang@arrowasia.com;wenwen.dong@arrowasia.com;yongtang.li@arrowasia.com;xin.b.sun@accenture.com;xiaoyi.yang@arrowasia.com;hong.chen@arrowasia.com;xin.xin@arrow.com;mingyue.xia@arrowasia.com;shuhan.liu@arrowasia.com;qian.li@arrowasia.com;yushan.bai@arrowasia.com;xichao.meng@arrowasia.com;atmotc.ap@arrowasia.com;twar.ap@arrowasia.com;chinasoa.ap@arrowasia.com;KRACCN.AR@ARROWASIA.COM;meina.jin@arrowasia.com;tian.li@arrowasia.com;lanmei.li@arrowasia.com;xintong.li@arrowasia.com;SHUHAN.LIU@arrowasia.com;WENWEN.DONG@arrowasia.com;XIN.LIANG@arrowasia.com;ning.lu@accenture.com;xianghui.li@accenture.com;zhen.wang@arrowasia.com;dan.sun@arrowasia.com;ASEANAR.AP@arrowasia.com;CREDIT.HK@arrowasia.com;</value>
+          </entry>
+        </job-data-map>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoSendPMTJob</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Auto Send PMT Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoSendPMTJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>0 00 16 ? * 2,3,4,5,6</cron-expression>
+      </cron>
+    </trigger>
+
+
+    <job>
+      <name>AutoSendCaPmtDetailMailJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>DailyJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>自动发送 CA PmtDetail 邮件任务</description>
+      <job-type>Intelligent.OTC.Job.AutoSendCaPmtDetailMailJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <!--复杂任务触发器,使用cron表达式定制任务调度-->
+      <cron>
+        <!--触发器名称，同一个分组中的名称必须不同-->
+        <name>AutoSendCaPmtDetailMailJob</name>
+        <!--触发器组-->
+        <group>DailyTrigger</group>
+        <!--触发器描述-->
+        <description>Auto Send CA PmtDetail Trigger</description>
+        <!--要调度的任务名称，该job-name必须和对应job节点中的name完全相同-->
+        <job-name>AutoSendCaPmtDetailMailJob</job-name>
+        <!--调度任务(job)所属分组，该值必须和job中的group完全相同-->
+        <job-group>DailyJobs</job-group>
+        <start-time>2099-01-01T00:00:00+08:00</start-time>
+        <!--每天8:05,8:10,8:15执行:0 5,10,15 8 * * ? *-->
+        <cron-expression>59 59 23 ? * 1,2,3,4,5</cron-expression>
+      </cron>
+    </trigger>
+
+
+    <job>
+      <name>SendSoaMailJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>QueueJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>Send Soa Mail Job</description>
+      <job-type>Intelligent.OTC.Job.SendSoaMailJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+
+
+    <job>
+      <name>SendCaPmtMailJob</name>
+      <!--任务名称，同一个group中多个job的name不能相同，若未设置group则所有未设置group的job为同一个分组（必须设置）-->
+      <group>QueueJobs</group>
+      <!--任务所属分组，用于标识任务所属分组-->
+      <description>Send CAPmt Mail Job</description>
+      <job-type>Intelligent.OTC.Job.SendCaPmtMailJob, Intelligent.OTC.Job</job-type>
+      <!--任务类型，任务的具体类型及所属程序集，格式：实现了IJob接口的包含完整命名空间的类名,程序集名称-->
+      <durable>true</durable>
+      <!--<durable>（持久性）-如果一个Job是不持久的， 一旦没有触发器与之关联，它就会被从scheduler 中自动删除-->
+      <recover>false</recover>
+    </job>
+
+  </schedule>
+
+</job-scheduling-data>

@@ -1,0 +1,57 @@
+﻿<script src="Scripts/echarts/echarts-all.js" type="text/javascript"></script>
+<div class="form-horizontal" style="color:#1986ff;width:98%">
+    <div class="row" style="margin-top:-10px;height:30px">
+        <div class="col-md-12" style="text-align:center">
+            <!--<h2><span>{{ShowMonth}} {{ShowYear}} The Progress of AR Collection</span></h2>-->
+            <h2><span>Collection Dashboard</span></h2>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:40px;height:200px">
+        <div class="col-md-4">
+            <div class="col-md-2" style="width:40%;height:200px">
+                <div style="margin-top:0;font-weight:bold"><h3>Confirm PTP</h3></div>
+                <div style="margin-top:30px;"><h5> PTP:{{ConfirmTotal}}</h5></div>
+                <div style="margin-bottom:80px;"><h5>Total:{{TotalAMT}}</h5></div>
+            </div>
+            <div class="col-md-2" id="confirmPTP" style="height:200px;margin-top:-10px;margin-left:-20px; width:60%" data-targetUrl="#/collectorSoa" ng-click="ChartClick($event)"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-2" style="width:40%;height:200px">
+                <div style="margin-top:0;font-weight:bold"><h3>Over Due</h3></div>
+                <div style="margin-top:30px;"><h5> Overdue:{{OverdueTotal}}</h5></div>
+                <div style="margin-bottom:80px;"><h5>Totall:{{TotalAMT}}</h5></div>
+            </div>
+            <div class="col-md-2" id="overdue" style="height:200px;width:60%;margin-left:-20px;" data-targetUrl="#/collectorSoa" ng-click="ChartClick($event)"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-2" style="width:40%;height:200px">
+                <div style="margin-top:0;font-weight:bold"><h3>Dispute</h3></div>
+                <div style="margin-top:30px;"><h5> Dispute:{{DisputeTotal}}</h5></div>
+                <div style="margin-bottom:80px;"><h5>Total:{{TotalAMT}}</h5></div>
+            </div>
+            <div class="col-md-2" id="dispute" style="height:200px;width:60%;margin-left:-20px;" data-targetUrl="#/disputetracking" ng-click="ChartClick($event)"></div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:-10px">
+        <div class="col-md-6">
+            <div id="OverdueReason" style="height:500px;"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="OverdueAging" style="height:500px;"></div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px">
+        <div class="col-md-2" style="">
+            <div style="font-weight:bold;color:#1986ff"><h3>{{noCollectorperfix}}</h3></div>
+        </div>
+        <div class="col-md-10" style="color:red;"><h4 style="line-height:50px">{{noCollector}}</h4></div>
+    </div>
+    <div class="row" style="margin-bottom:20px">
+        <div class="col-md-2" style="">
+            <div style="font-weight:bold;color:#1986ff"><h3>{{noUploadperfix}}</h3></div>
+        </div>
+        <div class="col-md-10" style="color:red;"><h4 style="line-height:50px">{{noUpload}}</h4></div>
+    </div>
+</div>

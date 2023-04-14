@@ -1,0 +1,22 @@
+﻿<div class="modal-header">
+    <b>Import PaymentCycle File</b>
+</div>
+<div class="modal-body">
+   <table style="height:55px">
+      <tr>
+        <td>
+            <input type="file" id="importFile" nv-file-select="" uploader="uploader" style="width:170px" /> 
+        </td>
+        <td style="width:40px">
+             <a ng-click="reset()">Clear</a>
+          </td>
+        <td>
+            <a ng-click="importExcel()">Upload</a>
+        </td>
+      </tr>
+
+   </table>   
+    <button type="button" class="btn-xs btn-primary" ng-click="close()" style="float:right; margin-right:12px;margin-top:-20px">
+        Close
+    </button>       
+</div>

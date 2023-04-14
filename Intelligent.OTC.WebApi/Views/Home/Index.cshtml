@@ -1,0 +1,231 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html ng-app="main" ng-controller="LandingPageController">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Index</title>
+    <
+    @*<<base href="/ICollection/Site/">*@
+    <base href="/">
+    <title ng-bind="helloAngular"></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" type="text/css" />
+    <link href="Content/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+    <link href="Content/ui-grid.css" rel="stylesheet" type="text/css" />
+    <link href="Content/appstyles/site.css" rel="stylesheet" type="text/css" />
+    <link href="Content/appstyles/base.css" rel="stylesheet" type="text/css" />
+    <link href="Content/appstyles/black_header.css" rel="stylesheet" type="text/css" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/appstyles/navbar-fixed-side.css" rel="stylesheet" type="text/css" />
+    <link href="Content/simple-sidebar.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/metronic/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="Content/star-rating.min.css" rel="stylesheet" type="text/css" />
+    <!--<link href="Scripts/metronic/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />-->
+    <!--<script src="Scripts/metronic/vendors/base/vendors.bundle.js" type="text/javascript"></script>-->
+    <!--<script src="Scripts/metronic/demo/default/base/scripts.bundle.js" type="text/javascript"></script>-->
+</head>
+
+<body>
+    @Html.AntiForgeryToken();
+    <div class="container-fluid">
+        <div ng-cloak wc-overlay wc-overlay-delay="500">
+            <br />
+            <img src="Content/images/spinner.gif" />Loading
+        </div>
+
+        <div id="header" ng-include="'app/newheader.tpl.html'"></div>
+        <div id="pg_placeholder" style="height: 50px;"></div>
+        <div id="page_content">
+            <div ng-include="'app/notifications.tpl.html'"></div>
+            <div ng-cloak class='btn-group toolbar' style='display: inline-block;'>
+                <div class='btn-group' ng-repeat="a in pageactions">
+                    <button type="button" class="btn btn-primary" ng-class="a.style" ng-click="actionClicked(a)">
+                        {{a.funcName}}
+                    </button>
+                    <!-- Split button -->
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-show="a.subFuncs.length>0">
+                        <span class="caret"></span>&nbsp
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="sa in a.subFuncs"><a ng-click="actionClicked(sa)">{{sa.funcName}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div ng-view></div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui.min-1.11.1.js" type="text/javascript"></script>
+    <script src="Scripts/angular.js" type="text/javascript"></script>
+    <script src="Scripts/angular-resource.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular-animate.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular-route.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular-touch.js" type="text/javascript"></script>
+    <!--<script src="Scripts/sanitize.js" type="text/javascript"></script>-->
+    <script src="Scripts/angular-sanitize.min.js" type="text/javascript"></script>
+    <!--<script src="Scripts/ui-grid.js" type="text/javascript"></script>-->
+    <script src="Scripts/ui-grid.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="Scripts/angular-ui/uploader.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular-ui/angular-file-upload.js" type="text/javascript"></script>
+    <script src="Scripts/angular-ui/angular-file-upload_com.js" type="text/javascript"></script>
+    <script src="Scripts/console-sham.js" type="text/javascript"></script>
+    <script src="Scripts/console-sham.min.js" type="text/javascript"></script>
+    <script src="Scripts/es5-shim.min.js" type="text/javascript"></script>
+    <script src="Scripts/es5-sham.min.js" type="text/javascript"></script>
+    <script src="Scripts/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular-ui/tinymce.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="Scripts/newheader.js" type="text/javascript"></script>
+    <!--<script src="Scripts/require.js"></script>-->
+    <script src="Scripts/echarts/echarts-all.js" type="text/javascript"></script>
+    <!--<script src="Scripts//echarts/theme/macarons.js" type="text/javascript"></script>-->
+    <script src="common/directives/crud/crudButtons.js" type="text/javascript"></script>
+    <script src="common/directives/crud/edit.js" type="text/javascript"></script>
+    <script src="common/directives/basedataBinding.js" type="text/javascript"></script>
+    <script src="common/directives/datetimepicker.js" type="text/javascript"></script>
+    <script src="common/directives/editpartial.js" type="text/javascript"></script>
+    <script src="common/directives/wcOverlay.js" type="text/javascript"></script>
+    <script src="common/directives/mailinstance.js" type="text/javascript"></script>
+    <script src="common/providers/crudRouteProvider.js" type="text/javascript"></script>
+    <script src="common/services/i18nNotifications.js" type="text/javascript"></script>
+    <script src="common/services/localizedMessages.js" type="text/javascript"></script>
+    <script src="common/services/notifications.js" type="text/javascript"></script>
+    <script src="common/services/breadscrumbsService.js" type="text/javascript"></script>
+    <script src="common/services/modalService.js" type="text/javascript"></script>
+    <script src="common/services/crudService.js" type="text/javascript"></script>
+    <script src="common/services/Resource.js" type="text/javascript"></script>
+    <script src="common/services/mailInstanceService.js" type="text/javascript"></script>
+    <script src="common/services/cookieWatcherService.js" type="text/javascript"></script>
+    <script src="common/services/cacheService.js"></script>
+    <script src="common/resources/dunningProxy.js" type="text/javascript"></script>
+    <script src="common/resources/contactProxy.js" type="text/javascript"></script>
+    <script src="common/resources/collectionProxy.js" type="text/javascript"></script>
+    <script src="common/resources/permissionProxy.js" type="text/javascript"></script>
+    <script src="common/resources/baseDataProxy.js" type="text/javascript"></script>
+    <script src="common/resources/siteProxy.js" type="text/javascript"></script>
+    <script src="common/resources/agingProxy.js" type="text/javascript"></script>
+    <script src="common/resources/dailyAgingProxy.js" type="text/javascript"></script>
+    <script src="common/resources/initagingProxy.js" type="text/javascript"></script>
+    <script src="common/resources/invoiceProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerProxy.js" type="text/javascript"></script>
+    <script src="common/resources/contactHistoryProxy.js" type="text/javascript"></script>
+    <script src="common/resources/generateSOAProxy.js" type="text/javascript"></script>
+    <script src="common/resources/userProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerGroupCfgProxy.js" type="text/javascript"></script>
+    <script src="common/resources/agingDownLoadProxy.js" type="text/javascript"></script>
+    <script src="config/constants.js" type="text/javascript"></script>
+    <script src="common/resources/mailTemplateProxy.js" type="text/javascript"></script>
+    <script src="common/resources/mailProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerPaymentBankProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerPaymentcircleProxy.js" type="text/javascript"></script>
+    <script src="common/resources/periodProxy.js" type="text/javascript"></script>
+    <script src="common/resources/commonProxy.js" type="text/javascript"></script>
+    <script src="common/resources/collectorSoaProxy.js" type="text/javascript"></script>
+    <script src="common/resources/taskProxy.js" type="text/javascript"></script>
+    <script src="common/resources/contactCustomerProxy.js" type="text/javascript"></script>
+    <script src="common/resources/xcceleratorProxy.js" type="text/javascript"></script>
+    <script src="common/resources/disputeTrackingProxy.js" type="text/javascript"></script>
+    <script src="common/resources/collectorSignatureProxy.js" type="text/javascript"></script>
+    <script src="common/resources/appFilesProxy.js" type="text/javascript"></script>
+    <script src="common/resources/breakPtpProxy.js" type="text/javascript"></script>
+    <script src="common/resources/holdCustomerProxy.js" type="text/javascript"></script>
+    <script src="common/resources/unholdCustomerProxy.js" type="text/javascript"></script>
+    <script src="common/resources/specialNotesProxy.js" type="text/javascript"></script>
+    <script src="common/resources/allinfoProxy.js"></script>
+    <script src="common/resources/dailyReportProxy.js"></script>
+    <script src="common/resources/PTPPaymentProxy.js"></script>
+    <script src="common/resources/myinvoicesProxy.js"></script>
+    <script src="common/resources/dashboardProxy.js"></script>
+    <script src="common/resources/agingReportProxy.js"></script>
+    <script src="common/resources/disputeReportProxy.js"></script>
+    <script src="common/resources/overdueReportProxy.js"></script>
+    <script src="app/common/collector/user.js" type="text/javascript"></script>
+    <script src="app/common/contactor/contactor.js" type="text/javascript"></script>
+    <script src="app/common/mail/mail.js" type="text/javascript"></script>
+    <script src="app/common/mailtemplate/mailtemplate.js" type="text/javascript"></script>
+    <script src="app/common/floatmenu/floatmenu.js" type="text/javascript"></script>
+    <script src="app/common/contactdetail/contact.js" type="text/javascript"></script>
+    <script src="app/common/contactdetail/contactSecond.js" type="text/javascript"></script>
+    <script src="app/common/changestatus/changeStatus.js"></script>
+    <script src="app/common/changeinvoicestatus//changeInvoiceStatus.js"></script>
+    <script src="app/common/upload/import.js" type="text/javascript"></script>
+    <script src="app/common/upload/importPayment.js" type="text/javascript"></script>
+    <script src="app/common/upload/importAP.js" type="text/javascript"></script>
+    <script src="app/common/paging/paging.js" type="text/javascript"></script>
+    <script src="app/masterdata/contacthistory/contacthistory.js" type="text/javascript"></script>
+    <script src="app/masterdata/contactor/contactor.js" type="text/javascript"></script>
+    <script src="app/masterdata/customer/customer.js" type="text/javascript"></script>
+    <script src="app/masterdata/customer/customerEdit.js" type="text/javascript"></script>
+    <script src="app/masterdata/customer/delConfirm.js" type="text/javascript"></script>
+    <script src="app/masterdata/mailtemplate/mailtemplate.js" type="text/javascript"></script>
+    <script src="app/masterdata/paymentbank/paymentbank.js" type="text/javascript"></script>
+    <script src="app/masterdata/period/period.js" type="text/javascript"></script>
+    <script src="app/masterdata/reassignresponse/reassignresponse.js" type="text/javascript"></script>
+    <script src="app/masterdata/user/user.js" type="text/javascript"></script>
+    <script src="app/masterdata/user/userUpdatePwd.js" type="text/javascript"></script>
+    <script src="app/dataprepare/dataprepare.js" type="text/javascript"></script>
+	<script src="app/task/task.js" type="text/javascript"></script>
+    <script src="app/soa/collectorSoa.js" type="text/javascript"></script>
+    <script src="app/soa/task.js" type="text/javascript"></script>
+    <script src="app/soa/taskedit.js" type="text/javascript"></script>
+    <script src="app/soa/sendSoa/sendSoa.js" type="text/javascript"></script>
+    <script src="app/soa/invhistory/invhistory.js" type="text/javascript"></script>
+    <script src="app/soa/invdetail/invdetail.js" type="text/javascript"></script>
+    <script src="app/contactcustomer/contactCustomer.js" type="text/javascript"></script>
+    <script src="app/contactcustomer/contactmaster/contactMaster.js" type="text/javascript"></script>
+    <script src="app/disputetracking/disputeTracking.js" type="text/javascript"></script>
+    <script src="app/disputetracking/dispute/dispute.js"></script>
+    <script src="app/maillist/maillist.js"></script>
+    <script src="app/maillist/contactcustomeredit/contactcustomer.js"></script>
+    <script src="app/dunning/dunning.js" type="text/javascript"></script>
+    <script src="app/dunning/senddun/sendDun.js"></script>
+    <script src="app/masterdata/dunning/dunning.js"></script>
+    <script src="app/allcontactinfo/allinfo.js"></script>
+    <script src="app/allcontactinfo/ptpInfo/ptpInfo.js"></script>
+    <script src="app/masterdata/customerdomain/custdomain.js" type="text/javascript"></script>
+    <script src="app/maillist/maildetail/maildetail.js"></script>
+    <script src="app/app.js" type="text/javascript"></script>
+    <script src="app/allcontactinfo/allcontact/allaccount.js"></script>
+    <script src="app/common/report/dailyReport.js"></script>
+    <script src="app/myinvoices/myinvoices.js"></script>
+    <script src="app/common/report/dashboard.js"></script>
+    <script src="app/common/report/arreport.js"></script>
+    <script src="app/common/report/dailyAgingreport.js"></script>
+    <script src="app/common/report/disputereport.js"></script>
+    <script src="app/common/report/overduereport.js"></script>
+    <script src="app/masterdata/ar/arAnalysis.js"></script>
+    <script src="app/masterdata/customerAccountPeriod/accountPeriod.js"></script>
+    <script src="app/arrowemail/arrowemail.js"></script>
+    <script src="app/myinvoices/vatimport.js" type="text/javascript"></script>
+    <script src="common/resources/arrowemailProxy.js"></script>
+    <script src="Scripts/jquery.timelinr-0.9.6.js"></script>
+    <script src="Scripts/jquery.jqtimeline.js"></script>
+    <script src="common/directives/timeline.js" type="text/javascript"></script>
+    <script src="common/resources/customerAssessmentLogProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerAssessmentProxy.js" type="text/javascript"></script>
+    <script src="common/resources/assessmentTypeProxy.js" type="text/javascript"></script>
+    <script src="common/resources/mailAccountProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerAssessmentHistoryProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerAccountPeriodProxy.js" type="text/javascript"></script>
+    <script src="common/resources/ebProxy.js" type="text/javascript"></script>
+    <script src="common/resources/openARProxy.js" type="text/javascript"></script>
+    <script src="common/resources/customerContactCoverageProxy.js" type="text/javascript"></script>
+    <script src="common/resources/collectorStatisticsHisProxy.js" type="text/javascript"></script>
+    <script src="common/resources/cashCollectedProxy.js" type="text/javascript"></script>
+    <script src="common/resources/disputReasonProxy.js" type="text/javascript"></script>
+    <script src="common/resources/statisticsCollectProxy.js" type="text/javascript"></script>
+    <script src="app/dso/dsoanalysis.js" type="text/javascript"></script>
+    <script src="app/statistics/statistics.js" type="text/javascript"></script>
+    <!--<script src="Scripts/echarts.min.js" type="text/javascript"></script>-->
+    <script src="Scripts/star-rating.min.js"></script>
+</body>
+</html>
+
+

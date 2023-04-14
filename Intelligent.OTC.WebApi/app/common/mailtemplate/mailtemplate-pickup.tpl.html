@@ -1,0 +1,51 @@
+﻿<div class="modal-header" >     
+    <h3>
+        Choose Template
+    </h3>
+    <!--<div class="row" >
+        <label for="userName" class="col-md-2 control-label" >
+            Language:</label>
+        <div class="col-md-3">
+            <select class="form-control input-sm" ng-model="language" ng-options="d.detailValue as d.detailName for d in maillanguages"  ng-change="search()">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <label for="eid" class="col-md-2 control-label">
+            Type:</label>
+        <div class="col-md-3">
+            <select class="form-control input-sm" ng-model="type" ng-options="d.detailValue as d.detailName for d in mailtypes"  ng-change="search()">
+                <option value="">All</option>
+            </select>
+        </div>    
+   </div>-->
+</div>
+<div class="modal-body">
+    <div class="row">
+        <label for="eid" class="col-md-3 control-label">
+            Language :
+        </label>
+        <div class="col-md-6">
+            <!--<select class="form-control input-sm" ng-model="lang" ng-options="d.detailValue as d.detailName for d in mailtypes">-->
+                            <select class="form-control input-sm" ng-model="templanguage" ng-options="d.detailValue as d.detailName for d in maillanguages"  >
+            </select>
+
+        </div>   
+    </div>
+</div>
+<!--<div class="modal-body">  
+     <div class="grid-style" ui-grid="gridPickup" ui-grid-resize-columns ui-grid-selection >
+     </div> 
+</div>-->
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-md-2" style="float:right">
+        <button type="button" class="btn btn-primary form-control" ng-click="cancel()">
+                    Cancel</button>
+        </div>
+        <div class="col-md-2" style="float:right">
+        <button type="button" class="btn btn-primary form-control" ng-click="confirm()">
+                    Confirm</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,314 @@
+﻿<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div>
+        <label style="color:Red">Master Data</label>
+    </div>
+    <div id="divMasterData" class="form-group " style=" border:1px solid;border-color:#000; width:1140px; padding:10px;">
+        <br />
+        <div class="row">
+            <label class="control-label col-md-2">Customer No.: </label>
+            <div class="col-md-2">
+                <input type="text" id="CustomerCode" class="form-control input-sm" name="CustomerCode" ng-model="cust.customerNum" ng-readonly="isreadonly" />
+            </div>
+            <label class="control-label col-md-2">Customer Name: </label>
+            <div class="col-md-2">
+                <input type="text" id="CustomerName" class="form-control input-sm" name="customerName" ng-model="cust.customerName" />
+            </div>
+            <label class="control-label col-md-2">Internal Company:</label>
+            <div class="col-md-2">
+                <select id="Company" class="form-control input-sm" ng-model="cust.excludeFlg" ng-options="a.detailValue as a.detailName for a in internallist"></select>
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+
+            <label class="control-label col-md-2">Site Use ID: </label>
+            <div class="col-md-2">
+                <input type="text" id="SiteUseID" class="form-control input-sm" name="SiteUseID" ng-model="cust.siteUseId" ng-readonly="isreadonly" />
+            </div>
+            <label class="control-label col-md-2">Country: </label>
+            <div class="col-md-2">
+                <input type="text" id="Country" class="form-control input-sm" name="Country" ng-model="cust.country" />
+            </div>
+            <!--<label class="control-label col-md-2">Account Status:</label>
+            <div class="col-md-2">
+                <select id="AccountStatus" ng-model="AccountStatus" class="form-control input-sm" ng-options="x.id as x.detailName for x in accountStatusList"></select>
+            </div>-->
+            <label class="control-label col-md-2">Legal Entity:</label>
+            <div class="col-md-2">
+                <select id="legalEntity" class="form-control input-sm" ng-model="cust.organization" ng-options="a.legalEntity as a.legalEntity for a in legalEntityList"></select>
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <label class="control-label col-md-2">EB Name: </label>
+            <div class="col-md-2">
+                <input type="text" id="ebName" class="form-control input-sm" name="ebName" ng-model="cust.ebname" />
+            </div>
+            <label class="control-label col-md-2">Amount Limit: </label>
+            <div class="col-md-2">
+                <input type="text" id="amtLimit" class="form-control input-sm" name="amtLimit" ng-model="cust.amtLimit" />
+            </div>
+            <label class="control-label col-md-2">PaymentTrem: </label>
+            <div class="col-md-2">
+                <input type="text" id="creditTrem" class="form-control input-sm" name="creditTrem" ng-model="cust.creditTrem" />
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <label class="control-label col-md-2">Collector:</label>
+            <div class="col-md-2">
+                <select id="Collector" ng-change="change(cust.collector)" class="form-control input-sm" ng-model="cust.collector" ng-options="a.eid as a.name for a in collectorlist">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <label class="control-label col-md-2">Contact Language:</label>
+            <div class="col-md-2">
+                <select id="Collector" ng-change="" class="form-control input-sm" ng-model="cust.contactLanguage" ng-options="a.detailValue as a.detailName for a in languagelist"></select>
+            </div>
+            <label class="control-label col-md-2">Customer Service: </label>
+            <div class="col-md-2">
+                <input type="text" id="customerService" class="form-control input-sm" name="customerService" ng-model="cust.customeR_SERVICE" />
+            </div>
+        </div>
+
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <label class="control-label col-md-2">Sales:</label>
+            <div class="col-md-2">
+                <input type="text" id="sales" class="form-control input-sm" name="sales" ng-model="cust.sales" />
+            </div>
+            <!--<label class="control-label col-md-2">IsAMS:</label>
+            <div class="col-md-2">
+                <input type="checkbox" id="isams" name="sales" ng-model="cust.isams" />
+            </div>-->
+            <label class="control-label col-md-2">LocalizeCustomerName: </label>
+            <div class="col-md-2">
+                <input type="text" id="LocalizeCustomerName" class="form-control input-sm" name="LocalizeCustomerName" ng-model="cust.localizE_CUSTOMER_NAME" />
+            </div>
+            <label class="control-label col-md-2">Credit Limit: </label>
+            <div class="col-md-2">
+                <input type="text" id="creditLimit" class="form-control input-sm" name="creditLimit" ng-model="cust.creditLimit" />
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <!--<label class="control-label col-md-2">SOA Templete:</label>-->
+            <div class="col-md-2" style="display:none">
+                <select id="soatemplete" ng-change="" class="form-control input-sm" ng-model="cust.soaTemplete" ng-options="a.detailValue as a.detailName for a in soatempletelist"></select>
+            </div>
+            <label class="control-label col-md-2">Region:</label>
+            <div class="col-md-2">
+                <select id="region" ng-change="" class="form-control input-sm" ng-model="cust.region" ng-options="a.detailValue as a.detailName for a in regionlist"></select>
+            </div>
+            <label class="control-label col-md-2">Group Name: </label>
+            <div class="col-md-2">
+                <input type="text" id="groupName" class="form-control input-sm" name="groupName" ng-model="cust.groupName" />
+            </div>
+            <label class="control-label col-md-2">IsActive: </label>
+            <div class="col-md-2">
+                <input type="checkbox" id="isActive" name="isActive" ng-model="cust.isActive" />
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <label class="control-label col-md-2">BadDebt: </label>
+            <div class="col-md-2">
+                <input type="number" step=".01" id="badDebt" class="form-control input-sm" name="badDebt" ng-model="cust.badDebt" />
+            </div>
+            <label class="control-label col-md-2">Branch: </label>
+            <div class="col-md-2">
+                <input type="text" id="branch" class="form-control input-sm" name="branch" ng-model="cust.branch" />
+            </div>
+            <label class="control-label col-md-2">Litigation: </label>
+            <div class="col-md-2">
+                <input type="text" id="litigation" class="form-control input-sm" name="litigation" ng-model="cust.litigation" />
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <label class="control-label col-md-2">PtpDate:</label>
+            <div class="col-md-3">
+                <div style="width:250px" datetimepicker id="PtpDate" value="cust.ptpdate" readonly="true" />
+            </div>
+            <label class="control-label col-md-1">PtpAmount: </label>
+            <div class="col-md-2">
+                <input type="number" step=".01" id="PtpAmount" class="form-control input-sm" name="PtpAmount" ng-model="cust.ptpamount" />
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <!--<label class="control-label col-md-2">Star: </label>
+            <div class="col-md-2">
+                <input id="star" required class="rb-rating" type="text" value="" title="" ng-model="cust.star" />
+            </div>-->
+        </div>
+        <br />
+        <div class="row">
+            <label class="control-label col-md-2">Comment(Feedback from Collector): </label>
+            <textarea rows="3" class="col-md-6" style="margin-left:17px ;font-size:11px;resize:none" ng-model="cust.comment"></textarea>
+
+            <label class="control-label col-md-1">Comment LastDate:</label>
+            <div class="col-md-2">
+                <input type="text" id="commentLastDate" class="form-control input-sm" name="commentLastDate" ng-model="cust.commentLastDate" readonly="true" />
+            </div>
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <label class="control-label col-md-2">Comment ExpirationDate:</label>
+            <div class="col-md-4">
+                <div datetimepicker id="commentExpirationDate" value="cust.commentExpirationDate" readonly="true" />
+            </div>
+            <input type="button" class="btn btn-primary" style="float:left; width:250px; margin-right:50px;" value="Comment Expiration Date History" ng-click="openMemmoDateHis(cust.customerNum,cust.siteUseId)" />
+            <input type="button" class="btn btn-primary" style="float:right; width:120px; margin-right:50px;" value="Save" ng-click="saveCustomer()" />
+
+        </div>
+        <div class="row" style="height:20px;"></div>
+    </div>
+    <!---->
+    <div class="row" style="height:20px">
+    </div>
+    <div>
+        <label style="color:Red;">Customer Comments(Feedback from CS&Sales)</label>
+    </div>
+    <div id="divComments" class="form-group" style=" border:1px solid;border-color:#000; width:1140px;height:275px;">
+        <div class="row" style="margin:10px">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-default" style="width:110px" value="Add" ng-click="AddCommentsInfo()" />
+            </div>
+        </div>
+
+        <div class="masterdate-style" style="width:1060px;height:210px; margin-left:19px" ui-grid="commentsList" ui-grid-resize-columns ui-grid-pinning>
+        </div>
+    </div>
+    <!---->
+    <div class="row" style="height:20px">
+    </div>
+    <div>
+        <label style="color:Red;">Special Notes</label>
+    </div>
+    <div id="divSpecialNotes" class="form-group" style="border:1px solid;border-color:#000; width:1140px;">
+        <br />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <textarea class="col-md-9" rows="5" style="font-size:11px;resize:none" ng-model="specialNote"></textarea>
+            <div class="col-md-1">
+                <input type="button" class="btn btn-primary" style="width:120px;margin-right:20px" value="Save" ng-click="saveSpecialNotes(specialNote,'')" />
+            </div>
+        </div>
+        <div class="row" style="height:5px"></div>
+    </div>
+    <div class="row" style="height:20px">
+    </div>
+    <div>
+        <label style="color:Red;">Customer Contact</label>
+    </div>
+    <div id="divContact" class="form-group" style=" border:1px solid;border-color:#000; width:1140px;height:275px;">
+        <div class="row" style="margin:10px">
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-default" style="width:110px" value="Copy" ng-click="CopyContacterInfo()" />
+            </div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-default" style="width:110px" value="Add" ng-click="AddContacterInfo()" />
+            </div>
+        </div>
+
+        <div class="masterdate-style" style="width:1060px;height:210px; margin-left:19px" ui-grid="contactList" ui-grid-resize-columns ui-grid-pinning>
+        </div>
+    </div>
+    <!--<div class="row" style="height:20px">
+    </div>
+    <div>
+        <label style="color:Red;">AccountPeriod</label>
+    </div>
+    <div id="divContact" class="form-group" style=" border:1px solid;border-color:#000; width:1140px;height:185px;">
+        <input type="button" class="btn-default" style="width:109px;height:24px;vertical-align:top;margin-left:972px" value="Add" ng-click="AddAccountPeriod()" />
+        <div class="masterdate-style" style="width:1060px;height:130px; margin-left:19px" ui-grid="accountPeriodList" ui-grid-resize-columns ui-grid-pinning>
+        </div>
+    </div>-->
+    <!--<div class="row" style="height:20px">
+    </div>
+    <div>
+    <label style="color:Red;">Payment Bank</label>
+    </div>
+    <div id="divPaymentbank" class="form-group " style=" border:1px solid;border-color:#000; width:1140px;height:185px;">
+        <input type="button" class="btn-default" style="width:109px;height:24px;vertical-align:top;margin-left:972px" value="Add" ng-click="AddBankInfo()""/>
+        <div class="masterdate-style" style=" width:1060px;height:130px; margin-left:19px" ui-grid="bankList" ui-grid-resize-columns  ui-grid-pinning>
+        </div>
+    </div>-->
+    <div class="row" style="height:20px">
+    </div>
+    <!--<div>
+    <label style="color:Red;">Payment Calender</label>
+    </div>
+    <div id="divPaymentcircle" class="form-group " style=" border:1px solid;border-color:#000; width:1140px;height:340px;">
+        <table style="margin-left:20px;margin-top:10px ">
+            <tr>
+                <td>
+                    <label  class="control-label" style="font-size:x-small;" for="File">Upload File:</label>
+                </td>
+                <td>
+                    <input  type="file" id="uploadCalendar" nv-file-select="" uploader="uploader" />
+                </td>
+                <td style="width:5px">
+                </td>
+                <td>
+                    <button  class="btn btn-primary form-control" ng-click="addFileCircle()">Upload</button>
+                </td>
+            </tr>
+            <tr style="height:10px">
+            </tr>
+            <tr>
+                <td>
+                    <label for="File">Reconciliation Day:</label>
+                </td>
+                <td>
+                    <div style="width:250px" datetimepicker value="reconciliationDay" readonly="true" />
+                </td>
+                <td style="width:5px"></td>
+                <td>
+                    <button class="btn btn-primary form-control" ng-click="addPaymentcircle()">Add</button>
+                </td>
+                <td style="width:15px"></td>
+                <td>
+                    <button class="btn btn-primary form-control" ng-click="delAllPaymentcircle()">Delete All</button>
+                </td>
+            </tr>
+            <!--<tr style="height:20px;">
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="File">Payment Day:</label>
+                </td>
+                <td>
+                    <div style="width:250px" datetimepicker value="paymentCircle" readonly="true" />
+                </td>
+                <td style="width:5px"></td>
+
+            </tr>-->
+    <!--<tr style="height:20px"></tr>
+             <tr>
+                 <td>
+                     <label for="File">Legal Entity:</label>
+                 </td>
+                 <td>
+                     <select id="legalEntity" style="height:20px;width:130px;" ng-change="changeLegal(entityFlg)" ng-model="entityFlg" ng-options="a.legalEntity as a.legalEntity for a in legallist"><option value="">All</option></select>
+                 </td>
+             </tr>
+         </table>
+         <div class="masterdate-style" ui-grid="paydayList" style="width:1060px;height:190px; margin:20px" ui-grid-resize-columns  ui-grid-pinning>
+         </div>
+    </div>-->
+    <div class="row" style="height:20px">
+    </div>
+    <div style="display:none">
+        <label style="color:Red;">Follow Up Config</label>
+    </div>
+    <div id="divMasterData" class="form-group " style="border:1px solid;border-color:#000; width:1140px;height:235px; display:none">
+        <input type="button" class="btn-default" style="width:109px;height:24px;vertical-align:top;margin-left:972px" value="Add" ng-click="AddConfig()" />
+        <div class="masterdate-style" style="width:1060px;height:190px; margin-left:19px" ui-grid="dunningList" ui-grid-resize-columns ui-grid-pinning>
+        </div>
+    </div>
+    <!--</div>-->

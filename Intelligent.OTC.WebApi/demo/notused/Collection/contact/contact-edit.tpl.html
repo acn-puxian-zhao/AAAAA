@@ -1,0 +1,18 @@
+﻿<div class="modal-header">
+  <h3>{{cont.contactName}}</h3>
+</div>
+<div class="modal-body">
+    <div>
+        <div>
+            <form name="form" crud-edit="cont">
+                <label for="firstName">Contact code</label>
+                <input type="text" id="firstName" class="form-control" name="code" ng-model="cont.contactCode" required/>
+                <label for="lastName">Contact Name</label>
+                <input type="text" id="lastName" class="form-control" name="Name" ng-model="cont.contactName" required/>
+                <crud-buttons></crud-buttons> 
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+</div>

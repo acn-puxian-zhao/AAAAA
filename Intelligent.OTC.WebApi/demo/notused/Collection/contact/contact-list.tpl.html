@@ -1,0 +1,31 @@
+﻿<div class="container">
+    <form class="form-horizontal" role="form">
+        <div class="form-group col-md-12">
+            <table class="table table-bordered table-condensed table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Contact Name</th>
+                    <th>Contact Code</th>
+                    <th>Customer</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="cont in conts" ng-click="edit(cont.$id())">
+                    <td>{{cont.contactName}}</td>
+                    <td>{{cont.contactCode}}</td>
+                    <td>{{cont.customerName}}</td>
+                    <td><button class="btn btn-danger remove" ng-click="onContactClicked(cont)">Contact</button></td>
+                    <td><button class="btn btn-danger remove" ng-click="onDeleteClicked(cont)">Delete</button></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="form-group col-md-2">
+                <div>
+                    <button type="button" class="btn btn-primary form-control" ng-click="new()">New Contact</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

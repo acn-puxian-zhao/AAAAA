@@ -1,0 +1,71 @@
+﻿
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div class="col-md-10">
+
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-primary " style="width:100px" ng-click="add()">
+                    New
+                </button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-primary " style="width:100px" ng-click="export()">
+                    Export
+                </button>
+            </div>
+
+        </div>
+
+        <div class="row" style="height:5px"></div>
+        <div class="form-group col-md-12">
+            <div class="row">
+
+                <div style="float:left;padding-left:14px; padding-right:10px;">
+                    <label for="inputCustCode" style="font-size:12px;">
+                        LegalEntity:
+                    </label>
+                    <div style="width:180px">
+                        <input id="legalEntity" class="form-control input-sm" ng-model="legalEntity" />
+                    </div>
+                </div>
+                <div style="float:left;padding-left:14px; padding-right:10px;">
+                    <label for="CustomerNum" style="font-size:12px;">
+                        CustomerNum:
+                    </label>
+                    <div style="width:180px">
+                        <input id="CustomerNum" class="form-control input-sm" ng-model="customerNum" />
+                    </div>
+                </div>
+                <div style="float:left;padding-left:10px;padding-top:23px;">
+                    <div>
+                        <button type="button" class="filter-button" ng-click="resetSearch()">
+                            Clear
+                        </button>
+                        <button type="button" class="filter-button" ng-click="init()">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div class="grid-style" ui-grid="dataList" ui-grid-resize-columns ui-grid-selection ui-grid-pinning >
+    </div>
+</div>
+<div class="form-group col-md-10">
+    <div class="row">
+        <div class="col-md-2">
+            <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                    ng-change="pageSizeChange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+            </select>
+        </div>
+        <div style="float:left; margin-right:20px;">
+            <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{totalItems}}</span>&nbsp;items</label>
+        </div>
+        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+            ng-model="currentPage" ng-change="pageChanged()"></ul>
+    </div>
+</div>

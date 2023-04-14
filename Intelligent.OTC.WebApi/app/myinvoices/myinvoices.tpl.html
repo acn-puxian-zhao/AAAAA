@@ -1,0 +1,429 @@
+﻿<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <editpartial controller-name='floatmenuListCtrl' template-url='app/common/floatmenu/floatMenu-list.tpl.html' params='floatMenuOwner'></editpartial>
+    </div>
+    <div id="page-content-wrapper">
+        <!--########################  invoice memo edit  ######################## s -->
+        <div id="box" class="box"></div>
+        <div id="boxEdit" class="box2">
+            <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="editMemoClose()">&times;</span></button>
+            <p id="lblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+            <label hidden id="hiddenInvId"></label>
+            <label class="control-label col-md-3">Comment ExpirationDate:</label>
+            <div class="col-md-4">
+                <div style="width:200px" datetimepicker value="" id="boxCommDate" readonly="true" />
+            </div>
+<textarea id="txtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px" ng-model="selectText"></textarea>
+            <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="editMemoSave()">Save</button>
+            <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="editMemoClose()">Close</button>
+        </div>
+        <div id="boxEditBatch" class="box2">
+            <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="batcheditMemoClose()">&times;</span></button>
+            <p id="batchlblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+            <label hidden id="batchhiddenInvId"></label>
+            <label class="control-label col-md-3">Comment ExpirationDate:</label>
+            <div class="col-md-4">
+                <div style="width:200px" datetimepicker value="" id="boxCommentExpirationDate" readonly="true" />
+            </div>
+<textarea id="batchtxtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px"></textarea>
+            <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="batcheditMemoSave()">Save</button>
+            <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="batcheditMemoClose()">Close</button>
+        </div>
+        <!--########################  invoice memo edit  ######################## e -->
+
+        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+            <!--##################################  button  ################################## s -->
+            <div style="height:30px; margin-bottom:10px;">
+                <i class="fa fa-bars" style="float:left;font-size:20px;color:cornflowerblue;cursor:pointer;margin-right:30px;" aria-hidden="true" ng-click="menuToggle()"></i>
+                <div style="float:left">
+                    <select id="fileType" name="fileType" ng-model="fileType" ng-options="s.id as s.levelName for s in fileTypeList"
+                            class="form-control input-sm"></select>
+                </div>
+                <div style="float:left;display:none">
+                    <button type="button" class="btn-filter" style="width:90px;margin-left:10px" ng-click="changetab('mail')">
+                        <p class="glyphicon glyphicon-envelope"></p>&nbsp;Send Mail
+                    </button>
+                </div>
+                <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                    <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Send Mail
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li id="Wave1"><a href="" ng-click="changetab('mail001')">Send Mail(All)</a></li>
+                        <li id="Wave2"><a href="" ng-click="changetab('mail002')">Send Mail(OD)</a></li>
+                        <li id="Wave3"><a href="" ng-click="changetab('mail003')">Send Mail(60+)</a></li>
+                        <li id="PMT"><a href="" ng-click="changetab('mail005')">Send Mail(PMT)</a></li>
+                    </ul>
+                </div>
+                <div style="float:left">
+                    <button type="button" class="btn-filter" style="width:160px;margin-left:10px" ng-click="changetab('vatimport')">
+                        <span class="fa fa-upload" style="font-weight:bold">&nbsp;&nbsp;Invoice Status Import</span>
+                    </button>
+                </div>
+                <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                    <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        PTP
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li id="Wave1"><a href="" ng-click="changetab('ptp')">Set PTP</a></li>
+                        <li id="Wave2"><a href="" ng-click="clearPTP()">ClearPTP</a></li>
+                    </ul>
+                </div>
+                <div style="float:left;display:none">
+                    <button id="aresume" type="button" class="btn-filter" style="width:90px;margin-left:10px;" ng-click="changetab('dispute')" ng->
+                        <img src="~/../Content/images/dispute.png" />&nbsp;&nbsp;Dispute
+                    </button>
+                </div>
+                <!--<div style="float:left">
+        <button type="button" class="btn-filter" style="width:95px;margin-left:10px" ng-click="changetab('notice')">
+            <img src="~/../Content/images/Notice.png" />&nbsp;&nbsp;Payment
+        </button>
+    </div>-->
+                <!--<div style="float:left;">
+        <button type="button" class="btn-filter" style="width:170px;margin-left:10px" ng-click="changetab('changeinvoicestatus')">
+            <img src="~/../Content/images/ChangeStatus.png" />&nbsp;&nbsp;Change Invoice Status
+        </button>
+    </div>-->
+
+                <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                    <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Overdue Reason
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li id="Wave1"><a href="" ng-click="changetab('overdue')">Set OverdueReason</a></li>
+                        <li id="Wave2"><a href="" ng-click="clearOverdueReason()">Clear OverdueReason</a></li>
+                    </ul>
+                </div>
+                <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                    <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Invoice Memo
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li id="Wave1"><a href="" ng-click="batcheditMemoShow()">Set InvoiceMemo</a></li>
+                        <li id="Wave2"><a href="" ng-click="clearInvoiceMemo()">Clear InvoiceMemo</a></li>
+                    </ul>
+                </div>
+                <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                    <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Not Clear
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li id="Wave1"><a href="" ng-click="batcheditNotClear('1')">Lock</a></li>
+                        <li id="Wave2"><a href="" ng-click="batcheditNotClear('0')">UnLock</a></li>
+                    </ul>
+                </div>
+                <div style="float:left">
+                    <button type="button" class="btn-filter" style="width:80px;margin-left:5px" ng-click="exportSoa()">
+                        <span class="fa fa-file-zip-o" style="font-weight:bold">&nbsp;&nbsp;SOA</span>
+                    </button>
+                </div>
+                <div style="float:left">
+                    <button type="button" class="btn-filter" style="margin-left:10px; width:80px;" ng-click="export()">
+                        <span class="fa fa-download" style="font-weight:bold">&nbsp;&nbsp;Export</span>
+                    </button>
+                </div>
+                <div style="float:right">
+                    <button type="button" class="btn-filter" ng-click="openFilter()">
+                        <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                    </button>
+                </div>
+            </div>
+            <!--##################################  button  ################################## e -->
+            <!--##################################  search condition  ################################## s -->
+            <div id="divAgingSearch" class="tag col-md-12" style="display:none">
+                <em></em>
+                <div class="row" style="height:10px"></div>
+                <div class="form-group col-md-12">
+                    <div class="row">
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputCustCode" style="font-size:12px;">
+                                Customer NO.
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputCustCode" class="form-control input-sm" ng-model="custCode" />
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputCustName" style="font-size:12px;">
+                                Customer Name
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputCustName" class="form-control input-sm" ng-model="custName" />
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputLegal" style="font-size:12px;">
+                                Legal Entity
+                            </label>
+                            <div style="width:180px">
+                                <select id="Legal" class="form-control input-sm" ng-model="legal" ng-options="d.legalEntity as d.legalEntity for d in legallist">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--<div style="float:left; padding-right:10px;">
+                        <label for="inputbillGroupCode" style="font-size:12px;">
+                            Factory Group Code
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputbillGroupCode" class="form-control input-sm" ng-model="billGroupCode" />
+                        </div>
+                    </div>-->
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputbillGroupName" style="font-size:12px;">
+                                Site User Id
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputbillGroupName" class="form-control input-sm" ng-model="siteUseid" />
+                            </div>
+                        </div>
+
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputPoNum" style="font-size:12px;">
+                                PO Num
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputPoNum" class="form-control input-sm" ng-model="poNum" />
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputSoNum" style="font-size:12px;">
+                                SO Num
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputSoNum" class="form-control input-sm" ng-model="soNum" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="row">
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputInvoiceNum" style="font-size:12px;">
+                                Invoice Number
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputInvoiceNum" class="form-control input-sm" ng-model="invoiceNum" />
+                            </div>
+                        </div>
+                        <!--<div style="float:left; padding-right:10px;">
+                        <label for="inputInvoiceStates" style="font-size:12px;">
+                            Invoice Status
+                        </label>
+                        <div style="width:180px">
+                            <select id="inputInvoiceStates" class="form-control input-sm" ng-model="states" ng-options="a.detailValue as a.detailName for a in istatuslist">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                    </div>-->
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputInvoiceTrackStates" style="font-size:12px;">
+                                Invoice Track Status
+                            </label>
+                            <div style="width:180px">
+                                <select id="inputInvoiceTrackStates" class="form-control input-sm" ng-model="trackStates" ng-options="a.detailValue as a.detailName for a in invoiceTrackStates">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputCreditTerm" style="font-size:12px;">
+                                Credit Term
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputCreditTerm" class="form-control input-sm" ng-model="creditTerm" />
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputCS" style="font-size:12px;">
+                                CS
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputCS" class="form-control input-sm" ng-model="cs" />
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputSales" style="font-size:12px;">
+                                Sales
+                            </label>
+                            <div style="width:180px">
+                                <input id="inputSales" class="form-control input-sm" ng-model="sales" />
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputOverdueReason" style="font-size:12px;">
+                                DueReason
+                            </label>
+                            <div style="width:180px">
+                                <select id="inputOverdueReason" class="form-control input-sm" ng-model="overdueReason" ng-options="a.detailName as a.detailValue for a in overdueReasons">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--<div style="float:left; padding-right:10px;">
+                        <label for="inputRBO" style="font-size:12px;">
+                            RBO
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputRBO" class="form-control input-sm" ng-model="rbo" />
+                        </div>
+                    </div>-->
+
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="row">
+                        <!--<div style="float:left; padding-right:10px;">
+                        <label for="inputDisplayClosed" style="font-size:12px;">
+                            Display Closed
+                        </label>
+                        <div style="width:180px">
+                            <select id="DisplayClosed" class="form-control input-sm" ng-model="displayClosed" ng-options="d.id as d.detailName for d in displaylist"></select>
+                        </div>
+                    </div>-->
+
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputDocuType" style="font-size:12px;">
+                                Document Type
+                            </label>
+                            <div style="width:180px">
+                                <select id="DocuType" class="form-control input-sm" ng-model="docuType" ng-options="a.detailValue as a.detailName for a in docuTypelist">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputEB" style="font-size:12px;">
+                                EB Name
+                            </label>
+                            <div style="width:370px">
+                                <select id="EB" class="form-control input-sm" ng-model="eb" ng-options="d.eb as d.eb for d in ebList">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputMemo" style="font-size:12px;">
+                                Invoice Memo
+                            </label>
+                            <div style="width:370px">
+                                <input id="inputMemo" class="form-control input-sm" ng-model="memo" />
+                            </div>
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputMemoDateF" style="font-size:12px;">
+                                Memo Expiration Date From:
+                            </label>
+                            <div style="width:180px" datetimepicker value="memoDateF" readonly="true" />
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputMemoDateT" style="font-size:12px;">
+                                To:
+                            </label>
+                            <div style="width:180px" datetimepicker value="memoDateT" readonly="true" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="row">
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputPtpDateF" style="font-size:12px;">
+                                PTP Date From:
+                            </label>
+                            <div style="width:180px" datetimepicker value="ptpDateF" readonly="true" />
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputPtpDateT" style="font-size:12px;">
+                                To:
+                            </label>
+                            <div style="width:180px" datetimepicker value="ptpDateT" readonly="true" />
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputInvoiceDateF" style="font-size:12px;">
+                                Invoice Date From:
+                            </label>
+                            <div style="width:180px" datetimepicker value="invoiceDateF" readonly="true" />
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputInvoiceDateT" style="font-size:12px;">
+                                To:
+                            </label>
+                            <div style="width:180px" datetimepicker value="invoiceDateT" readonly="true" />
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputDueDateF" style="font-size:12px;">
+                                Due Date From:
+                            </label>
+                            <div style="width:180px" datetimepicker value="dueDateF" readonly="true" />
+                        </div>
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputDueDateT" style="font-size:12px;">
+                                To:
+                            </label>
+                            <div style="width:180px" datetimepicker value="dueDateT" readonly="true" />
+                        </div>
+                        <div style="float:left;padding-left:10px">
+                            <label style="height:12px"></label>
+                            <div>
+                                <button type="button" class="filter-button" ng-click="resetSearch()">
+                                    Clear
+                                </button>
+                                <button type="button" class="filter-button" ng-click="searchCollection()">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                        <!--<div style="float:left; padding-right:10px;" ng-show="showCollector">
+                        <label for="inputDocuType" style="font-size:12px;">
+                            Collector
+                        </label>
+                        <div style="width:180px">
+                            <select id="Collector" class="form-control input-sm" ng-model="collector" ng-options="a.collector as a.collector for a in collectorList">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    </div>
+                </div>
+            </div>
+            <!--##################################  search condition  ################################## e -->
+
+
+
+            <div class="grid-style" ui-grid="invoiceList" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns ui-grid-pinning>
+                <div class="footer-statistics">
+                    <div style="float:right">
+                        <label style="padding-right:20px" id="footcalcu"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <div class="row">
+                    <div style="float:left; margin-right:20px;">
+                        <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{totalNum}}</span>&nbsp;items</label>
+                    </div>
+                    <div style="float:left">
+                        <ul uib-pagination max-size="maxSize" items-per-page="iperexecute" total-items="ttexecute"
+                            ng-model="curpexecute" ng-change="executepChanged()" class="pagination-sm" boundary-links="true"></ul>
+                    </div>
+                    <div style="float:right">
+                        <div style="float:left">
+                            <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                        </div>
+                        <div style="float:left">
+                            <select id="psexecute" name="psexecute" ng-model="slexecute" ng-options="s.id as s.levelName for s in levelList"
+                                    ng-change="pschangeexecute(slexecute)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

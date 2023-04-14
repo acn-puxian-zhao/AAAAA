@@ -1,0 +1,27 @@
+﻿<div class="modal-header">
+    <label> sssss</label>
+</div>
+<div class="modal-body">
+    <div>
+        <table style="border: 1px black solid; width:560px;">
+            <tr style="height : 40px;">
+                <td align="right"><label for="File">Account File:</label></td>
+                <td colspan="4">
+                    <input type="file" id="updAccountFile" nv-file-select="" uploader="uploader" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-md-2" style="float:right">
+        <button type="button" class="btn btn-primary form-control" ng-click="close()">
+                    Cancel</button>
+        </div>
+        <div class="col-md-2" style="float:right">
+        <button type="button" class="btn btn-primary form-control" ng-click="uploader.uploadAll()">
+                    Sumbit</button>
+        </div>
+    </div>
+</div>

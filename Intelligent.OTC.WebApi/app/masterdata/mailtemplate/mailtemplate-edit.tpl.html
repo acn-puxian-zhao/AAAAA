@@ -1,0 +1,43 @@
+﻿<div class="modal-header">
+  <h3>{{modalOptions.headerText}}</h3>
+</div>
+<form class="form-horizontal">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="subject" class="col-sm-1 control-label">Subject:</label>
+            <div class="col-sm-10">
+                <input type="text" id="subject" class="form-control" ng-model="template.subject" required autofocus/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="language" class="col-sm-1 control-label">Language:</label>
+            <div class="col-sm-4">
+                <select class="form-control input-sm" ng-model="template.language" ng-options="d.detailValue as d.detailName for d in maillanguages">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="col-sm-1"></div>
+            <label for="type" class="col-sm-1 control-label">Type:</label>
+            <div class="col-sm-4">
+                <select id="Legal" class="form-control input-sm" ng-model="template.type" ng-options="d.detailValue as d.detailName for d in mailtypes">
+                    <option value="">All</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mainbody" class="col-sm-1 control-label">Body:</label>            
+            <div class="col-sm-10">
+                <textarea ui-tinymce="{trusted: true}" id="mainbody" class="form-control" required
+                    ng-model="template.mainBody"
+                    ng-change="updateHtml()"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <crud-buttons></crud-buttons>
+    </div>
+   
+</form>
+
+   
+  

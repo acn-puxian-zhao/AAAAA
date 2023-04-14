@@ -1,0 +1,21 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Comments</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 control-label">Comments:</label>
+        <div class="col-sm-8">
+            <textarea id="comments" class="form-control" style="height:150px" ng-model="comss"></textarea>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">
+            Close
+        </button>
+        <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+            Submit
+        </button>
+    </div>
+</div>

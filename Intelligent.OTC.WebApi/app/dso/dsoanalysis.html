@@ -1,0 +1,56 @@
+﻿
+<div class="form-group col-md-12" style="height:80px">
+    <div class="row" style="height:30px;float:left;">
+        <div>
+            <label for="File" class="col-md-2 control-label-period" style="width:150px;">
+                DSO File:
+            </label>
+            <div class="control-label-period" style="float:left;padding-left:0px">
+                <input type="file" id="updDSOFile" style="width:428px" nv-file-select="" uploader="uploader" />
+            </div>
+            <div class="control-label-period" style="float:left">
+                <a style="text-decoration:underline" ng-click="clearInfo()">Clear</a>
+            </div>
+            <div class="col-md-1" style="margin-left:10px">
+                <button type="button" style="width:95px" class="btn btn-primary form-control fa fa-upload" ng-click="updateLevel()">&nbsp;Upload</button>
+            </div>
+            <label for="PackageDays" class="col-md-2 control-label-period">
+                Package Days:
+            </label>
+            <div class="col-md-1">
+                <input id="PackageDays" type="number" style="width:100px" class="form-control input-sm" ng-model="packagedays" />
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top:15px;height:30px;float:left;">
+        <div>
+            <label for="periodStartDate" class="col-md-2 control-label-period" style="width:150px;">
+                Period Date:
+            </label>
+            <div class="col-md-3" style="margin-left:-20px">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup ng-model="periodDate" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+            <div class="col-md-1">
+                <button name="addPeriod" class="btn btn-primary form-control" ng-click="addPeriod()">Add</button>
+            </div>
+            <div class="col-md-1">
+                <button name="delPeriod" class="btn btn-primary form-control" ng-click="delPeriod()">Delete</button>
+            </div>
+            <div class="col-md-1" style="margin-left:135px">
+                <button name="analysisPeriod" class="btn btn-primary form-control" ng-click="analysisPeriod()">Analysis</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+
+    <div class="grid-style" ui-grid="periodList" ui-grid-resize-columns ui-grid-selection>
+    </div>
+
+</div>

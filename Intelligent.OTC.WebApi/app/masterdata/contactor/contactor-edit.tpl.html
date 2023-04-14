@@ -1,0 +1,121 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Contactor Information</h4>
+</div>
+<div class="modal-body">
+    <div style="width:858px; height:266px;">
+        <form name="contform" crud-edit="cont" novalidate>
+            <div style="width:858px; height:73px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterName">Customer Num</label>
+                    <div>
+                        <input type="text" id="customerNum" class="form-control" name="CustomerNum" ng-model="cont.customerNum" readonly />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="siteUseId">SiteUseId</label>
+                    <div>
+                        <input type="text" id="siteUseId" class="form-control" name="SiteUseId" ng-model="cont.siteUseId" readonly />
+                    </div>
+                </div>
+                <!--<div style="float:left; width:25%; padding-right:20px;">
+                    <label for="legalEntity">Legal Entity</label>
+                    <div>
+                        <select id="legalEntity" class="form-control" ng-model="cont.legalEntity"
+                                ng-options="a.legalEntity as a.legalEntity for a in legallist"><option value="">All</option></select>
+                    </div>
+                </div>-->
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterName">* Name</label>
+                    <div>
+                        <input type="text" id="contacterName" class="form-control" name="Name" ng-model="cont.name" required />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterTitle">Title</label>
+                    <div>
+                        <!--<input type="text" id="contacterTitle" class="form-control" name="Title" ng-model="cont.title" />-->
+                        <select id="contacterTitle" class="form-control" name="Title" ng-model="cont.title" ng-options="t.detailValue as t.detailValue for t in titleList">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div style="width:858px; height:73px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterDepartment">Department</label>
+                    <div>
+                        <input type="text" id="contacterDepartment" class="form-control" name="Department" ng-model="cont.department" />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterNumber">Number</label>
+                    <div>
+                        <input type="text" id="contacterNumber" class="form-control" name="Number" ng-model="cont.number" />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterEmailAddress">* Email Address:</label>
+                    <div>
+                        <!--<input type="text" id="contacterEmailAddress" class="form-control" name="EmailAddress" ng-model="cont.emailAddress" ng-pattern="/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/" required /> /([\w-]{1,})@([\w-]{1,}\.)([A-Za-z0-9\>]+$)/    ng-pattern="/([\w-]{1,})@([\w-]{1,}\.)([A-Za-z0-9\-\>\.]+$)/"-->
+                        <input type="text" id="contacterEmailAddress" class="form-control" name="EmailAddress" ng-model="cont.emailAddress" ng-pattern="/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)+$/" required />
+                    </div>
+                    <label ng-show="contform.EmailAddress.$error.pattern"><font color=red>邮箱格式不正确!</font></label>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterLivingAddress">Living Address:</label>
+                    <div>
+                        <input type="text" id="contacterLivingAddress" class="form-control" name="LivingAddress" ng-model="cont.livingAddress" />
+                    </div>
+                </div>
+            </div>
+            <div style="width:858px; height:60px;">
+                
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterCountry">Country</label>
+                    <div>
+                        <input type="text" id="contacterCountry" class="form-control" name="Country" ng-model="cont.country" />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterComment">Comment</label>
+                    <div>
+                        <input type="text" id="contacterComment" class="form-control" name="Comment" ng-model="cont.comment" />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterCommunicationLanguage">* Communication Language</label>
+                    <div>
+                        <select id="contacterCommunicationLanguage" class="form-control" ng-model="cont.communicationLanguage"
+                                ng-options="a.detailValue as a.detailName for a in languagelist"></select>
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="holdflg">Status:</label>
+                    <div>
+                        <select id="flg" class="form-control" ng-model="cont.isDefaultFlg" ng-options="a.detailValue as a.detailName for a in holdlist"></select>
+                    </div>
+                </div>
+            </div>
+            <div style="width:858px; height:60px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="toCc">* To/Cc</label>
+                    <div>
+                        <select id="toCc" class="form-control" ng-model="cont.toCc" ng-options="a.id as a.toccName for a in tocclist"></select>
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="isCostomerContact">Is Customer Contact</label>
+                    <div>
+                        <input type="checkbox"  id="isCostomerContact" ng-model="cont.isCostomerContact"/>
+                    </div>
+                </div>
+            </div>
+            <div style="float:right; margin-top:30px;">
+                <button type="button" class="btn btn-primary" ng-click="closeContact()" style="float:right; margin-left:5px;">Close</button>
+                <button type="button" class="btn btn-warning revert" ng-click="revertChanges()" ng-disabled="!canRevert()" style="float:right; margin-left:5px;">Revert changes</button>
+                <button type="button" class="btn btn-primary save" ng-disabled="!canSave()" ng-click="updateCommon()" style="float:right;">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="modal-footer"></div>

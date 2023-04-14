@@ -1,0 +1,1341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Xccelerator_OTC_DEVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_MD_EXCEPTIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="START_TIME" Type="datetime" />
+          <Property Name="END_TIME" Type="datetime" />
+          <Property Name="EXCEPTIONS_TYPE" Type="bigint" />
+          <Property Name="RECURRENCE_PATTERN" Type="bigint" />
+          <Property Name="FREQUENCY" Type="bigint" />
+          <Property Name="FREQUENCY_WEEKS" Type="varchar" MaxLength="50" />
+          <Property Name="FREQUENCY_MONTH_DAY_EVERY" Type="bigint" />
+          <Property Name="FREQUENCY_MONTH_WEEK" Type="bigint" />
+          <Property Name="FREQUENCY_MONTH_WEEK_SEQUENCY" Type="bigint" />
+          <Property Name="FREQUENCY_MONTH" Type="bigint" />
+          <Property Name="FREQUENCY_MONTH_DAY_THE" Type="bigint" />
+          <Property Name="FREQUENCY_YEAR_DAY" Type="varchar" MaxLength="50" />
+          <Property Name="FREQUENCY_YEAR_WEEK" Type="bigint" />
+          <Property Name="FREQUENCY_YEAR_WEEK_SEQUENCY" Type="bigint" />
+          <Property Name="FREQUENCY_YEAR_MONTH" Type="bigint" />
+          <Property Name="RANGE_START" Type="datetime" />
+          <Property Name="RANGE_END_AFTER" Type="bigint" />
+          <Property Name="RANGE_END_BY" Type="datetime" />
+          <Property Name="RANGE_TYPE" Type="bigint" />
+          <Property Name="WORKINGCALENDAR_ID" Type="bigint" />
+          <Property Name="FREQUENCY_Daily_Number" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_ORG_CENTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CENTER_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="REGION_ID" Type="bigint" Nullable="false" />
+          <Property Name="DEL_FLG" Type="int" />
+        </EntityType>
+        <EntityType Name="T_ORG_DEAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DEAL_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="REGION_ID" Type="bigint" Nullable="false" />
+          <Property Name="CENTER_ID" Type="bigint" Nullable="false" />
+          <Property Name="GROUP_ID" Type="bigint" Nullable="false" />
+          <Property Name="DEL_FLG" Type="int" />
+        </EntityType>
+        <EntityType Name="T_ORG_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GROUP_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="REGION_ID" Type="bigint" Nullable="false" />
+          <Property Name="CENTER_ID" Type="bigint" Nullable="false" />
+          <Property Name="DEL_FLG" Type="int" />
+        </EntityType>
+        <EntityType Name="T_ORG_REGION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="REGION_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DEL_FLG" Type="int" />
+        </EntityType>
+        <EntityType Name="T_ORG_TEAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TEAM_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="REGION_ID" Type="bigint" Nullable="false" />
+          <Property Name="CENTER_ID" Type="bigint" Nullable="false" />
+          <Property Name="GROUP_ID" Type="bigint" Nullable="false" />
+          <Property Name="DEAL_ID" Type="bigint" Nullable="false" />
+          <Property Name="DEL_FLG" Type="int" />
+          <Property Name="PROCESS_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="T_USER_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIRECT_MANAGER_ID" Type="bigint" />
+          <Property Name="USER_FLG" Type="int" />
+          <Property Name="USER_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="USER_MAIL" Type="nvarchar" MaxLength="100" />
+          <Property Name="COUNTRY" Type="nvarchar" MaxLength="2000" />
+          <Property Name="LOCATION" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DEAL" Type="nvarchar" MaxLength="2000" />
+          <Property Name="VERTICAL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="TOWER" Type="nvarchar" MaxLength="4000" />
+          <Property Name="PROCESS" Type="nvarchar" MaxLength="4000" />
+          <Property Name="SUB_PROCESS" Type="nvarchar" MaxLength="4000" />
+          <Property Name="REGION_ID" Type="bigint" />
+          <Property Name="CENTER_ID" Type="bigint" />
+          <Property Name="GROUP_ID" Type="bigint" />
+          <Property Name="DEAL_ID" Type="bigint" />
+          <Property Name="TEAM_ID" Type="bigint" />
+          <Property Name="DEL_FLG" Type="int" />
+          <Property Name="DEFAULT_PORTAL" Type="int" />
+          <Property Name="AVATAR_URL" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="T_USERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_PASSWORD" Type="nvarchar" MaxLength="100" />
+          <Property Name="ACCOUNT_FLG" Type="int" />
+          <Property Name="USER_FLG" Type="int" />
+          <Property Name="USER_MAIL" Type="nvarchar" MaxLength="100" />
+          <Property Name="COUNTRY" Type="nvarchar" MaxLength="2000" />
+          <Property Name="LOCATION" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DEAL" Type="nvarchar" MaxLength="2000" />
+          <Property Name="VERTICAL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="TOWER" Type="nvarchar" MaxLength="4000" />
+          <Property Name="PROCESS" Type="nvarchar" MaxLength="4000" />
+          <Property Name="SUB_PROCESS" Type="nvarchar" MaxLength="4000" />
+          <Property Name="DELETE_FLG" Type="int" />
+          <Property Name="INDUSTRY" Type="nvarchar" MaxLength="100" />
+          <Property Name="PRODUCTION" Type="nvarchar" MaxLength="1000" />
+          <Property Name="USER_EMPLOYEE_ID" Type="bigint" />
+          <Property Name="EMPLOYEE_NAME" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_WORKING_CALENDAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEARM_ID" Type="bigint" />
+          <Property Name="START_TIME" Type="datetime" />
+          <Property Name="END_TIME" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_CENTER_REGION">
+          <End Role="T_ORG_REGION" Type="Self.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_CENTER" Type="Self.T_ORG_CENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_CENTER">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGDEAL_CENTER">
+          <End Role="T_ORG_CENTER" Type="Self.T_ORG_CENTER" Multiplicity="1" />
+          <End Role="T_ORG_DEAL" Type="Self.T_ORG_DEAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_DEAL">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGDEAL_GROUP">
+          <End Role="T_ORG_GROUP" Type="Self.T_ORG_GROUP" Multiplicity="1" />
+          <End Role="T_ORG_DEAL" Type="Self.T_ORG_DEAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_DEAL">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGDEAL_REGION">
+          <End Role="T_ORG_REGION" Type="Self.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_DEAL" Type="Self.T_ORG_DEAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_DEAL">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGGROUP_CENTER">
+          <End Role="T_ORG_CENTER" Type="Self.T_ORG_CENTER" Multiplicity="1" />
+          <End Role="T_ORG_GROUP" Type="Self.T_ORG_GROUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_GROUP">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGGROUP_REGION">
+          <End Role="T_ORG_REGION" Type="Self.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_GROUP" Type="Self.T_ORG_GROUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_GROUP">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_CENTER">
+          <End Role="T_ORG_CENTER" Type="Self.T_ORG_CENTER" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_DEAL">
+          <End Role="T_ORG_DEAL" Type="Self.T_ORG_DEAL" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_DEAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="DEAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_GROUP">
+          <End Role="T_ORG_GROUP" Type="Self.T_ORG_GROUP" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_REGION">
+          <End Role="T_ORG_REGION" Type="Self.T_ORG_REGION" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_TEAM">
+          <End Role="T_ORG_TEAM" Type="Self.T_ORG_TEAM" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_TEAM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="TEAM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_T_USER_EMPLOYEE">
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="T_USERS" Type="Self.T_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USERS">
+              <PropertyRef Name="USER_EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_CENTER">
+          <End Role="T_ORG_CENTER" Type="Self.T_ORG_CENTER" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Self.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_DEAL">
+          <End Role="T_ORG_DEAL" Type="Self.T_ORG_DEAL" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Self.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_DEAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="DEAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_GROUP">
+          <End Role="T_ORG_GROUP" Type="Self.T_ORG_GROUP" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Self.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_REGION">
+          <End Role="T_ORG_REGION" Type="Self.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Self.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_USEREMPLOYEE">
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="T_USERS" Type="Self.T_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USERS">
+              <PropertyRef Name="USER_EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK61EBB318E0006D47">
+          <End Role="T_ORG_REGION" Type="Self.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_CENTER" Type="Self.T_ORG_CENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_CENTER">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK778AE3CD9C3FB5F4">
+          <End Role="T_ORG_CENTER" Type="Self.T_ORG_CENTER" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK778AE3CDE0006D47">
+          <End Role="T_ORG_REGION" Type="Self.T_ORG_REGION" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKE1E93193713C7EB1">
+          <End Role="T_USER_EMPLOYEE" Type="Self.T_USER_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="T_USERS" Type="Self.T_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USERS">
+              <PropertyRef Name="USER_EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Xccelerator_OTC_DEVModelStoreContainer">
+          <EntitySet Name="T_MD_EXCEPTIONS" EntityType="Self.T_MD_EXCEPTIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ORG_CENTER" EntityType="Self.T_ORG_CENTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ORG_DEAL" EntityType="Self.T_ORG_DEAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ORG_GROUP" EntityType="Self.T_ORG_GROUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ORG_REGION" EntityType="Self.T_ORG_REGION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ORG_TEAM" EntityType="Self.T_ORG_TEAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_USER_EMPLOYEE" EntityType="Self.T_USER_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_USERS" EntityType="Self.T_USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_WORKING_CALENDAR" EntityType="Self.T_WORKING_CALENDAR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CENTER_REGION" Association="Self.FK_CENTER_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGDEAL_CENTER" Association="Self.FK_ORGDEAL_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGDEAL_GROUP" Association="Self.FK_ORGDEAL_GROUP">
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGDEAL_REGION" Association="Self.FK_ORGDEAL_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGGROUP_CENTER" Association="Self.FK_ORGGROUP_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGGROUP_REGION" Association="Self.FK_ORGGROUP_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_CENTER" Association="Self.FK_T_USER_EMPLOYEE_T_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_DEAL" Association="Self.FK_T_USER_EMPLOYEE_T_DEAL">
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_GROUP" Association="Self.FK_T_USER_EMPLOYEE_T_GROUP">
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_REGION" Association="Self.FK_T_USER_EMPLOYEE_T_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_TEAM" Association="Self.FK_T_USER_EMPLOYEE_T_TEAM">
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_T_USER_EMPLOYEE" Association="Self.FK_T_USER_T_USER_EMPLOYEE">
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+            <End Role="T_USERS" EntitySet="T_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_CENTER" Association="Self.FK_TEAM_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_DEAL" Association="Self.FK_TEAM_DEAL">
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_GROUP" Association="Self.FK_TEAM_GROUP">
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_REGION" Association="Self.FK_TEAM_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_USEREMPLOYEE" Association="Self.FK_USER_USEREMPLOYEE">
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+            <End Role="T_USERS" EntitySet="T_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK61EBB318E0006D47" Association="Self.FK61EBB318E0006D47">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK778AE3CD9C3FB5F4" Association="Self.FK778AE3CD9C3FB5F4">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK778AE3CDE0006D47" Association="Self.FK778AE3CDE0006D47">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FKE1E93193713C7EB1" Association="Self.FKE1E93193713C7EB1">
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+            <End Role="T_USERS" EntitySet="T_USERS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Xccelerator_OTC_DEVModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="XcceleratorEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="T_ORG_CENTER" EntityType="Xccelerator_OTC_DEVModel.T_ORG_CENTER" />
+          <EntitySet Name="T_ORG_DEAL" EntityType="Xccelerator_OTC_DEVModel.T_ORG_DEAL" />
+          <EntitySet Name="T_ORG_GROUP" EntityType="Xccelerator_OTC_DEVModel.T_ORG_GROUP" />
+          <EntitySet Name="T_ORG_REGION" EntityType="Xccelerator_OTC_DEVModel.T_ORG_REGION" />
+          <EntitySet Name="T_ORG_TEAM" EntityType="Xccelerator_OTC_DEVModel.T_ORG_TEAM" />
+          <EntitySet Name="T_USER_EMPLOYEE" EntityType="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" />
+          <EntitySet Name="T_USERS" EntityType="Xccelerator_OTC_DEVModel.T_USERS" />
+          <AssociationSet Name="FK_CENTER_REGION" Association="Xccelerator_OTC_DEVModel.FK_CENTER_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGDEAL_CENTER" Association="Xccelerator_OTC_DEVModel.FK_ORGDEAL_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGGROUP_CENTER" Association="Xccelerator_OTC_DEVModel.FK_ORGGROUP_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_CENTER" Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_CENTER" Association="Xccelerator_OTC_DEVModel.FK_TEAM_CENTER">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK61EBB318E0006D47" Association="Xccelerator_OTC_DEVModel.FK61EBB318E0006D47">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK778AE3CD9C3FB5F4" Association="Xccelerator_OTC_DEVModel.FK778AE3CD9C3FB5F4">
+            <End Role="T_ORG_CENTER" EntitySet="T_ORG_CENTER" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGDEAL_GROUP" Association="Xccelerator_OTC_DEVModel.FK_ORGDEAL_GROUP">
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGDEAL_REGION" Association="Xccelerator_OTC_DEVModel.FK_ORGDEAL_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_DEAL" Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_DEAL">
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_DEAL" Association="Xccelerator_OTC_DEVModel.FK_TEAM_DEAL">
+            <End Role="T_ORG_DEAL" EntitySet="T_ORG_DEAL" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGGROUP_REGION" Association="Xccelerator_OTC_DEVModel.FK_ORGGROUP_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_GROUP" Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_GROUP">
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_GROUP" Association="Xccelerator_OTC_DEVModel.FK_TEAM_GROUP">
+            <End Role="T_ORG_GROUP" EntitySet="T_ORG_GROUP" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_REGION" Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_REGION" Association="Xccelerator_OTC_DEVModel.FK_TEAM_REGION">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK778AE3CDE0006D47" Association="Xccelerator_OTC_DEVModel.FK778AE3CDE0006D47">
+            <End Role="T_ORG_REGION" EntitySet="T_ORG_REGION" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_EMPLOYEE_T_TEAM" Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_TEAM">
+            <End Role="T_ORG_TEAM" EntitySet="T_ORG_TEAM" />
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USER_T_USER_EMPLOYEE" Association="Xccelerator_OTC_DEVModel.FK_T_USER_T_USER_EMPLOYEE">
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+            <End Role="T_USERS" EntitySet="T_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_USEREMPLOYEE" Association="Xccelerator_OTC_DEVModel.FK_USER_USEREMPLOYEE">
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+            <End Role="T_USERS" EntitySet="T_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FKE1E93193713C7EB1" Association="Xccelerator_OTC_DEVModel.FKE1E93193713C7EB1">
+            <End Role="T_USER_EMPLOYEE" EntitySet="T_USER_EMPLOYEE" />
+            <End Role="T_USERS" EntitySet="T_USERS" />
+          </AssociationSet>
+          <EntitySet Name="T_MD_EXCEPTIONS" EntityType="Xccelerator_OTC_DEVModel.T_MD_EXCEPTIONS" />
+          <EntitySet Name="T_WORKING_CALENDAR" EntityType="Xccelerator_OTC_DEVModel.T_WORKING_CALENDAR" />
+        </EntityContainer>
+        <EntityType Name="T_ORG_CENTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="CENTER_NAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="REGION_ID" Type="Int64" Nullable="false" />
+          <Property Name="DEL_FLG" Type="Int32" />
+          <NavigationProperty Name="T_ORG_REGION" Relationship="Xccelerator_OTC_DEVModel.FK_CENTER_REGION" FromRole="T_ORG_CENTER" ToRole="T_ORG_REGION" />
+          <NavigationProperty Name="T_ORG_DEAL" Relationship="Xccelerator_OTC_DEVModel.FK_ORGDEAL_CENTER" FromRole="T_ORG_CENTER" ToRole="T_ORG_DEAL" />
+          <NavigationProperty Name="T_ORG_GROUP" Relationship="Xccelerator_OTC_DEVModel.FK_ORGGROUP_CENTER" FromRole="T_ORG_CENTER" ToRole="T_ORG_GROUP" />
+          <NavigationProperty Name="T_USER_EMPLOYEE" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_CENTER" FromRole="T_ORG_CENTER" ToRole="T_USER_EMPLOYEE" />
+          <NavigationProperty Name="T_ORG_TEAM" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_CENTER" FromRole="T_ORG_CENTER" ToRole="T_ORG_TEAM" />
+          <NavigationProperty Name="T_ORG_REGION1" Relationship="Xccelerator_OTC_DEVModel.FK61EBB318E0006D47" FromRole="T_ORG_CENTER" ToRole="T_ORG_REGION" />
+          <NavigationProperty Name="T_USER_EMPLOYEE1" Relationship="Xccelerator_OTC_DEVModel.FK778AE3CD9C3FB5F4" FromRole="T_ORG_CENTER" ToRole="T_USER_EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="T_ORG_DEAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="DEAL_NAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="REGION_ID" Type="Int64" Nullable="false" />
+          <Property Name="CENTER_ID" Type="Int64" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int64" Nullable="false" />
+          <Property Name="DEL_FLG" Type="Int32" />
+          <NavigationProperty Name="T_ORG_CENTER" Relationship="Xccelerator_OTC_DEVModel.FK_ORGDEAL_CENTER" FromRole="T_ORG_DEAL" ToRole="T_ORG_CENTER" />
+          <NavigationProperty Name="T_ORG_GROUP" Relationship="Xccelerator_OTC_DEVModel.FK_ORGDEAL_GROUP" FromRole="T_ORG_DEAL" ToRole="T_ORG_GROUP" />
+          <NavigationProperty Name="T_ORG_REGION" Relationship="Xccelerator_OTC_DEVModel.FK_ORGDEAL_REGION" FromRole="T_ORG_DEAL" ToRole="T_ORG_REGION" />
+          <NavigationProperty Name="T_USER_EMPLOYEE" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_DEAL" FromRole="T_ORG_DEAL" ToRole="T_USER_EMPLOYEE" />
+          <NavigationProperty Name="T_ORG_TEAM" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_DEAL" FromRole="T_ORG_DEAL" ToRole="T_ORG_TEAM" />
+        </EntityType>
+        <EntityType Name="T_ORG_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="GROUP_NAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="REGION_ID" Type="Int64" Nullable="false" />
+          <Property Name="CENTER_ID" Type="Int64" Nullable="false" />
+          <Property Name="DEL_FLG" Type="Int32" />
+          <NavigationProperty Name="T_ORG_CENTER" Relationship="Xccelerator_OTC_DEVModel.FK_ORGGROUP_CENTER" FromRole="T_ORG_GROUP" ToRole="T_ORG_CENTER" />
+          <NavigationProperty Name="T_ORG_DEAL" Relationship="Xccelerator_OTC_DEVModel.FK_ORGDEAL_GROUP" FromRole="T_ORG_GROUP" ToRole="T_ORG_DEAL" />
+          <NavigationProperty Name="T_ORG_REGION" Relationship="Xccelerator_OTC_DEVModel.FK_ORGGROUP_REGION" FromRole="T_ORG_GROUP" ToRole="T_ORG_REGION" />
+          <NavigationProperty Name="T_USER_EMPLOYEE" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_GROUP" FromRole="T_ORG_GROUP" ToRole="T_USER_EMPLOYEE" />
+          <NavigationProperty Name="T_ORG_TEAM" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_GROUP" FromRole="T_ORG_GROUP" ToRole="T_ORG_TEAM" />
+        </EntityType>
+        <EntityType Name="T_ORG_REGION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="REGION_NAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DEL_FLG" Type="Int32" />
+          <NavigationProperty Name="T_ORG_CENTER" Relationship="Xccelerator_OTC_DEVModel.FK_CENTER_REGION" FromRole="T_ORG_REGION" ToRole="T_ORG_CENTER" />
+          <NavigationProperty Name="T_ORG_CENTER1" Relationship="Xccelerator_OTC_DEVModel.FK61EBB318E0006D47" FromRole="T_ORG_REGION" ToRole="T_ORG_CENTER" />
+          <NavigationProperty Name="T_ORG_DEAL" Relationship="Xccelerator_OTC_DEVModel.FK_ORGDEAL_REGION" FromRole="T_ORG_REGION" ToRole="T_ORG_DEAL" />
+          <NavigationProperty Name="T_ORG_GROUP" Relationship="Xccelerator_OTC_DEVModel.FK_ORGGROUP_REGION" FromRole="T_ORG_REGION" ToRole="T_ORG_GROUP" />
+          <NavigationProperty Name="T_USER_EMPLOYEE" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_REGION" FromRole="T_ORG_REGION" ToRole="T_USER_EMPLOYEE" />
+          <NavigationProperty Name="T_ORG_TEAM" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_REGION" FromRole="T_ORG_REGION" ToRole="T_ORG_TEAM" />
+          <NavigationProperty Name="T_USER_EMPLOYEE1" Relationship="Xccelerator_OTC_DEVModel.FK778AE3CDE0006D47" FromRole="T_ORG_REGION" ToRole="T_USER_EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="T_ORG_TEAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="TEAM_NAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="REGION_ID" Type="Int64" Nullable="false" />
+          <Property Name="CENTER_ID" Type="Int64" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int64" Nullable="false" />
+          <Property Name="DEAL_ID" Type="Int64" Nullable="false" />
+          <Property Name="DEL_FLG" Type="Int32" />
+          <Property Name="PROCESS_ID" Type="Int64" />
+          <NavigationProperty Name="T_ORG_CENTER" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_CENTER" FromRole="T_ORG_TEAM" ToRole="T_ORG_CENTER" />
+          <NavigationProperty Name="T_ORG_DEAL" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_DEAL" FromRole="T_ORG_TEAM" ToRole="T_ORG_DEAL" />
+          <NavigationProperty Name="T_ORG_GROUP" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_GROUP" FromRole="T_ORG_TEAM" ToRole="T_ORG_GROUP" />
+          <NavigationProperty Name="T_ORG_REGION" Relationship="Xccelerator_OTC_DEVModel.FK_TEAM_REGION" FromRole="T_ORG_TEAM" ToRole="T_ORG_REGION" />
+          <NavigationProperty Name="T_USER_EMPLOYEE" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_TEAM" FromRole="T_ORG_TEAM" ToRole="T_USER_EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="T_USER_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="DIRECT_MANAGER_ID" Type="Int64" />
+          <Property Name="USER_FLG" Type="Int32" />
+          <Property Name="USER_NAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="USER_MAIL" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="DEAL" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="VERTICAL" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="TOWER" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="PROCESS" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="SUB_PROCESS" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="REGION_ID" Type="Int64" />
+          <Property Name="CENTER_ID" Type="Int64" />
+          <Property Name="GROUP_ID" Type="Int64" />
+          <Property Name="DEAL_ID" Type="Int64" />
+          <Property Name="TEAM_ID" Type="Int64" />
+          <Property Name="DEL_FLG" Type="Int32" />
+          <Property Name="DEFAULT_PORTAL" Type="Int32" />
+          <Property Name="AVATAR_URL" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="T_ORG_CENTER" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_CENTER" FromRole="T_USER_EMPLOYEE" ToRole="T_ORG_CENTER" />
+          <NavigationProperty Name="T_ORG_CENTER1" Relationship="Xccelerator_OTC_DEVModel.FK778AE3CD9C3FB5F4" FromRole="T_USER_EMPLOYEE" ToRole="T_ORG_CENTER" />
+          <NavigationProperty Name="T_ORG_DEAL" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_DEAL" FromRole="T_USER_EMPLOYEE" ToRole="T_ORG_DEAL" />
+          <NavigationProperty Name="T_ORG_GROUP" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_GROUP" FromRole="T_USER_EMPLOYEE" ToRole="T_ORG_GROUP" />
+          <NavigationProperty Name="T_ORG_REGION" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_REGION" FromRole="T_USER_EMPLOYEE" ToRole="T_ORG_REGION" />
+          <NavigationProperty Name="T_ORG_REGION1" Relationship="Xccelerator_OTC_DEVModel.FK778AE3CDE0006D47" FromRole="T_USER_EMPLOYEE" ToRole="T_ORG_REGION" />
+          <NavigationProperty Name="T_ORG_TEAM" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_TEAM" FromRole="T_USER_EMPLOYEE" ToRole="T_ORG_TEAM" />
+          <NavigationProperty Name="T_USERS" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_T_USER_EMPLOYEE" FromRole="T_USER_EMPLOYEE" ToRole="T_USERS" />
+          <NavigationProperty Name="T_USERS1" Relationship="Xccelerator_OTC_DEVModel.FK_USER_USEREMPLOYEE" FromRole="T_USER_EMPLOYEE" ToRole="T_USERS" />
+          <NavigationProperty Name="T_USERS2" Relationship="Xccelerator_OTC_DEVModel.FKE1E93193713C7EB1" FromRole="T_USER_EMPLOYEE" ToRole="T_USERS" />
+        </EntityType>
+        <EntityType Name="T_USERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="USER_CODE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="USER_PASSWORD" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ACCOUNT_FLG" Type="Int32" />
+          <Property Name="USER_FLG" Type="Int32" />
+          <Property Name="USER_MAIL" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="DEAL" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="VERTICAL" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="TOWER" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="PROCESS" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="SUB_PROCESS" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="DELETE_FLG" Type="Int32" />
+          <Property Name="INDUSTRY" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PRODUCTION" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="USER_EMPLOYEE_ID" Type="Int64" />
+          <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="T_USER_EMPLOYEE" Relationship="Xccelerator_OTC_DEVModel.FK_T_USER_T_USER_EMPLOYEE" FromRole="T_USERS" ToRole="T_USER_EMPLOYEE" />
+          <NavigationProperty Name="T_USER_EMPLOYEE1" Relationship="Xccelerator_OTC_DEVModel.FK_USER_USEREMPLOYEE" FromRole="T_USERS" ToRole="T_USER_EMPLOYEE" />
+          <NavigationProperty Name="T_USER_EMPLOYEE2" Relationship="Xccelerator_OTC_DEVModel.FKE1E93193713C7EB1" FromRole="T_USERS" ToRole="T_USER_EMPLOYEE" />
+        </EntityType>
+        <Association Name="FK_CENTER_REGION">
+          <End Role="T_ORG_REGION" Type="Xccelerator_OTC_DEVModel.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_CENTER" Type="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_CENTER">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGDEAL_CENTER">
+          <End Role="T_ORG_CENTER" Type="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Multiplicity="1" />
+          <End Role="T_ORG_DEAL" Type="Xccelerator_OTC_DEVModel.T_ORG_DEAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_DEAL">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGGROUP_CENTER">
+          <End Role="T_ORG_CENTER" Type="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Multiplicity="1" />
+          <End Role="T_ORG_GROUP" Type="Xccelerator_OTC_DEVModel.T_ORG_GROUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_GROUP">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_CENTER">
+          <End Role="T_ORG_CENTER" Type="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_CENTER">
+          <End Role="T_ORG_CENTER" Type="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Xccelerator_OTC_DEVModel.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK61EBB318E0006D47">
+          <End Role="T_ORG_REGION" Type="Xccelerator_OTC_DEVModel.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_CENTER" Type="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_CENTER">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK778AE3CD9C3FB5F4">
+          <End Role="T_ORG_CENTER" Type="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_CENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="CENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGDEAL_GROUP">
+          <End Role="T_ORG_GROUP" Type="Xccelerator_OTC_DEVModel.T_ORG_GROUP" Multiplicity="1" />
+          <End Role="T_ORG_DEAL" Type="Xccelerator_OTC_DEVModel.T_ORG_DEAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_DEAL">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGDEAL_REGION">
+          <End Role="T_ORG_REGION" Type="Xccelerator_OTC_DEVModel.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_DEAL" Type="Xccelerator_OTC_DEVModel.T_ORG_DEAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_DEAL">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_DEAL">
+          <End Role="T_ORG_DEAL" Type="Xccelerator_OTC_DEVModel.T_ORG_DEAL" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_DEAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="DEAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_DEAL">
+          <End Role="T_ORG_DEAL" Type="Xccelerator_OTC_DEVModel.T_ORG_DEAL" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Xccelerator_OTC_DEVModel.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_DEAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="DEAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGGROUP_REGION">
+          <End Role="T_ORG_REGION" Type="Xccelerator_OTC_DEVModel.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_GROUP" Type="Xccelerator_OTC_DEVModel.T_ORG_GROUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_GROUP">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_GROUP">
+          <End Role="T_ORG_GROUP" Type="Xccelerator_OTC_DEVModel.T_ORG_GROUP" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_GROUP">
+          <End Role="T_ORG_GROUP" Type="Xccelerator_OTC_DEVModel.T_ORG_GROUP" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Xccelerator_OTC_DEVModel.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_REGION">
+          <End Role="T_ORG_REGION" Type="Xccelerator_OTC_DEVModel.T_ORG_REGION" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_REGION">
+          <End Role="T_ORG_REGION" Type="Xccelerator_OTC_DEVModel.T_ORG_REGION" Multiplicity="1" />
+          <End Role="T_ORG_TEAM" Type="Xccelerator_OTC_DEVModel.T_ORG_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ORG_TEAM">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK778AE3CDE0006D47">
+          <End Role="T_ORG_REGION" Type="Xccelerator_OTC_DEVModel.T_ORG_REGION" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_EMPLOYEE_T_TEAM">
+          <End Role="T_ORG_TEAM" Type="Xccelerator_OTC_DEVModel.T_ORG_TEAM" Multiplicity="0..1" />
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ORG_TEAM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="TEAM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USER_T_USER_EMPLOYEE">
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="T_USERS" Type="Xccelerator_OTC_DEVModel.T_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USERS">
+              <PropertyRef Name="USER_EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_USEREMPLOYEE">
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="T_USERS" Type="Xccelerator_OTC_DEVModel.T_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USERS">
+              <PropertyRef Name="USER_EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKE1E93193713C7EB1">
+          <End Role="T_USER_EMPLOYEE" Type="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="T_USERS" Type="Xccelerator_OTC_DEVModel.T_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USER_EMPLOYEE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_USERS">
+              <PropertyRef Name="USER_EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_MD_EXCEPTIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="START_TIME" Type="DateTime" Precision="3" />
+          <Property Name="END_TIME" Type="DateTime" Precision="3" />
+          <Property Name="EXCEPTIONS_TYPE" Type="Int64" />
+          <Property Name="RECURRENCE_PATTERN" Type="Int64" />
+          <Property Name="FREQUENCY" Type="Int64" />
+          <Property Name="FREQUENCY_WEEKS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FREQUENCY_MONTH_DAY_EVERY" Type="Int64" />
+          <Property Name="FREQUENCY_MONTH_WEEK" Type="Int64" />
+          <Property Name="FREQUENCY_MONTH_WEEK_SEQUENCY" Type="Int64" />
+          <Property Name="FREQUENCY_MONTH" Type="Int64" />
+          <Property Name="FREQUENCY_MONTH_DAY_THE" Type="Int64" />
+          <Property Name="FREQUENCY_YEAR_DAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FREQUENCY_YEAR_WEEK" Type="Int64" />
+          <Property Name="FREQUENCY_YEAR_WEEK_SEQUENCY" Type="Int64" />
+          <Property Name="FREQUENCY_YEAR_MONTH" Type="Int64" />
+          <Property Name="RANGE_START" Type="DateTime" Precision="3" />
+          <Property Name="RANGE_END_AFTER" Type="Int64" />
+          <Property Name="RANGE_END_BY" Type="DateTime" Precision="3" />
+          <Property Name="RANGE_TYPE" Type="Int64" />
+          <Property Name="WORKINGCALENDAR_ID" Type="Int64" />
+          <Property Name="FREQUENCY_Daily_Number" Type="Int64" />
+        </EntityType>
+        <EntityType Name="T_WORKING_CALENDAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEARM_ID" Type="Int64" />
+          <Property Name="START_TIME" Type="DateTime" Precision="3" />
+          <Property Name="END_TIME" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Xccelerator_OTC_DEVModelStoreContainer" CdmEntityContainer="XcceleratorEntities">
+          <EntitySetMapping Name="T_ORG_CENTER">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_ORG_CENTER">
+              <MappingFragment StoreEntitySet="T_ORG_CENTER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CENTER_NAME" ColumnName="CENTER_NAME" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ORG_DEAL">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_ORG_DEAL">
+              <MappingFragment StoreEntitySet="T_ORG_DEAL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DEAL_NAME" ColumnName="DEAL_NAME" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+                <ScalarProperty Name="CENTER_ID" ColumnName="CENTER_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ORG_GROUP">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_ORG_GROUP">
+              <MappingFragment StoreEntitySet="T_ORG_GROUP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GROUP_NAME" ColumnName="GROUP_NAME" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+                <ScalarProperty Name="CENTER_ID" ColumnName="CENTER_ID" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ORG_REGION">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_ORG_REGION">
+              <MappingFragment StoreEntitySet="T_ORG_REGION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="REGION_NAME" ColumnName="REGION_NAME" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ORG_TEAM">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_ORG_TEAM">
+              <MappingFragment StoreEntitySet="T_ORG_TEAM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TEAM_NAME" ColumnName="TEAM_NAME" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+                <ScalarProperty Name="CENTER_ID" ColumnName="CENTER_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="DEAL_ID" ColumnName="DEAL_ID" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="PROCESS_ID" ColumnName="PROCESS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_USER_EMPLOYEE">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE">
+              <MappingFragment StoreEntitySet="T_USER_EMPLOYEE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DIRECT_MANAGER_ID" ColumnName="DIRECT_MANAGER_ID" />
+                <ScalarProperty Name="USER_FLG" ColumnName="USER_FLG" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_MAIL" ColumnName="USER_MAIL" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="DEAL" ColumnName="DEAL" />
+                <ScalarProperty Name="VERTICAL" ColumnName="VERTICAL" />
+                <ScalarProperty Name="TOWER" ColumnName="TOWER" />
+                <ScalarProperty Name="PROCESS" ColumnName="PROCESS" />
+                <ScalarProperty Name="SUB_PROCESS" ColumnName="SUB_PROCESS" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+                <ScalarProperty Name="CENTER_ID" ColumnName="CENTER_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="DEAL_ID" ColumnName="DEAL_ID" />
+                <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+                <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+                <ScalarProperty Name="DEFAULT_PORTAL" ColumnName="DEFAULT_PORTAL" />
+                <ScalarProperty Name="AVATAR_URL" ColumnName="AVATAR_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_USERS">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_USERS">
+              <MappingFragment StoreEntitySet="T_USERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+                <ScalarProperty Name="ACCOUNT_FLG" ColumnName="ACCOUNT_FLG" />
+                <ScalarProperty Name="USER_FLG" ColumnName="USER_FLG" />
+                <ScalarProperty Name="USER_MAIL" ColumnName="USER_MAIL" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="DEAL" ColumnName="DEAL" />
+                <ScalarProperty Name="VERTICAL" ColumnName="VERTICAL" />
+                <ScalarProperty Name="TOWER" ColumnName="TOWER" />
+                <ScalarProperty Name="PROCESS" ColumnName="PROCESS" />
+                <ScalarProperty Name="SUB_PROCESS" ColumnName="SUB_PROCESS" />
+                <ScalarProperty Name="DELETE_FLG" ColumnName="DELETE_FLG" />
+                <ScalarProperty Name="INDUSTRY" ColumnName="INDUSTRY" />
+                <ScalarProperty Name="PRODUCTION" ColumnName="PRODUCTION" />
+                <ScalarProperty Name="USER_EMPLOYEE_ID" ColumnName="USER_EMPLOYEE_ID" />
+                <ScalarProperty Name="EMPLOYEE_NAME" ColumnName="EMPLOYEE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_MD_EXCEPTIONS">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_MD_EXCEPTIONS">
+              <MappingFragment StoreEntitySet="T_MD_EXCEPTIONS">
+                <ScalarProperty Name="FREQUENCY_Daily_Number" ColumnName="FREQUENCY_Daily_Number" />
+                <ScalarProperty Name="WORKINGCALENDAR_ID" ColumnName="WORKINGCALENDAR_ID" />
+                <ScalarProperty Name="RANGE_TYPE" ColumnName="RANGE_TYPE" />
+                <ScalarProperty Name="RANGE_END_BY" ColumnName="RANGE_END_BY" />
+                <ScalarProperty Name="RANGE_END_AFTER" ColumnName="RANGE_END_AFTER" />
+                <ScalarProperty Name="RANGE_START" ColumnName="RANGE_START" />
+                <ScalarProperty Name="FREQUENCY_YEAR_MONTH" ColumnName="FREQUENCY_YEAR_MONTH" />
+                <ScalarProperty Name="FREQUENCY_YEAR_WEEK_SEQUENCY" ColumnName="FREQUENCY_YEAR_WEEK_SEQUENCY" />
+                <ScalarProperty Name="FREQUENCY_YEAR_WEEK" ColumnName="FREQUENCY_YEAR_WEEK" />
+                <ScalarProperty Name="FREQUENCY_YEAR_DAY" ColumnName="FREQUENCY_YEAR_DAY" />
+                <ScalarProperty Name="FREQUENCY_MONTH_DAY_THE" ColumnName="FREQUENCY_MONTH_DAY_THE" />
+                <ScalarProperty Name="FREQUENCY_MONTH" ColumnName="FREQUENCY_MONTH" />
+                <ScalarProperty Name="FREQUENCY_MONTH_WEEK_SEQUENCY" ColumnName="FREQUENCY_MONTH_WEEK_SEQUENCY" />
+                <ScalarProperty Name="FREQUENCY_MONTH_WEEK" ColumnName="FREQUENCY_MONTH_WEEK" />
+                <ScalarProperty Name="FREQUENCY_MONTH_DAY_EVERY" ColumnName="FREQUENCY_MONTH_DAY_EVERY" />
+                <ScalarProperty Name="FREQUENCY_WEEKS" ColumnName="FREQUENCY_WEEKS" />
+                <ScalarProperty Name="FREQUENCY" ColumnName="FREQUENCY" />
+                <ScalarProperty Name="RECURRENCE_PATTERN" ColumnName="RECURRENCE_PATTERN" />
+                <ScalarProperty Name="EXCEPTIONS_TYPE" ColumnName="EXCEPTIONS_TYPE" />
+                <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+                <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_WORKING_CALENDAR">
+            <EntityTypeMapping TypeName="Xccelerator_OTC_DEVModel.T_WORKING_CALENDAR">
+              <MappingFragment StoreEntitySet="T_WORKING_CALENDAR">
+                <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+                <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+                <ScalarProperty Name="TEARM_ID" ColumnName="TEARM_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="XcceleratorEntities" ZoomLevel="74">
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_ORG_CENTER" Width="1.5" PointX="3" PointY="7.375" Height="3.1340950520833326" IsExpanded="true" />
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_ORG_DEAL" Width="1.5" PointX="5.25" PointY="7.375" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_ORG_GROUP" Width="1.5" PointX="8.25" PointY="7.5" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_ORG_REGION" Width="1.5" PointX="0.75" PointY="7.5" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_ORG_TEAM" Width="1.5" PointX="10.5" PointY="7.125" Height="3.5186979166666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_USER_EMPLOYEE" Width="1.875" PointX="12.5" PointY="5.5" Height="6.7878222656250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_USERS" Width="1.5" PointX="15" PointY="6.25" Height="5.2494108072916674" IsExpanded="true" />
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_CENTER_REGION" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.9708968098958337" />
+          <ConnectorPoint PointX="3" PointY="8.9708968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_ORGDEAL_CENTER" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.9420475260416659" />
+          <ConnectorPoint PointX="5.25" PointY="8.9420475260416659" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_ORGGROUP_CENTER" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5000000000000018" PointY="10.509095052083332" />
+          <ConnectorPoint PointX="4.875" PointY="10.884095052083332" />
+          <ConnectorPoint PointX="4.875" PointY="10.816793619791667" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="10.816793619791667" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="10.816793619791667" />
+          <ConnectorPoint PointX="7.8507692307692309" PointY="10.816793619791667" />
+          <ConnectorPoint PointX="8.25" PointY="10.417562850560898" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_CENTER" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.718747500000001" PointY="10.509095052083332" />
+          <ConnectorPoint PointX="3.718747500000001" PointY="11.552307942708335" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="11.552307942708335" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="11.552307942708335" />
+          <ConnectorPoint PointX="12.5" PointY="11.552307942708335" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_TEAM_CENTER" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.375" />
+          <ConnectorPoint PointX="4.875" PointY="7" />
+          <ConnectorPoint PointX="4.875" PointY="6.75" />
+          <ConnectorPoint PointX="10.125" PointY="6.75" />
+          <ConnectorPoint PointX="10.5" PointY="7.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK61EBB318E0006D47" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.1729484049479169" />
+          <ConnectorPoint PointX="3" PointY="8.1729484049479169" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK778AE3CD9C3FB5F4" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.1093737500000014" PointY="10.509095052083332" />
+          <ConnectorPoint PointX="4.1093737500000014" PointY="11.153298281250008" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="11.153298281250008" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="11.153298281250008" />
+          <ConnectorPoint PointX="12.5" PointY="11.153298281250008" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_ORGDEAL_GROUP" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="8.9396443098958329" />
+          <ConnectorPoint PointX="6.75" PointY="8.9396443098958329" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_ORGDEAL_REGION" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.416408004407053" />
+          <ConnectorPoint PointX="2.625" PointY="10.791408004407053" />
+          <ConnectorPoint PointX="2.625" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="3.6354141666666675" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="3.8020808333333345" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="4.0260404166666683" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="4.1927070833333344" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="4.5416666666666687" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="4.7083333333333348" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="5.1261528461538468" PointY="10.634095052083332" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="10.509095052083332" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_DEAL" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.0318289230769224" PointY="10.509095052083332" />
+          <ConnectorPoint PointX="6.0318289230769224" PointY="11.951317604166663" />
+          <ConnectorPoint PointX="12.5" PointY="11.951317604166663" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_TEAM_DEAL" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.40625" />
+          <ConnectorPoint PointX="10.5" PointY="7.40625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_ORGGROUP_REGION" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.43486954286859" />
+          <ConnectorPoint PointX="2.5381740769230774" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="3.6354141666666675" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="3.8020808333333345" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="4.0260404166666683" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="4.1927070833333344" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="4.6306152343750036" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="4.79728190104167" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="7.9941336153846159" PointY="10.723043619791667" />
+          <ConnectorPoint PointX="8.2753836153846159" PointY="10.441793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_GROUP" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.043944307692307" PointY="10.441793619791667" />
+          <ConnectorPoint PointX="9.043944307692307" PointY="10.898495598958345" />
+          <ConnectorPoint PointX="12.5" PointY="10.898495598958345" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_TEAM_GROUP" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="8.9708968098958337" />
+          <ConnectorPoint PointX="10.5" PointY="8.9708968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_REGION" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="10.441793619791667" />
+          <ConnectorPoint PointX="1.5" PointY="11.352803111979171" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="11.352803111979171" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="11.352803111979171" />
+          <ConnectorPoint PointX="3.6354141666666675" PointY="11.352803111979171" />
+          <ConnectorPoint PointX="3.8020808333333345" PointY="11.352803111979171" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="11.352803111979171" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="11.352803111979171" />
+          <ConnectorPoint PointX="12.5" PointY="11.352803111979171" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_TEAM_REGION" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="7.5" />
+          <ConnectorPoint PointX="1.5" PointY="7.2500025000000008" />
+          <ConnectorPoint PointX="4.5416641666666662" PointY="7.2500025" />
+          <ConnectorPoint PointX="4.7083308333333322" PointY="7.2500025000000008" />
+          <ConnectorPoint PointX="10.5" PointY="7.2500025000000008" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK778AE3CDE0006D47" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="10.441793619791667" />
+          <ConnectorPoint PointX="1.9062525" PointY="11.7518127734375" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="11.7518127734375" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="11.7518127734375" />
+          <ConnectorPoint PointX="12.5" PointY="11.7518127734375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_T_USER_EMPLOYEE_T_TEAM" ManuallyRouted="false">
+          <ConnectorPoint PointX="12" PointY="8.8843489583333337" />
+          <ConnectorPoint PointX="12.5" PointY="8.8843489583333337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_T_USER_T_USER_EMPLOYEE" ManuallyRouted="false">
+          <ConnectorPoint PointX="14.375" PointY="8.8747054036458337" />
+          <ConnectorPoint PointX="15" PointY="8.8747054036458337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FK_USER_USEREMPLOYEE" ManuallyRouted="false">
+          <ConnectorPoint PointX="14.375" PointY="7.4998527018229169" />
+          <ConnectorPoint PointX="15" PointY="7.4998527018229169" />
+        </AssociationConnector>
+        <AssociationConnector Association="Xccelerator_OTC_DEVModel.FKE1E93193713C7EB1" ManuallyRouted="false">
+          <ConnectorPoint PointX="14.375" PointY="10.249558105468751" />
+          <ConnectorPoint PointX="15" PointY="10.249558105468751" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_MD_EXCEPTIONS" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Xccelerator_OTC_DEVModel.T_WORKING_CALENDAR" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

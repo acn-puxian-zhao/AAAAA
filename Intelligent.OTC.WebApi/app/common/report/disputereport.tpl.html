@@ -1,0 +1,172 @@
+﻿
+<div class="tag col-md-12">
+    <em></em>
+    <div class="row" style="height:20px"></div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div style="float:left; padding-right:10px;">
+                <label for="LegalEntity" style="font-size:12px;">
+                    Legal Entity:
+                </label>
+                <div style="width:180px">
+                    <select id="Legal" class="form-control input-sm" ng-model="legalEntity" ng-options="d.legalEntity as d.legalEntity for d in legallist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="CustomerCode" style="font-size:12px;">
+                    Customer NO.:
+                </label>
+                <div style="width:180px">
+                    <input id="CustomerCode" class="form-control input-sm" ng-model="custCode" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="CustomerName" style="font-size:12px;">
+                    Customer Name:
+                </label>
+                <div style="width:180px">
+                    <input id="CustomerName" class="form-control input-sm" name="CustomerName" ng-model="custName" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="SiteUseId" style="font-size:12px;">
+                    SiteUseId:
+                </label>
+                <div style="width:180px">
+                    <input id="SiteUseId" class="form-control input-sm" ng-model="siteUseId" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="InvoiceCode" style="font-size:12px;">
+                    Invoice#:
+                </label>
+                <div style="width:180px">
+                    <input id="InvoiceCode" class="form-control input-sm" ng-model="invoicecode" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="TrackStatus" style="font-size:12px;">
+                    Track Status:
+                </label>
+                <div style="width:180px">
+                    <select id="TrackStatus" class="form-control input-sm" ng-model="trackstatus" ng-options="a.detailValue as a.detailName for a in trackstatuslist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="Status" style="font-size:12px;">
+                   Dispute Status:
+                </label>
+                <div style="width:180px">
+                    <select id="Status" class="form-control input-sm" ng-model="status" ng-options="a.detailValue as a.detailName for a in statuslist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height:20px"></div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div style="float:left; padding-right:10px;">
+                <label for="inputFrom" style="font-size:12px;">
+                    Duedate From
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="DuedateFrom" readonly="true" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputTo" style="font-size:12px;">
+                    Duedate To
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="DuedateTo" readonly="true" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="reason" style="font-size:12px;">
+                    Reason:
+                </label>
+                <div style="width:180px">
+                    <select id="reason" class="form-control input-sm" ng-model="reason" ng-options="a.detailValue as a.detailName for a in internallist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="EB" style="font-size:12px;">
+                    EB Name:
+                </label>
+                <!--<div style="width:180px">
+                    <select id="EB" class="form-control input-sm" ng-model="eb" ng-options="d.eb as d.eb for d in ebList">
+                        <option value="">All</option>
+                    </select>
+                </div>-->
+                <div style="width:180px">
+                    <input id="EB" class="form-control input-sm" ng-model="eb" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="Department" style="font-size:12px;">
+                    Department:
+                </label>
+                <div style="width:180px">
+                    <select id="Department" class="form-control input-sm" ng-model="department" ng-options="a.detailValue as a.detailName for a in departmentlist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left">
+                <label style="height:14px"></label>
+                <div style="width:180px; font-size:12px;">
+                    <input type="checkbox" name="cancel" ng-model="disclosed" /> Dispute Closed  &nbsp;&nbsp;
+                    <input type="checkbox" name="close" ng-model="closed" /> Invoice Closed
+                </div>
+            </div>
+            <div class="col-md-2 btn-group" style="width:160px;padding-top:20px">
+                <button type="button" class="btn btn-primary " style="width:100px" ng-click="searchReport()">
+                    Search
+                </button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <!--<span class="sr-only">切换下拉菜单</span>-->
+                </button>
+                <button class="dropdown-menu" role="menu" ng-click="resetSearch()">
+                    <li><a>Reset Search</a></li>
+                </button>
+            </div>
+            <div class="btn-group" data-toggle="buttons" style="padding-top:20px">
+                <button type="button" class="btn btn-primary " style="width:62px" ng-click="exportReport()">
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div class="grid-style" ui-grid="reportList" ui-grid-resize-columns ui-grid-selection>
+    </div>
+</div>
+
+<div class="form-group col-md-12">
+    <div class="row">
+        <div class="col-md-2" style="width:130px">
+            <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                    ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+        </div>
+        <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+            <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                        ng-model="currentPage" ng-change="pageChanged()"></ul>
+        </div>
+        <div class="col-md-2 " style="width:150px">
+            <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems}}</div>
+        </div>
+    </div>
+</div>
+
+

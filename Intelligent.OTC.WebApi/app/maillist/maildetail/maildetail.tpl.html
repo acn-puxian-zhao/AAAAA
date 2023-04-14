@@ -1,0 +1,88 @@
+﻿<div style="text-align:center; width:100%; height:25px; margin:auto;font-size:small">
+    <label style="width:140px;" ng-show="isShowAssignCustomer()"><a ng-click="AssignCustomer()">Assign Customer</a></label>
+
+    <!--<label style="width:80px;"><a>Add Contact</a></label>-->
+
+    <label style="width:80px;" ng-show="showReplyAndForward()"><a ng-click="reply()">Reply</a></label>
+
+    <!--<label style="width:120px;"><a>Reply with SOA</a></label>-->
+
+    <label style="width:80px;" ng-show="showReplyAndForward()"><a ng-click="forward()">Forward</a></label>
+
+    <!--<label style="width:120px;"><a>Forward With SOA</a></label>-->
+
+    <label style="width:80px;" ng-show="showFinish()"><a ng-click="finish()">Finished</a></label>
+
+    <label style="width:80px;" ng-show="showPending()"><a ng-click="pending()">Pending</a></label>
+
+    <!--<label style="width:80px;"><a>Delete</a></label>-->
+
+    <label style="width:120px;"><a ng-click="hideGrid = !hideGrid;readData()">{{ hideGrid && 'Show' || 'Hide' }} Invoice List</a></label>
+</div>
+<!--########################  invoice memo edit  ######################## s -->
+<div id="box" class="box"></div>
+<div id="boxEdit" class="box2">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="editMemoClose()">&times;</span></button>
+    <p id="lblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+    <label hidden id="hiddenInvId"></label>
+    <textarea id="txtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px" ng-model="selectText"></textarea>
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="editMemoSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="editMemoClose()">Close</button>
+</div>
+<div id="boxEditBatch" class="box2">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="batcheditMemoClose()">&times;</span></button>
+    <p id="batchlblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+    <label hidden id="batchhiddenInvId"></label>
+    <textarea id="batchtxtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px"></textarea>
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="batcheditMemoSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="batcheditMemoClose()">Close</button>
+</div>
+<!--########################  invoice memo edit  ######################## e -->
+
+<div style="text-align:center; width:100%; height:30px; margin:auto;" >
+    <lable ng-repeat="items in customers">
+        <label id="lbl{{items.customerNum}}">{{items.customerNum}}{{items.customerName}}<a class="glyphicon glyphicon-remove" style="color:red" ng-click="removeCus({{items.customerNum}},{{items.siteUseId}})"></a></label>
+    </lable>
+</div>
+<mailinstance cust-nums='custNums' instance='mailInstance' mail-defaults='mailDefaults' modal-instance="modalInstance"></mailinstance>
+
+<div style="text-align:center; width:100%;margin-bottom:10px;" ng-if="!hideGrid">
+    <div style="text-align:center; width:100%; height:30px;margin-bottom:10px;">
+        <div style="float:right">
+            <div style="float:left; padding-right:10px;">
+                <button type="button" class="btn-filter" style="width:120px" ng-show="showgenerateSOA()" ng-click ="generateSoa()">
+                    <p class="glyphicon glyphicon-send"></p>&nbsp;&nbsp;Generate SOA
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button type="button" class="btn-filter" style="width:120px" ng-click="batcheditMemoShow()">
+                    <p class="glyphicon glyphicon-pencil"></p>&nbsp;&nbsp;Invoice Memo
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;display:none">
+                <button type="button" class="btn-filter" ng-click="changetab('dispute')">
+                    <img src="~/../Content/images/dispute.png" />&nbsp;&nbsp;Dispute
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <button type="button" class="btn-filter" ng-click="changetab('ptp')">
+                    <img src="~/../Content/images/PTP.png" />&nbsp;&nbsp;PTP
+                </button>
+            </div>
+            <div style="float:left; padding-right:10px; " >
+                <button type="button" class="btn-filter" style="width:120px" ng-click="clearPTP()">
+                    <img src="~/../Content/images/PTP.png" />&nbsp;&nbsp;Clear PTP
+                </button>
+            </div>
+            <!--<div style="float:left; padding-right:10px;">
+                <button type="button" class="btn-filter" style="width:100px" ng-click="changetab('notice')">
+                    <img src="~/../Content/images/Notice.png" />&nbsp;&nbsp;Payment
+                </button>
+            </div>-->
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="grid-style" ui-grid="invoiceList" style="min-height:300px;" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns ui-grid-pinning>
+        </div>
+    </div>
+</div>

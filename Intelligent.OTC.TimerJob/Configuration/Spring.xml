@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="CommonRep"
+    type="Intelligent.OTC.Domain.Repositories.OTCRepository, Intelligent.OTC.Domain" singleton="false">
+    <property name="UOW">
+      <object type="Intelligent.OTC.Common.UnitOfWork.EFUnitOfWork, Intelligent.OTC.Common" >
+      </object>    
+    </property>
+  </object>
+  <object id="XcceleratorRep"
+  type="Intelligent.OTC.Domain.Repositories.XcceleratorRepository, Intelligent.OTC.Domain" singleton="false">
+    <property name="UOW">
+      <object type="Intelligent.OTC.Common.UnitOfWork.EFUnitOfWork, Intelligent.OTC.Common" >
+      </object>
+    </property>
+  </object>
+  <object id="MailService"
+      type="Intelligent.OTC.Business.MailService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="MailTimer"
+        type="System.Collections.Generic.List&lt;Intelligent.OTC.Domain.Partials.MailTimerWrapper>, mscorlib" >
+    <constructor-arg name="collection" >
+      <list element-type="Intelligent.OTC.Domain.Partials.MailTimerWrapper, Intelligent.OTC.Domain">
+          <object id="AveryTimer"
+                  type="Intelligent.OTC.Domain.Partials.MailTimerWrapper, Intelligent.OTC.Domain">
+            <property name="Interval" value="300000" />
+            <property name="Enabled" value="true" />
+            <property name="Deal" value="Avery" />
+          </object>
+      </list>
+    </constructor-arg>
+  </object>
+</objects>

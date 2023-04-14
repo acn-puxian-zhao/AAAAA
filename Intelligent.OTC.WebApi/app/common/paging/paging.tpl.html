@@ -1,0 +1,18 @@
+﻿<div class="row" style="margin-left:0px;">
+    <div style="float:left; width:23.5%;">
+        <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{totalItems}}</span>&nbsp;items</label>
+    </div>
+    <div class="col-md-8" style="padding-left:0px; padding-right:0px; width:61%;">
+        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                    ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" boundary-links="true"></ul>
+    </div>
+    <div style="width:14%; float:left;">
+        <div style="float:left">
+            <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+        </div>
+        <div style="float:left">
+            <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                    ng-change="pagesizechange()" class="form-control input-sm" style="margin-top: 19px;"></select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,154 @@
+﻿
+<div class="tag col-md-12">
+    <em></em>
+    <div class="row" style="height:20px"></div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div style="float:left; padding-right:10px;">
+                <label for="LegalEntity" style="font-size:12px;">
+                    Legal Entity:
+                </label>
+                <div style="width:180px">
+                    <select id="Legal" class="form-control input-sm" ng-model="legalEntity" ng-options="d.legalEntity as d.legalEntity for d in legalentitylist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="BsType" style="font-size:12px;">
+                    BsType:
+                </label>
+                <div style="width:180px">
+                    <select id="bsType" class="form-control input-sm" ng-model="bsType" ng-options="d.detailName as d.detailName for d in bsTypelist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="float:left; padding-right:10px;">
+                <label for="inputFrom" style="font-size:12px;">
+                    Create Date From
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="CreateDateFrom" readonly="true" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputTo" style="font-size:12px;">
+                    Create Date To
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="CreateDateTo" readonly="true" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="TransNumber" style="font-size:12px;">
+                    Trans Number:
+                </label>
+                <div style="width:180px">
+                    <input id="transNumber" class="form-control input-sm" ng-model="transNumber" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="TransAmount" style="font-size:12px;">
+                    Trans Amount:
+                </label>
+                <div style="width:180px">
+                    <input id="transAmount" class="form-control input-sm" ng-model="transAmount" />
+                </div>
+            </div>
+
+            <div class="btn-group" style="width:160px;padding-top:20px">
+                <button type="button" class="btn btn-primary " style="width:100px" ng-click="searchReport()">
+                    Search
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div style="float:left; padding-right:10px;">
+                <label for="inputFrom" style="font-size:12px;">
+                    ValueDate From
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="ValueDateFrom" readonly="true" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputTo" style="font-size:12px;">
+                    ValueDate To
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="ValueDateTo" readonly="true" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="enterStatus" style="font-size:12px;">
+                    入账状态:
+                </label>
+                <div style="width:180px">
+                    <select id="enterStatus" class="form-control input-sm" ng-model="enter" ng-options="d.value as d.value for d in enters">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="BsType" style="font-size:12px;">
+                    入账邮件状态:
+                </label>
+                <div style="width:180px">
+                    <select id="bsType" class="form-control input-sm" ng-model="enterMail" ng-options="d.value as d.value for d in enterMails">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="BsType" style="font-size:12px;">
+                    消帐状态:
+                </label>
+                <div style="width:180px">
+                    <select id="bsType" class="form-control input-sm" ng-model="crossOff" ng-options="d.value as d.value for d in crossOffs">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="BsType" style="font-size:12px;">
+                    消帐邮件状态:
+                </label>
+                <div style="width:180px">
+                    <select id="bsType" class="form-control input-sm" ng-model="crossOffMail" ng-options="d.value as d.value for d in enterMails">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-group" style="width:160px;padding-top:20px">
+                <button type="button" class="btn btn-primary " style="width:100px" ng-click="exportReport()">
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+        <div class="grid-style" ui-grid="reportList" ui-grid-resize-columns ui-grid-selection>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div class="col-md-2" style="width:130px">
+                <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                        ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+            </div>
+            <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+                <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                    ng-model="currentPage" ng-change="pageChanged()"></ul>
+            </div>
+            <div class="col-md-2 " style="width:150px">
+                <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

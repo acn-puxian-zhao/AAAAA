@@ -1,0 +1,72 @@
+﻿<div class="modal-header">
+    <h3>Assign Customer</h3>
+</div>
+<div class="modal-body">
+    <div class="row" style="width:878px; margin-left:5px;">
+        <div style="width:20%; float:left; margin-left:10px;">
+            <label for="inputCustCode">
+                Customer NO.
+            </label>
+            <input id="inputCustCode" class="form-control input-sm" ng-model="custCode" />
+        </div>
+        <div style="width:20%; float:left; margin-left:10px;">
+            <label for="inputCustName">
+                Customer Name
+            </label>
+            <input id="inputCustName" class="form-control input-sm" ng-model="custName" />
+        </div>
+        <div style="width:20%; float:left; margin-left:10px;">
+            <label for="inputsiteUseId">
+                SiteUseId
+            </label>
+            <input id="inputsiteUseId" class="form-control input-sm" ng-model="siteUseId" />
+        </div>
+        <div style="width:15%; float:left; margin-left:10px;">
+            <label for="inputOperator">
+                Operator
+            </label>
+            <label id="inputOperator" class="form-control input-sm"></label>
+        </div>
+        <div style="width:15%; float:left; margin-left:10px;">
+            <div style="padding-top:20px;">
+                <button type="button" class="filter-button" ng-click="searchCollection()">
+                    Search
+                </button>
+                <button type="button" class="filter-button" ng-click="resetSearch()">
+                    Clear
+                </button>
+            </div>
+        </div>
+            <!--<div class="col-md-2">
+            <input id="inputOperator" class="form-control input-sm" ng-model="operator" />
+        </div>-->
+    </div>
+    <!--<div class="row" style="padding-top:15px; padding-bottom:15px; width:878px; margin-left:5px;">
+        <div class="col-md-2" style="float:right">
+            <button type="button" class="btn btn-primary form-control" ng-click="searchCollection()">
+                Search
+            </button>
+        </div>
+        <div class="col-md-2" style="float:right;">
+            <button type="button" class="btn btn-primary form-control" ng-click="resetSearch()">
+                Clear
+            </button>
+        </div>
+    </div>-->
+    <div class="row" style="width:878px; margin-left:5px; margin-top:10px;">
+        <div class="form-group col-md-12" style="padding-left:10px; padding-right:0px;">
+            <div class="smallgrid-style" style="width:856px" ui-grid="customerList" ui-grid-resize-columns ui-grid-selection>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="width:878px; margin-left:5px;">
+        <button type="button" class="btn btn-primary" ng-click="submit()" aging="right" style="float:right; margin-right:10px;">
+            Submit
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="close()" aging="right" style="float:right; margin-right:10px">
+            Close
+        </button>
+    </div>
+</div>

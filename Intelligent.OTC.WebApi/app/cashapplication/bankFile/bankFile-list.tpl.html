@@ -1,0 +1,88 @@
+﻿<div class="panel-group" id="accordion">
+    <div style="height:30px; margin-bottom:10px;">
+        <div style="float:right">
+            <div style="float:left">
+                <button type="button" class="btn-filter" ng-click="bankFileOpenFilter()">
+                    <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bankFileDataSearch" class="tag col-md-12" style="display:none">
+        <em style="left: auto;right: 45px;"></em>
+        <div class="row" style="height:5px"></div>
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputCustName" style="font-size:12px;">
+                        Transaction INC.
+                    </label>
+                    <div style="width:180px">
+                        <input id="inputTransactionNum" class="form-control input-sm" ng-model="transactionNum" />
+                    </div>
+                </div>
+
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputCustName" style="font-size:12px;">
+                        File Name
+                    </label>
+                    <div style="width:180px">
+                        <input id="inputFileName" class="form-control input-sm" ng-model="fileName" />
+                    </div>
+                </div>
+
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputCustName" style="font-size:12px;">
+                        File Type
+                    </label>
+                    <div style="width:180px">
+                        <input id="inputFileType" class="form-control input-sm" ng-model="fileType" />
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="dateF" style="font-size:12px;">
+                        Date From:
+                    </label>
+                    <div id="dateF" style="width:180px" datetimepicker value="createDateF" readonly="true" />
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="dateT" style="font-size:12px;">
+                        Date To:
+                    </label>
+                    <div id="dateT" style="width:180px" datetimepicker value="createDateT" readonly="true" />
+                </div>
+
+                <div style="float:left;padding-left:10px">
+                    <label style="height:12px"></label>
+                    <div>
+                        <button type="button" class="filter-button" ng-click="resetSearch()">
+                            Clear
+                        </button>
+                        <button type="button" class="filter-button" ng-click="init()">
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+        <div class="grid-style" ui-grid="dataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:100%;max-width:1567px;">
+        </div>
+    </div>
+    <div class="form-group col-md-10">
+        <div class="row">
+            <div class="col-md-2">
+                <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                        ng-change="pageSizeChange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+                </select>
+            </div>
+            <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                ng-model="currentPage" ng-change="pageChanged()"></ul>
+        </div>
+    </div>
+
+</div>

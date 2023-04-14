@@ -1,0 +1,1580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{163C7593-1B4E-4539-B78E-7E7B08E25296}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Intelligent.OTC.WebApi</RootNamespace>
+    <AssemblyName>Intelligent.OTC.WebApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AE.Net.Mail, Version=1.7.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AE.Net.Mail.1.7.10.0\lib\net40\AE.Net.Mail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\..\..\..\..\..\dll\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net1213, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Log4Net1213.3.4.1\lib\net40\Common.Logging.Log4Net1213.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalQuartz.Owin, Version=4.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalQuartz.Owin.4.2.1.0\lib\CrystalQuartz.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper">
+      <HintPath>..\..\..\..\..\..\dll\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0774796e73ebf640, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkProfiler.Appender.4.0.4048\lib\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.OData.Core">
+      <HintPath>..\packages\Microsoft.OData.Core.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm">
+      <HintPath>..\packages\Microsoft.OData.Edm.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial">
+      <HintPath>..\packages\Microsoft.Spatial.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NSubstitute, Version=1.8.2.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSubstitute.1.8.2.0\lib\net40\NSubstitute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Quartz, Version=2.6.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.6.1\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\packages\Spring.Aop.2.0.1\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=2.0.1.40000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spring.Core.2.0.1\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\packages\Spring.Data.2.0.1\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.OData">
+      <HintPath>..\packages\Microsoft.AspNet.OData.5.7.0\lib\net45\System.Web.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\allcontactinfo\allcontact\allaccount.js" />
+    <Content Include="app\allcontactinfo\allcontact\allaccount.tpl.html" />
+    <Content Include="app\allcontactinfo\allinfo.tpl.html" />
+    <Content Include="app\allcontactinfo\allinfo.js" />
+    <Content Include="app\allcontactinfo\ptpInfo\ptpInfo.js" />
+    <Content Include="app\allcontactinfo\ptpInfo\ptpInfo.tpl.html" />
+    <Content Include="app\arrowemail\angular-snap.min.js" />
+    <Content Include="app\arrowemail\arrowemail-list.html" />
+    <Content Include="app\arrowemail\arrowemail.js" />
+    <Content Include="app\cashapplication\actiontask\actionTask.js" />
+    <Content Include="app\cashapplication\actiontask\actionTask.tpl.html" />
+    <Content Include="app\cashapplication\actiontask\identify.tpl.html" />
+    <Content Include="app\cashapplication\agentcustomer\agentcustomer.js" />
+    <Content Include="app\cashapplication\agentcustomer\agentcustomer.tpl.html" />
+    <Content Include="app\cashapplication\bankFile\bankFile-edit.tpl.html" />
+    <Content Include="app\cashapplication\bankFile\bankFile-edit.js" />
+    <Content Include="app\cashapplication\bankFile\bankFile-list.js" />
+    <Content Include="app\cashapplication\bankFile\bankFile-list.tpl.html" />
+    <Content Include="app\cashapplication\bankstatement\bankStatement-edit.tpl.html" />
+    <Content Include="app\cashapplication\bankstatement\bankStatement.js" />
+    <Content Include="app\cashapplication\bsreport\bsReport-list.tpl.html" />
+    <Content Include="app\cashapplication\bsreport\bsReport.js" />
+    <Content Include="app\cashapplication\hisdata\batchManualClose.js" />
+    <Content Include="app\cashapplication\hisdata\batchManualClose.tpl.html" />
+    <Content Include="app\cashapplication\hisdata\camailalert.js" />
+    <Content Include="app\cashapplication\hisdata\camailalert.tpl.html" />
+    <Content Include="app\cashapplication\hisdata\reuploadPostClear.js" />
+    <Content Include="app\cashapplication\hisdata\reuploadPost.js" />
+    <Content Include="app\cashapplication\hisdata\batchChangeINC.js" />
+    <Content Include="app\cashapplication\hisdata\reuploadPostClear.tpl.html" />
+    <Content Include="app\cashapplication\hisdata\reuploadPost.tpl.html" />
+    <Content Include="app\cashapplication\hisdata\batchChangeINC.tpl.html" />
+    <Content Include="app\cashapplication\multipleResult\multipleResult.js" />
+    <Content Include="app\cashapplication\multipleResult\multipleResult.tpl.html" />
+    <Content Include="app\cashapplication\pmtDetail\pmtDetail.js" />
+    <Content Include="app\cashapplication\pmtDetail\pmtDetail.tpl.html" />
+    <Content Include="app\cashapplication\postClearResultCheck\postClearResultCheck-list.tpl.html" />
+    <Content Include="app\cashapplication\postClearResultCheck\postClearResultCheck.js" />
+    <Content Include="app\cashapplication\statusReport\statusReport-list.tpl.html" />
+    <Content Include="app\cashapplication\statusReport\statusReport.js" />
+    <Content Include="app\cashapplication\customerAttribute\customerAttribute-edit.tpl.html" />
+    <Content Include="app\cashapplication\customerAttribute\customerAttribute-list.tpl.html" />
+    <Content Include="app\cashapplication\customerAttribute\customerAttribute.js" />
+    <Content Include="app\cashapplication\custAndBankCust\custAndBankCust-edit.tpl.html" />
+    <Content Include="app\cashapplication\custAndBankCust\custAndBankCust-list.tpl.html" />
+    <Content Include="app\cashapplication\custAndBankCust\custAndBankCust.js" />
+    <Content Include="app\cashapplication\customerForward\customerForward-edit.tpl.html" />
+    <Content Include="app\cashapplication\customerForward\customerForward-list.tpl.html" />
+    <Content Include="app\cashapplication\customerForward\customerForward.js" />
+    <Content Include="app\cashapplication\hisdata\hisdata.js" />
+    <Content Include="app\cashapplication\hisdata\hisdata.tpl.html" />
+    <Content Include="app\cashapplication\identifyCustomer\identifyCustomer.js" />
+    <Content Include="app\cashapplication\identifyCustomer\identifyCustomer.tpl.html" />
+    <Content Include="app\cashapplication\paymentcustomer\paymentcustomer.js" />
+    <Content Include="app\cashapplication\paymentcustomer\paymentcustomer.tpl.html" />
+    <Content Include="app\cashapplication\paymentDetail\delConfirm.tpl.html" />
+    <Content Include="app\cashapplication\paymentDetail\paymentdetail-edit.tpl.html" />
+    <Content Include="app\cashapplication\paymentDetail\paymentDetail.js" />
+    <Content Include="app\cashapplication\recon\reconDetail.js" />
+    <Content Include="app\cashapplication\recon\reconDetail.tpl.html" />
+    <Content Include="app\cashapplication\recon\reconTask.js" />
+    <Content Include="app\cashapplication\recon\reconTask.tpl.html" />
+    <Content Include="app\cashapplication\remittanceattachment\remittanceattachment.js" />
+    <Content Include="app\cashapplication\remittanceattachment\remittanceattachment.tpl.html" />
+    <Content Include="app\cashapplication\unknowAdvisor\unknownDetail.js" />
+    <Content Include="app\cashapplication\unknowAdvisor\unknownDetail.tpl.html" />
+    <Content Include="app\cashapplication\unknowAdvisor\unknownTask.js" />
+    <Content Include="app\cashapplication\unknowAdvisor\unknownTask.tpl.html" />
+    <Content Include="app\cashapplication\uploadfile\delConfirm.tpl.html" />
+    <Content Include="app\cashapplication\uploadfile\uploadcafile.js" />
+    <Content Include="app\cashapplication\uploadfile\uploadcafile.tpl.html" />
+    <Content Include="app\common\changeinvoicestatus\changeInvoiceStatus-list.tpl.html" />
+    <Content Include="app\common\changeinvoicestatus\changeInvoiceStatus.js" />
+    <Content Include="app\common\contactdetail\contact-overdue.tpl.html" />
+    <Content Include="app\common\contactdetail\contact-response.tpl.html" />
+    <Content Include="app\common\contactdetail\contact-comment.tpl.html" />
+    <Content Include="app\common\contactdetail\contactSecond.js" />
+    <Content Include="app\common\contactdetail\contact-breakptp.tpl.html" />
+    <Content Include="app\common\changestatus\changeStatus-list.tpl.html" />
+    <Content Include="app\common\changestatus\changeStatus.js" />
+    <Content Include="app\common\contactdetail\contact-call.tpl.html" />
+    <Content Include="app\common\contactdetail\contact-dispute.tpl.html" />
+    <Content Include="app\common\contactdetail\contact-notice.tpl.html" />
+    <Content Include="app\common\contactdetail\contact-ptpSecond.tpl.html" />
+    <Content Include="app\common\contactdetail\contact-ptp.tpl.html" />
+    <Content Include="app\common\contactdetail\contact.js" />
+    <Content Include="app\common\contactor\contactor.js" />
+    <Content Include="app\common\floatmenu\floatmenu.js" />
+    <Content Include="app\common\mail\mail-instance.tpl.html" />
+    <Content Include="app\common\mail\mail-list.tpl.html" />
+    <Content Include="app\all-list.tpl.html" />
+    <Content Include="app\common\paging\paging.tpl.html" />
+    <Content Include="app\common\paging\paging.js" />
+    <Content Include="app\common\report\cadaliyreport.js" />
+    <Content Include="app\common\report\cashapplicationcountreport.js" />
+    <Content Include="app\common\report\cadaliyreport.tpl.html" />
+    <Content Include="app\common\report\cashapplicationcountreport.tpl.html" />
+    <Content Include="app\common\report\dailyAgingreport.js" />
+    <Content Include="app\common\report\arreport.js" />
+    <Content Include="app\common\report\dailyAgingreport.tpl.html" />
+    <Content Include="app\common\report\arreport.tpl.html" />
+    <Content Include="app\common\report\dailyreport-list.tpl.html" />
+    <Content Include="app\common\report\dailyReport.js" />
+    <Content Include="app\common\report\dashboard.js" />
+    <Content Include="app\common\report\dashboard.tpl.html" />
+    <Content Include="app\common\report\disputereport.js" />
+    <Content Include="app\common\report\disputereport.tpl.html" />
+    <Content Include="app\common\report\reportFeedback.js" />
+    <Content Include="app\common\report\reportFeedback.tpl.html" />
+    <Content Include="app\common\report\reportFeedbackBySales.js" />
+    <Content Include="app\common\report\reportFeedbackBySales.tpl.html" />
+    <Content Include="app\common\report\reportFeedbackByCs.tpl.html" />
+    <Content Include="app\common\report\reportFeedbackByCs.js" />
+    <Content Include="app\common\report\reportPTP.js" />
+    <Content Include="app\common\report\reportOD.js" />
+    <Content Include="app\common\report\overduereport.js" />
+    <Content Include="app\common\report\reportPTP.tpl.html" />
+    <Content Include="app\common\report\reportOD.tpl.html" />
+    <Content Include="app\common\report\overduereport.tpl.html" />
+    <Content Include="app\common\report\reportUnApply.js" />
+    <Content Include="app\common\report\reportUnApply.tpl.html" />
+    <Content Include="app\common\upload\exportContactor.tpl.html" />
+    <Content Include="app\common\upload\exportContactor.js" />
+    <Content Include="app\common\upload\importBadDebt.js" />
+    <Content Include="app\common\upload\importBadDebt.tpl.html" />
+    <Content Include="app\common\upload\importLitigation.js" />
+    <Content Include="app\common\upload\importEBBranch.js" />
+    <Content Include="app\common\upload\importLitigation.tpl.html" />
+    <Content Include="app\common\upload\importEBBranch.tpl.html" />
+    <Content Include="app\common\upload\importComment.js" />
+    <Content Include="app\common\upload\importComment.tpl.html" />
+    <Content Include="app\common\upload\importContactor.tpl.html" />
+    <Content Include="app\common\upload\importContactor.js" />
+    <Content Include="app\common\upload\importPayment.js" />
+    <Content Include="app\common\upload\importPayment.tpl.html" />
+    <Content Include="app\common\upload\importAP.js" />
+    <Content Include="app\common\upload\importAP.tpl.html" />
+    <Content Include="app\disputetracking\disputeTracking-list.tpl.html" />
+    <Content Include="app\disputetracking\disputeTracking.js" />
+    <Content Include="app\disputetracking\dispute\dispute-list.tpl.html" />
+    <Content Include="app\disputetracking\dispute\dispute.js" />
+    <Content Include="app\dso\dsoanalysis.html" />
+    <Content Include="app\dso\dsoanalysis.js" />
+    <Content Include="app\dunning\dunning-list.tpl.html" />
+    <Content Include="app\dunning\dunning.js" />
+    <Content Include="app\dunning\senddun\sendDun.js" />
+    <Content Include="app\dunning\senddun\sendDun.tpl.html" />
+    <Content Include="app\error\404.html" />
+    <Content Include="app\error\error.js" />
+    <Content Include="app\maillist\contactcustomeredit\contactcustomer-edit.tpl.html" />
+    <Content Include="app\maillist\contactcustomeredit\contactcustomer.js" />
+    <Content Include="app\maillist\maildetail\maildetail.js" />
+    <Content Include="app\maillist\maildetail\maildetail.tpl.html" />
+    <Content Include="app\maillist\maillist-list.tpl.html" />
+    <Content Include="app\maillist\maillist.js" />
+    <Content Include="app\masterdata\ar\arAnalysis.js" />
+    <Content Include="app\masterdata\ar\ARAnalysis.tpl.html" />
+    <Content Include="app\masterdata\contactorReplace\contactorReplace-edit.tpl.html" />
+    <Content Include="app\masterdata\contactorReplace\contactorReplace.js" />
+    <Content Include="app\masterdata\contactorReplace\delConfirm.tpl.html" />
+    <Content Include="app\masterdata\contactorReplace\contactorReplace-import.tpl.html" />
+    <Content Include="app\masterdata\contactor\contactor-update.tpl.html" />
+    <Content Include="app\masterdata\contactor\contactor-copy.tpl.html" />
+    <Content Include="app\masterdata\contactorReplace\contactorReplace-list.tpl.html" />
+    <Content Include="app\masterdata\contactor\contactor-import.tpl.html" />
+    <Content Include="app\masterdata\customerAccountPeriod\accountPeriod.tpl.html" />
+    <Content Include="app\masterdata\customerAccountPeriod\accountPeriod.js" />
+    <Content Include="app\masterdata\customerdomain\custdomain-edit.tpl.html" />
+    <Content Include="app\masterdata\customerdomain\custdomain.js" />
+    <Content Include="app\masterdata\customer\comments-edit.tpl.html" />
+    <Content Include="app\masterdata\customer\CustomerExpirationDate.js" />
+    <Content Include="app\masterdata\customer\CustomerExpirationDate.tpl.html" />
+    <Content Include="app\masterdata\customer\delConfirm.js" />
+    <Content Include="app\masterdata\customer\delConfirm.tpl.html" />
+    <Content Include="app\masterdata\customer\customer-list.tpl.html" />
+    <Content Include="app\masterdata\customer\customer.js" />
+    <Content Include="app\masterdata\customer\customer-edit.tpl.html" />
+    <Content Include="app\masterdata\customer\customerEdit.js" />
+    <Content Include="app\common\upload\import.js" />
+    <Content Include="app\common\upload\import.tpl.html" />
+    <Content Include="app\masterdata\dunning\dunning-edit.tpl.html" />
+    <Content Include="app\masterdata\dunning\dunning.js" />
+    <Content Include="app\masterdata\ebsetting\ebsetting-edit.tpl.html" />
+    <Content Include="app\masterdata\ebsetting\ebsetting-list.tpl.html" />
+    <Content Include="app\masterdata\ebsetting\ebsetting.js" />
+    <Content Include="app\masterdata\mailtemplate\mailtemplate.js" />
+    <Content Include="app\masterdata\paymentbank\paymentbank-edit.tpl.html" />
+    <Content Include="app\masterdata\paymentbank\paymentbank.js" />
+    <Content Include="app\masterdata\period\period-info.tpl.html" />
+    <Content Include="app\masterdata\period\period.js" />
+    <Content Include="app\masterdata\period\period-list.tpl.html" />
+    <Content Include="app\masterdata\permissionAgent\permissionAgent-edit.tpl.html" />
+    <Content Include="app\masterdata\permissionAgent\permissionAgent-list.tpl.html" />
+    <Content Include="app\masterdata\permissionAgent\permissionAgent.js" />
+    <Content Include="app\masterdata\reassignresponse\reassignresponse-list-tpl.html" />
+    <Content Include="app\masterdata\reassignresponse\reassignresponse.js" />
+    <Content Include="app\common\mail\mail-instance-directive.tpl.html" />
+    <Content Include="app\common\mail\mail.js" />
+    <Content Include="app\appfortest.js" />
+    <Content Include="app\masterdata\contacthistory\contacthistory-list.tpl.html" />
+    <Content Include="app\masterdata\contacthistory\contacthistory.js" />
+    <Content Include="app\common\collector\user-pickup.tpl.html" />
+    <Content Include="app\common\collector\user.js" />
+    <Content Include="app\masterdata\contactor\contactor-edit.tpl.html" />
+    <Content Include="app\masterdata\contactor\contactor.js" />
+    <Content Include="app\common\contactor\contactor-pickup.tpl.html" />
+    <Content Include="app\masterdata\mailtemplate\mailtemplate-list.tpl.html" />
+    <Content Include="app\masterdata\mailtemplate\mailtemplate-edit.tpl.html" />
+    <Content Include="app\common\mailtemplate\mailtemplate-pickup.tpl.html" />
+    <Content Include="app\common\mailtemplate\mailtemplate.js" />
+    <Content Include="app\common\floatmenu\floatmenu-list.tpl.html" />
+    <Content Include="app\contactcustomer\contactCustomer-list.tpl.html" />
+    <Content Include="app\contactcustomer\contactCustomer.js" />
+    <Content Include="app\contactcustomer\contactmaster\contactMaster-list.tpl.html" />
+    <Content Include="app\contactcustomer\contactmaster\contactMaster.js" />
+    <Content Include="app\masterdata\user\userUpdatePwd.js" />
+    <Content Include="app\masterdata\user\user-updatePwd.tpl.html" />
+    <Content Include="app\masterdata\user\user-init.tpl.html" />
+    <Content Include="app\masterdata\user\user.js" />
+    <Content Include="app\myinvoices\myinvoices.js" />
+    <Content Include="app\myinvoices\myinvoices.tpl.html" />
+    <Content Include="app\myinvoices\vatimport.js" />
+    <Content Include="app\myinvoices\vatimport.tpl.html" />
+    <Content Include="app\newheader.tpl.html" />
+    <Content Include="app\header.tpl.html" />
+    <Content Include="app\dataprepare\dataprepare-list.tpl.html" />
+    <Content Include="app\dataprepare\dataprepare.js" />
+    <Content Include="app\notifications.tpl.html" />
+    <Content Include="app\soa\collectorSoa-list.tpl.html" />
+    <Content Include="app\soa\collectorSoa.js" />
+    <Content Include="app\soa\invdetail\invdetail.js" />
+    <Content Include="app\soa\invdetail\invdetail.tpl.html" />
+    <Content Include="app\soa\invhistory\invhistory.js" />
+    <Content Include="app\soa\invhistory\invhistory.tpl.html" />
+    <Content Include="app\soa\sendsoa\sendSoa.js" />
+    <Content Include="app\soa\sendsoa\sendSoa.tpl.html" />
+    <Content Include="app\soa\task-list.tpl.html" />
+    <Content Include="app\soa\task.js" />
+    <Content Include="app\soa\taskedit.js" />
+    <Content Include="app\soa\taskedit.tpl.html" />
+    <Content Include="app\soa\task_disputeedit.js" />
+    <Content Include="app\soa\task_disputeedit.tpl.html" />
+    <Content Include="app\soa\task_pmtedit.js" />
+    <Content Include="app\soa\task_pmtedit.tpl.html" />
+    <Content Include="app\soa\task_ptpedit.tpl.html" />
+    <Content Include="app\soa\task_ptpedit.js" />
+    <Content Include="app\statistics\adImg.PNG" />
+    <Content Include="app\statistics\statistics.js" />
+    <Content Include="app\statistics\statistics.tpl.html" />
+    <Content Include="app\task\task-list.tpl.html" />
+    <Content Include="app\task\task.js" />
+    <Content Include="bin\Aspose.Cells.dll" />
+    <Content Include="bin\AutoMapper.dll" />
+    <Content Include="bin\bin\AE.Net.Mail.dll" />
+    <Content Include="bin\bin\AE.Net.Mail.pdb" />
+    <Content Include="bin\bin\AutoMapper.dll" />
+    <Content Include="bin\bin\AutoMapper.xml" />
+    <Content Include="bin\bin\BouncyCastle.Crypto.dll" />
+    <Content Include="bin\bin\Common.Logging.Core.dll" />
+    <Content Include="bin\bin\Common.Logging.Core.pdb" />
+    <Content Include="bin\bin\Common.Logging.Core.xml" />
+    <Content Include="bin\bin\Common.Logging.dll" />
+    <Content Include="bin\bin\Common.Logging.Log4Net1213.dll" />
+    <Content Include="bin\bin\Common.Logging.Log4Net1213.pdb" />
+    <Content Include="bin\bin\Common.Logging.Log4Net1213.xml" />
+    <Content Include="bin\bin\Common.Logging.pdb" />
+    <Content Include="bin\bin\Common.Logging.xml" />
+    <Content Include="bin\bin\CrystalQuartz.Owin.dll" />
+    <Content Include="bin\bin\CsvHelper.dll" />
+    <Content Include="bin\bin\de\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\de\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\de\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\EntityFramework.BulkInsert.dll" />
+    <Content Include="bin\bin\EntityFramework.BulkInsert.pdb" />
+    <Content Include="bin\bin\EntityFramework.dll" />
+    <Content Include="bin\bin\EntityFramework.MappingAPI.dll" />
+    <Content Include="bin\bin\EntityFramework.MappingAPI.pdb" />
+    <Content Include="bin\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\bin\EntityFramework.xml" />
+    <Content Include="bin\bin\EPPlus.dll" />
+    <Content Include="bin\bin\EPPlus.xml" />
+    <Content Include="bin\bin\es\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\es\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\es\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\FluentFTP.dll" />
+    <Content Include="bin\bin\FluentFTP.xml" />
+    <Content Include="bin\bin\fr\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\fr\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\fr\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\Google.Apis.Core.dll" />
+    <Content Include="bin\bin\Google.Apis.Core.pdb" />
+    <Content Include="bin\bin\Google.Apis.Core.xml" />
+    <Content Include="bin\bin\Google.Apis.dll" />
+    <Content Include="bin\bin\Google.Apis.Gmail.v1.dll" />
+    <Content Include="bin\bin\Google.Apis.Gmail.v1.pdb" />
+    <Content Include="bin\bin\Google.Apis.Gmail.v1.xml" />
+    <Content Include="bin\bin\Google.Apis.pdb" />
+    <Content Include="bin\bin\Google.Apis.xml" />
+    <Content Include="bin\bin\HibernatingRhinos.Profiler.Appender.dll" />
+    <Content Include="bin\bin\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\bin\Intelligent.OTC.Business.dll" />
+    <Content Include="bin\bin\Intelligent.OTC.Business.pdb" />
+    <Content Include="bin\bin\Intelligent.OTC.Common.dll" />
+    <Content Include="bin\bin\Intelligent.OTC.Common.pdb" />
+    <Content Include="bin\bin\Intelligent.OTC.Domain.dll" />
+    <Content Include="bin\bin\Intelligent.OTC.Domain.pdb" />
+    <Content Include="bin\bin\Intelligent.OTC.Job.dll" />
+    <Content Include="bin\bin\Intelligent.OTC.Job.pdb" />
+    <Content Include="bin\bin\Intelligent.OTC.WebApi.dll" />
+    <Content Include="bin\bin\Intelligent.OTC.WebApi.pdb" />
+    <Content Include="bin\bin\it\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\it\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\it\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\ja\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\ja\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\ja\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\ko\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\ko\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\ko\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\log4net.dll" />
+    <Content Include="bin\bin\log4net.xml" />
+    <Content Include="bin\bin\MathNet.Numerics.dll" />
+    <Content Include="bin\bin\MathNet.Numerics.xml" />
+    <Content Include="bin\bin\Microsoft.OData.Core.dll" />
+    <Content Include="bin\bin\Microsoft.OData.Core.xml" />
+    <Content Include="bin\bin\Microsoft.OData.Edm.dll" />
+    <Content Include="bin\bin\Microsoft.OData.Edm.xml" />
+    <Content Include="bin\bin\Microsoft.Owin.dll" />
+    <Content Include="bin\bin\Microsoft.Owin.xml" />
+    <Content Include="bin\bin\Microsoft.Spatial.dll" />
+    <Content Include="bin\bin\Microsoft.Spatial.xml" />
+    <Content Include="bin\bin\Microsoft.Threading.Tasks.dll" />
+    <Content Include="bin\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll" />
+    <Content Include="bin\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml" />
+    <Content Include="bin\bin\Microsoft.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\bin\Microsoft.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\bin\Microsoft.Threading.Tasks.xml" />
+    <Content Include="bin\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\bin\MimeKit.dll" />
+    <Content Include="bin\bin\MimeKit.xml" />
+    <Content Include="bin\bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\bin\NPOI.dll" />
+    <Content Include="bin\bin\NPOI.OOXML.dll" />
+    <Content Include="bin\bin\NPOI.OOXML.xml" />
+    <Content Include="bin\bin\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\bin\NPOI.OpenXml4Net.xml" />
+    <Content Include="bin\bin\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\bin\NPOI.xml" />
+    <Content Include="bin\bin\NSH.Core.dll" />
+    <Content Include="bin\bin\NSH.Core.pdb" />
+    <Content Include="bin\bin\NSubstitute.dll" />
+    <Content Include="bin\bin\NSubstitute.xml" />
+    <Content Include="bin\bin\Owin.dll" />
+    <Content Include="bin\bin\Quartz.dll" />
+    <Content Include="bin\bin\Quartz.pdb" />
+    <Content Include="bin\bin\Quartz.xml" />
+    <Content Include="bin\bin\ru\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\ru\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\ru\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\Spring.Aop.dll" />
+    <Content Include="bin\bin\Spring.Aop.pdb" />
+    <Content Include="bin\bin\Spring.Aop.xml" />
+    <Content Include="bin\bin\Spring.Core.dll" />
+    <Content Include="bin\bin\Spring.Core.pdb" />
+    <Content Include="bin\bin\Spring.Core.xml" />
+    <Content Include="bin\bin\Spring.Data.dll" />
+    <Content Include="bin\bin\Spring.Data.pdb" />
+    <Content Include="bin\bin\Spring.Data.xml" />
+    <Content Include="bin\bin\System.Net.Http.Extensions.dll" />
+    <Content Include="bin\bin\System.Net.Http.Extensions.xml" />
+    <Content Include="bin\bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\bin\System.Net.Http.Primitives.dll" />
+    <Content Include="bin\bin\System.Net.Http.Primitives.xml" />
+    <Content Include="bin\bin\System.Net.Http.WebRequest.dll" />
+    <Content Include="bin\bin\System.Net.Http.WebRequest.xml" />
+    <Content Include="bin\bin\System.Web.Helpers.dll" />
+    <Content Include="bin\bin\System.Web.Helpers.xml" />
+    <Content Include="bin\bin\System.Web.Http.dll" />
+    <Content Include="bin\bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\bin\System.Web.Http.xml" />
+    <Content Include="bin\bin\System.Web.Mvc.dll" />
+    <Content Include="bin\bin\System.Web.Mvc.xml" />
+    <Content Include="bin\bin\System.Web.OData.dll" />
+    <Content Include="bin\bin\System.Web.OData.xml" />
+    <Content Include="bin\bin\System.Web.Razor.dll" />
+    <Content Include="bin\bin\System.Web.Razor.xml" />
+    <Content Include="bin\bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\bin\System.Web.WebPages.dll" />
+    <Content Include="bin\bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\bin\System.Web.WebPages.xml" />
+    <Content Include="bin\bin\Z.EntityFramework.Extensions.dll" />
+    <Content Include="bin\bin\zh-Hans\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\zh-Hans\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\zh-Hans\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\zh-Hans\System.Net.Http.Formatting.resources.dll" />
+    <Content Include="bin\bin\zh-Hans\System.Web.Http.resources.dll" />
+    <Content Include="bin\bin\zh-Hans\System.Web.Http.WebHost.resources.dll" />
+    <Content Include="bin\bin\zh-Hant\Microsoft.OData.Core.resources.dll" />
+    <Content Include="bin\bin\zh-Hant\Microsoft.OData.Edm.resources.dll" />
+    <Content Include="bin\bin\zh-Hant\Microsoft.Spatial.resources.dll" />
+    <Content Include="bin\bin\Zlib.Portable.dll" />
+    <Content Include="bin\bin\Zlib.Portable.xml" />
+    <Content Include="bin\BouncyCastle.Crypto.dll" />
+    <Content Include="bin\Common.Logging.Core.dll" />
+    <Content Include="bin\Common.Logging.dll" />
+    <Content Include="bin\CrystalQuartz.Owin.dll" />
+    <Content Include="bin\CsvHelper.dll" />
+    <Content Include="bin\EntityFramework.BulkInsert.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.MappingAPI.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EPPlus.dll" />
+    <Content Include="bin\FluentFTP.dll" />
+    <Content Include="bin\Google.Apis.Auth.dll" />
+    <Content Include="bin\Google.Apis.Auth.PlatformServices.dll" />
+    <Content Include="bin\Google.Apis.Core.dll" />
+    <Content Include="bin\Google.Apis.dll" />
+    <Content Include="bin\Google.Apis.Gmail.v1.dll" />
+    <Content Include="bin\Google.Apis.PlatformServices.dll" />
+    <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Intelligent.OTC.Business.dll" />
+    <Content Include="bin\Intelligent.OTC.Common.dll" />
+    <Content Include="bin\Intelligent.OTC.Domain.dll" />
+    <Content Include="bin\Intelligent.OTC.Job.dll" />
+    <Content Include="bin\log4net.dll" />
+    <Content Include="bin\MathNet.Numerics.dll" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Threading.Tasks.dll" />
+    <Content Include="bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll" />
+    <Content Include="bin\Microsoft.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\MimeKit.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\NPOI.dll" />
+    <Content Include="bin\NPOI.OOXML.dll" />
+    <Content Include="bin\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\NSH.Core.dll" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\Quartz.dll" />
+    <Content Include="bin\Spring.Aop.dll" />
+    <Content Include="bin\Spring.Core.dll" />
+    <Content Include="bin\Spring.Data.dll" />
+    <Content Include="bin\System.IO.dll" />
+    <Content Include="bin\System.Net.Http.Extensions.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Primitives.dll" />
+    <Content Include="bin\System.Runtime.dll" />
+    <Content Include="bin\System.Threading.Tasks.dll" />
+    <Content Include="bin\Z.EntityFramework.Extensions.dll" />
+    <Content Include="bin\zh-Hans\System.Net.Http.Formatting.resources.dll" />
+    <Content Include="bin\Zlib.Portable.dll" />
+    <Content Include="common\directives\mailinstance.js" />
+    <Content Include="common\directives\basedataBinding.js" />
+    <Content Include="common\directives\crud\TestDirectives.js" />
+    <Content Include="common\directives\datetimepicker.js" />
+    <Content Include="common\directives\editpartial.js" />
+    <Content Include="common\directives\wcOverlay.js" />
+    <Content Include="common\resources\agingReportProxy.js" />
+    <Content Include="common\resources\arrowemailProxy.js" />
+    <Content Include="common\resources\assessmentTypeProxy.js" />
+    <Content Include="common\resources\caBankFileProxy.js" />
+    <Content Include="common\resources\caCommonProxy.js" />
+    <Content Include="common\resources\caHisDataProxy.js" />
+    <Content Include="common\resources\cashCollectedProxy.js" />
+    <Content Include="common\resources\collectorStatisticsHisProxy.js" />
+    <Content Include="common\resources\contactReplaceProxy.js" />
+    <Content Include="common\resources\ebsettingProxy.js" />
+    <Content Include="common\resources\statusReportProxy.js" />
+    <Content Include="common\resources\customerAttributeProxy.js" />
+    <Content Include="common\resources\custAndBankCustProxy.js" />
+    <Content Include="common\resources\customerAccountPeriodProxy.js" />
+    <Content Include="common\resources\customerAssessmentHistoryProxy.js" />
+    <Content Include="common\resources\customerAssessmentLogProxy.js" />
+    <Content Include="common\resources\customerAssessmentProxy.js" />
+    <Content Include="common\resources\customerContactCoverageProxy.js" />
+    <Content Include="common\resources\customerForwardProxy.js" />
+    <Content Include="common\resources\dailyAgingProxy.js" />
+    <Content Include="common\resources\dashboardProxy.js" />
+    <Content Include="common\resources\dailyReportProxy.js" />
+    <Content Include="common\resources\agingProxy.js" />
+    <Content Include="common\resources\appFilesProxy.js" />
+    <Content Include="common\resources\baseDataProxy.js" />
+    <Content Include="common\resources\breakPtpProxy.js" />
+    <Content Include="common\resources\collectorSignatureProxy.js" />
+    <Content Include="common\resources\collectorSoaProxy.js" />
+    <Content Include="common\resources\commonProxy.js" />
+    <Content Include="common\resources\disputeReportProxy.js" />
+    <Content Include="common\resources\disputReasonProxy.js" />
+    <Content Include="common\resources\mailAccountProxy.js" />
+    <Content Include="common\resources\myinvoicesProxy.js" />
+    <Content Include="common\resources\openARProxy.js" />
+    <Content Include="common\resources\overdueReportProxy.js" />
+    <Content Include="common\resources\ebProxy.js" />
+    <Content Include="common\resources\paymentProxy.js" />
+    <Content Include="common\resources\PTPPaymentProxy.js" />
+    <Content Include="common\resources\reportProxy.js" />
+    <Content Include="common\resources\statisticsCollectProxy.js" />
+    <Content Include="common\resources\taskProxy.js" />
+    <Content Include="common\services\cacheService.js" />
+    <Content Include="config\constants.js" />
+    <Content Include="common\resources\contactCustomerProxy.js" />
+    <Content Include="common\resources\contactHistoryProxy.js" />
+    <Content Include="common\resources\contactProxy.js" />
+    <Content Include="common\resources\agingDownLoadProxy.js" />
+    <Content Include="common\resources\customerGroupCfgProxy.js" />
+    <Content Include="common\resources\customerPaymentBankProxy.js" />
+    <Content Include="common\resources\customerPaymentcircleProxy.js" />
+    <Content Include="common\resources\customerProxy.js" />
+    <Content Include="common\resources\disputeTrackingProxy.js" />
+    <Content Include="common\resources\dunningProxy.js" />
+    <Content Include="common\resources\generateSOAProxy.js" />
+    <Content Include="common\resources\holdCustomerProxy.js" />
+    <Content Include="common\resources\initagingProxy.js" />
+    <Content Include="common\resources\invoiceProxy.js" />
+    <Content Include="common\resources\mailProxy.js" />
+    <Content Include="common\resources\mailTemplateProxy.js" />
+    <Content Include="common\resources\allinfoProxy.js" />
+    <Content Include="common\resources\periodProxy.js" />
+    <Content Include="common\resources\permissionProxy.js" />
+    <Content Include="common\resources\collectionProxy.js" />
+    <Content Include="common\providers\crudRouteProvider.js" />
+    <Content Include="common\resources\siteProxy.js" />
+    <Content Include="common\resources\specialNotesProxy.js" />
+    <Content Include="common\resources\unholdCustomerProxy.js" />
+    <Content Include="common\resources\userProxy.js" />
+    <Content Include="common\resources\xcceleratorProxy.js" />
+    <Content Include="common\services\cookieWatcherService.js" />
+    <Content Include="common\services\mailInstanceService.js" />
+    <Content Include="common\services\breadscrumbsService.js" />
+    <Content Include="app\app.js" />
+    <Content Include="common\services\crudService.js" />
+    <Content Include="common\services\i18nNotifications.js" />
+    <Content Include="common\services\localizedMessages.js" />
+    <Content Include="common\services\notifications.js" />
+    <Content Include="common\services\Resource.js" />
+    <Content Include="Configuration\Spring.Repositories.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Configuration\Spring.Services.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\appstyles\base.css" />
+    <Content Include="Content\appstyles\black_header.css" />
+    <Content Include="Content\appstyles\navbar-fixed-side.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\adImg.jpg" />
+    <Content Include="Content\images\home_page_icons.png" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\images\259.png" />
+    <Content Include="Content\images\331.png" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\bg_black.jpg" />
+    <Content Include="Content\images\BusinessExcellenceIcon.png" />
+    <Content Include="Content\images\commandCenterIcon.png" />
+    <Content Include="Content\images\head_bg.jpg" />
+    <Content Include="Content\images\img.png" />
+    <Content Include="Content\images\IntelligentOTC.png" />
+    <Content Include="Content\images\masterDataIcon.png" />
+    <Content Include="Content\images\NextHoverIcon.png" />
+    <Content Include="Content\images\NextIcon.png" />
+    <Content Include="Content\images\notready.png" />
+    <Content Include="Content\images\PrevHoverIcon.png" />
+    <Content Include="Content\images\PrevIcon.png" />
+    <Content Include="Content\images\ready.png" />
+    <Content Include="Content\images\refreshBg.png" />
+    <Content Include="Content\images\spinner.gif" />
+    <Content Include="Content\images\subMenuPoint.png" />
+    <Content Include="Content\images\systemSetting.png" />
+    <Content Include="Content\images\TEUtility.png" />
+    <Content Include="Content\images\Transaction_Icon.png" />
+    <Content Include="Content\images\workShopIcon.png" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\simple-sidebar.css" />
+    <Content Include="Content\star-rating.css" />
+    <Content Include="Content\star-rating.min.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="Content\ui-grid.css" />
+    <Content Include="Content\ui-grid.min.css" />
+    <Content Include="Content\ui-grid.svg" />
+    <Content Include="demo\datepicker.html" />
+    <Content Include="demo\datepicker.js" />
+    <Content Include="demo\sanitize.htm" />
+    <Content Include="demo\tinyMCE.html" />
+    <Content Include="demo\tinyMCE.js" />
+    <Content Include="demo\modal.html" />
+    <Content Include="demo\modal.js" />
+    <Content Include="demo\pagination.html" />
+    <Content Include="demo\pagination.js" />
+    <Content Include="demo\main.js" />
+    <Content Include="demo\main.html" />
+    <Content Include="demo\grid.js" />
+    <Content Include="common\services\modalService.js" />
+    <Content Include="common\directives\crud\crudButtons.js" />
+    <Content Include="common\directives\crud\edit.js" />
+    <Content Include="Content\appstyles\bootstrap.css" />
+    <Content Include="Content\appstyles\site.css" />
+    <Content Include="demo\tooltips.html" />
+    <Content Include="demo\tooltips.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ng-grid.css" />
+    <Content Include="Content\ng-grid.min.css" />
+    <Content Include="demo\grid.html" />
+    <Content Include="Error\404.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\ui-grid.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Index.html" />
+    <Content Include="karma.conf.js" />
+    <Content Include="Logs\Logs\Jobs.txt" />
+    <Content Include="Logs\Logs\Logs.txt" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.csproj.FileListAbsolute.txt" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.dll" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.pdb" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.dll" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.pdb" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.dll" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.pdb" />
+    <Content Include="quartz_jobs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Content\angular-snap-only.css" />
+    <Content Include="Content\angular-snap-only.min.css" />
+    <Content Include="Content\angular-snap.css" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-snap.js" />
+    <Content Include="Content\angular-snap.min.css" />
+    <Content Include="Scripts\angular-snap.min.js" />
+    <Content Include="Scripts\angular-touch.js" />
+    <Content Include="Scripts\angular-translate.js" />
+    <Content Include="Scripts\angular-translate.min.js" />
+    <Content Include="Scripts\angular-ui\angular-file-upload.js" />
+    <Content Include="Scripts\angular-ui\angular-file-upload_com.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\angular-ui\uploader.js" />
+    <Content Include="Scripts\angular-ui\uploader.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\echarts\echarts-all.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\metronic\app\js\dashboard.js" />
+    <Content Include="Scripts\metronic\app\js\layout-builder.js" />
+    <Content Include="Scripts\metronic\app\media\img\bg\bg-1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\bg\bg-2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\bg\bg-3.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\bg\bg-4.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\blog\blog1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\blog\blog2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\blog\blog3.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\blog\blog4.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\blog\blog5.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\client-logos\logo1.png" />
+    <Content Include="Scripts\metronic\app\media\img\client-logos\logo2.png" />
+    <Content Include="Scripts\metronic\app\media\img\client-logos\logo3.png" />
+    <Content Include="Scripts\metronic\app\media\img\client-logos\logo4.png" />
+    <Content Include="Scripts\metronic\app\media\img\client-logos\logo5.png" />
+    <Content Include="Scripts\metronic\app\media\img\envato\screen1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\envato\screen2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\error\bg1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\error\bg2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\error\bg3.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\error\bg4.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\error\bg5.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\error\bg6.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\files\css.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\csv.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\doc.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\html.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\javascript.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\jpg.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\mp4.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\pdf.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\xml.svg" />
+    <Content Include="Scripts\metronic\app\media\img\files\zip.svg" />
+    <Content Include="Scripts\metronic\app\media\img\icons\exchange.svg" />
+    <Content Include="Scripts\metronic\app\media\img\icons\logout.svg" />
+    <Content Include="Scripts\metronic\app\media\img\icons\question.svg" />
+    <Content Include="Scripts\metronic\app\media\img\icons\warning.svg" />
+    <Content Include="Scripts\metronic\app\media\img\logos\logo-1.png" />
+    <Content Include="Scripts\metronic\app\media\img\logos\logo-2.png" />
+    <Content Include="Scripts\metronic\app\media\img\logos\logo-3.png" />
+    <Content Include="Scripts\metronic\app\media\img\misc\notification_bg.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\misc\quick_actions_bg.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\misc\user_profile_bg.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product10.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product11.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product3.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product4.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product5.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product6.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product7.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product8.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\products\product9.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_10.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_11.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_12.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_13.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_14.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_3.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_4.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_5.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_6.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_7.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_8.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\100_9.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_10.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_11.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_12.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_13.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_14.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_3.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_4.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_5.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_6.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_7.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_8.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\300_9.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\user1.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\user2.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\user3.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\user4.jpg" />
+    <Content Include="Scripts\metronic\app\media\img\users\user5.jpg" />
+    <Content Include="Scripts\metronic\demo\default\base\scripts.bundle.js" />
+    <Content Include="Scripts\metronic\demo\default\base\style.bundle.css" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\base\blockui.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\base\bootstrap-notify.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\base\dropdown.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\base\scrollable.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\base\toastr.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\base\treeview.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\calendar\background-events.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\calendar\basic.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\calendar\external-events.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\calendar\google.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\calendar\list-view.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\charts\amcharts\charts.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\charts\amcharts\maps.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\charts\amcharts\stock-charts.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\charts\flotcharts.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\charts\google-charts.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\charts\morris-charts.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\api\events.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\api\methods.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\column-rendering.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\column-width.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\data-ajax.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\data-json.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\data-local.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\html-table.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\local-sort.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\record-selection.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\responsive-columns.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\base\translation.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\child\data-ajax.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\child\data-local.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\locked\both.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\locked\html-table.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\locked\left.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\locked\right.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\scrolling\both.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\scrolling\horizontal.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\datatables\scrolling\vertical.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\validation\form-controls.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\validation\form-widgets.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\autosize.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-datepicker.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-daterangepicker.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-markdown.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-maxlength.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-multipleselectsplitter.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-select.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-switch.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-timepicker.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\bootstrap-touchspin.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\clipboard.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\dropzone.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\form-repeater.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\google-recaptcha.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\input-mask.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\ion-range-slider.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\nouislider.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\select2.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\summernote.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\forms\widgets\typeahead.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\maps\google-maps.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\maps\jqvmap.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\maps\jvectormap.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\portlets\draggable.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\portlets\tools.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\utils\idle-timer.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\components\utils\session-timeout.js" />
+    <Content Include="Scripts\metronic\demo\default\custom\header\actions.js" />
+    <Content Include="Scripts\metronic\demo\default\media\img\logo\favicon.ico" />
+    <Content Include="Scripts\metronic\demo\default\media\img\logo\logo.png" />
+    <Content Include="Scripts\metronic\demo\default\media\img\logo\logo_compact.png" />
+    <Content Include="Scripts\metronic\demo\default\media\img\logo\logo_default_dark.png" />
+    <Content Include="Scripts\metronic\demo\default\media\img\logo\logo_default_light.png" />
+    <Content Include="Scripts\metronic\demo\default\media\img\misc\notification_bg.jpg" />
+    <Content Include="Scripts\metronic\demo\default\media\img\misc\quick_actions_bg.jpg" />
+    <Content Include="Scripts\metronic\demo\default\media\img\misc\user_profile_bg.jpg" />
+    <Content Include="Scripts\metronic\snippets\pages\user\login.js" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\flaticon\Flaticon.svg" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\line-awesome\line-awesome.svg" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\metronic\Metronic_fda1334c35d0f5fe2afb3afebbb6774a.svg" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\socicon\socicon.svg" />
+    <Content Include="Scripts\metronic\vendors\base\images\ion.rangeSlider\sprite-skin-flat.png" />
+    <Content Include="Scripts\metronic\vendors\base\images\jstree\32px.png" />
+    <Content Include="Scripts\metronic\vendors\base\images\jstree\40px.png" />
+    <Content Include="Scripts\metronic\vendors\base\images\jstree\throbber.gif" />
+    <Content Include="Scripts\metronic\vendors\base\images\malihu-custom-scrollbar-plugin\mCSB_buttons.png" />
+    <Content Include="Scripts\metronic\vendors\base\vendors.bundle.css" />
+    <Content Include="Scripts\metronic\vendors\base\vendors.bundle.js" />
+    <Content Include="Scripts\metronic\vendors\custom\flot\flot.bundle.js" />
+    <Content Include="Scripts\metronic\vendors\custom\fullcalendar\fullcalendar.bundle.css" />
+    <Content Include="Scripts\metronic\vendors\custom\fullcalendar\fullcalendar.bundle.js" />
+    <Content Include="Scripts\metronic\vendors\custom\gmaps\gmaps.js" />
+    <Content Include="Scripts\metronic\vendors\custom\jquery-ui\jquery-ui.bundle.css" />
+    <Content Include="Scripts\metronic\vendors\custom\jquery-ui\jquery-ui.bundle.js" />
+    <Content Include="Scripts\metronic\vendors\custom\jqvmap\jqvmap.bundle.css" />
+    <Content Include="Scripts\metronic\vendors\custom\jqvmap\jqvmap.bundle.js" />
+    <Content Include="Scripts\newheader.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\console-sham.js" />
+    <Content Include="Scripts\console-sham.min.js" />
+    <Content Include="Scripts\es5-sham.min.js" />
+    <Content Include="Scripts\es5-shim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.1.js" />
+    <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
+    <Content Include="Scripts\ng-grid.js" />
+    <Content Include="Scripts\ng-grid.min.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="demo\userEditForm.html" />
+    <Content Include="Scripts\popperjs\esm\popper-utils.js" />
+    <Content Include="Scripts\popperjs\esm\popper-utils.min.js" />
+    <Content Include="Scripts\popperjs\esm\popper.js" />
+    <Content Include="Scripts\popperjs\esm\popper.min.js" />
+    <Content Include="Scripts\popperjs\popper.js" />
+    <Content Include="Scripts\popperjs\umd\popper-utils.js" />
+    <Content Include="Scripts\popperjs\umd\popper-utils.min.js" />
+    <Content Include="Scripts\popperjs\umd\popper.js" />
+    <Content Include="Scripts\popperjs\umd\popper.min.js" />
+    <Content Include="Scripts\sanitize.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\snap.js" />
+    <Content Include="Scripts\angular-ui\tinymce.js" />
+    <Content Include="Scripts\star-rating.js" />
+    <Content Include="Scripts\star-rating.min.js" />
+    <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\css\dialog.css" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\buttons.png" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\icons.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\items.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\menu_arrow.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\menu_check.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\progress.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\tabs.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\editable_selects.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\form_utils.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\mctabs.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\validate.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example\dialog.html" />
+    <Content Include="Scripts\tinymce\plugins\example\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\address.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\article.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\aside.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\blockquote.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\div.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\dl.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\figure.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h1.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h2.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h3.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h4.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h5.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h6.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\hgroup.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\ol.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\p.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\pre.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\section.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\ul.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.js" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\tinymce\tinymce.js" />
+    <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\ui-grid.js" />
+    <Content Include="Scripts\ui-grid.min.js" />
+    <Content Include="Template\ContactCustomerInvoiceExport.xlsx" />
+    <Content Include="Template\DownLoad-template.xlsx" />
+    <Content Include="Template\MasterDataExport.xlsx" />
+    <Content Include="Template\Report-template.xlsx" />
+    <Content Include="Template\SOA-template.xlsx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\CertificateValidationConfig.cs" />
+    <Compile Include="App_Start\DbProfilerConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\QuartzConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CaStatusReportController.cs" />
+    <Compile Include="Controllers\CaReconController.cs" />
+    <Compile Include="Controllers\CaBankFileController.cs" />
+    <Compile Include="Controllers\CaBankStatementController.cs" />
+    <Compile Include="Controllers\CACommonController.cs" />
+    <Compile Include="Controllers\CaCustomerForwardController.cs" />
+    <Compile Include="Controllers\CaPTPController.cs" />
+    <Compile Include="Controllers\CaTaskController.cs" />
+    <Compile Include="Controllers\CAUploadFileController.cs" />
+    <Compile Include="Controllers\CaCustomerAttributeController.cs" />
+    <Compile Include="Controllers\custAndBankCustController.cs" />
+    <Compile Include="Controllers\EbSettingController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\PaymentControllers.cs" />
+    <Compile Include="Controllers\ReportFeedbackBySalesController.cs" />
+    <Compile Include="Controllers\ReportFeedbackByCsController.cs" />
+    <Compile Include="Controllers\ReportFeedbackController.cs" />
+    <Compile Include="Controllers\ReportPTPController.cs" />
+    <Compile Include="Controllers\ReportODController.cs" />
+    <Compile Include="Controllers\AssessmentTypeController.cs" />
+    <Compile Include="Controllers\CashCollectedController.cs" />
+    <Compile Include="Controllers\CollectionReportController.cs" />
+    <Compile Include="Controllers\CollectorStatisticsHisController.cs" />
+    <Compile Include="Controllers\ContactReplaceController.cs" />
+    <Compile Include="Controllers\CustomerAccountPeriodController.cs" />
+    <Compile Include="Controllers\CustomerAssessmentController.cs" />
+    <Compile Include="Controllers\CustomerAssessmentHistoryController.cs" />
+    <Compile Include="Controllers\CustomerAssessmentLogController.cs" />
+    <Compile Include="Controllers\CustomerContactCoverageController.cs" />
+    <Compile Include="Controllers\DailyAgingController.cs" />
+    <Compile Include="Controllers\DailyReportController.cs" />
+    <Compile Include="Controllers\allinfoController.cs" />
+    <Compile Include="Controllers\AgingController.cs" />
+    <Compile Include="Controllers\AgingDownLoadController.cs" />
+    <Compile Include="Controllers\AppFilesController.cs" />
+    <Compile Include="Controllers\BaseDataController.cs" />
+    <Compile Include="Controllers\BreakPtpController.cs" />
+    <Compile Include="Controllers\CollectorSignatureController.cs" />
+    <Compile Include="Controllers\CollectorSoaController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\CollectionController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\contactController.cs" />
+    <Compile Include="Controllers\ContactCustomerController.cs" />
+    <Compile Include="Controllers\ContactHistoryController.cs" />
+    <Compile Include="Controllers\CustomerPaymentcircleController.cs" />
+    <Compile Include="Controllers\DashBoardController.cs" />
+    <Compile Include="Controllers\DisputeReportController.cs" />
+    <Compile Include="Controllers\DisputeTrackingController.cs" />
+    <Compile Include="Controllers\DisputReasonController.cs" />
+    <Compile Include="Controllers\DunningController.cs" />
+    <Compile Include="Controllers\HoldCustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MailAccountController.cs" />
+    <Compile Include="Controllers\MailServerController.cs" />
+    <Compile Include="Controllers\MyinvoicesController.cs" />
+    <Compile Include="Controllers\OpenARController.cs" />
+    <Compile Include="Controllers\OverdueReportController.cs" />
+    <Compile Include="Controllers\PeroidController.cs" />
+    <Compile Include="Controllers\CustomerGroupCfgController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\customerPaymentBankController.cs" />
+    <Compile Include="Controllers\GenerateSOAController.cs" />
+    <Compile Include="Controllers\InitAgingController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
+    <Compile Include="Controllers\EbsController.cs" />
+    <Compile Include="Controllers\ReportUnApplyController.cs" />
+    <Compile Include="Controllers\SitesController.cs" />
+    <Compile Include="Controllers\MailTemplateController.cs" />
+    <Compile Include="Controllers\SpecialNotesController.cs" />
+    <Compile Include="Controllers\StatisticsCollectController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Controllers\TransactionOptions.cs" />
+    <Compile Include="Controllers\UnholdCustomerController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\XcceleratorController.cs" />
+    <Compile Include="Controllers\WorkFlowController.cs" />
+    <Compile Include="Core\AntiSqlInject.cs" />
+    <Compile Include="Core\AntiSqlInjectFilter.cs" />
+    <Compile Include="Core\AuthenticationHandler.cs" />
+    <Compile Include="Core\FileDownloadHandler.cs" />
+    <Compile Include="Core\HttpNotFoundControllerActionSelector.cs" />
+    <Compile Include="Core\HttpNotFoundDefaultHttpControllerSelector.cs" />
+    <Compile Include="Core\HttpWebApiControllerActionInvoker.cs" />
+    <Compile Include="Core\PagingQueryable.cs" />
+    <Compile Include="Core\PreRouteHandler.cs" />
+    <Compile Include="Core\UserAuthorizeFilterAttribute.cs" />
+    <Compile Include="Core\WebApiExceptionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\cashapplication\actiontask\advisor.tpl.html" />
+    <Content Include="bin\bin\EntityFramework.MappingAPI.dll.config" />
+    <Content Include="bin\bin\Intelligent.OTC.Business.dll.config" />
+    <Content Include="bin\bin\Intelligent.OTC.Common.dll.config" />
+    <Content Include="bin\bin\Intelligent.OTC.Domain.dll.config" />
+    <Content Include="bin\bin\Intelligent.OTC.Job.dll.config" />
+    <Content Include="bin\bin\Intelligent.OTC.WebApi.dll.config" />
+    <Content Include="bin\bin\log4net.config" />
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <Content Include="Sitemap.dev.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\ui-grid.eot" />
+    <Content Include="fonts\ui-grid.ttf" />
+    <Content Include="fonts\ui-grid.woff" />
+    <Content Include="Outputs\ExportMasterData\MasterDataExportzhichao.wang.xlsx" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\ui-grid.woff" />
+    <Content Include="Content\ui-grid.ttf" />
+    <Content Include="Content\ui-grid.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Grunt合并和压缩js方法的手顺.xlsx" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Logs\Logs\Logs.txt.1" />
+    <Content Include="Logs\Logs\Logs.txt.10" />
+    <Content Include="Logs\Logs\Logs.txt.2" />
+    <Content Include="Logs\Logs\Logs.txt.3" />
+    <Content Include="Logs\Logs\Logs.txt.4" />
+    <Content Include="Logs\Logs\Logs.txt.5" />
+    <Content Include="Logs\Logs\Logs.txt.6" />
+    <Content Include="Logs\Logs\Logs.txt.7" />
+    <Content Include="Logs\Logs\Logs.txt.8" />
+    <Content Include="Logs\Logs\Logs.txt.9" />
+    <Content Include="Logs\obj\Debug\build.force" />
+    <Content Include="Logs\obj\Debug\CoreCompileInputs.cache" />
+    <Content Include="Logs\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.csproj.App.config" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.csproj.CopyComplete" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.csproj.CoreCompileInputs.cache" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.csprojAssemblyReference.cache" />
+    <Content Include="Logs\obj\Debug\Intelligent.OTC.WebApi.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\obj\Debug\build.force" />
+    <Content Include="obj\obj\Debug\CoreCompileInputs.cache" />
+    <Content Include="obj\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.csproj.App.config" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.csproj.CopyComplete" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.csprojAssemblyReference.cache" />
+    <Content Include="obj\obj\Debug\Intelligent.OTC.WebApi.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Debug\Debug\build.force" />
+    <Content Include="obj\Debug\Debug\CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.csproj.App.config" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.csproj.CopyComplete" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.csprojAssemblyReference.cache" />
+    <Content Include="obj\Debug\Debug\Intelligent.OTC.WebApi.csprojResolveAssemblyReference.cache" />
+    <None Include="Outputs\SOA\SOA-PFE.xlsx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\OTC.pubxml" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\flaticon\Flaticon.eot" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\flaticon\Flaticon.ttf" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\flaticon\Flaticon.woff" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\font-awesome\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\line-awesome\line-awesome.eot" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\line-awesome\line-awesome.ttf" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\line-awesome\line-awesome.woff" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\line-awesome\line-awesome.woff2" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\metronic\Metronic_fda1334c35d0f5fe2afb3afebbb6774a.eot" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\metronic\Metronic_fda1334c35d0f5fe2afb3afebbb6774a.ttf" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\metronic\Metronic_fda1334c35d0f5fe2afb3afebbb6774a.woff" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\metronic\Metronic_fda1334c35d0f5fe2afb3afebbb6774a.woff2" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\socicon\socicon.eot" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\socicon\socicon.ttf" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\socicon\socicon.woff" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\summernote\summernote.eot" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\summernote\summernote.ttf" />
+    <Content Include="Scripts\metronic\vendors\base\fonts\summernote\summernote.woff" />
+    <Content Include="Scripts\popperjs\esm\popper-utils.js.map" />
+    <Content Include="Scripts\popperjs\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\popperjs\esm\popper.js.map" />
+    <Content Include="Scripts\popperjs\esm\popper.min.js.map" />
+    <Content Include="Scripts\popperjs\umd\popper-utils.js.map" />
+    <Content Include="Scripts\popperjs\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\popperjs\umd\popper.js.map" />
+    <Content Include="Scripts\popperjs\umd\popper.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <None Include="Scripts\tinymce\langs\readme.md" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.json" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Sitemap.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Template\AllAccountExport.xlsx" />
+    <Content Include="Template\ARReport.xlsx" />
+    <Content Include="Template\DisputeReport.xlsx" />
+    <Content Include="Template\OverDueReport.xlsx" />
+    <Content Include="Template\SOA Sample for Arrow   VAT CN 0.7.xlsx" />
+    <Content Include="Template\SOA Sample for Arrow  Non VAT CN 0.7.xlsx" />
+    <Content Include="Template\ARMasterExport.xlsx" />
+    <Content Include="Template\DSO Report.xlsx" />
+    <Content Include="Template\SOA Sample for Arrow   VAT CN 0.7%28Streamline%29.xlsx" />
+    <Content Include="Template\SOA Sample for Arrow  Non VAT CN 0.7%28Streamline%29.xlsx" />
+    <Content Include="Template\ContactorExport.xlsx" />
+    <Content Include="Template\ReportODTemplate.xlsx" />
+    <Content Include="Views\Views\Error\HttpError.cshtml" />
+    <Content Include="Views\Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Intelligent.OTC.Business\Intelligent.OTC.Business.csproj">
+      <Project>{1FA87E00-7C94-48BE-B3DD-D58D09A3EBCF}</Project>
+      <Name>Intelligent.OTC.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Intelligent.OTC.Common\Intelligent.OTC.Common.csproj">
+      <Project>{185F1FF0-CD4B-4EE7-8883-40D25619B71E}</Project>
+      <Name>Intelligent.OTC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Intelligent.OTC.Domain\Intelligent.OTC.Domain.csproj">
+      <Project>{6D2D0FCE-DCBE-469D-B848-B3DD6661F865}</Project>
+      <Name>Intelligent.OTC.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Intelligent.OTC.Job\Intelligent.OTC.Job.csproj">
+      <Project>{0B28C301-E85C-4F26-8061-7BC76D4E620E}</Project>
+      <Name>Intelligent.OTC.Job</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\common\fileupload\" />
+    <Folder Include="bin\de\" />
+    <Folder Include="bin\es\" />
+    <Folder Include="bin\fr\" />
+    <Folder Include="bin\it\" />
+    <Folder Include="bin\ja\" />
+    <Folder Include="bin\ko\" />
+    <Folder Include="bin\ru\" />
+    <Folder Include="bin\zh-Hant\" />
+    <Folder Include="demo\notused\" />
+    <Folder Include="Logs\obj\Debug\TempPE\" />
+    <Folder Include="obj\Debug\Debug\TempPE\" />
+    <Folder Include="obj\obj\Debug\TempPE\" />
+    <Folder Include="Outputs\Aging\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

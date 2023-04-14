@@ -1,0 +1,53 @@
+﻿<div class="form-group col-md-12" style="border:1px solid; height:100px">
+   <div class="row" style="height:10px">
+    </div>
+    <div class="row" >
+        <label for="mailFrom" class="col-md-1 control-label" >
+            Mail From:</label>
+        <div class="col-md-3">
+           <input id="mailFrom" class="form-control input-sm"  />
+        </div>
+        <label for="dateFrom" class="col-md-1 control-label">
+            Date From:</label>
+       <div class="col-md-3" style="margin-left:-20px">
+            <div datetimepicker value="fromDate" />
+        </div>
+        <label for="dateTo" class="col-md-1 control-label">
+            To:</label>
+       <div class="col-md-3" style="margin-left:-20px">
+            <div datetimepicker value="EndDate" />
+        </div>
+    </div>
+    <div class="row" style="height:10px">
+    </div>
+    <div class="row" >
+        <label for="MailTo" class="col-md-1 control-label">
+            Mail To:</label>
+        <div class="col-md-3">
+            <input type="text" id="MailTo" class="form-control input-sm"  />
+        </div>
+        <label for="title" class="col-md-1 control-label" >
+            Title:</label>
+        <div class="col-md-5">
+           <input id="title" class="form-control input-sm" style="margin-left:-20px"/>
+        </div>
+    <div class="col-md-2" style="float:right margin-left:-20px" >
+        <button type="button" class="btn btn-primary form-control" ng-click="searchRecMail()">
+            Search</button>
+    </div>
+    </div>
+
+
+</div>    
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;" >
+      <div  class="grid-style" ui-grid="recMailGrid"  ui-grid-resize-columns >
+      </div>
+</div>
+
+<div class="form-group col-md-10">
+    <div class="row" >
+        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+            ng-model="currentPage" ng-change="pageChanged()"></ul>
+    </div>
+</div>

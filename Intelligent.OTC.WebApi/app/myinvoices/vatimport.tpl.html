@@ -1,0 +1,61 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Invoice Import</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <div class="col-md-12" style="">
+            <div style="float:left;margin-right:20px">
+                <label><input type="radio" name="gender" ng-model="isVat" ng-value="0" ng-checked="true">CN</label>
+                <label><input type="radio" name="gender" ng-model="isVat" ng-value="1">TW|ATM|UA|KR</label>
+                <label><input type="radio" name="gender" ng-model="isVat" ng-value="2">UA-SAP</label>
+                <label><input type="radio" name="gender" ng-model="isVat" ng-value="3">India|Asean</label>
+                <label><input type="radio" name="gender" ng-model="isVat" ng-value="4">HK</label>
+                <label><input type="radio" name="gender" ng-model="isVat" ng-value="5">ANZ</label>
+            </div>
+            <div style="float:left">
+                <input type="file" id="updVATFile" style="width:400px" nv-file-select="" uploader="uploader" />
+            </div>
+            <div style="float:left">
+                <a style="text-decoration:underline" ng-click="clearFile()">Clear</a>
+            </div>
+            <div style="float:right">
+                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateLevel()">&nbsp;Upload</button>
+            </div>
+        </div>
+    </div>
+    <uib-tabset active="active" type="tabs">
+        <uib-tab index="1">
+            <uib-tab-heading>
+                <i class="fa fa-list"></i> Invoice Level
+            </uib-tab-heading>
+            <div class="form-group">
+                <div class="smallgrid-style" style="height:370px;margin-left:12px;width:870px" ui-grid="invoiceList" ui-grid-resize-columns>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="2">
+            <uib-tab-heading>
+                <i class="fa fa-list"></i> Customer Level
+            </uib-tab-heading>
+            <div class="smallgrid-style" style="height:370px;margin-left:12px;width:870px" ui-grid="customerCommentList" ui-grid-resize-columns>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <div class="col-md-9" style="text-align:left">
+            <span style="font-size:12px; font-weight:bold;">{{alertMessage}}</span>
+            <br />
+            <span style="font-size:12px; font-weight:bold;">{{alertMessageCustomer}}</span>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary" ng-click="cancel()">
+                Close
+            </button>
+            <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+                Submit
+            </button>
+        </div>
+    </div>
+</div>

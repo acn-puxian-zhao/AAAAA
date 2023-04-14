@@ -1,0 +1,118 @@
+﻿<div class="modal-header">
+    <b>Customer Information</b>
+</div>
+<div class="modal-body">
+    <div>
+        <form name="form" crud-edit="cust">
+<!--            <div class="row" ng-hide = "isShow">
+                <label for="siteCode" class="control-label col-md-3">Legal Entity:</label>
+                <div class="col-md-6" >
+                <select id="siteCode" class="form-control" name="SiteCode" ng-model="cust.deal" ng-options="d.legalEntity as d.legalEntity for d in bdlegallist" required>
+                        <option value="">All</option>
+                </select>
+                </div>
+            </div>
+            <div class="row" ng-show = "isShow">
+                <label for="siteCode"  class="control-label col-md-3">Legal Entity:</label>
+                <div class="col-md-6">
+                <input type="text" id="SiteCode" class="form-control" name="SiteCode" ng-readonly="true" ng-model="cust.siteCode" ng-readonly="isreadonly"/>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>-->
+           <!-- <div class="row" style="height:10px">-->
+            <div class="row">
+                <label for="CustomerCode"  class="control-labelh col-md-3">Customer Code:</label>
+                <div class="col-md-6">
+                <input type="text" id="CustomerCode" class="form-control" name="CustomerCode" ng-model="cust.customerNum" ng-readonly="isreadonly" required/>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="customerName"  class="control-labelh col-md-3">Customer Name:</label>
+                <div class="col-md-6">
+                <input type="text" id="Text1" class="form-control" name="customerName" ng-model="cust.customerName" required/>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+<!--           <div class="row">
+                <label for="billGroupCode"  class="control-label col-md-3">Factory Group Code:</label>
+                <div class="col-md-6">
+                <select id="billGroupCode" class="form-control" name="billGroupCode" ng-model="cust.billGroupCode" ng-options="d.billGroupCode as d.billGroupCode for d in bdgroup" required>
+                        <option value="">All</option>
+                </select>
+                </div>
+            </div>
+              <div class="row" style="height:10px"></div>-->
+<!--            <div class="row">
+                <label for="class"  class="control-label col-md-3">class:</label>
+                <div class="col-md-6">
+                <select id="class" class="form-control" ng-model="cust.class" ng-options="c.detailValue as c.detailName for c in bdcusclass" required>
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+              <div class="row" style="height:10px"></div>-->
+  <!--          <div class="row">
+                <label for="creditTrem"  class="control-label col-md-3">creditTrem:</label>
+                <div class="col-md-6">
+                <input type="text" id="Text2" class="form-control" name="creditTrem" ng-model="cust.creditTrem"  required/>
+                </div>
+            </div>
+              <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="description"  class="control-label col-md-3">description:</label>
+                <div class="col-md-6">
+                <input type="text" id="Text3" class="form-control" name="description" ng-model="cust.description">
+                </div>
+            </div>
+              <div class="row" style="height:10px"></div>-->
+            <div class="row">
+                <label for="payMent"  class="control-labelh col-md-3">Payment TAT:</label>
+                <div class="col-md-6">
+                <input type="text" id="Text2" class="form-control" name="payMentTAT" ng-model="cust.paymentTAT"/>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="creditLimit"  class="control-labelh col-md-3">Credit Limit:</label>
+                <div class="col-md-6">
+                <input type="text" id="Text3" class="form-control" name="creditLimit" ng-model="cust.creditLimit"/>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="holdflg"  class="control-labelh col-md-3">Is Hold Flag:</label>
+                <div class="col-md-6">
+                <select id="flg" class="form-control input-sm" ng-model="cust.isHoldFlg" ng-options="a.detailValue as a.detailName for a in holdlist">
+                </select>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="holdflg"  class="control-labelh col-md-3">Exclude Flag:</label>
+                <div class="col-md-6">
+                <select id="Select1" class="form-control input-sm" ng-model="cust.excludeFlg" ng-options="a.detailValue as a.detailName for a in holdlist">
+                </select>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="SpecialNotes"  class="control-labelh col-md-3">Special Notes:</label>
+                <div class="col-md-6">
+               <!-- <input type="text" id="SpecialNotes" class="form-control" name="SpecialNotes" ng-model="cust.SpecialNotes"/>-->
+                <textarea class="form-control" ng-model="cust.specialNotes">{{cust.specialNotes}}</textarea>
+                </div>
+            </div>
+                 <p></p>
+                <crud-buttons></crud-buttons>
+         </form>
+     </div>
+ </div>
+
+<div class="modal-footer">
+   <div class="row">
+           <button type="button" class="btn btn-primary" ng-click="closeCust()" style="float:right; margin-right:10px">
+               Close</button>
+   </div>
+</div>
+

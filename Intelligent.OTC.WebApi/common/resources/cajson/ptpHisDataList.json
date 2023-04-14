@@ -1,0 +1,39 @@
+﻿{
+  "dataRows": [
+    {
+      "promiseToPayDate": "2019-01-01",
+      "paymentCustomerNumber": "1001",
+      "paymentCustomerName": "HW",
+      "systemInvoiceNumber": "100101",
+      "transactionAmount": "100",
+      "invoiceTransactionDate": "2019-01-01",
+      "status": "Unmatched",
+      "updateDate": "2019-01-01",
+      "createDate": "2019-01-01"
+    },
+    {
+      "promiseToPayDate": "2019-01-01",
+      "paymentCustomerNumber": "1001",
+      "paymentCustomerName": "HW",
+      "systemInvoiceNumber": "100101",
+      "transactionAmount": "100",
+      "invoiceTransactionDate": "2019-01-01",
+      "status": "Unmatched",
+      "updateDate": "2019-01-01",
+      "createDate": "2019-01-01"
+    },
+    {
+      "promiseToPayDate": "2019-01-01",
+      "paymentCustomerNumber": "1001",
+      "paymentCustomerName": "HW",
+      "systemInvoiceNumber": "100101",
+      "transactionAmount": "100",
+      "invoiceTransactionDate": "2019-01-01",
+      "status": "Unmatched",
+      "updateDate": "2019-01-01",
+      "createDate": "2019-01-01"
+    }
+
+  ],
+    "count": 3
+ }

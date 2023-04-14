@@ -1,0 +1,112 @@
+﻿<div class="panel-group" id="accordion">
+    <div style="height:30px; margin-bottom:10px;">
+        <div style="float:left;margin-right: 20px;">
+            <img src="~/../Content/images/PrevHoverIcon.png" ng-click="goback()" style="height: 27px; margin-left: 10px;cursor:pointer" />
+        </div>
+        <div style="height:30px; margin-bottom:10px;">
+            <!--<div style="float:left">
+        <img src="~/../Content/images/PrevHoverIcon.png" style="height: 27px; margin-left: 10px;" />
+    </div>-->
+            <div style="float:right">
+                <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                    <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Action
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li id="Wave1"><a style="color:#ccc">Upload Files</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave1"><a style="color:#ccc">Identify Customer</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">PMT Detail Advisor</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Unknown Cash Advisor</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Unknown Adjustment</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Recon</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Recon Adjustment</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Request PMT Detail</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Post</a></li>
+                        <li id="Wave2"><a href="" ng-click="reuploadPost()">Post Confirm</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Clear</a></li>
+                        <li id="Wave2"><a href="" ng-click="reuploadPostClear()">Clear Confirm</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave1"><a href="" ng-click="toTaskListPage()">Historical Task</a></li>
+                        <li id="Wave1"><a href="" ng-click="actiontask()">Action Task</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Export</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="form-group" style="height:100px; padding:10px;">
+            <div class="col-md-12" style="margin-bottom:5px;">
+                <div class="col-md-1" style="">
+                    <label>Bank Statement</label>
+                </div>
+                <div class="col-md-3" style="">
+                    <input type="file" id="updBSFile" style="width:400px" nv-file-select="" uploader="uploader" />
+                </div>
+                <div class="col-md-1" style="">
+                    <a style="text-decoration:underline" ng-click="clearFile('updBSFile')">Clear</a>
+                </div>
+                <div class="col-md-1" style="">
+                    <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateBSFile('updBSFile')">&nbsp;Upload</button>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-bottom:5px;">
+                <div class="col-md-1" style="">
+                    <label>PMT Detail</label>
+                </div>
+                <div class="col-md-3" style="">
+                    <input type="file" id="updRemittanceFile" style="width:400px" nv-file-select="" uploader="uploader" />
+                </div>
+                <div class="col-md-1" style="">
+                    <a style="text-decoration:underline" ng-click="clearFile('updRemittanceFile')">Clear</a>
+                </div>
+                <div class="col-md-1" style="">
+                    <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateRemittanceFile('updRemittanceFile')">&nbsp;Upload</button>
+                </div>
+                <div class="col-md-2" style="">
+                    <button type="button" style="width:auto" class="btn-dpupload fa fa-download" ng-click="downloadtemplete('TemplateCAPMT')">&nbsp;Download Templete</button>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-bottom:5px;">
+                <div class="col-md-1" style="">
+                    <label>PMT Detail(Batch)</label>
+                </div>
+                <div class="col-md-3" style="">
+                    <input type="file" id="updpmtFile" style="width:400px" nv-file-select="" uploader="uploader" />
+                </div>
+                <div class="col-md-1" style="">
+                    <a style="text-decoration:underline" ng-click="clearFile('updpmtFile')">Clear</a>
+                </div>
+                <div class="col-md-1" style="">
+                    <button type="button" class="btn-dpupload fa fa-upload" ng-click="updatepmtFile('updpmtFile')">&nbsp;Upload</button>
+                </div>
+                <div class="col-md-2" style="">
+                    <button type="button" style="width:auto" class="btn-dpupload fa fa-download" ng-click="downloadtemplete('TemplateCAPMTBatch')">&nbsp;Download Templete</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="padding-top:10px; ">
+        <div class="grid-style" ui-grid="taskDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:100%;max-width:1567px;">
+        </div>
+        <div class="form-group col-md-10">
+            <div class="row">
+                <div class="col-md-2">
+                    <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                            ng-change="pageSizeChange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                </div>
+                <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                    ng-model="currentPage" ng-change="pageChanged()"></ul>
+            </div>
+        </div>
+    </div>

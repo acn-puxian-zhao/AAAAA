@@ -1,0 +1,72 @@
+﻿<div class="modal-header">
+    <h3>
+        {{modalOptions.headerText}}</h3>
+</div>
+<div class="Container">
+    <table class="table table-condensed">
+            <tr>
+                <td>
+                    Amount:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.amount}}
+                </td>
+                <td>
+                    Amount Rate:
+                </td>
+                <td class="modalOptions.customerScore.amountRate>4?'danger'">
+                    {{modalOptions.customerScore.amountRate}}
+                </td>
+                <td>
+                    Amount Weight:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.amountWeight}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Age:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.age}}
+                </td>
+                <td>
+                    Age Rate:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.ageRate}}
+                </td>
+                <td>
+                    Age Weight:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.ageWeight}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Age:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.age}}
+                </td>
+                <td>
+                    Age Rate:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.ageRate}}
+                </td>
+                <td>
+                    Age Weight:
+                </td>
+                <td>
+                    {{modalOptions.customerScore.ageWeight}}
+                </td>
+            </tr>
+    </table>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="modalOptions.close()">
+        {{modalOptions.closeButtonText}}</button>
+</div>

@@ -1,0 +1,63 @@
+﻿<div ng-show="hidflg">
+    <h5>Authentication is already inital</h5>
+</div>
+<div ng-hide="hidflg">
+    <label style="color:Red">Group Mail Access</label>
+</div>
+<!--<div class="form-group " style="border:1px solid;border-color:#000; width:1140px;height:112px;" ng-hide="hidflg">
+    <h5>Click <a ng-href="{{authPath}}">here</a> to grant your Avery gmail account's(<b>{{email}}</b>) access permisson to intelligent OTC</h5>
+    <br />
+    <div class="row">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="control-label">Authentication Code:</label>
+        <input ng-model="authCode" />
+    </div>
+    <div class="row" style="height:4px">
+    </div>
+    <button ng-click="grant()" style="width:50px;" ng-vaild="canGrant">Grant</button>
+    &nbsp;&nbsp;
+    <button><a style="text-decoration:none;color:inherit;" ng-href="{{changePassWordURL}}">Change PassWord</a></button><br /><br />
+</div>-->
+<div class="form-group" style="border:1px solid;border-color:#000; width:1140px;" ng-hide="hidflg">
+    <div class="row" style="height:20px;"></div>
+    <div class="row">
+        <label class="control-label col-md-1">Group Mail Address:</label>
+        <div class="col-md-3">
+            <input type="text" class="form-control" ng-model="userName" />
+        </div>
+        <label class="control-label col-md-1">Old Password:</label>
+        <div class="col-md-2">
+            <input type="password" class="form-control" ng-model="oldpwd" />
+        </div>
+        <label class="control-label col-md-1">New Password:</label>
+        <div class="col-md-2">
+            <input type="password" class="form-control" ng-model="pwd" />
+        </div>
+    </div>
+    <div class="row" style="height:10px;"></div>
+    <div class="row">
+`       <input type="button" class="btn btn-primary" style="margin-left:100px;" value="Submit" ng-click="saveMailAccount()"/>
+    </div>
+    <div class="row" style="height:10px;"></div>
+</div>
+
+<div class="row" style="height:20px">
+</div>
+<div class="row">
+    <label style="color:Red; height:20px; line-height:30px;" class="col-md-1">Signature</label>
+    <div class="col-md-2">
+        <select class="form-control" ng-change="changeLanguage()" ng-options="x.detailValue as x.detailName for x in languageList" ng-model="selectedLanguage">
+        </select>
+    </div>
+</div>
+<div class="row" style="height:10px;"></div>
+<div class="form-group " style=" border:1px solid;border-color:#000; width:1140px;height:auto; ">
+    <br/>
+    <textarea ui-tinymce="{trusted: true}" id="mainbody" class="form-control" style="height:220px;" required
+                ng-model="collector.signature"></textarea>
+    <div class="row" style="height:4px">
+    </div>
+    <button ng-click="saveAutograph()" style="width:50px;">Save</button>
+    <div class="row" style="height:12px">
+    </div>
+</div>

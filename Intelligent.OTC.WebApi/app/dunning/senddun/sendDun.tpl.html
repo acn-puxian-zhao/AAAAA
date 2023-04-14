@@ -1,0 +1,468 @@
+﻿<div style="height:40px">
+    <div style="float:left">
+        <h4 class="modal-title">Over Due Follow Up Reminder</h4>
+    </div>
+    <div style="float:right;">
+        <button id="apause" type="button" class="btn-filter" style="margin-right:10px;" ng-click="changeWF('pause')" ng-hide="true">
+            <p class="glyphicon glyphicon-pause"></p>&nbsp;Pause
+        </button>
+        <button id="aresume" type="button" class="btn-filter" style="margin-right:10px;" ng-click="changeWF('resume')" ng-hide="true">
+            <p class="glyphicon glyphicon-play"></p>&nbsp;Resume
+        </button>
+        <button id="afinish" type="button" class="btn-filter" style="margin-right:10px;" ng-click="changeWF('finish')" ng-hide="true">
+            <p class="glyphicon glyphicon-ok"></p>&nbsp;Finish
+        </button>
+        <button id="acancel" type="button" class="btn-filter" style="margin-right:10px;" ng-click="changeWF('cancel')" ng-hide="true">
+            <p class="glyphicon glyphicon-ban-circle"></p>&nbsp;Cancel
+        </button>
+        <button id="arestart" type="button" class="btn-filter" style="margin-right:10px;" ng-click="changeWF('restart')" ng-hide="true">
+            <p class="glyphicon glyphicon-refresh"></p>&nbsp;Restart
+        </button>
+    </div>
+</div>
+<editpartial controller-name='mailListCtrl' template-url='app/common/mail/mail-list.tpl.html' params='custInfo' callback='reSeachContactList()'></editpartial>
+<div id="box" class="box"></div>
+<div id="boxEdit" class="box2">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="editMemoClose()">&times;</span></button>
+    <p id="lblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+    <label hidden id="hiddenInvId"></label>
+    <textarea id="txtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px" ng-model="selectText"></textarea>
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="editMemoSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="editMemoClose()">Close</button>
+</div>
+<div id="boxEditBatch" class="box2">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="batcheditMemoClose()">&times;</span></button>
+    <p id="batchlblBoxTitle" class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;"></p>
+    <label hidden id="batchhiddenInvId"></label>
+    <textarea id="batchtxtBox" class="form-control" style="resize:none;margin-left:10px;margin-right:10px" ></textarea>
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="batcheditMemoSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="batcheditMemoClose()">Close</button>
+</div>
+
+<div id="REdit" class="box3">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="editDunDateClose()">&times;</span></button>
+    <div>
+    <label class="bg-primary" style="margin-top:20px;margin-left:10px;margin-right:10px;font-size:medium;">{{rEditTitle}}</label>
+    </div>
+    <label hidden id="hiddenTrackId"></label>
+    <div style="margin-left:10px;margin-right:10px">Reminder Date</div>
+    <div style="width:250px;margin-left:10px;margin-right:10px" datetimepicker value="editDunDate" readonly="true" />
+    <button class="btn btn-primary " style="margin-left:250px;margin-top:5px" ng-click="editDunDateSave()">Save</button>
+    <button class="btn btn-default " style="float:right;margin-right:10px;margin-top:5px" ng-click="editDunDateClose()">Close</button>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px; height:22px;font-size:medium">
+    <div style="float:right">
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" style="width:120px" ng-click="batcheditMemoShow()">
+                <p class="glyphicon glyphicon-pencil"></p>&nbsp;&nbsp;Invoice Memo
+            </button>
+        </div>
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" ng-click="changetab('call')">
+                <img src="~/../Content/images/Call_log.png" />&nbsp;&nbsp;Call
+            </button>
+        </div>
+        <!--call added by zhangYu-->
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" ng-click="changetab('ptp')">
+                <img src="~/../Content/images/PTP.png" />&nbsp;&nbsp;PTP
+            </button>
+        </div>
+        <div style="float:left; padding-right:10px;">
+            <button type="button" class="btn-filter" style="width:100px" ng-click="changetab('notice')">
+                <img src="~/../Content/images/Notice.png" />&nbsp;&nbsp;Payment
+            </button>
+        </div>
+        <!--call added by zhangYu-->
+        <div style="float:left; padding-right:10px;" id="asend" ng-hide="true">
+            <button type="button" class="btn-filter" style="width:150px" ng-click="check()">
+                <img src="~/../Content/images/SendMail.png" />&nbsp;&nbsp;Send Reminder
+            </button>
+        </div>
+    </div>
+    <!--<ul class="nav nav-tabs">
+        <li id="licall" style="border-left:1px solid; border-right:1px solid; border-top:1px solid;">
+            <a href="" ng-click="changetab('call')">Call Log</a>
+        </li>
+        <li id="asend" style="border-right:1px solid; border-top:1px solid;" ng-hide="true">
+            <a href="" ng-click="check()">Send Reminder</a>
+        </li>
+    </ul>-->
+</div>
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;" ng-repeat="items in sendsoa">
+    <table style="border:1px solid #ececec">
+        <tr>
+            <td>
+
+                <div style="float:left; width:1138px; padding-left:10px; padding-top:10px; padding-right:10px;">
+                    <div style="float:left">
+                        <label style="font-weight:bold">Customer NO.: <span style="font-weight:lighter">{{items.customerCode}}</span></label>
+                    </div>
+                    <div style="float:right">
+                        <label style="font-weight:bold">Total Balance: <span style="font-weight:lighter">{{items.totalBalance | number:2}}</span></label>
+                    </div>
+                </div>
+                <div style="float:left; width:1138px; padding-left:10px; padding-bottom:10px; padding-right:10px;">
+                    <div style="float:left">
+                        <label style="font-weight:bold">Customer Name: <span style="font-weight:lighter">{{items.customerName}}</span></label>
+                    </div>
+                    <div style="float:right">
+                        <label style="font-weight:bold">Customer Class: <span style="font-weight:lighter">{{items.customerClass}}</span></label>
+                    </div>
+                </div>
+
+                <!--<div style="background-color:#CD919E; height:30px;">
+                    <label style="width:150px">Customer NO.: {{items.customerCode}}</label>
+                    <label style="width:550px">Customer Name: {{items.customerName}}</label>
+                    <label style="width:200px">Total Balance: {{items.totalBalance | number:2}}</label>
+                    <label style="width:200px">Customer Class: {{items.customerClass}}</label>
+                </div>-->
+                <div style="float:left; width:1138px; height:25px; background-color:#ececec;">
+                    <div style="padding-left:10px; padding-top:5px;">
+                        <div style="float:left; padding-right:30px">
+                            <span style="cursor:pointer; font-weight:bold;" id="conshow{{items.customerCode}}" ng-click="conshow({{items.customerCode}})">
+                                <img src="~/../Content/images/Contact.png" />&nbsp;&nbsp;Contact
+                            </span>
+                            <span style="cursor:pointer; font-weight:bold; display:none;" id="conhide{{items.customerCode}}" ng-click="conhide({{items.customerCode}})">
+                                <img src="~/../Content/images/Contact.png" />&nbsp;&nbsp;Contact&nbsp;<i class="fa fa-angle-down"></i>
+                            </span>
+                        </div>
+
+                        <div style="float:left; padding-right:30px">
+                            <span style="cursor:pointer; font-weight:bold;" id="pbshow{{items.customerCode}}" ng-click="pbshow({{items.customerCode}})">
+                                <img src="~/../Content/images/Payment.png" />&nbsp;&nbsp;Payee Bank Info
+                            </span>
+                            <span style="cursor:pointer; font-weight:bold; display:none;" id="pbhide{{items.customerCode}}" ng-click="pbhide({{items.customerCode}})">
+                                <img src="~/../Content/images/Payment.png" />&nbsp;&nbsp;Payee Bank Info&nbsp;<i class="fa fa-angle-down"></i>
+                            </span>
+                        </div>
+
+                        <div style="float:left; padding-right:30px">
+                            <span style="cursor:pointer; font-weight:bold;" id="pcshow{{items.customerCode}}" ng-click="pcshow({{items.customerCode}})">
+                                <img src="~/../Content/images/PaymentCalendar.png" />&nbsp;&nbsp;Payment Schedule
+                            </span>
+                            <span style="cursor:pointer; font-weight:bold; display:none;" id="pchide{{items.customerCode}}" ng-click="pchide({{items.customerCode}})">
+                                <img src="~/../Content/images/PaymentCalendar.png" />&nbsp;&nbsp;Payment Schedule&nbsp;<i class="fa fa-angle-down"></i>
+                            </span>
+                        </div>
+                        <div style="float:left">
+                            <span style="cursor:pointer; font-weight:bold;" id="cdgshow{{items.customerCode}}" ng-click="cdgshow({{items.customerCode}})">
+                                <img src="~/../Content/images/PaymentCalendar.png" />&nbsp;&nbsp;Contactor Domain
+                            </span>
+                            <span style="cursor:pointer; font-weight:bold; display:none;" id="cdghide{{items.customerCode}}" ng-click="cdghide({{items.customerCode}})">
+                                <img src="~/../Content/images/PaymentCalendar.png" />&nbsp;&nbsp;Contactor Domain&nbsp;<i class="fa fa-angle-down"></i>
+                            </span>
+                        </div>
+                        <div style="float:right; padding-right:10px;">
+                            <a class="glyphicon glyphicon-plus" ng-show="isContactAddBtnShow" ng-click="addContactor(items.customerCode,items.deal)"></a>
+                            <a class="glyphicon glyphicon-plus" ng-show="isPayBankAddBtnShow" ng-click="addPayBank(items.customerCode)"></a>
+                            <a class="glyphicon glyphicon-plus" ng-show="isDomainAddBtnShow" ng-click="addContactDomain(items.customerCode)"></a>
+                        </div>
+                    </div>
+
+                    <!--<div>
+                        <span style="cursor:pointer; font-size:medium;color:Red;" id="conshow{{items.customerCode}}" ng-click="conshow({{items.customerCode}})">+</span>
+                        <span style="cursor:pointer; font-size:medium;color:Red;display:none" id="conhide{{items.customerCode}}" ng-click="conhide({{items.customerCode}})">－</span>
+                        <label style="color:Red">Contact</label>
+                        <div id="con{{items.customerCode}}" ng-if=items.cgshow>
+                            <a style="font-size:initial;margin-left:1050px" ng-click="addContactor(items.customerCode,items.deal)" class="glyphicon glyphicon-plus"></a>
+                            <div class="smallgrid-style" ui-grid="items.cg" style=""></div>
+                        </div>
+                    </div>
+                    <div>
+                        <span style="cursor:pointer; font-size:medium;color:Red;" id="pbshow{{items.customerCode}}" ng-click="pbshow({{items.customerCode}})">+</span>
+                        <span style="cursor:pointer; font-size:medium;color:Red;display:none" id="pbhide{{items.customerCode}}" ng-click="pbhide({{items.customerCode}})">－</span>
+                        <label style="color:Red">Payment Bank</label>
+                        <div id="pb{{items.customerCode}}" ng-if=items.pbgshow>
+                            <a style="font-size:initial;margin-left:1050px" ng-click="addPayBank(items.customerCode)" class="glyphicon glyphicon-plus"></a>
+                            <div class="smallgrid-style" ui-grid="items.pbg" style=""></div>
+                        </div>
+                    </div>
+                    <div>
+                        <span style="cursor:pointer; font-size:medium;color:Red;" id="pcshow{{items.customerCode}}" ng-click="pcshow({{items.customerCode}})">+</span>
+                        <span style="cursor:pointer; font-size:medium;color:Red;display:none" id="pchide{{items.customerCode}}" ng-click="pchide({{items.customerCode}})">－</span>
+                        <label style="color:Red">Payment Calender</label>
+                        <div id="pc{{items.customerCode}}" ng-if=items.pcgshow>
+                            <table style="margin-left:5px;">
+                                <tr>
+                                    <td>
+                                        <label class="control-label" style="font-size:x-small;" for="File">Upload File:</label>
+                                    </td>
+                                    <td>
+                                        <input type="file" id="uploadCalendar" nv-file-select="" uploader="uploader" />
+                                    </td>
+                                    <td style="width:5px"></td>
+                                    <td>
+                                        <button class="btn btn-primary form-control" ng-click="addFileCircle(items.customerCode)">Upload</button>
+                                    </td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>
+                                        <label for="File">Payment Day:</label>
+                                    </td>
+                                    <td>
+                                        <div style="width:250px" datetimepicker value="items.soapaymentCircle" readonly="true" />
+                                    </td>
+                                    <td style="width:5px"></td>
+                                    <td>
+                                        <button class="btn btn-primary form-control" ng-click="addPayBankCircle(items.customerCode, items.soapaymentCircle)">Add</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="File">Legal Entity:</label>
+                                    </td>
+                                    <td>
+                                        <select id="legalEntity" style="height:20px;width:130px;" ng-change="changeLegal(items.customerCode,items.entityFlg)" ng-model="items.entityFlg" ng-options="a.legalEntity as a.legalEntity for a in legallist"><option value="">All</option></select>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="height:3px;"></div>
+                            <div class="smallgrid-style" ui-grid="items.pcg" style=""></div>
+                        </div>
+                    </div>-->
+                </div>
+                <div style="float:left; width:1138px;">
+                    <div id="con{{items.customerCode}}" ng-if=items.cgshow>
+                        <div class="smallgrid-style" ui-grid="items.cg" style="" ui-grid-resize-columns></div>
+                    </div>
+
+                    <div id="pb{{items.customerCode}}" ng-if=items.pbgshow>
+                        <div class="smallgrid-style" ui-grid="items.pbg" style=""></div>
+                    </div>
+
+                    <div id="pc{{items.customerCode}}" ng-if=items.pcgshow>
+                        <table style="margin-top:5px; margin-left:10px;">
+                            <tr>
+                                <td style="width:400px">
+                                    <div>
+                                        <label for="File" style="width:80px">Legal Entity</label>
+                                    </div>
+                                    <div>
+                                        <select id="legalEntity" class="form-control" style="width:150px;" ng-change="changeLegal(items.customerCode,entityFlg)" ng-model="entityFlg" ng-options="a.legalEntity as a.legalEntity for a in legallist"><option value="">All</option></select>
+                                    </div>
+                                </td>
+                                <td style="width:400px">
+                                    <div>
+                                        <label for="File" style="width:80px">Payment Day</label>
+                                    </div>
+                                    <div style="float:left">
+                                        <div datetimepicker style="width:190px;" value="soapaymentCircle" readonly="true" />
+                                    </div>
+                                    <div style="float:left; padding-left:5px; padding-top:7px;">
+                                        <button class="filter-button" ng-click="addPayBankCircle(items.customerCode,soapaymentCircle)">Add</button>
+                                    </div>
+                                </td>
+                                <td style="width:400px">
+                                    <div>
+                                        <label for="File" style="width:80px">Upload File</label>
+                                    </div>
+                                    <div style="float:left; margin-top:10px;">
+                                        <input type="file" id="uploadCalendar" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left; padding-top:8px;">
+                                        <button class="filter-button" ng-click="addFileCircle(items.customerCode)">Upload</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="height:4px;"></div>
+                        <div class="smallgrid-style" ui-grid="items.pcg" style=""></div>
+                    </div>
+                    <div id="cd{{items.customerCode}}" ng-if=items.cdgshow>
+                        <div class="smallgrid-style" ui-grid="items.cdg" style="" ui-grid-resize-columns>
+                        </div>
+                    </div>
+                </div>
+                <div style="float:left; width:1138px;" ng-repeat="subl in items.subLegal">
+
+                    <div style="background:#ddffe1; height:60px; padding-left:10px;">
+                        <div style="padding-top:10px;">
+                            <div style="float:left; width:20%;">
+                                <label>Legal Entity: <span style="font-weight:lighter">{{subl.legalEntity}}</span></label>
+                            </div>
+                            <div style="float:left; width:20%;">
+                                <label>Country: <span style="font-weight:lighter">{{subl.country}}</span></label>
+                            </div>
+                            <div style="float:left; width:20%;">
+                                <label>Credit Limit: <span style="font-weight:lighter">{{subl.creditLimit | number:2}}</span></label>
+                            </div>
+                            <div style="float:left; width:20%;">
+                                <label>Total AR Balance: <span style="font-weight:lighter">{{subl.totalARBalance | number:2}}</span></label>
+                            </div>
+                            <div style="float:left; width:20%;">
+                                <label>Past Due Amount: <span style="font-weight:lighter">{{subl.pastDueAmount | number:2}}</span></label>
+                            </div>
+                        </div>
+                        <div style="padding-top:10px;">
+                            <div style="float:left; width:20%;">
+                                <label>Credit Balance: <span style="font-weight:lighter">{{subl.creditBalance | number:2}}</span></label>
+                            </div>
+                            <div style="float:left; width:20%;">
+                                <label>Current Balance: <span style="font-weight:lighter">{{subl.currentBalance | number:2}}</span></label>
+                            </div>
+                            <div style="float:left; width:20%;">
+                                <label>F-Collectable Amount: <span style="font-weight:lighter">{{subl.fCollectableAmount | number:2}}</span></label>
+                            </div>
+                            <div style="float:left; width:20%;">
+                                <label>F-Overdue 90 Amount: <span style="font-weight:lighter">{{subl.fOverdue90Amount | number:2}}</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div style="background:#8FBC8F">
+                        <label style="width:200px">Legal Entity: {{subl.legalEntity}}</label>
+                        <label style="width:200px">Country: {{subl.country}}</label>
+                        <label style="width:200px">Credit Limit: {{subl.creditLimit | number:2}}</label>
+                        <label style="width:200px">Total AR Balance: {{subl.totalARBalance | number:2}}</label>
+                        <label style="width:200px">Past Due Amount: {{subl.pastDueAmount | number:2}}</label>
+                        <label style="width:200px">Credit Balance: {{subl.creditBalance | number:2}}</label>
+                        <label style="width:200px">Current Balance: {{subl.currentBalance | number:2}}</label>
+                        <label style="width:200px">F-Collectable Amount: {{subl.fCollectableAmount | number:2}}</label>
+                        <label style="width:200px">F-Overdue 90 Amount: {{subl.fOverdue90Amount | number:2}}</label>
+                    </div>-->
+
+                    <div style="margin-left:10px; margin-top:10px;">
+                        <div>
+                            <label style="font-size:inherit;width:100px;vertical-align: top;">Special Notes</label>
+                        </div>
+                        <div>
+                            <textarea style="width:1000px; height:50px; font-size:11px; resize:none" ng-model="subl.specialNotes"></textarea>
+                            <button type="button" class="filter-button" style="float:right; margin-right:70px; margin-top:24px;" ng-click="saveNote(items.customerCode,subl.legalEntity,subl.specialNotes)">Save</button>
+                        </div>
+                    </div>
+
+                    <!--<div style="margin-top:10px">
+                        <label class="control-label" style="font-size:inherit;width:100px;vertical-align: top;">Special Notes: </label>
+                        <textarea style=" width:800px;height:50px; font-size:11px;resize:none" ng-model="subl.specialNotes"></textarea>
+                        <a ng-click="saveNote(items.customerCode,subl.legalEntity,subl.specialNotes)" style="font-size:larger;vertical-align: top;">Save</a>
+                    </div>-->
+                    
+                    <!--<div style="float:left; width:1138px; margin-left:10px; margin-top:10px; margin-right:10px;">
+                        <label style="font-weight:bold;">Dunning Config</label>
+                        <div>
+                            <div style="float:left; margin-right:20px;">
+                                <label>First Interval</label>
+                                <div>-->
+                                    <!--onkeyup="return ValidateNumber($(this), value)" onblur="return ValidateNumber($(this), value)"-->
+                                    <!--<input type="number" class="form-control" style="width:80px;ime-mode:disabled" ng-model="subl.subTracking.firstInterval" min="0" max="99" ng-keyup="checkNumberT(subl.subTracking.firstInterval,1)" />
+                                </div>
+                            </div>
+                            <div style="float:left; margin-right:20px;">
+                                <label>Second Interval</label>
+                                <div>
+                                    <input type="number" style="width:80px;ime-mode:disabled" class="form-control" ng-model="subl.subTracking.secondInterval" min="0" max="99" ng-keyup="checkNumberT(subl.subTracking.secondInterval,2)" />
+                                </div>
+                            </div>
+                            <div style="float:left; margin-right:20px;">
+                                <label>Payment TAT</label>
+                                <div>
+                                    <input type="number" style="width:80px;ime-mode:disabled" class="form-control" ng-model="subl.subTracking.paymentTat" min="0" max="99" ng-keyup="checkNumberT(subl.subTracking.paymentTat,3)" />
+                                </div>
+                            </div>
+                            <div style="float:left; margin-right:20px;">
+                                <label>Risk Interval</label>
+                                <div>
+                                    <input type="number" style="width:80px;ime-mode:disabled" class="form-control" ng-model="subl.subTracking.riskInterval" min="0" max="99" ng-keyup="checkNumberT(subl.subTracking.riskInterval,4)" />
+                                </div>
+                            </div>
+                            <div style="float:left; margin-right:20px;">
+                                <label>Description</label>
+                                <div>
+                                    <textarea style="resize:none; width:300px;" ng-model="subl.subTracking.desc"></textarea>
+                                </div>
+                            </div>
+                            <div style="float:left; margin-right:5px;">
+                                <button type="button" class="filter-button" style="margin-top:20px;" ng-click="saveDunningConfig(subl.subTracking.firstInterval,subl.subTracking.secondInterval,subl.subTracking.paymentTat,subl.subTracking.riskInterval,subl.subTracking.desc)">Save</button>
+                            </div>
+                            <div style="float:left; margin-right:5px;">
+                                <button type="button" class="filter-button" style="margin-top:20px;width:auto" ng-click="calcu()">Calculate</button>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <!--<div style="float:left; width:1138px; margin-left:10px; margin-top:10px; margin-right:10px;">
+                        <label>Des</label>
+                        <div>
+                            <textarea style="resize:none" ng-model=" subl.subtracking.desc"></textarea>
+                        </div>
+                    </div>-->
+
+                    <!--<div>
+                        <label style="color:Red;">Dunning Config</label>
+                    </div>
+                    <div class="form-group col-md-10" style="">
+                        <div><label class="control-label">First Interval</label></div>
+                        <div>
+                            <input type="number" ng-model="subl.subTracking.firstInterval" />
+                        </div>
+                        <div><label class="control-label">Second Interval</label></div>
+                        <div>
+                            <input type="number" ng-model="subl.subTracking.secondInterval" />
+                        </div>
+                        <div><label class="control-label">Payment</label></div>
+                        <div>
+                            <input type="number" ng-model="subl.subTracking.paymentTat" />
+                        </div>
+                        <div><label class="control-label">Risk</label></div>
+                        <div>
+                            <input type="number" ng-model="subl.subTracking.riskInterval" />
+                        </div>
+                        <div><label class="control-label">Des</label></div>
+                        <div>
+                            <textarea style="resize:none" ng-model=" subl.subtracking.desc"></textarea>
+                        </div>
+                    </div>-->
+                    <div style="float:left; width:1138px; margin:10px;">
+                        <label style="font-weight:bold;">Current Tracking Detail</label>
+                        <div style="margin-left:20px">
+                            <label id="lbl{{subl.subTracking.soaId}}" class="control-labelh" style="text-align:center;border:1px solid;width:76px;height:30px" ng-style="getStyle(subl.subTracking.soaStatus)">Sent SOA<br />{{subl.subTracking.soaDate | date:"yyyy-MM-dd"}}</label>
+                            <input type="number" style="width:32px; height:26px;ime-mode:disabled" ng-model="subl.subTracking.firstInterval" min="0" max="99" ng-keyup="checkNumberT(subl.subTracking.firstInterval,1)" ng-change="dateChange()" ng-readonly="isreadonly" />
+                            <label id="lbl{{subl.subTracking.r2Id}}" class="control-labelh" style="text-align:center;border:1px solid;width:76px;height:30px" ng-style="getStyle(subl.subTracking.reminder2thStatus)">2nd Reminder<br />{{subl.subTracking.reminder2thDate | date:"yyyy-MM-dd"}}</label>
+                            <input type="number" style="width:32px;height:26px;ime-mode:disabled" ng-model="subl.subTracking.secondInterval" min="0" max="99" ng-keyup="checkNumberT(subl.subTracking.secondInterval,2)" ng-change="dateChange()" ng-readonly="isreadonly" />
+                            <label id="lbl{{subl.subTracking.r3Id}}" class="control-labelh" style="text-align:center;border:1px solid;width:76px;height:30px" ng-style="getStyle(subl.subTracking.reminder3thStatus)">Final Reminder<br />{{subl.subTracking.reminder3thDate | date:"yyyy-MM-dd"}}</label>
+                            <input type="number" style="width:32px;height:26px;ime-mode:disabled" ng-model="subl.subTracking.paymentTat" min="0" max="99" ng-keyup="checkNumberT(subl.subTracking.paymentTat,3)" ng-change="dateChange()" ng-readonly="isreadonly" />
+                            <label id="lbl{{subl.subTracking.holdId}}" class="control-labelh" style="text-align:center;border:1px solid;width:76px;height:30px" ng-style="getStyle(subl.subTracking.holdStatus)">Hold Customer<br />{{subl.subTracking.holdDate | date:"yyyy-MM-dd"}}</label>
+                            <label style="text-align:center;border:1px solid;width:76px;height:30px" class="control-labelh">Close Date<br />{{subl.subTracking.closeDate | date:"yyyy-MM-dd"}}</label>
+                            <button type="button" class="filter-button" ng-click="saveDunningConfig(subl.subTracking.firstInterval,subl.subTracking.secondInterval,subl.subTracking.paymentTat,subl.subTracking.riskInterval,subl.subTracking.desc)" ng-hide="isreadonly">Save</button>
+                            <button type="button" class="filter-button" style="width:auto" ng-click="calcu(subl.subTracking)" ng-readonly="isreadonly">Calculate</button>
+                        </div>
+                    </div>
+                    <div class="grid-style" ui-grid="subl.gridoption" style="min-height:300px; margin:10px;" ui-grid-resize-columns ui-grid-selection ui-grid-auto-resize ui-grid-edit ui-grid-move-columns ui-grid-pinning>
+                        <div class="footer-statistics">
+                            <div style="float:right">
+                                <label style="padding-right:20px" id="{{items.customerCode}}{{subl.legalEntity.replace(' ','').replace(' ','')}}"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="float:left; width:1138px;">
+                    <label style="font-weight:bold; margin-left:10px;">Contact List</label>
+                    <div class="smallgrid-style" ui-grid="items.hisg" style="margin:10px;" ui-grid-resize-columns ui-grid-grouping></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div>
+        <label style="color:Red">Contact List</label>
+        <div class="smallgrid-style" ui-grid="contactList" ui-grid-resize-columns ui-grid-grouping></div>
+    </div>
+</div>-->
+
+<script type="text/javascript">
+
+    //function ValidateNumber(e, pnumber) {
+    //    if (!/^([1-9]\d|\d)$/.test(pnumber)) {
+    //        $(e).val(/^([1-9]\d|\d)$/.exec($(e).val()));
+    //        //$(e).val(0);
+    //    }
+        
+    //    //return false;
+    //}
+</script>

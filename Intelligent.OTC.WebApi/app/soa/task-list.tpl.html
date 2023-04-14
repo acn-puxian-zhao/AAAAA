@@ -1,0 +1,136 @@
+﻿<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <editpartial controller-name='floatmenuListCtrl' template-url='app/common/floatmenu/floatMenu-list.tpl.html' params='floatMenuOwner'></editpartial>
+    </div>
+    <div id="page-content-wrapper">
+        <div style="height:30px; margin-bottom:10px;">
+            <i class="fa fa-bars" style="float:left;font-size:20px;color:cornflowerblue;cursor:pointer; margin-right:30px;" aria-hidden="true" ng-click="menuToggle()"></i>
+
+            <!--<div style="float:right">
+        <button type="button" class="btn-filter" style="margin-left:10px; width:130px;" ng-click="exportSoaDate()">
+            <span class="fa fa-download" style="font-weight:bold">&nbsp;&nbsp;ExportSoaDate</span>
+        </button>
+    </div>-->
+            <div style="float:left">
+                <button type="button" class="btn-filter" style="width:170px;margin-left:10px" ng-click="changetab('vatimport')">
+                    <span class="fa fa-upload" style="font-weight:bold">&nbsp;&nbsp;Invoice Status Import</span>
+                </button>
+            </div>
+            <div style="float:right">
+                <button type="button" class="btn-filter" style="margin-left:10px; width:110px;" ng-click="export()">
+                    <span class="fa fa-download" style="font-weight:bold">&nbsp;&nbsp;Export</span>
+                </button>
+            </div>
+            <div style="float:right" ng-show="lblfilter">
+                <button type="button" class="btn-filter" ng-click="openFilter()">
+                    <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                </button>
+            </div>
+        </div>
+        <div id="divAgingSearch" class="tag col-md-12" style="display:none">
+            <em></em>
+            <div class="row" style="height:5px"></div>
+            <div class="form-group col-md-12">
+                <div class="row">
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputCustCode" style="font-size:12px;">
+                            Month:
+                        </label>
+                        <div style="width:180px">
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM" ng-model="startDate" is-open="popup.opened" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="float:left;">
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputLegal" style="font-size:12px;">
+                                Legal Entity
+                            </label>
+                            <div style="width:180px">
+                                <select id="Legal" class="form-control input-sm" ng-model="legalEntity" ng-options="d.legalEntity as d.legalEntity for d in legallist">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputCustCode" style="font-size:12px;">
+                            Customer NO.
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputCustCode" class="form-control input-sm" ng-model="custNum" />
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputCustName" style="font-size:12px;">
+                            Customer Name
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputCustName" class="form-control input-sm" ng-model="custName" />
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputSiteUseId" style="font-size:12px;">
+                            Site User Id
+                        </label>
+                        <div style="width:180px">
+                            <input id="inputSiteUseId" class="form-control input-sm" ng-model="SiteUseId" />
+                        </div>
+                    </div>
+                    <!--<div style="float:left;">
+                        <div style="float:left; padding-right:10px;">
+                            <label for="inputStatus" style="font-size:12px;">
+                                Status
+                            </label>
+                            <div style="width:180px">
+                                <select id="Status" class="form-control input-sm" ng-model="status" ng-options="a.detailValue as a.detailName for a in statuslist"></select>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div style="float:left;padding-left:10px">
+                        <label style="height:12px"></label>
+                        <div>
+                            <button type="button" class="filter-button" ng-click="resetSearch()">
+                                Clear
+                            </button>
+                            <button type="button" class="filter-button" ng-click="init()">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+            <div id="tasklist" class="grid-style" ui-grid="taskList" ui-grid-resize-columns ui-grid-auto-resize ui-grid-selection ui-grid-pinning style="min-height:400px;height:480px">
+            </div>
+        </div>
+        <!--paging-->
+        <div class="form-group col-md-12" style="display:none">
+            <div class="row">
+                <div style="float:left; margin-right:20px;">
+                    <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{totalNum}}</span>&nbsp;items</label>
+                </div>
+                <div style="float:left">
+                    <ul uib-pagination max-size="maxSize" items-per-page="iperexecute" total-items="ttexecute"
+                        ng-model="curpexecute" ng-change="executepChanged()" class="pagination-sm" boundary-links="true"></ul>
+                </div>
+                <div style="float:right">
+                    <div style="float:left">
+                        <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                    </div>
+                    <div style="float:left">
+                        <select id="psexecute" name="psexecute" ng-model="slexecute" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pschangeexecute(slexecute)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Batch Update Contactor</h4>
+</div>
+
+<div class="modal-body">
+    <form name="contform" novalidate>
+        <div class="row" style="margin:10px">
+            <label class="control-label col-md-2">Old Name: </label>
+            <div class="col-md-4">
+                <input type="text" id="oldName" class="form-control input-sm" name="oldName" ng-model="oldName" />
+            </div>
+            <label class="control-label col-md-2">Old Email: </label>
+            <div class="col-md-4">
+                <input type="text" id="oldEmail" class="form-control input-sm" name="oldEmail" ng-model="oldEmail" ng-pattern="/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)+$/" />
+                <label ng-show="contform.oldEmail.$error.pattern"><font color=red>邮箱格式不正确!</font></label>
+            </div>
+        </div>
+
+        <div class="row" style="margin:10px">
+            <label class="control-label col-md-2"> New Name: </label>
+            <div class="col-md-4">
+                <input type="text" id="newName" class="form-control input-sm" ng-model="newName" />
+            </div>
+            <label class="control-label col-md-2">New Email: </label>
+            <div class="col-md-4">
+                <input type="text" id="newEmail" class="form-control input-sm" name="newEmail" ng-model="newEmail" ng-pattern="/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)+$/" />
+                <label ng-show="contform.newEmail.$error.pattern"><font color=red>邮箱格式不正确!</font></label>
+            </div>
+        </div>
+        <div style="height:70px">
+            <div style="float:right; margin-top:30px;">
+                <button type="button" class="btn btn-primary" ng-click="close()" style="float:right; margin-left:5px;">Close</button>
+                <button type="button" class="btn btn-warning" ng-click="reset()" style="float:right; margin-left:5px;">Clear</button>
+                <button type="button" class="btn btn-primary" ng-click="update()" style="float:right;">Batch Update</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,63 @@
+﻿<div class="form-group col-md-10">
+    <div class="row">
+        <label for="inputCustCode" class="col-md-2 control-label">
+            Customer Code:</label>
+        <div class="col-md-2">
+            <input id="inputCustCode" class="form-control input-sm" ng-model="custCode" />
+        </div>
+        <label for="inputCustName" class="col-md-2 control-label">
+            Customer Name:</label>
+        <div class="col-md-2">
+            <input id="inputCustName" class="form-control input-sm" ng-model="custName" />
+        </div>
+        <label for="inputLegal" class="col-md-2 control-label">
+            Legal Entity:</label>
+        <div class="col-md-2">
+        <select id="Legal" class="form-control input-sm" ng-model="legal" ng-options="d.siteNameSys as d.description for d in legallist">
+        <option value="">All</option>
+        </select>
+        </div>
+    </div>
+</div>
+<div class="form-group col-md-10">
+    <div class="row">
+        <label for="inputInvNum" class="col-md-2 control-label">
+            Invoice Num:</label>
+        <div class="col-md-2">
+            <input id="inputInvNum" class="form-control input-sm" ng-model="invNum" />
+        </div>
+        <label for="inputCustClass" class="col-md-2 control-label">
+            Customer Class:</label>
+        <div class="col-md-2">
+        <select id="Class" class="form-control input-sm" ng-model="class" ng-options="c.detailValue as c.detailName for c in cusclass">
+        <option value="">All</option>
+        </select>
+        </div>
+        <label for="inputStatus" class="col-md-2 control-label">
+            Status:</label>
+        <div class="col-md-2">
+        <select id="inputStatus" class="form-control input-sm" ng-model="status" ng-options="a.detailValue as a.detailName for a in statuslist">
+        <option value="">All</option>
+        </select>
+        </div>        
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary form-control" ng-click="resetSearch()">Reset</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary form-control" ng-click="searchCollection()">Search</button>
+        </div>
+    </div>
+</div>
+<div class="form-group col-md-12">
+<div class="grid-style" ui-grid="testPagings">
+</div>
+</div>
+<div class="form-group col-md-10">
+<div class="row">    
+<pagination max-size="maxSize" items_per_page="itemsperpage" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+<div class="col-md-2">  
+<select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList" ng-change="pagesizechange(selectedLevel)" class="form-control input-sm">
+</select>
+</div>
+</div>
+</div>

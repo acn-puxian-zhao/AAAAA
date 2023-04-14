@@ -1,0 +1,116 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Bank Information</h4>
+</div>
+<div class="modal-body">
+    <div style="width:858px; height:120px;">
+        <form name="form" crud-edit="cust">
+            <div style="width:858px; height:60px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="CustomerNum">Customer Num</label>
+                    <div>
+                        <input type="text" id="CustomerNum" class="form-control" name="CustomerNum" ng-model="cust.customerNum" readonly />
+                    </div>
+                </div>
+
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="legalEntity">Legal Entity</label>
+                    <div>
+                        <select id="legalEntity" class="form-control" ng-model="cust.legalEntity"
+                                ng-options="a.legalEntity as a.legalEntity for a in legallist"></select>
+                    </div>
+                </div>
+
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="BankAccountName">Bank Account Name</label>
+                    <div>
+                        <input type="text" id="BankAccountName" class="form-control" name="BankAccountName" ng-model="cust.bankAccountName" required />
+                    </div>
+                </div>
+
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="BankName">Bank Name:</label>
+                    <div>
+                        <input type="text" id="BankName" class="form-control" name="deal" ng-model="cust.bankName" required />
+                    </div>
+                </div>
+            </div>
+            <div style="width:858px; height:60px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="BankAccount">Bank Account:</label>
+                    <div>
+                        <input type="text" id="BankAccount" class="form-control" name="BankAccount" ng-model="cust.bankAccount" required />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="Flg">Status:</label>
+                    <div>
+                        <select id="flg" class="form-control" ng-model="cust.flg"
+                                ng-options="a.detailValue as a.detailName for a in flglist"></select>
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="Description">Description:</label>
+                    <div>
+                        <input type="text" id="Description" class="form-control" name="Description" ng-model="cust.description" />
+                    </div>
+                </div>
+            </div>
+
+
+            <!--<div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="legalEntity" class="control-labelh col-md-3">Legal Entity:</label>
+                <div class="col-md-6">
+                    <select id="legalEntity" class="form-control input-sm" ng-model="cust.legalEntity"
+                            ng-options="a.legalEntity as a.legalEntity for a in legallist"></select>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="BankAccountName" class="control-labelh col-md-3">Bank Account Name:</label>
+                <div class="col-md-6">
+                    <input type="text" id="BankAccountName" class="form-control" name="BankAccountName" ng-model="cust.bankAccountName" required />
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="BankName" class="control-labelh col-md-3">Bank Name:</label>
+                <div class="col-md-6">
+                    <input type="text" id="BankName" class="form-control" name="deal" ng-model="cust.bankName" required />
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="BankAccount" class="control-labelh col-md-3">Bank Account:</label>
+                <div class="col-md-6">
+                    <input type="text" id="BankAccount" class="form-control" name="BankAccount" ng-model="cust.bankAccount" required />
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="Flg" class="control-labelh col-md-3">Status:</label>
+                <div class="col-md-6">
+                    <select id="flg" class="form-control input-sm" ng-model="cust.flg"
+                            ng-options="a.detailValue as a.detailName for a in flglist"></select>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="Description" class="control-labelh col-md-3">Description:</label>
+                <div class="col-md-6">
+                    <input type="text" id="Description" class="form-control" name="Description" ng-model="cust.description" />
+                </div>
+            </div>
+            <p></p>-->
+            <!--<crud-buttons></crud-buttons>-->
+
+            <div style="float:right; margin-top:30px;">
+                <button type="button" class="btn btn-primary" ng-click="closeCust()" style="float:right; margin-left:5px;">Close</button>
+                <button type="button" class="btn btn-warning revert" ng-click="revertChanges()" ng-disabled="!canRevert()" style="float:right; margin-left:5px;">Revert changes</button>
+                <button type="button" class="btn btn-primary save" ng-disabled="!canSave()" ng-click="updateCommon()" style="float:right;">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="modal-footer"></div>

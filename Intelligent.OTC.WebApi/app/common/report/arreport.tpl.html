@@ -1,0 +1,255 @@
+﻿
+<div class="tag col-md-12">
+    <em></em>
+    <div class="row" style="height:20px"></div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div style="float:left; padding-right:10px;">
+                <label for="Region" style="float:left;font-size:12px;padding-right:20px">
+                    Region:
+                </label>
+                <div style="width:1000px;float:left">
+                    <span ng-repeat="d in regionlist">
+                        <input type="checkbox" name="{{d.levelName}}" value="{{d.levelName}}" ng-click="updateSelected_region($event,d.levelName)" ng-checked="d.check" ng-model="d.check">
+                        <label style="padding-right:10px;" for="{{d.levelName}}">{{d.levelName}}</label>
+                    </span>
+                </div>
+                <!--<div style="width:180px">
+                <select id="region" class="form-control input-sm" ng-model="region" ng-options="d.id as d.levelName for d in regionlist">
+                    <option value="">All</option>
+                </select>
+            </div>-->
+            </div>
+        </div>
+        <div class="row">
+            <div style="float:left; padding-right:10px;">
+                <label for="LegalEntity" style="font-size:12px;">
+                    Legal Entity:
+                </label>
+                <div style="width:180px">
+                    <select id="Legal" class="form-control input-sm" ng-model="legalentity" ng-options="d.legalEntity as d.legalEntity for d in legallist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="Customer" style="font-size:12px;">
+                    Customer:
+                </label>
+                <div style="width:180px">
+                    <input id="Customer" class="form-control input-sm" name="Customer" ng-model="custName" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="SiteUseId" style="font-size:12px;">
+                    SiteUseId:
+                </label>
+                <div style="width:180px">
+                    <input id="SiteUseId" class="form-control input-sm" ng-model="siteUseId" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="InvoiceCode" style="font-size:12px;">
+                    Invoice#:
+                </label>
+                <div style="width:180px">
+                    <input id="InvoiceCode" class="form-control input-sm" ng-model="invoicecode" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="Status" style="font-size:12px;">
+                    Status:
+                </label>
+                <div style="width:180px">
+                    <select id="Status" class="form-control input-sm" ng-model="status" ng-options="a.detailValue as a.detailName for a in statuslist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputDocuType" style="font-size:12px;">
+                    Class
+                </label>
+                <div style="width:180px">
+                    <select id="DocuType" class="form-control input-sm" ng-model="docType" ng-options="a.detailValue as a.detailName for a in docuTypelist">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height:20px"></div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div style="float:left; padding-right:10px;">
+                <label for="PONum" style="font-size:12px;">
+                    PO Num:
+                </label>
+                <div style="width:180px">
+                    <input id="PONum" class="form-control input-sm" ng-model="poNum" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="SONum" style="font-size:12px;">
+                    SO Num:
+                </label>
+                <div style="width:180px">
+                    <input id="SONum" class="form-control input-sm" ng-model="soNum" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="CreditTerm" style="font-size:12px;">
+                    Credit Term:
+                </label>
+                <div style="width:180px">
+                    <input id="CreditTerm" class="form-control input-sm" ng-model="creditTerm" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="InvoiceMemo" style="font-size:12px;">
+                    Invoice Memo:
+                </label>
+                <div style="width:370px">
+                    <input id="InvoiceMemo" class="form-control input-sm" ng-model="invoiceMemo" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="EB Name" style="font-size:12px;">
+                    EB Name:
+                </label>
+                <div style="width:370px">
+                    <input id="SiteUseId" class="form-control input-sm" ng-model="eb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height:20px"></div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <!--<div style="float:left; padding-right:10px;">
+                <label for="inputPtpDateF" style="font-size:12px;">
+                    PTP Date From:
+                </label>
+                <div style="width:180px" datetimepicker value="ptpDateFrom" readonly="true" />
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputPtpDateT" style="font-size:12px;">
+                    To:
+                </label>
+                <div style="width:180px" datetimepicker value="ptpDateTo" readonly="true" />
+            </div>-->
+            <div style="float:left; padding-right:10px;">
+                <label for="inputInvoiceDateF" style="font-size:12px;">
+                    Invoice Date From:
+                </label>
+                <div style="width:180px" datetimepicker value="invoiceDateFrom" readonly="true" />
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputInvoiceDateT" style="font-size:12px;">
+                    Invoice Date To:
+                </label>
+                <div style="width:180px" datetimepicker value="invoiceDateTo" readonly="true" />
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputFrom" style="font-size:12px;">
+                    Duedate From
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="DuedateFrom" readonly="true" />
+                </div>
+            </div>
+            <div style="float:left; padding-right:10px;">
+                <label for="inputTo" style="font-size:12px;">
+                    Duedate To
+                </label>
+                <div style="width:180px">
+                    <div style="width:180px" datetimepicker value="DuedateTo" readonly="true" />
+                </div>
+            </div>
+
+            <div class="col-md-2 btn-group" style="width:160px;padding-top:20px">
+                <button type="button" class="btn btn-primary " style="width:100px" ng-click="searchReport()">
+                    Search
+                </button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <!--<span class="sr-only">切换下拉菜单</span>-->
+                </button>
+                <button class="dropdown-menu" role="menu" ng-click="resetSearch()">
+                    <li><a>Reset Search</a></li>
+                </button>
+            </div>
+            <div class="btn-group" data-toggle="buttons" style="padding-top:20px">
+                <button type="button" class="btn btn-primary " style="width:62px" ng-click="exportReport()">
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="panel panel-default">
+    <uib-tabset active="active" type="tabs">
+        <uib-tab index="1">
+            <uib-tab-heading>
+                <i class="fa fa-list"></i> Detail
+            </uib-tab-heading>
+            <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px">
+                <div class="grid-style" ui-grid="reportList" ui-grid-resize-columns ui-grid-selection style="min-height:400px;height:500px;width:1485px;max-width:1567px;">
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <div class="row">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div style="float:left; margin-right:20px;">
+                        <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{totalItems}}</span>&nbsp;items</label>
+                    </div>
+                    <div class="col-md-8" style="margin-top:-5px;margin-left:-10px;">
+                        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                            ng-model="currentPage" ng-change="pageChanged()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems}}</div>
+                    </div>
+                </div>
+            </div>
+
+        </uib-tab>
+        <uib-tab index="2">
+            <uib-tab-heading>
+                <i class="fa fa-list"></i> Summary
+            </uib-tab-heading>
+
+            <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px">
+                <div class="grid-style" ui-grid="reportListsummary" ui-grid-resize-columns ui-grid-selection style="min-height:400px;height:500px;width:1485px;max-width:1567px;">
+                </div>
+            </div>
+            
+            <div class="form-group col-md-12">
+                <div class="row">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize" name="pagesize" ng-model="selectedLevelsummary" ng-options="s.id as s.levelName for s in levelListsummary"
+                                ng-change="pagesizechangesummary(selectedLevelsummary)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div style="float:left; margin-right:20px;">
+                        <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItemsummary}}</span>&nbsp;to&nbsp;<span>{{toItemsummary}}</span>&nbsp;of&nbsp;<span>{{totalItemssummary}}</span>&nbsp;items</label>
+                    </div>
+                    <div class="col-md-8" style="margin-top:-5px;margin-left:-10px;">
+                        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpagesummary" total-items="totalItemssummary"
+                            ng-model="currentPagesummary" ng-change="pageChangedsummary()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItemssummary}}</div>
+                    </div>
+                </div>
+            </div>
+                
+        </uib-tab>
+    </uib-tabset>
+</div>

@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="XcceleratorService"
+    type="Intelligent.OTC.Business.XcceleratorService, Intelligent.OTC.Business" singleton="false">
+    <property name="XRep" ref="XcceleratorRep"/>
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CacheService"
+    type="Intelligent.OTC.Business.CacheService, Intelligent.OTC.Business" singleton="false">
+  </object>
+  <object id="FakeProvider"
+    type="Intelligent.OTC.Job.FakeProvider, Intelligent.OTC.Job" singleton="true">
+  </object>
+    <object id="InvoiceService"
+    type="Intelligent.OTC.Business.InvoiceService, Intelligent.OTC.Business" singleton="false">
+        <property name="CommonRep" ref="CommonRep"/>
+    </object>
+    <object id="EbService"
+    type="Intelligent.OTC.Business.EbService, Intelligent.OTC.Business" singleton="false">
+        <property name="CommonRep" ref="CommonRep"/>
+    </object>
+    <object id="PermissionService"
+      type="Intelligent.OTC.Business.PermissionService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="CacheSvr" ref="CacheService"/>
+    <property name="XccService" ref="XcceleratorService"/>
+  </object>
+  <object id="WorkflowService"
+    type="Intelligent.OTC.Business.WorkflowService, Intelligent.OTC.Business" singleton="false">
+    <property name="WFRep" ref="WorkflowRep"/>
+  </object>
+  <object id="CustomerService"
+    type="Intelligent.OTC.Business.CustomerService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="CacheSvr" ref="CacheService"/>
+    <property name="BDService" ref="BaseDataService"/>
+    <property name="XccService" ref="XcceleratorService"/>
+  </object>
+  <object id="ContactService"
+    type="Intelligent.OTC.Business.ContactService, Intelligent.OTC.Business" singleton="false">
+        <property name="CommonRep" ref="CommonRep"/>
+        <property name="XccService" ref="XcceleratorService"/>
+  </object>
+  <object id="ContactReplaceService"
+  type="Intelligent.OTC.Business.ContactReplaceService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="JobService"
+    type="Intelligent.OTC.Business.JobService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="BaseDataService"
+    type="Intelligent.OTC.Business.BaseDataService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="CacheSvr" ref="CacheService"/>
+  </object>
+  <object id="SiteService"
+   type="Intelligent.OTC.Business.SiteService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="CacheSvr" ref="CacheService"/>
+  </object>
+  <object id="ContactCustomerService"
+ type="Intelligent.OTC.Business.ContactCustomerService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="SoaService"
+ type="Intelligent.OTC.Business.SoaService, Intelligent.OTC.Business" singleton="false">
+        <property name="CommonRep" ref="CommonRep"/>
+        <property name="XccService" ref="XcceleratorService"/>
+  </object>
+    <object id="TaskService"
+   type="Intelligent.OTC.Business.TaskService, Intelligent.OTC.Business" singleton="false">
+        <property name="CommonRep" ref="CommonRep"/>
+        <property name="XccService" ref="XcceleratorService"/>
+      <property name="soaService" ref="SoaService"/>
+    </object>
+  <object id="MailService"
+ type="Intelligent.OTC.Business.MailService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="Mailer" ref="ApiMailer"/>
+  </object>
+  <object id="CustomerPaymentCircleService"
+ type="Intelligent.OTC.Business.CustomerPaymentCircleService, Intelligent.OTC.Business" singleton="false">
+        <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="SpecialNotesService"
+type="Intelligent.OTC.Business.SpecialNotesService, Intelligent.OTC.Business">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CustomerPaymentBankService"
+ type="Intelligent.OTC.Business.CustomerPaymentBankService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CustomerGroupCfgService"
+ type="Intelligent.OTC.Business.CustomerGroupCfgService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="FileService"
+ type="Intelligent.OTC.Business.FileService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="RiskService"
+    type="Intelligent.OTC.Business.RiskService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="PeroidService"
+ type="Intelligent.OTC.Business.PeroidService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="RiskExceptionListService"
+ type="Intelligent.OTC.Business.RiskExceptionListService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+   <object id="CollectorAssignment"
+   type="Intelligent.OTC.Business.ByValueAssignment, Intelligent.OTC.Business" singleton="false">
+     <property name="CustService" ref="CustomerService"/>
+   </object>
+  <object id="CommonService"
+ type="Intelligent.OTC.Business.CommonService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="XccService" ref="XcceleratorService"/>
+  </object>
+  <object id="DisputeTrackingService"
+    type="Intelligent.OTC.Business.DisputeTrackingService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+     <property name="XccService" ref="XcceleratorService"/>
+      
+  </object>
+  <object id="CollectorSignatureService"
+    type="Intelligent.OTC.Business.CollectorSignatureService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="DunningReminderService"
+    type="Intelligent.OTC.Business.DunningReminderService, Intelligent.OTC.Business" singleton="false">
+    <property name="XRep" ref="XcceleratorRep"/>
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="BreakPtpService"
+  type="Intelligent.OTC.Business.BreakPtpService, Intelligent.OTC.Business" singleton="false">
+    <property name="XRep" ref="XcceleratorRep"/>
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="HoldCustomerService"
+  type="Intelligent.OTC.Business.HoldCustomerService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="ContactindexService"
+ type="Intelligent.OTC.Business.ContactindexService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="XccService" ref="XcceleratorService"/>
+  </object>
+  <object id="MyinvoicesService"
+ type="Intelligent.OTC.Business.MyinvoicesService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="XccService" ref="XcceleratorService"/>
+  </object>
+  <object id="ApiMailer"
+  type="Intelligent.OTC.Business.ApiMailer, Intelligent.OTC.Business" singleton="false">
+  </object>
+  <object id="ImapMailer"
+  type="Intelligent.OTC.Business.ImapMailer, Intelligent.OTC.Business" singleton="false">
+  </object>
+  <object id="WorkflowHistoryService"
+    type="Intelligent.OTC.Business.WorkflowHistoryService, Intelligent.OTC.Business" singleton="false">
+        <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CollectionService"
+    type="Intelligent.OTC.Business.Collection.CollectionService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="CacheSvr" ref="CacheService"/>
+  </object>
+  <object id="CustomerAssessmentLogService"
+    type="Intelligent.OTC.Business.CustomerAssessmentLogService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="MailServerService"
+    type="Intelligent.OTC.Business.MailServerService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="MailAccountService"
+    type="Intelligent.OTC.Business.MailAccountService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CustomerAccountPeriodService"
+    type="Intelligent.OTC.Business.CustomerAccountPeriodService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CustomerAssessmentService"
+    type="Intelligent.OTC.Business.CustomerAssessmentService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CustomerAssessmentHistoryService"
+    type="Intelligent.OTC.Business.CustomerAssessmentHistoryService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="OpenARService"
+    type="Intelligent.OTC.Business.OpenARService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CustomerContactCoverageService"
+    type="Intelligent.OTC.Business.CustomerContactCoverageService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CollectorStatisticsHisService"
+    type="Intelligent.OTC.Business.CollectorStatisticsHisService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CashCollectedService"
+    type="Intelligent.OTC.Business.CashCollectedService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="DisputReasonService"
+    type="Intelligent.OTC.Business.DisputReasonService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="StatisticsCollectService"
+    type="Intelligent.OTC.Business.StatisticsCollectService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="ReportODService"
+  type="Intelligent.OTC.Business.ReportODService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="ReportFeedbackService"
+type="Intelligent.OTC.Business.ReportFeedbackService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="ReportUnApplyService"
+type="Intelligent.OTC.Business.ReportUnApplyService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="ReportPTPService"
+type="Intelligent.OTC.Business.ReportPTPService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  
+  <object id="CustAndBankCustService"
+type="Intelligent.OTC.Business.CustAndBankCustService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CaCommonService"
+type="Intelligent.OTC.Business.CaCommonService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="CaReconService" ref="CaReconService"/>
+  </object>
+  <object id="CaTaskService"
+type="Intelligent.OTC.Business.CaTaskService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+
+  <object id="CaCustomerForwardService"
+type="Intelligent.OTC.Business.CaCustomerForwardService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CaBankStatementService"
+type="Intelligent.OTC.Business.CaBankStatementService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+    <property name="CaReconService" ref="CaReconService"/>
+  </object>
+  <object id="CaPTPService"
+type="Intelligent.OTC.Business.CaPTPService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CaReconService"
+type="Intelligent.OTC.Business.CaReconService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+
+  <object id="MailSendService"
+type="Intelligent.OTC.Business.MailSendService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CaPaymentDetailService"
+type="Intelligent.OTC.Business.CaPaymentDetailService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="PaymentDetailService"
+type="Intelligent.OTC.Business.PaymentDetailService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object> 
+  <object id="CaCustomerAttributeService"
+type="Intelligent.OTC.Business.CaCustomerAttributeService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CaStatusReportService"
+type="Intelligent.OTC.Business.CaStatusReportService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="CaBankFileService"
+type="Intelligent.OTC.Business.CaBankFileService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+  <object id="EBSettingService"
+type="Intelligent.OTC.Business.EBSettingService, Intelligent.OTC.Business" singleton="false">
+    <property name="CommonRep" ref="CommonRep"/>
+  </object>
+</objects>

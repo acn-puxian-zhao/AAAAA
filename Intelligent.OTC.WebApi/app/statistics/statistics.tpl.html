@@ -1,0 +1,160 @@
+﻿<script src="Scripts/echarts.min.js" type="text/javascript"></script>
+<div class="col-md-12" style="height:120px;">
+    <div class="col-md-12" style="height:40%; background-image:url(~/../Content/images/adImg.jpg)">
+    </div>
+    <div class="col-md-12" style="height:68%;">
+        <div style="height:40%; margin-top:20px;">
+            
+            <!--<div class="col-md-2" style="color:darkblue;">
+                <p style="margin:0px;padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;Dashborad update time</p>
+                <p style="font-size:14pt;margin:0px;padding:0px;">{{now}}</p>
+            </div>-->
+            
+            <div class="col-md-2">
+                <div class="col-md-2" style="color:green">
+                    <p style="margin:0px;padding:0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open&nbsp;AR</p>
+                    <p style="font-size:16pt;margin:0px;padding:0px; font-weight:bolder;">{{openARSum | currency}}</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="col-md-2" style="color:green;">
+                    <p style="margin:0px;padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PTP</p>
+                    <p style="font-size:16pt;margin:0px;padding:0px; font-weight:bolder;">{{PTPSum | currency}}</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="col-md-2" style="color:green;">
+                    <p style="margin:0px;padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;PTP%</p>
+                    <p style="font-size:16pt;margin:0px;padding:0px; font-weight:bolder;">{{PTPPrecent}}%</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="col-md-2" style="color:green;">
+                    <p style="margin:0px;padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overdue</p>
+                    <p style="font-size:16pt;margin:0px;padding:0px; font-weight:bolder;">{{ OverdueSum | currency}}</p>
+                    <!--OverdueSum-->
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="col-md-2" style="color:green;">
+                    <p style="margin:0px;padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;Overdue%</p>
+                    <p style="font-size:16pt;margin:0px;padding:0px; font-weight:bolder;">{{OverduePrecent}}%</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="col-md-2" style="color:green;">
+                    <p style="margin:0px;padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dispute</p>
+                    <p style="font-size:16pt;margin:0px;padding:0px; font-weight:bolder;">{{disputeSum | currency}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tag col-md-12">
+    <div class="col-md-6">
+        <div id="ccc" style="width:160px; position:absolute; top:6px; right:20px; z-index:10;" datetimepicker format="yyyy-mm" minView="month" startView="month" value="ccc" readonly="true"></div>
+        <div id="CustomerContactCoverage" style="height:400px;"></div>
+    </div>
+
+    <div class="col-md-6">
+        <div id="cashColl" style="width:180px; position:absolute; top:6px; right:20px; z-index:10;" datetimepicker format="yyyy-mm" minView="month" startView="month" value="cashColl" readonly="true"></div>
+        <div id="CashCollected" style="height:400px;"></div>
+    </div>
+
+    <div class="col-md-6">
+        <select id="dr" ng-change="drSelectRegion()" class="form-control input-sm" ng-model="region2" ng-options="a.detailValue as a.detailName for a in regionlist"
+                style="width:120px; position:absolute; top:6px; right:20px; z-index:10;"></select>
+        <div id="OverDueReason" style="height:400px;"></div>
+    </div>
+
+    <div class="col-md-6">
+        <select id="region" ng-change="obab()" class="form-control input-sm" ng-model="region" ng-options="a.detailValue as a.detailName for a in regionlist"
+                style="width:120px; position:absolute; top:6px; right:20px; z-index:10;">
+            <option value="all">all</option>
+        </select>
+        <div id="CusAging" style="height:400px;"></div>
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-top:20px">
+    <div class="row">
+        <span style="font-size:16px;color:green;font-weight:700">Customer Statistic</span>
+        <button type="button" class="btn btn-primary" style="margin-left:20px;width:80px;float:right;" ng-click="exportReport()">
+            Export
+        </button>
+        <select id="region" class="form-control input-sm" ng-model="regionCollect" ng-options="a.detailValue as a.detailName for a in regionlist"
+                style="width:120px; float:right;" ng-change="CollectSelectRegion()">
+            <option value="all">all</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div class="grid-style" ui-grid="customerList" ui-grid-resize-columns ui-grid-selection>
+    </div>
+</div>
+
+<div class="form-group col-md-12">
+    <div class="row">
+        <div class="col-md-2" style="width:130px">
+            <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                    ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+        </div>
+        <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+            <ul uib-pagination total-items="totalItems" max-size="maxSize" items-per-page="itemsperpage" boundary-links="true"
+                ng-model="currentPage" ng-change="pageChanged()"></ul>
+        </div>
+        <div class="col-md-2 " style="width:150px">
+            <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-top:20px">
+    <div class="row">
+        <span style="font-size:16px;color:green;font-weight:700">Collector Statistic</span>
+        <button type="button" class="btn btn-primary" style="margin-left:20px;width:80px;float:right;" ng-click="exportCollectorReport()">
+            Export
+        </button>
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+    <div class="grid-style" ui-grid="collectorList" ui-grid-resize-columns ui-grid-selection>
+    </div>
+</div>
+
+<div class="form-group col-md-12">
+    <div class="row">
+        <div class="col-md-2" style="width:130px">
+            <select id="pagesize_collector" name="pagesize_collector" ng-model="selectedLevel_collector" ng-options="s.id as s.levelName for s in levelList"
+                    ng-change="pagesizechange_collector(selectedLevel_collector)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+        </div>
+        <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+            <ul uib-pagination total-items="totalItems_collector" max-size="maxSize_collector" items-per-page="itemsperpage_collector" boundary-links="true"
+                ng-model="currentPage_collector" ng-change="pageChanged_collector()"></ul>
+        </div>
+        <div class="col-md-2 " style="width:150px">
+            <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems_collector}}</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tag col-md-12">
+    <div class="col-md-12">
+        <label style="padding-top:10px; width:60px; position:absolute; top:6px; right:920px; z-index:10;">Item:</label>
+        <select id="item" class="form-control input-sm" ng-model="typeSelected" ng-options="a.detailName as a.detailName for a in typelist"
+                style="width:190px; position:absolute; top:6px; right:750px; z-index:10;" ng-change="typeSelect()"></select>
+        <label style="padding-top:10px; width:60px; position:absolute; top:6px; right:660px; z-index:10;">From:</label>
+        <div id="sd" style="width:180px; position:absolute; top:6px; right:500px; z-index:10;" datetimepicker format="yyyy-mm-dd" value="startDate" minView="month" startView="month" readonly="true"></div>
+        <label style="padding-top:10px; width:60px; position:absolute; top:6px; right:420px; z-index:10;">To:</label>
+        <div id="ed" style="width:180px; position:absolute; top:6px; right:270px; z-index:10;" datetimepicker format="yyyy-mm-dd" value="endDate" minView="month" startView="month" readonly="true"></div>
+        <label style="padding-top:10px; width:60px; position:absolute; top:6px; right:180px; z-index:10;">Collector:</label>
+        <select id="collector" class="form-control input-sm" ng-model="collectorSelected" ng-options="a.detailName as a.detailName for a in collectorGraphList"
+                style="width:120px; position:absolute; top:6px; right:60px; z-index:10;" ng-change="CollectorSelect()">
+            <option value="all">all</option>
+        </select>
+        <div id="CollectorStatisticsHis" style="height:400px;"></div>
+    </div>
+</div>

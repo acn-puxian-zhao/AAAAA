@@ -1,0 +1,85 @@
+<div ng-controller="ModalUploaderCtrl">
+    <script type="text/ng-template" id="myUplFileContent.html">
+        <div class="modal-header" ng-controller="uploaderController">
+            <h3 class="modal-title">File Upload:</h3>
+            <div class="modal-body">
+                <table style="border: 1px black solid; width:550px;">
+                    <tr style="height : 40px;">
+                        <td style="width:170px;" align="right"><label for="level">Account level Report:</label></td>
+                        <td colspan="4">
+                            <select id="level" name="level" ng-model="selectedLevel.levels" ng-options="s.id as s.levelName for s in levelList[0].levels">
+                                <option value="" selected="selected">--Select Level--</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr style="height : 40px;">
+                        <td style="width:170px;" align="right"><label for="File">File:</label></td>
+                        <td colspan="4">
+                            <input type="file" nv-file-select="" uploader="uploader" />
+                        </td>
+                    </tr>
+                    <tr ng-repeat="item in uploader.queue">
+                        <td nowrap><strong>{{ item.file.name }}</strong></td>
+                        <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                        <td ng-show="uploader.isHTML5">
+                            <div style="margin-bottom: 0;">
+                                <div role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                            <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                            <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
+                        <td nowrap>
+                            <button type="button" ng-click="item.upload();updateLevel(selectedLevel)" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                Upload
+                            </button>
+
+                            <button type="button" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                Cancel
+                            </button>
+                            <button type="button" ng-click="item.remove()"> 
+                                Remove 
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h3 class="modal-title">Rules:</h3>
+            <div class="modal-body">
+                <table style="border: 1px black solid; width:550px;">
+                    <tr>
+                        <td>
+                            <h4>1. Avoid empty Account Number and duplicate Account number under the same legal enity in Account Level input file.</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>2. Avoid empty Invoice Number and duplicate Invoice Number in Invoice Level input file.</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>3. Invoice Number column as Text format.</h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-body">
+                <table style="width:500px;">
+                    <tr style="height:60px;">
+                        <td align=center>
+                            <a href="http://localhost:55209/#/demo/uploaderFile" style="color:blue">Account Level Template</a>
+                            &nbsp; 
+                            <a href="http://localhost:55209/#/demo/uploaderFile" style="color:blue">Invoice Level Template</a> 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </script>
+
+    <button class="btn btn-default" ng-click="open()">Upload AR Report</button>
+</div>

@@ -1,0 +1,51 @@
+﻿<div class="form-group col-md-12">
+    <div class="row" style="padding-left:120px;" >
+        <label for="userName" class="col-md-2 control-label" >
+            User Name:</label>
+        <div class="col-md-2">
+           <input id="userName" class="form-control input-sm" ng-model="userName" />
+        </div>
+
+        <label for="eid" class="col-md-2 control-label">
+            EID:</label>
+        <div class="col-md-2">
+            <input type="text" id="eid" class="form-control input-sm" ng-model="eid" />
+        </div>
+    </div>
+</div>    
+<div class="form-group col-md-12" >  
+    <div class="row" style="padding-left:120px;">
+        <label for="role" class="col-md-2 control-label">
+            Role:</label>
+        <div class="col-md-2">
+           <select id="role" class="form-control input-sm" ng-model="role" ng-options="a.roleId as a.roleName for a in RoleList">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <label for="inputTeam" class="col-md-2 control-label">
+            Team:</label>
+        <div class="col-md-2">
+            <input id="inputTeam" class="form-control input-sm" ng-model="team" />
+        </div>
+     </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;" >
+    
+        <div  class="grid-style" ui-grid="userList"  ui-grid-resize-columns ui-grid-selection>
+        </div>
+  
+</div>
+
+<div class="form-group col-md-10">
+    <div class="row" >
+        <div class="col-md-2">
+            <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in pagelevel"
+                ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+            </select>
+        </div>
+        <pagination max-size="maxSize" items_per_page="itemsperpage" total-items="totalItems"
+            ng-model="currentPage" ng-change="pageChanged()"></pagination>
+    </div>
+</div>

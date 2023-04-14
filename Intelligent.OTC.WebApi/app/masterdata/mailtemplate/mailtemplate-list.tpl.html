@@ -1,0 +1,28 @@
+﻿<div class="form-group col-md-12" >
+    <div class="row" style="padding-left:120px;">
+        <div class="row" style="height:20px">
+        </div>
+        <label for="userName" class="col-md-2 control-label" >
+            Language:</label>
+        <div class="col-md-2">
+            <select class="form-control input-sm" ng-model="language" ng-options="d.detailValue as d.detailName for d in maillanguages">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <label for="eid" class="col-md-2 control-label">
+            Type:</label>
+        <div class="col-md-2">
+            <select class="form-control input-sm" ng-model="type" ng-options="d.detailValue as d.detailName for d in mailtypes">
+                <option value="">All</option>
+            </select>
+        </div>
+        <div class="row" style="height:40px">
+        </div>  
+    </div>
+</div>
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+        <div class="grid-style" ui-grid="gridOptions" ui-grid-resize-columns  ui-grid-selection >
+        </div>
+</div>

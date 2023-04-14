@@ -1,0 +1,21 @@
+﻿<div class="modal-header" ng-show="flag=='invdetaillist'">
+    <span style="font-size:16px"><b>Invoice Detail - {{invoiceNo}}</b></span>
+</div>
+<div class="modal-header" ng-show="flag=='dateHislist'">
+    <span style="font-size:16px"><b>Expiration Date History</b></span>
+</div>
+<div class="modal-body" ng-show="flag=='invdetaillist'">
+    <div class="smallgrid-style" ui-grid="invdetail" ui-grid-resize-columns style="">
+    </div>
+</div>
+<div class="modal-body" ng-show="flag=='dateHislist'">
+    <div class="smallgrid-style" ui-grid="dateHis" ui-grid-resize-columns style="">
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <button type="button" class="btn btn-primary" ng-click="close()" style="float:right; margin-right:10px">
+            Close
+        </button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Bank Statement Attachment</h4>
+</div>
+
+<div class="modal-body">
+    <div>
+        <div class="panel panel-default">
+            <div class="form-group" style="height:60px; padding:20px;">
+                <div class="col-md-12" style="margin-bottom:5px;">
+                    <div class="col-md-1" style="">
+                        <label>Attachment:</label>
+                    </div>
+                    <div class="col-md-3" style="">
+                        <input type="file" id="updBSFile" style="width:400px" nv-file-select="" uploader="uploader" filters="customFilter"  />
+                    </div>
+                    <div class="col-md-1" style="">
+                        <a style="text-decoration:underline" ng-click="clearFile('updBSFile')">Clear</a>
+                    </div>
+                    <div class="col-md-1" style="">
+                        <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateBSFile()">&nbsp;Upload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="listDiv" style="padding-bottom:0px; padding-left:0px;">
+        <div>
+            <h4 style="color:#0072c6">
+                <label class="modal-title">
+                    <i class="fa fa-minus-square-o">&nbsp;File List</i>
+                </label>
+            </h4>
+        </div>
+        <table style="border: 1px #ececec solid; background-color: white; width: 1060px">
+            <tr>
+                <td>
+                    <div class="grid-style" ui-grid="fileDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:300px;height:300px;width:100%;max-width:1060px;">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div style="float:right; margin-right:30px">
+            <button type="button" class="btn btn-primary" ng-click="closeModal()" style="float:right; margin-left:10px;">Close</button>
+        </div>
+    </div>
+</div>
+
+

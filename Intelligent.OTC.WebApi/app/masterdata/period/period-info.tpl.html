@@ -1,0 +1,46 @@
+﻿<div style="padding-left:10px; padding-top:60px;padding-right:10px;">
+    <div class="modal-header">
+        <b>Period Information</b>
+    </div>
+    <div class="modal-body" style="height:150px">
+        <div class="form-group col-md-12">
+            <div class="row">
+                <label for="periodStartDate" class="col-md-6 control-label-period" style="width:150px;">
+                    Start Date:
+                </label>
+                <div class="col-md-5" style="margin-left:-20px">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="periodStartDate" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <div  class="row">
+                <label for="periodEndDate" class="col-md-6 control-label-period" style="width:150px;">
+                     End Date:
+                </label>
+                <div class="col-md-5" style="margin-left:-20px">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="periodEndDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <button type="button" class="btn btn-primary" ng-click="close()" style="float:right; margin-right:10px">
+                Close
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="save()" style="float:right; margin-right:10px">
+                Save
+            </button>
+        </div>
+    </div>
+</div>

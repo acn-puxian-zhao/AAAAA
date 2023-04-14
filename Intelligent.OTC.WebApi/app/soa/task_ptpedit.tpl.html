@@ -1,0 +1,39 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 control-label">Customer No:</label>
+        <div class="col-sm-10">
+            <input type="text" id="customerno" class="form-control" style="height:30px" ng-model="customerno" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">SiteUseId:</label>
+        <div class="col-sm-10">
+            <input type="text" id="siteuseid" class="form-control" style="height:30px" ng-model="siteuseid" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Promise Date:</label>
+        <div class="col-sm-10">
+            <input type="text" id="promisedate" class="form-control" style="height:30px" ng-model="promisedate" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Comments:</label>
+        <div class="col-sm-10">
+            <textarea id="comments" class="form-control" style="height:150px" ng-model="taskContent"></textarea>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">
+            Close
+        </button>
+        <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+            Submit
+        </button>
+    </div>
+</div>

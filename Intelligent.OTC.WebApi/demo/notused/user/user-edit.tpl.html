@@ -1,0 +1,94 @@
+﻿<div class="modal-header">
+    <b>User Information</b>
+</div>
+<div class="modal-body">
+    <div>
+            <form name="form" crud-edit="userInfo">
+             <div class="row">
+                <label for="EID" class="control-label col-md-3">EID:</label>
+                <div class="col-md-6" >
+                <input type="text" id="Text1" class="form-control" name="eID" ng-model="userInfo.eid" ng-readonly="isreadonly" required/>
+                </div>
+             </div>
+              <div class="row" style="height:10px"></div>
+             <div class="row">
+                <label for="Name" class="control-label col-md-3">Name:</label>
+                <div class="col-md-6">
+                <input type="text" id="Text2" class=" form-control" name="Name" ng-model="userInfo.name" />
+                </div>
+             </div>
+              <div class="row" style="height:10px"></div>
+             <div class="row">
+                <label for="Email" class="control-label col-md-3">Email:</label>
+                <div class="col-md-6">
+                <input type="text" id="Email" class="form-control" name="Email" ng-model="userInfo.email" />
+                </div>
+            </div>
+             <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="Team" class="control-label col-md-3">Team:</label>
+                <div class="col-md-6">
+                <input type="text" id="Team" class="form-control" name="Team" ng-model="userInfo.team" />
+                 </div>
+            </div>
+             <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="RiskClass" class="control-label col-md-3">RiskClass:</label>
+                 <div class="col-md-6">
+                <input type="text" id="RiskClass" class="form-control" name="RiskClass" ng-model="userInfo.riskClass" />
+                </div>
+            </div>
+             <div class="row" style="height:10px"></div>
+            <div class="row">
+                <label for="ValueClass" class="control-label col-md-3">ValueClass:</label>
+                <div class="col-md-6">
+                    <select id="ValueClass" class="form-control input-sm" ng-model="userInfo.valueClass" ng-options="a.detailValue as a.detailName for a in ValueClassList">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+           <div class="row" style="height:10px"></div>
+           <div class="row" > 
+            
+               <label for="DataProcesser" class="control-label col-md-3">DataProcesser:</label>
+                <div class="col-md-6">
+                <input type="checkbox" id="DataProcesser" class="checkbox" name="DataProcesser" ng-model="userInfo.dataProcesser" />
+                 </div>
+           </div>
+           <div class="row" style="height:10px"></div>
+           <div class="row" >
+               <label for="Collector" class="control-label col-md-3">Collector:</label>
+               <div class="col-md-6">
+                <input type="checkbox" id="Collector"  class="checkbox" name="Collector" ng-model="userInfo.collector" />
+               </div>
+                 
+           </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row" >
+              <label for="TeamLead" class="control-label col-md-3">TeamLead:</label>
+                <div class="col-md-6">
+                <input type="checkbox" id="TeamLead"  class="checkbox" name="TeamLead" ng-model="userInfo.teamLead" />
+                </div>  
+                  
+            </div>  
+            <div class="row" style="height:10px"></div>
+            <div class="row" >
+              <label for="Administrator" class="control-label col-md-3">Administrator:</label>
+                <div class="col-md-6">
+                <input type="checkbox" id="Administrator"  class="checkbox" name="Administrator" ng-model="userInfo.administrator" />
+                </div>  
+                  
+            </div>
+                <p></p>
+                <crud-buttons></crud-buttons>
+
+            </form>
+    </div>
+</div>
+<div class="modal-footer">
+   <div class="row">
+        <button type="button" class="btn btn-primary" ng-click="closeUser()"  style="float:right; margin-right:10px">
+                Close</button>
+   </div>
+</div>
+

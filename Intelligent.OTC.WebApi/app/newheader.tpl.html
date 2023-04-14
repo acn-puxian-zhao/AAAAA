@@ -1,0 +1,202 @@
+<div id="page_header" class="page_header_123">
+  <div id="topbar" class="topbar" style="display: block;">
+        <div class="top-bar-content">
+                <a>Welcome [{{currentUser}}]</a> | 
+            <a>United States V</a> |
+            <a>Help ?</a> |
+            <a ng-href="{{serverUrl}}/User/Logout">Power Down</a>
+            <span style="clear:both;margin-right:20px;"></span>
+        </div>
+    </div>
+
+  <div id="banner" class="banner">
+    <div class="top-bar-content">
+        <div class="accenture_logo">
+        </div>
+        <div class="xccelerator_logo">
+            <!--T&E Utility-->
+        </div>
+        <div class="x_menu">
+<!--            @foreach (var mainMenu in sitemap.Maps)
+            {
+            <div class="@mainMenu.ClsClass" @Html.Raw(mainMenu.GetPropertysString()) title="@mainMenu.Title">
+            </div>
+            }-->
+
+
+            <div  class="{{item.style}}" title="{{item.title}}" ng-repeat="item in headerMenu" on-finish-render-filters>
+            </div>
+
+               <!--  <div class="x_menu_btn home" onclick="location.href = '/'" title="Home">
+                </div>
+                 <div class="x_menu_btn workshop" color="#E65015" title="Workshop">
+                </div>
+                 <div class="x_menu_btn commandcenter" color="#F3EA47" title="Command Center">
+                </div>
+                 <div class="x_menu_btn business_excellence" color="#188D58" title="Business Excellence">
+                </div>
+                 <div class="x_menu_btn business_center" color="#1876E8" title="Master Data">
+                </div>
+                 <div class="x_menu_btn system_management" color="#6D3F97" title="System Management">
+                </div>
+                 <div class="pointer" style="left: 0px; background-color: rgb(24, 141, 88);" title="">
+                </div>-->
+        </div>
+    </div>
+</div>
+
+  <div id="submenu" class="submenu" style="clear: left; display: none;">
+    <div style="display: block !important; min-width: 1200px;">
+
+          <div ng-repeat="items in headerMenu" id="{{items.parent}}" class="sub-item">
+                <div class="sub-wrap">
+                    <div class="logo-container">
+                        <img ng-if="items.icon" ng-src="{{items.icon}}" />
+                    </div>
+                    <div class="link-container">
+                       <a ng-repeat="subm in items.subFuncs" href="{{subm.funcPage}}">{{subm.funcName}}</a>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+           </div>
+
+<!--
+        <div id="workshop" class="sub-item" style="display: none;">
+            <div class="sub-wrap">
+                <div class="logo-container">
+                    <img src="/Styles/xccelerator/images/workShopIcon.png">
+                </div>
+                <div class="link-container">
+                            <a href="/NonStdGeneration">Transaction Generation</a>
+                            <a href="/TransactionExecution">Transaction Execution</a>
+                            <a href="/WorkQueue">Transcation Adjustment</a>
+                            <a href="/TE/UTC/TravelExpense/ExpressReceiving">Documents Receiving</a>
+                            <a href="/TE/UTC/TravelExpense/DocumentValidation">Documents Validation</a>
+                            <a href="/TE/UTC/TravelExpense/DocumentArchive">Archive Documents</a>
+                            <a href="/TE/UTC/TravelExpense/Conversion">Tier1 Audit</a>
+                            <a href="/TE/UTC/TravelExpense/ComplianceAudit">Tier2 Audit</a>
+                            <a href="/TE/UTC/TravelExpense/RiskControlling">Risk Controlling</a>
+                            <a href="/TE/UTC/TravelExpense/AddressInquires">Inquires Handling</a>
+                            <a href="/TE/UTC/TravelExpense/Noncompliance">Noncompliance Follow up</a>
+                            <a href="/TE/UTC/MailMgmt/MailListView">Mail Mgmt</a>
+                            <a href="/Order/UC/InputOrder/Index">Input Order</a>
+                            <a href="/Order/UC/AuditOrder/Index">Audit Order</a>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div id="commandcenter" class="sub-item" style="display: none;">
+            <div class="sub-wrap">
+                <div class="logo-container">
+                    <img src="/Styles/xccelerator/images/commandCenterIcon.png">
+                </div>
+                <div class="link-container">
+                            <a href="/ResourcePlan">Resource Planning</a>
+                            <a href="/Inflow">Inflow Forecasting</a>
+                            <a href="/Backlog">Backlog</a>
+                            <a href="/FTEAvailable">FTE Availability</a>
+                            <a href="/SkillMatrix">Skill Matrix</a>
+                            <a href="/Miss">Miss Mgmt.</a>
+                            <a href="/Risk">Risk Mgmt.</a>
+                            <a href="/Issue">Issue Mgmt</a>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div id="business_excellence" class="sub-item" style="display: none;">
+            <div class="sub-wrap">
+                <div class="logo-container">
+                    <img src="/Styles/xccelerator/images/BusinessExcellenceIcon.png">
+                </div>
+                <div class="link-container">
+                            <a href="#/initaging">Collection</a>
+                            <a href="/Dashboard/Show/Inflow">Inflow</a>
+                            <a href="/Dashboard/Show/Outflow">Outflow</a>
+                            <a href="/BackLog/Report">Backlog</a>
+                            <a href="/Backlog/WIPReport">WIP</a>
+                            <a href="/InputMiss">Input Miss</a>
+                            <a href="/OutputMiss">Output Miss</a>
+                            <a href="/">Touch Rate</a>
+                            <a href="/Dashboard/Show/Utilization">Utilization</a>
+                            <a href="/Dashboard/Show/Productivity">Productivity</a>
+                            <a href="/TE/UTC/Knowledge/Index">Knowledge</a>
+                            <a href="/OverallTrend/Index">Overall Trend</a>
+                            <a href="/ProcessingStatus/">Processing Status</a>
+                            <a href="/AHTReport/">AHT</a>
+                            <a href="/AccuracyScore/">Accuracy Score</a>
+                            <a href="/CapicityUtilization/">Capicity Utilization</a>
+                            <a href="/ProductivityScore/">Productivity Score</a>
+                            <a href="/TE/UTC/BudgetReport/Index">Budget Management Report</a>
+                            <a href="/TE/UTC/BudgetReport/SLAIndex">SLA Report</a>
+                            <a href="/TE/UTC/BudgetReport/AppropriationBudgetIndex">Appropriation Budget Report</a>
+                            <a href="/TE/UTC/NoncomplianceReport/Index">Noncompliance Report</a>
+                            
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div id="business_center" class="sub-item" style="display: none;">
+            <div class="sub-wrap">
+                <div class="logo-container">
+                    <img src="/Styles/xccelerator/images/masterDataIcon.png">
+                </div>
+                <div class="link-container">
+                            <a href="/BusinessHierarchy">Business Hierarchy</a>
+                            <a href="/CustomerHierarchy">Customer Hierarchy</a>
+                            <a href="/Organization">Organization</a>
+                            <a href="/Process">Process</a>
+                            <a href="/Step">Step</a>
+                            <a href="/ReportBound">Control Limits</a>
+                            <a href="/Employee">Employee Mgmt.</a>
+                            <a href="/SPT">SPT</a>
+                            <a href="/LedgerPeriod">Fiscal Period</a>
+                            <a href="/Opportunity">Opportunity</a>
+                            <a href="/CutOffTime">Cut Off Time</a>
+                            <a href="/TAT">TAT</a>
+                            <a href="/MissType">Miss Type</a>
+                            <a href="/WorkingCalendar">Working Calendar</a>
+                            <a href="/TE/UTC/Account/Index">Account</a>
+                            <a href="/TE/UTC/Costcenter/Index">Cost Center</a>
+                            <a href="/TE/UTC/Currency/Index">Currency</a>
+                            <a href="/TE/UTC/TEEmployee/Index">Customer Employee</a>
+                            <a href="/TE/UTC/ExpenseType/Index">ExpenseType</a>
+                            <a href="/TE/UTC/TEProduct/Index">Product</a>
+                            <a href="/TE/UTC/Vender/Index">Vender</a>
+                            <a href="/Order/UC/RuleSetting/GlobalSetting">Global Setting</a>
+                            <a href="/Order/UC/Customer/Index">UC Customer</a>
+                            <a href="/Order/UC/Product/Index">Product</a>
+                            <a href="/Order/UC/productCodeConvert/Index">Product Code Mapping</a>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div id="system_management" class="sub-item" style="display: none;">
+            <div class="sub-wrap">
+                <div class="logo-container">
+                    <img src="/Styles/xccelerator/images/systemSetting.png">
+                </div>
+                <div class="link-container">
+                            <a href="/User/Index">User Mgmt.</a>
+                            <a href="/Group/Index">Group Mgmt.</a>
+                            <a href="/Role/Index">Role Mgmt.</a>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+
+  <!--<div id="x_navigate_bar_" class="x_navigate_bar" style="float: none; display: none;">
+                <div class="x_navigate_contant" id="x_navigate_contant"><div class="top-bar-content">
+        <a>Home</a>
+    </div></div>
+            <div class="side-tookit-icons"><i class="side-tookit-icon fa fa-tasks" title="Tasks" style="display:none"></i><i class="side-tookit-icon hide" title=""></i></div></div>
+
+</div>-->
+        

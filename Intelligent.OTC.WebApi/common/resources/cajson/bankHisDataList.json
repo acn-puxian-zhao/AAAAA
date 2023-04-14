@@ -1,0 +1,64 @@
+﻿{
+    "dataRows": [
+      {
+        "transactionNumber": "1",
+        "transactionAmount": "100",
+        "reference1": "A1",
+        "reference2": "A2",
+        "reference3": "A3",
+        "valueDate": "2019-01-01",
+        "agentCustomerNumber": "1001",
+        "agentCustomerName": "HW",
+        "paymentCustomerNumber": "1001",
+        "paymentCustomerName": "HW",
+        "siteUseId": "100101",
+        "fixedBankCharge": "100",
+        "chargeRangeFrom": "-10",
+        "chargeRangeTo": "10",
+        "chargeType": "Bank Charge",
+        "matchStatus": "Unmatched",
+        "updateDate": "2019-01-01",
+        "createDate": "2019-01-01"
+      },{
+        "transactionNumber": "2",
+        "transactionAmount": "100",
+        "reference1": "A1",
+        "reference2": "A2",
+        "reference3": "A3",
+        "valueDate": "2019-01-01",
+        "agentCustomerNumber": "1001",
+        "agentCustomerName": "HW",
+        "paymentCustomerNumber": "1001",
+        "paymentCustomerName": "HW",
+        "siteUseId": "100101",
+        "fixedBankCharge": "100",
+        "chargeRangeFrom": "-10",
+        "chargeRangeTo": "10",
+        "chargeType": "Bank Charge",
+        "matchStatus": "Unmatched",
+        "updateDate": "2019-01-01",
+        "createDate": "2019-01-01"
+      },{
+        "transactionNumber": "3",
+        "transactionAmount": "100",
+        "reference1": "A1",
+        "reference2": "A2",
+        "reference3": "A3",
+        "valueDate": "2019-01-01",
+        "agentCustomerNumber": "1001",
+        "agentCustomerName": "HW",
+        "paymentCustomerNumber": "1001",
+        "paymentCustomerName": "HW",
+        "siteUseId": "100101",
+        "fixedBankCharge": "100",
+        "chargeRangeFrom": "-10",
+        "chargeRangeTo": "10",
+        "chargeType": "Bank Charge",
+        "matchStatus": "Unmatched",
+        "updateDate": "2019-01-01",
+        "createDate": "2019-01-01"
+      }
+      
+    ],
+    "count": 3
+  }

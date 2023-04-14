@@ -1,0 +1,147 @@
+﻿<div class="modal-header">
+    <b>Over Due Follow Up Configuration</b>
+</div>
+<div class="modal-body">
+    <div>
+        <form name="dunform" crud-edit="dunning">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="CustomerNum" class="control-labelh col-md-4">Customer Num:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="CustomerNum" class="form-control" name="CustomerNum" ng-model="dunning.customerNum" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="legalEntity" class="control-labelh col-md-4">Legal Entity:</label>
+                    <div class="col-md-8">
+                        <select id="legalEntity" class="form-control input-sm" ng-model="dunning.legalEntity"
+                                ng-options="a.legalEntity as a.legalEntity for a in legallist "></select>
+                    </div>
+                </div>
+                </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="Description" class="control-labelh col-md-4">Description:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="Description" class="form-control" name="Description" ng-model="dunning.description" />
+                    </div>
+                </div>
+                <!--<div class="col-md-6">
+                    <label for="RiskInterval" class="control-labelh col-md-4">Operation:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="operation" class="form-control" name="operation" ng-model="dunning.riskInterval" required />
+                    </div>
+                    <label style="position:relative; left:157px;" ng-show="dunform.RiskInterval.$error.pattern"><font color=red>数值设置在0-99之间</font></label>
+                </div>-->
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="Description" class="control-labelh col-md-4">AutoSendConfirmPTP:</label>
+                    <div class="col-md-8">
+                        <input type="checkbox" id="Description"  name="Description" ng-model="dunning.autoSendConfirmPTP" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="RiskInterval" class="control-labelh col-md-4">AutoSendReminder:</label>
+                    <div class="col-md-8">
+                        <input type="checkbox" id="Description"  name="Description" ng-model="dunning.autoSendReminder" />
+                    </div>
+                    <label style="position:relative; left:157px;" ng-show="dunform.RiskInterval.$error.pattern"><font color=red>数值设置在0-99之间</font></label>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="col-md-6">
+                    <label for="FTCStartDate" class="control-labelh col-md-4">First time confirm<br />  Start Date:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="FTCStartDate" class="form-control" name="FTCStartDate" ng-model="dunning.confirm1Days" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="legalEntity" class="control-labelh col-md-4">Confirm Method:</label>
+                    <div class="col-md-8">
+                        <select id="FTCConfirmMethod" class="form-control input-sm" ng-model="dunning.Confirm1CommunicationMethod"
+                                ng-options="t.detailName as t.detailValue for t in typeDetailList" ></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="STCStartDate" class="control-labelh col-md-4">Second time confirm<br />  Start Date:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="STCStartDate" class="form-control" name="STCStartDate" ng-model="dunning.Confirm2Days" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="STCConfirmMethod" class="control-labelh col-md-4">Confirm Method:</label>
+                    <div class="col-md-8">
+                        <select id="STCConfirmMethod" class="form-control input-sm" ng-model="dunning.Confirm2CommunicationMethod"
+                                ng-options="a.detailName as a.detailName for a in typeDetailList"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="RStartDate" class="control-labelh col-md-4">Reminding<br />  Start Date:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="RStartDate" class="form-control" name="RStartDate" ng-model="dunning.RemindingDays" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="RRemindMethod" class="control-labelh col-md-4">Remind Method:</label>
+                    <div class="col-md-8">
+                        <select id="RRemindMethod" class="form-control input-sm" ng-model="dunning.RemindingCommunicationMethod"
+                                ng-options="a.detailName as a.detailName for a in typeDetailList"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="FTDStartDate" class="control-labelh col-md-4">First time Dunning<br />  Start Date:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="FTDStartDate" class="form-control" name="FTDStartDate" ng-model="dunning.Dunning1Days" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="FTDDunMethod" class="control-labelh col-md-4">Dun Method:</label>
+                    <div class="col-md-8">
+                        <select id="FTDDunMethod" class="form-control input-sm" ng-model="dunning.Dunning1CommunicationMethod"
+                                ng-options="a.detailName as a.detailName for a in typeDetailList"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="STDStartDate" class="control-labelh col-md-4">Second time Dunning<br />  Start Date:</label>
+                    <div class="col-md-8">
+                        <input type="text" id="STDStartDate" class="form-control" name="STDStartDate" ng-model="dunning.Dunning2Days" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="STDDunMethod" class="control-labelh col-md-4">Dun Method:</label>
+                    <div class="col-md-8">
+                        <select id="STDDunMethod" class="form-control input-sm" ng-model="dunning.Dunning2CommunicationMethod"
+                                ng-options="a.detailName as a.detailName for a in typeDetailList"></select>
+                    </div>
+                </div>
+            </div>-->
+            <div class="row" style="height:10px"></div>
+            <p></p>
+            <!--<crud-buttons></crud-buttons>-->
+            <button type="button" class="btn btn-primary save" ng-disabled="!canSave()" ng-click="updateConfig()">Save</button>
+            <button type="button" class="btn btn-warning revert" ng-click="revertChanges()" ng-disabled="!canRevert()">Revert changes</button>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <button type="button" class="btn btn-primary" ng-click="closeCust()" style="float:right; margin-right:10px">
+            Close
+        </button>
+    </div>
+</div>

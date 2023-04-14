@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+    <title>Hello AngularJS</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/angular.min.js" type="text/javascript"></script>
+    <script src="../Scripts/sanitize.js" type="text/javascript"></script>
+</head>
+<body class="container" ng-app="HelloApp" ng-controller="HelloCtrl">
+    <div>
+        <form>
+            <h1>AngularJS XSS Demo Test</h1>
+            <hr/>
+            <div class="col-md-12">
+                <input type="text" ng-model="name" class="form-control col-md-12" ng-change="processHtmlCode()" placeholder="Enter Some HTML Text..."/>
+            </div>
+        </form>
+        <hr/>
+    </div>
+    <hr/>
+    <div style="padding:20px">
+        <span class="hello"><strong>ng-bind directive: Note that HTML text is entered as it is.</strong></span><br/>
+        <span class="hello" ng-bind="helloMessage">{{helloMessage}}</span>
+    </div>
+    <hr/>
+    <div style="padding:20px">
+        <span>Note that script tag is executed as well.</span>
+        <span ng-bind-html="trustedMessage"></span>
+    </div>
+    <hr/>
+    <div style="padding:20px">
+        <span>ng-bind-html directive: Note that image is displayed appropriately as a result of text entered in the text field.</span>
+        <span ng-bind-html="helloMessage"></span>
+    </div>
+    <hr/>
+    <script type="text/javascript">
+        angular.module('HelloApp', ["ngSanitize"])
+    .controller('HelloCtrl', ['$scope', '$sce', function ($scope, $sce) {
+        $scope.name = "";
+        $scope.processHtmlCode = function () {
+            $scope.helloMessage = "<h1>" + $scope.name + "</h1>";
+            $scope.trustedMessage = $sce.trustAsHtml($scope.name);
+        }
+    } ])
+  
+    </script>
+</body>
+</html>

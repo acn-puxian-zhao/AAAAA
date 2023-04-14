@@ -1,0 +1,44 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{disInvInstance.title}}</h3>
+</div>
+<div class="modal-body form-horizontal" >
+    <div class="form-group">
+        <label class="col-md-2 control-label"style="color:red">Dispute Reason:*</label>
+        <div class="col-md-6">
+            <select id="issues" class="form-control input-sm" ng-model="issue" ng-options="a.detailValue as a.detailName for a in disputeReasonList" ng-required="true" >
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Action Owner Department:</label>
+        <div class="col-sm-6">
+            <select id="actionownerdept" class="form-control input-sm" ng-model="actionownerdept" ng-options="a.detailValue as a.detailName for a in actionOwnerDeptList" ng-required="true"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Call Contact:</label>
+        <div class="col-sm-6">
+            <input id="callContact" class="form-control" style="width:300px"  ng-model="contacter" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Comments:</label>
+        <div class="col-sm-8">
+            <textarea id="comments" class="form-control" style="height:150px" ng-model="comss"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Related email:</label>
+        <div class="col-sm-8">
+            <input id="inputRelatedEmail" class="form-control" style="width:300px" ng-model="relatedEmail" readonly />
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">
+            Close</button>
+        <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()" >
+            Submit</button>
+    </div>
+</div>

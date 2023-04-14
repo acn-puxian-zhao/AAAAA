@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sitemap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <IsRoot>true</IsRoot>
+  <Level>0</Level>
+  <OperativeId>0</OperativeId>
+  <Propertys />
+  <Maps>
+    <Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>1</Level>
+      <OperativeId>0</OperativeId>
+      <Title>Home</Title>
+      <ClsClass>x_menu_btn home</ClsClass>
+      <Propertys>
+        <MapProperty>
+          <Key>onclick</Key>
+          <Value>location.href = '${teDOmain}'</Value>
+        </MapProperty>
+      </Propertys>
+      <Maps />
+    </Sitemap>
+    <Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>1</Level>
+      <OperativeId>0</OperativeId>
+      <Icon>Content/images/workShopIcon.png</Icon>
+      <Title>Workshop</Title>
+      <ClsClass>x_menu_btn workshop</ClsClass>
+      <MenuId>workshop</MenuId>
+      <Propertys>
+        <MapProperty>
+          <Key>color</Key>
+          <Value>#E65015</Value>
+        </MapProperty>
+      </Propertys>
+      <Maps>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>192</OperativeId>
+          <!--289-->
+          <Domain>${xccDomain}</Domain>
+          <Url>/NonStdGeneration</Url>
+          <Title>Transaction Generation</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>193</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/TransactionExecution</Url>
+          <Title>Transaction Execution</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>150</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/WorkQueue</Url>
+          <Title>Transcation Adjustment</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>439</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/ExpressReceiving</Url>
+          <Title>Documents Receiving</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>421</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/DocumentValidation</Url>
+          <Title>Documents Validation</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>458</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/DocumentArchive</Url>
+          <Title>Archive Documents</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>382</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/Conversion</Url>
+          <Title>Tier1 Audit</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>450</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/ComplianceAudit</Url>
+          <Title>Tier2 Audit</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>452</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/RiskControlling</Url>
+          <Title>Risk Controlling</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>368</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/AddressInquires</Url>
+          <Title>Inquires Handling</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>379</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/Noncompliance</Url>
+          <Title>Noncompliance Follow up</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10503</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/MailMgmt/MailListView</Url>
+          <Title>Mail Mgmt</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10508</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/InquireReport/Index</Url>
+          <Title>Inquire Performance</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <!--<Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10498</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TravelExpense/QueryHistory</Url>
+          <Title>Query History</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10521</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/Monthlyreport/DelayedReimbursementReport</Url>
+          <Title>Delayed Reimbursement</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10522</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/ReturnedRateReport/Index</Url>
+          <Title>Returned Rate</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20476</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/InputOrder/Index</Url>
+          <Title>Input Order</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20492</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/AuditOrder/Index</Url>
+          <Title>Audit Order</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20492</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/MailMgmt</Url>
+          <Title>Mail Mgmt</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+ <!--OTC-->
+        <!--New Period-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41145</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/admin/period</Url>
+          <Title>Collection Period</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <!--New Period-->
+        <!--DataPrepare-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41144</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/initaging</Url>
+          <Title>Data Preparation</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+    <!--DataPrepare-->
+    <!--AR Analysis-->
+        <!--<Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>2</Level>
+      <OperativeId>41144</OperativeId>
+      <Domain>${teDOmain}</Domain>
+      <Url>#/admin/ar</Url>
+      <Title>AR Analysis</Title>
+      <Propertys />
+      <Maps />
+    </Sitemap>-->
+        <!--AR Analysis-->
+    <!--Collection-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41146</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/followup</Url>
+          <Title>FollowUp</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <!--Collection-->
+
+        <!--Myinvoices -->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>51148</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <!--<Url>#/myinvoices</Url>
+          <Title>All Invoices</Title>-->
+          <Url>#/allinfo</Url>
+          <Title>All Accounts</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <!--Myinvoices -->
+        
+        <!--<Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>51147</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/dailyReport</Url>
+          <Title>Daily Report</Title>
+          <Propertys />
+        </Sitemap>-->
+
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>51153</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/dashboard</Url>
+          <Title>Dashboard</Title>
+          <Propertys />
+        </Sitemap>
+
+        <!--
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>51154</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/agingreport</Url>
+          <Title>Aging  Report</Title>
+          <Propertys />
+        </Sitemap> -->
+
+        
+
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>51155</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/disputereport</Url>
+          <Title>Dispute  Report</Title>
+          <Propertys />
+        </Sitemap>
+
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>51156</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/overduereport</Url>
+          <Title>Over due  Report</Title>
+          <Propertys />
+        </Sitemap>
+
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>51165</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/dailyAgingreport</Url>
+          <Title>Account Summary Report</Title>
+          <Propertys />
+        </Sitemap>
+
+        <Sitemap>
+            <IsRoot>false</IsRoot>
+            <Level>2</Level>
+            <OperativeId>51166</OperativeId>
+            <Domain>${teDOmain}</Domain>
+            <Url>#/statistics/statistics</Url>
+            <Title>Statistics</Title>
+            <Propertys />
+            <Maps />
+        </Sitemap>
+
+          <!--Aging-->
+      <!--<Sitemap>
+        <IsRoot>false</IsRoot>
+        <Level>2</Level>
+        <OperativeId>41253</OperativeId>
+        <Domain/>
+        <Url>#/aging</Url>
+        <Title>Aging</Title>
+        <Propertys />
+        <Maps>
+          <Sitemap>
+            <IsRoot>false</IsRoot>
+            <Level>3</Level>
+            <OperativeId>41252</OperativeId>
+            <Domain/>
+            <Url>search</Url>
+            <Title>Search</Title>
+            <Propertys />
+            <Maps>
+              <Sitemap>
+                <IsRoot>false</IsRoot>
+                <Level>4</Level>
+                <OperativeId>41251</OperativeId>
+                <Domain/>
+                <Url>resetSearch</Url>
+                <Title>Reset Search</Title>
+                <Propertys />
+                <Maps/>
+              </Sitemap>
+            </Maps>
+          </Sitemap>
+        </Maps>
+      </Sitemap>-->
+      <!--Aging-->        
+      </Maps>
+    </Sitemap>
+    <Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>1</Level>
+      <OperativeId>0</OperativeId>
+      <Icon>Content/images/commandCenterIcon.png</Icon>
+      <Title>Command Center</Title>
+      <ClsClass>x_menu_btn commandcenter</ClsClass>
+      <MenuId>commandcenter</MenuId>
+      <Propertys>
+        <MapProperty>
+          <Key>color</Key>
+          <Value>#F3EA47</Value>
+        </MapProperty>
+      </Propertys>
+      <Maps>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>159</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/ResourcePlan</Url>
+          <Title>Resource Planning</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>146</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Inflow</Url>
+          <Title>Inflow Forecasting</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>194</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Backlog</Url>
+          <Title>Backlog</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>149</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/FTEAvailable</Url>
+          <Title>FTE Availability</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>210</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/SkillMatrix</Url>
+          <Title>Skill Matrix</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>134</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Miss</Url>
+          <Title>Miss Mgmt.</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>202</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Risk</Url>
+          <Title>Risk Mgmt.</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>207</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Issue</Url>
+          <Title>Issue Mgmt</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+      </Maps>
+    </Sitemap>
+    <Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>1</Level>
+      <OperativeId>0</OperativeId>
+      <Icon>Content/images/BusinessExcellenceIcon.png</Icon>
+      <Title>Business Excellence</Title>
+      <ClsClass>x_menu_btn business_excellence</ClsClass>
+      <MenuId>business_excellence</MenuId>
+      <Propertys>
+        <MapProperty>
+          <Key>color</Key>
+          <Value>#188D58</Value>
+        </MapProperty>
+      </Propertys>
+      <Maps>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>267</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Dashboard/Show/Inflow</Url>
+          <Title>Inflow</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>259</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Dashboard/Show/Outflow</Url>
+          <Title>Outflow</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>269</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/BackLog/Report</Url>
+          <Title>Backlog</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>268</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Backlog/WIPReport</Url>
+          <Title>WIP</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>265</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/InputMiss</Url>
+          <Title>Input Miss</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>266</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/OutputMiss</Url>
+          <Title>Output Miss</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>-1</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url />
+          <Title>Touch Rate</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>0</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Dashboard/Show/Accuracy</Url>
+          <Title>Accuracy</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>263</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Dashboard/Show/Utilization</Url>
+          <Title>Utilization</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>262</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Dashboard/Show/Productivity</Url>
+          <Title>Productivity</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>456</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/Knowledge/Index</Url>
+          <Title>Knowledge</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10510</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/OverallTrend/Index</Url>
+          <Title>Overall Trend</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10520</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/ProcessingStatus/</Url>
+          <Title>Processing Status</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10524</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/AHTReport/</Url>
+          <Title>AHT</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10525</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/AccuracyScore/</Url>
+          <Title>Accuracy Score</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10526</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/CapicityUtilization/</Url>
+          <Title>Capicity Utilization</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10527</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/ProductivityScore/</Url>
+          <Title>Productivity Score</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+      </Maps>
+    </Sitemap>
+    <Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>1</Level>
+      <OperativeId>0</OperativeId>
+      <Icon>Content/images/masterDataIcon.png</Icon>
+      <Title>Master Data</Title>
+      <ClsClass>x_menu_btn business_center</ClsClass>
+      <MenuId>business_center</MenuId>
+      <Propertys>
+        <MapProperty>
+          <Key>color</Key>
+          <Value>#1876E8</Value>
+        </MapProperty>
+      </Propertys>
+      <Maps>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>301</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/BusinessHierarchy</Url>
+          <Title>Business Hierarchy</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>288</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/CustomerHierarchy</Url>
+          <Title>Customer Hierarchy</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>332</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Organization</Url>
+          <Title>Organization</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>53</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Process</Url>
+          <Title>Process</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>124</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Step</Url>
+          <Title>Step</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>336</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/ReportBound</Url>
+          <Title>Control Limits</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>117</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Employee</Url>
+          <Title>Employee Mgmt.</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>308</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/SPT</Url>
+          <Title>SPT</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>309</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/LedgerPeriod</Url>
+          <Title>Fiscal Period</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>310</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Opportunity</Url>
+          <Title>Opportunity</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>311</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/CutOffTime</Url>
+          <Title>Cut Off Time</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>312</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/TAT</Url>
+          <Title>TAT</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>324</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/MissType</Url>
+          <Title>Miss Type</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>337</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/WorkingCalendar</Url>
+          <Title>Working Calendar</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>341</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/Account/Index</Url>
+          <Title>Account</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>345</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/Costcenter/Index</Url>
+          <Title>Cost Center</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>349</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/Currency/Index</Url>
+          <Title>Currency</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>353</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TEEmployee/Index</Url>
+          <Title>Customer Employee</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>361</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/ExpenseType/Index</Url>
+          <Title>ExpenseType</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10468</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/TEProduct/Index</Url>
+          <Title>Product</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>10475</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>/Vender/Index</Url>
+          <Title>Vender</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20466</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/RuleSetting/GlobalSetting</Url>
+          <Title>Global Setting</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20460</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/Customer/Index</Url>
+          <Title>UC Customer</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20468</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/Product/Index</Url>
+          <Title>Product</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20472</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/productCodeConvert/Index</Url>
+          <Title>Product Code Mapping</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>
+            20529
+          </OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>
+            /ManipulatorSchedule/Index
+          </Url>
+          <Title>Manipulator Schedule</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20512</OperativeId>
+          <Domain>${orderDOmain}</Domain>
+          <Url>/ProductStock/Index</Url>
+          <Title>Stock</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+<!--OTC-->
+        <!--Mail Template-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41250</OperativeId>
+          <Domain/>
+          <Url>#/admin/mailtemplate</Url>
+          <Title>Mail Template</Title>
+          <Propertys />
+          <Maps>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41249</OperativeId>
+              <Domain/>
+              <Url>search</Url>
+              <Title>Search</Title>
+              <Propertys />
+              <Maps>
+                <Sitemap>
+                  <IsRoot>false</IsRoot>
+                  <Level>4</Level>
+                  <OperativeId>41248</OperativeId>
+                  <Domain/>
+                  <Url>resetSearch</Url>
+                  <Title>Reset Search</Title>
+                  <Propertys />
+                  <Maps/>
+                </Sitemap>
+              </Maps>
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41247</OperativeId>
+              <Domain/>
+              <Url>new</Url>
+              <Title>New</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41246</OperativeId>
+              <Domain/>
+              <Url>edit</Url>
+              <Title>Edit</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41245</OperativeId>
+              <Domain/>
+              <Url>del</Url>
+              <Title>Delete</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+          </Maps>
+        </Sitemap>
+
+        <!--Customer Config-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41244</OperativeId>
+          <Domain/>
+          <Url>#/admin/customer</Url>
+          <Title>Customer Master Data</Title>
+          <Propertys />
+          <Maps>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41243</OperativeId>
+              <Domain/>
+              <Url>search</Url>
+              <Title>Search</Title>
+              <Propertys />
+              <Maps>
+                <Sitemap>
+                  <IsRoot>false</IsRoot>
+                  <Level>4</Level>
+                  <OperativeId>41242</OperativeId>
+                  <Domain/>
+                  <Url>resetSearch</Url>
+                  <Title>Reset Search</Title>
+                  <Propertys />
+                  <Maps/>
+                </Sitemap>
+              </Maps>
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41241</OperativeId>
+              <Domain/>
+              <Url>new</Url>
+              <Title>New</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41240</OperativeId>
+              <Domain/>
+              <Url>edit</Url>
+              <Title>Edit</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41239</OperativeId>
+              <Domain/>
+              <Url>del</Url>
+              <Title>Delete</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41238</OperativeId>
+              <Domain/>
+              <Url>upload</Url>
+              <Title>Upload</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+          </Maps>
+        </Sitemap>
+        <!--Customer Config-->
+      </Maps>
+    </Sitemap>
+    <Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>1</Level>
+      <OperativeId>0</OperativeId>
+      <Icon>Content/images/systemSetting.png</Icon>
+      <Title>System Management</Title>
+      <ClsClass>x_menu_btn system_management</ClsClass>
+      <MenuId>system_management</MenuId>
+      <Propertys>
+        <MapProperty>
+          <Key>color</Key>
+          <Value>#6D3F97</Value>
+        </MapProperty>
+      </Propertys>
+      <Maps>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>1</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/User/Index</Url>
+          <Title>User Mgmt.</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>27</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Group/Index</Url>
+          <Title>Group Mgmt.</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>17</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/Role/Index</Url>
+          <Title>Role Mgmt.</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>0</Level>
+          <OperativeId>20536</OperativeId>
+          <Domain>${xccDomain}</Domain>
+          <Url>/ExternalAccount/Index</Url>
+          <Title>External Account.</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        
+<!--OTC-->
+        <!--Mail Template-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41250</OperativeId>
+          <Domain/>
+          <Url>#/admin/mailtemplate</Url>
+          <Title>Mail Template</Title>
+          <Propertys />
+          <Maps>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41249</OperativeId>
+              <Domain/>
+              <Url>search</Url>
+              <Title>Search</Title>
+              <Propertys />
+              <Maps>
+                <Sitemap>
+                  <IsRoot>false</IsRoot>
+                  <Level>4</Level>
+                  <OperativeId>41248</OperativeId>
+                  <Domain/>
+                  <Url>resetSearch</Url>
+                  <Title>Reset Search</Title>
+                  <Propertys />
+                  <Maps/>
+                </Sitemap>
+              </Maps>
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41247</OperativeId>
+              <Domain/>
+              <Url>new</Url>
+              <Title>New</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41246</OperativeId>
+              <Domain/>
+              <Url>edit</Url>
+              <Title>Edit</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+            <Sitemap>
+              <IsRoot>false</IsRoot>
+              <Level>3</Level>
+              <OperativeId>41245</OperativeId>
+              <Domain/>
+              <Url>del</Url>
+              <Title>Delete</Title>
+              <Propertys />
+              <Maps />
+            </Sitemap>
+          </Maps>
+        </Sitemap>
+        <!--User initialization-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41171</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/user/init</Url>
+          <Title>User initialization</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <!--User initialization-->
+
+        <!--User UpdatePwd-->
+        <Sitemap>
+          <IsRoot>false</IsRoot>
+          <Level>2</Level>
+          <OperativeId>41171</OperativeId>
+          <Domain>${teDOmain}</Domain>
+          <Url>#/user/updatePwd</Url>
+          <Title>Change Password</Title>
+          <Propertys />
+          <Maps />
+        </Sitemap>
+        <!--User UpdatePwd-->
+
+        <!--DSO Analysis-->
+        <Sitemap>
+            <IsRoot>false</IsRoot>
+            <Level>2</Level>
+            <OperativeId>51165</OperativeId>
+            <Domain>${teDOmain}</Domain>
+            <Url>#/dso/dsoanalysis</Url>
+            <Title>DSO Analysis</Title>
+            <Propertys />
+            <Maps />
+        </Sitemap>
+        <!--DSO Analysis-->
+
+      </Maps>
+    </Sitemap>
+    <Sitemap>
+      <IsRoot>false</IsRoot>
+      <Level>1</Level>
+      <OperativeId>0</OperativeId>
+      <Title />
+      <ClsClass>pointer</ClsClass>
+      <Propertys>
+        <MapProperty>
+          <Key>style</Key>
+          <Value>background-color: #B72B46;</Value>
+        </MapProperty>
+      </Propertys>
+      <Maps />
+    </Sitemap>
+  </Maps>
+</Sitemap>

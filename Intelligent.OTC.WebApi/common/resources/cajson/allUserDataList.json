@@ -1,0 +1,30 @@
+﻿{
+    "dataRows": [
+      {
+        "customerNumber": "1001",
+        "customerName": "HW",
+        "amt": 10000
+      },
+      {
+        "customerNumber": "1002",
+        "customerName": "SF",
+        "amt": 10000
+      },
+      {
+        "customerNumber": "1003",
+        "customerName": "ZX",
+        "amt": 10000
+      },
+      {
+        "customerNumber": "1004",
+        "customerName": "BOKA",
+        "amt": 10000
+      },
+      {
+        "customerNumber": "1005",
+        "customerName": "UTC",
+        "amt": 10000
+      }
+    ],
+    "count": 5
+  }

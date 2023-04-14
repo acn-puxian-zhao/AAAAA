@@ -1,0 +1,30 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Batch Manual Close</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <div class="col-md-12">
+            <div class="col-md-8" style="">
+                <input type="file" id="updManualCloseFile" style="width:400px" nv-file-select="" uploader="uploader" />
+            </div>
+            <div class="col-md-2" style="">
+                <a style="text-decoration:underline" ng-click="clearFile('updManualCloseFile')">Clear</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+        <div class="col-md-8" style="text-align:left">
+
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" ng-click="cancel()">
+                Close
+            </button>
+            <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="updManualCloseFile()">
+                Upload
+            </button>
+        </div>
+    </div>
+</div>

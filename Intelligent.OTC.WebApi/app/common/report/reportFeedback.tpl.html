@@ -1,0 +1,167 @@
+﻿<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <h4 class="col-md-10 panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion">
+                        Feedback 统计
+                    </a>
+                </h4>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary " style="width:200px; " ng-click="exportReport()">
+                        Export FeedbackReport
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:0px">
+                <div class="grid-style" style="min-height:300px;" ui-grid="reportFeedbackList" ui-grid-resize-columns ui-grid-selection>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default" style="display:none">
+        <uib-tabset active="active" type="tabs">
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Not Feedback
+                </uib-tab-heading>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="grid-style" ui-grid="notFeedbackList" ui-grid-resize-columns ui-grid-selection ui-grid-edit ui-grid-move-columns ui-grid-pinning style="min-height:480px;height:480px;">
+                    </div>
+                </div>
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize_notfeedback" name="pagesize_notfeedback" ng-model="selectedLevel_notfeedback" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pageSizeChanged_notfeedback(selectedLevel_notfeedback)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+                        <ul uib-pagination max-size="maxSize_notfeedback" items-per-page="itemsperpage_notfeedback" total-items="totalItems_notfeedback"
+                            ng-model="currentPage_notfeedback" ng-change="pageChanged_notfeedback()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems_notfeedback}}</div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="2">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Has Feedback
+                </uib-tab-heading>
+                <div class="form-group col-md-12" style="padding-left:0px;padding-right:0px;">
+                    <div class="grid-style" ui-grid="hasFeedbackList" style="min-height:480px;height:480px;width:1480px">
+                    </div>
+                </div>
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize_hasfeedback" name="pagesize_hasfeedback" ng-model="selectedLevel_hasfeedback" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pageSizeChanged_hasfeedback(selectedLevel_hasfeedback)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+                        <ul uib-pagination max-size="maxSize_hasfeedback" items-per-page="itemsperpage_hasfeedback" total-items="totalItems_hasfeedback"
+                            ng-model="currentPage_hasfeedback" ng-change="pageChanged_hasfeedback()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems_hasfeedback}}</div>
+                    </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <h4 class="col-md-10 panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion">
+                        Feedback 详细
+                    </a>
+                </h4>
+                <div class="col-md-2" style="display:none">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM" ng-model="startDate" is-open="popup.opened" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary " style="width:70px; " ng-click="QueryDetail()">
+                        Query
+                    </button>
+                    <button type="button" class="btn btn-primary " style="width:100px; " ng-click="exportDetail()">
+                        Export Detail
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:0px">
+
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="grid-style" ui-grid="reportList" ui-grid-resize-columns ui-grid-selection>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pageSizeChanged(selectedLevel)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">
+                        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                            ng-model="currentPage" ng-change="pageChanged()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems}}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <h4 class="col-md-10 panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion">
+                        Feedback 详细历史
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:0px">
+
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="grid-style" ui-grid="feedbackhistList" ui-grid-resize-columns ui-grid-selection>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-left:0px;margin-right:0px;">
+                    <div class="col-md-2" style="width:130px">
+                        <select id="pagesize_hist" name="pagesize_hist" ng-model="selectedLevel_hist" ng-options="s.id as s.levelName for s in levelList"
+                                ng-change="pageSizeChanged_hist(selectedLevel_hist)" class="form-control input-sm" style="margin-top: 15px; margin-bottom: 20px;"></select>
+                    </div>
+                    <div class="col-md-9" style="margin-top:-5px;margin-left:-10px;">+966+
+                        <ul uib-pagination max-size="maxSize_hist" items-per-page="itemsperpage_hist" total-items="totalItems_hist"
+                            ng-model="currentPage_hist" ng-change="pageChanged_hist()"></ul>
+                    </div>
+                    <div class="col-md-2 " style="width:150px">
+                        <div class="form-control input-sm" style="margin-top: 15px; margin-bottom:20px;margin-left:10px;">Total: {{totalItems_hist}}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Comments Information</h4>
+</div>
+<div class="modal-body">
+    <div style="width:858px; height:200px;">
+        <form name="contform" crud-edit="cont" novalidate>
+            <div style="width:858px; height:73px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterName">Customer Num</label>
+                    <div>
+                        <input type="text" id="customerNum" class="form-control" name="CustomerNum" ng-model="cont.customeR_NUM" readonly />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="siteUseId">SiteUseId</label>
+                    <div>
+                        <input type="text" id="siteUseId" class="form-control" name="SiteUseId" ng-model="cont.siteUseId" readonly />
+                    </div>
+                </div>
+                <div style="float:left; width:50%; padding-right:20px;">
+                    <label for="agingBucket">AgingBucket</label>
+                    <div>
+                        <select id="agingBucket" ng-change="" class="form-control input-sm" ng-model="cont.agingBucket" ng-options="a.detailName as a.detailName for a in agingBucketList"></select>
+                    </div>
+                </div>
+            </div>
+            <div style="width:858px; height:60px;">
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="contacterName">PtpDate:</label>
+                    <div>
+                        <div datetimepicker id="PtpDate" value="cont.ptpdate" readonly="true" />
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="ptpAmount">PtpAmount:</label>
+                    <div>
+                        <input type="number" id="ptpAmount" class="form-control" name="ptpAmount" ng-model="cont.ptpAmount" />
+                    </div>
+                </div>
+                <div style="float:left; width:50%; padding-right:20px;">
+                    <label for="overdueReason">overdueReason</label>
+                    <div>
+                        <select id="overdueReason" ng-change="" class="form-control input-sm" ng-model="cont.overdueReason" ng-options="a.detailName as a.detailName for a in overduelist"></select>
+                    </div>
+                </div>
+            </div>
+            <div style="width:858px; height:60px;">
+                <div style="float:left; width:75%; padding-right:20px;">
+                    <label for="Comment">Comment</label>
+                    <div>
+                        <textarea rows="3" class="form-control" style="font-size:11px;resize:none" ng-model="cont.comments"></textarea>
+                    </div>
+                </div>
+                <div style="float:left; width:25%; padding-right:20px;">
+                    <label for="commentsFrom">Source</label>
+                    <div>
+                        <select id="commentsFrom" ng-change="" class="form-control input-sm" ng-model="cont.commentsFrom" ng-options="a.detailName as a.detailName for a in commentsFromList"></select>
+                    </div>
+                </div>
+            </div>
+            <div style="float:right; margin-top:30px;">
+                <button type="button" class="btn btn-primary" ng-click="closeContact()" style="float:right; margin-left:5px;">Close</button>
+                <!--<button type="button" class="btn btn-warning revert" ng-click="revertChanges()" ng-disabled="!canRevert()" style="float:right; margin-left:5px;">Revert changes</button>-->
+                <button type="button" class="btn btn-primary save" ng-disabled="!canSave()" ng-click="updateCommon()" style="float:right;">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="modal-footer"></div>

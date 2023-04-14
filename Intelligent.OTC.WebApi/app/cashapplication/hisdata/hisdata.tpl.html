@@ -1,0 +1,665 @@
+﻿
+
+<div class="panel-group" id="accordion">
+    <div style="height:30px; margin-bottom:10px;">
+        <div style="float:right">
+            <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                <button class="btn-soadrop dropdown-toggle" type="button" ng-click="autoRecon()">
+                    Auto Recon
+                </button>
+            </div>
+            <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Action
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li id="Wave1"><a href="" ng-click="toUploadPage()">Upload Files</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave1"><a href="" ng-click="identifyCustomer()">Identify Customer</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a href="" ng-click="pmtUnknownCashAdvisor()">PMT Detail Advisor</a></li>
+                    <li id="Wave2"><a href="" ng-click="unknownCashAdvisor()">Unknown Cash Advisor</a></li>
+                    <li id="Wave2"><a href="" ng-click="toUnknownPage()">Unknown Adjustment</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a href="" ng-click="recon()">Recon</a></li>
+                    <li id="Wave2"><a href="" ng-click="toAdjustmentPage()">Recon Adjustment</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a href="" ng-click="SendPmtDetailMail()">Request PMT Detail</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a href="" ng-click="PostClear('1')">Post</a></li>
+                    <li id="Wave2"><a href="" ng-click="reuploadPost()">Post Confirm</a></li>
+                    <li id="Wave2"><a href="" ng-click="PostClear('2')">Clear</a></li>
+                    <li id="Wave2"><a href="" ng-click="reuploadPostClear()">Clear Confirm</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave1"><a href="" ng-click="toTaskListPage()">Historical Task</a></li>
+                    <li id="Wave1"><a href="" ng-click="actiontask()">Action Task</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a href="" ng-click="Export()">Export</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <uib-tabset active="active" type="tabs">
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Bank Statement
+                </uib-tab-heading>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div style="height:40px; margin-bottom:10px; padding: 10px;">
+                        <div style="float:right">
+                            <button type="button" class="btn-filter" ng-click="bankOpenFilter()">
+                                <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                            </button>
+                            <button type="button" class="btn-filter" ng-click="addBank()">
+                                New
+                            </button>
+                            <button type="button" class="btn-filter" ng-click="ignore()">
+                                Ignore
+                            </button>
+                            <button type="button" class="btn-filter" ng-click="unlock()">
+                                Unlock
+                            </button>
+                            <button type="button" class="btn-filter" ng-click="batchDelete()">
+                                Delete
+                            </button>
+                            <button type="button" class="btn-filter fa fa-upload" style="width:120px" ng-click="batchChangeINC()">&nbsp;Batch Change INC</button>
+                            <button type="button" class="btn-filter fa fa-upload" style="width:120px" ng-click="batchManualClose()">&nbsp;Batch Manual Close</button>
+                        </div>
+                    </div>
+                    <div id="bankDataSearch" class="tag col-md-12" style="display:none">
+                        <em style="left: auto;right: 45px;"></em>
+                        <div class="row" style="height:5px"></div>
+                        <div class="form-group col-md-12">
+                            <div class="row">
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        LegalEntity:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_legalEntity" class="form-control input-sm" ng-model="$parent.$parent.tab1_legalEntity" />
+                                    </div>
+                                </div>
+
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Status:
+                                    </label>
+                                    <div style="width:560px">
+                                        <input type="checkbox" name="checkbox" ng-model="all" ng-click="updateAll(all)" ng-checked="all">All
+                                        <span ng-repeat="row in list">
+                                            <input type="checkbox" name="{{row.detailName}}" value="{{value.detailValue}}" ng-click="updateSelected($event,row.detailValue)" ng-checked="row.check" ng-model="row.check">
+                                            <label for="{{row.detailValue}}">{{row.detailName}}</label>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_inputValueDateF" style="font-size:12px;">
+                                        Create Date From:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab1_createDateF" readonly="true" />
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_inputValueDateT" style="font-size:12px;">
+                                        Create Date To:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab1_createDateT" readonly="true" />
+                                </div>
+
+                                <div style="float:left;padding-left:10px;padding-top:23px;">
+                                    <div>
+                                        <button type="button" class="filter-button" ng-click="resetSearch()">
+                                            Clear
+                                        </button>
+                                        <button type="button" class="filter-button" ng-click="init()">
+                                            Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="Status" style="font-size:12px;">
+                                        BS Type:
+                                    </label>
+                                    <div style="width:180px">
+                                        <select id="status" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="bsType" ng-model="$parent.$parent.tab1_bsType" ng-options="t.detailValue as t.detailName for t in bsTypeList">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Transaction Inc:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transNumberid" class="form-control input-sm" ng-model="$parent.$parent.tab1_transNumber" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Currency:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transcurrencyid" class="form-control input-sm" ng-model="$parent.$parent.tab1_transcurrency" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Amount:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transamountid" class="form-control input-sm" type="number" ng-model="$parent.$parent.tab1_transamount" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Payer:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transaForwardid" class="form-control input-sm" ng-model="$parent.$parent.tab1_transaForward" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Customer:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transaCustomerid" class="form-control input-sm" ng-model="$parent.$parent.tab1_transCustomer" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_inputValueDateF" style="font-size:12px;">
+                                        Value Date From:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab1_valueDateF" readonly="true" />
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_inputValueDateT" style="font-size:12px;">
+                                        Value Date To:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab1_valueDateT" readonly="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                        <div class="grid-style" ui-grid="bankHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:100%;max-width:1567px;">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <select id="bankPagesize" name="bankPagesize" ng-model="bankSelectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                                        ng-change="bankPageSizeChange(bankSelectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+                                </select>
+                            </div>
+                            <div style="float:left; margin-right:20px;">
+                                <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{bankTotalItems}}</span>&nbsp;items</label>
+                            </div>
+                            <ul uib-pagination max-size="bankMaxSize" items-per-page="bankItemsperpage" total-items="bankTotalItems"
+                                ng-model="$parent.$parent.bankCurrentPage" ng-change="bankPageChanged()"></ul>
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="2" select="alertBankStatementHis()">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Bank Statement(His)
+                </uib-tab-heading>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div style="height:40px; margin-bottom:10px; padding: 10px;">
+                        <div style="float:right">
+                            <button type="button" class="btn-filter" ng-click="bankOpenFilter_his()">
+                                <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                            </button>
+                        </div>
+                    </div>
+                    <div id="bankDataSearch_his" class="tag col-md-12" style="display:none">
+                        <em style="left: auto;right: 45px;"></em>
+                        <div class="row" style="height:5px"></div>
+                        <div class="form-group col-md-12">
+                            <div class="row">
+
+                                <div style="float:left;padding-right:10px;">
+                                    <label for="tab1_legalEntity_his" style="font-size:12px;">
+                                        LegalEntity:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_legalEntity_his" class="form-control input-sm" ng-model="$parent.$parent.tab1_legalEntity_his" />
+                                    </div>
+                                </div>
+
+                                <div style="float:left; padding-right:10px">
+                                    <label for="inputCustCode_his" style="font-size:12px;">
+                                        Status:
+                                    </label>
+                                    <div style="width:560px">
+                                        <input type="checkbox" name="checkbox" ng-model="all_his" ng-click="updateAll_his(all_his)" ng-checked="all_his">All
+                                        <span ng-repeat="row in list_his">
+                                            <input type="checkbox" name="{{row.detailName}}" value="{{value.detailValue}}" ng-click="updateSelected_his($event,row.detailValue)" ng-checked="row.check" ng-model="row.check">
+                                            <label for="{{row.detailValue}}">{{row.detailName}}</label>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div style="float:left;padding-left:10px;padding-top:23px;">
+                                    <div>
+                                        <button type="button" class="filter-button" ng-click="resetSearch_his()">
+                                            Clear
+                                        </button>
+                                        <button type="button" class="filter-button" ng-click="init_his()">
+                                            Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_transNumberid_his" style="font-size:12px;">
+                                        Transaction Inc:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transNumberid_his" class="form-control input-sm" ng-model="$parent.$parent.tab1_transNumber_his" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_transcurrencyid_his" style="font-size:12px;">
+                                        Currency:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transcurrencyid_his" class="form-control input-sm" ng-model="$parent.$parent.tab1_transcurrency_his" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_transamountid_his" style="font-size:12px;">
+                                        Amount:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transamountid_his" class="form-control input-sm" type="number" ng-model="$parent.$parent.tab1_transamount_his" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_transaForwardid_his" style="font-size:12px;">
+                                        Payer:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transaForwardid_his" class="form-control input-sm" ng-model="$parent.$parent.tab1_transaForward_his" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_transaCustomerid_his" style="font-size:12px;">
+                                        Customer:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab1_transaCustomerid_his" class="form-control input-sm" ng-model="$parent.$parent.tab1_transCustomer_his" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_inputValueDateF_his" style="font-size:12px;">
+                                        Value Date From:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab1_valueDateF_his" readonly="true" />
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab1_inputValueDateT_his" style="font-size:12px;">
+                                        Value Date To:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab1_valueDateT_his" readonly="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                        <div class="grid-style" ui-grid="bankHisHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:1485px;max-width:1567px;">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <select id="bankHisPagesize" name="bankHisPagesize" ng-model="bankHisSelectedLevel" ng-options="s.id as s.levelName for s in levelList_his"
+                                        ng-change="bankHisPageSizeChange(bankHisSelectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+                                </select>
+                            </div>
+                            <div style="float:left; margin-right:20px;">
+                                <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem_his}}</span>&nbsp;to&nbsp;<span>{{toItem_his}}</span>&nbsp;of&nbsp;<span>{{bankHisTotalItems}}</span>&nbsp;items</label>
+                            </div>
+                            <ul uib-pagination max-size="bankHisMaxSize" items-per-page="bankHisItemsperpage" total-items="bankHisTotalItems"
+                                ng-model="$parent.$parent.bankHisCurrentPage" ng-change="bankHisPageChanged()"></ul>
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="3" select="alertPmtDetailhis()">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Payment Detail
+                </uib-tab-heading>
+                <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div style="height:40px; margin-bottom:10px; padding: 10px;">
+                        <div style="float:left">
+                            <button type="button" class="btn-filter" style="width:150px" ng-click="PmtDetailBatchDelete()">
+                                <img src="~/../Content/images/notready.png" />&nbsp;&nbsp;Batch Delete
+                            </button>
+                        </div>
+                        <div style="float:right">
+                            <button type="button" class="btn-filter" ng-click="PmtDetailOpenFilter()">
+                                <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                            </button>
+                            <button type="button" class="btn-filter" ng-click="addPMT()">
+                                New
+                            </button>
+                        </div>
+                    </div>
+                    <div id="PmtDetailDataSearch" class="tag col-md-12" style="display:none">
+                        <em style="left: auto;right: 45px;"></em>
+                        <div class="row" style="height:5px"></div>
+                        <div class="form-group col-md-12">
+                            <div class="row">
+                                <!--<div style="float:left; padding-right:10px;">
+        <label for="inputCustCode" style="font-size:12px;">
+            Month:
+        </label>
+        <div style="width:180px">
+            <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM" ng-model="startDate" is-open="popup.opened" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div style="float:left;">
+        <div style="float:left; padding-right:10px;">
+            <label for="inputLegal" style="font-size:12px;">
+                Legal Entity
+            </label>
+            <div style="width:180px">
+                <select id="Legal" class="form-control input-sm" ng-model="legalEntity" ng-options="d.legalEntity as d.legalEntity for d in legallist">
+                    <option value="">All</option>
+                </select>
+            </div>
+        </div>
+    </div>-->
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Group No.:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="groupNo" class="form-control input-sm" ng-model="$parent.$parent.tab2_groupNo" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="legalEntity" style="font-size:12px;">
+                                        LegalEntity:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="legalEntity" class="form-control input-sm" ng-model="$parent.$parent.tab2_legalEntity" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustCode" style="font-size:12px;">
+                                        Customer:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="customerNum" class="form-control input-sm" ng-model="$parent.$parent.tab2_customerNum" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputCustName" style="font-size:12px;">
+                                        Currency:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="currency" class="form-control input-sm" ng-model="$parent.$parent.tab2_currency" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="inputSiteUseId" style="font-size:12px;">
+                                        (Transaction)Amount:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="amount" class="form-control input-sm" ng-model="$parent.$parent.tab2_amount" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="transactionNumber" style="font-size:12px;">
+                                        Transaction Num:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="transactionNumber" class="form-control input-sm" ng-model="$parent.$parent.tab2_transactionNumber" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="invoiceNum" style="font-size:12px;">
+                                        Invoice Num:
+                                    </label>
+                                    <div style="width:160px">
+                                        <input id="invoiceNum" class="form-control input-sm" ng-model="$parent.$parent.tab2_invoiceNum" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <div style="width:80px; padding-top:25px;">
+                                        <input type="checkbox" name="isClosed" value="0" ng-click="updateSelectedIsClosed($event)">
+                                        <label for="isClosed" style="padding-left:2px;font-size:13px;">IsClosed</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab2_inputValueDateF" style="font-size:12px;">
+                                        Value Date From:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab2_valueDateF" readonly="true" />
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab2_inputValueDateT" style="font-size:12px;">
+                                        Value Date To:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab2_valueDateT" readonly="true" />
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab2_inputValueDateF" style="font-size:12px;">
+                                        Create Date From:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab2_createDateF" readonly="true" />
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab2_inputValueDateT" style="font-size:12px;">
+                                        Create Date To:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.tab2_createDateT" readonly="true" />
+                                </div>
+
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab2_hasBS" style="font-size:12px;">
+                                        Has BS:
+                                    </label>
+                                    <div style="width:180px">
+                                        <select id="hasBS" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="hasBS" ng-model="$parent.$parent.tab2_hasBS" ng-options="t.value as t.name for t in yesNoList">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="hasINV" style="font-size:12px;">
+                                        Has Invoice:
+                                    </label>
+                                    <div style="width:180px">
+                                        <select id="hasINV" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="hasINV" ng-model="$parent.$parent.tab2_hasINV" ng-options="t.value as t.name for t in yesNoList">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab2_hasMatched" style="font-size:12px;">
+                                        Has Matched:
+                                    </label>
+                                    <div style="width:160px">
+                                        <select id="hasMatched" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="hasMatched" ng-model="$parent.$parent.tab2_hasMatched" ng-options="t.value as t.name for t in yesNoList">
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div style="float:left;padding-left:10px">
+                                    <label style="height:12px"></label>
+                                    <div>
+                                        <button type="button" class="filter-button" ng-click="tab2_resetSearch()">
+                                            Clear
+                                        </button>
+                                        <button type="button" class="filter-button" ng-click="tab2_init()">
+                                            Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" style="padding-left:0px; padding-right:0px;">
+                        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                            <div class="grid-style" ui-grid="PmtDetailHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-pinning style="min-height:400px;height:402px;width:735px;max-width:1567px;">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <select id="pagesize" name="pagesize" ng-model="PmtDetailSelectedLevel" ng-options="s.id as s.levelName for s in levelList_pmt"
+                                            ng-change="PmtDetailPageSizeChange(PmtDetailSelectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+                                    </select>
+                                </div>
+                                <div style="float:left; margin-right:20px;">
+                                    <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem_pmt}}</span>&nbsp;to&nbsp;<span>{{toItem_pmt}}</span>&nbsp;of&nbsp;<span>{{PmtDetailTotalItems}}</span>&nbsp;items</label>
+                                </div>
+                                <ul uib-pagination max-size="PmtDetailMaxSize" items-per-page="PmtDetailItemsperpage" total-items="PmtDetailTotalItems"
+                                    ng-model="$parent.$parent.PmtDetailCurrentPage" ng-change="PmtDetailPageChanged()"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" style="padding-left:0px; padding-right:0px;">
+                        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                            <div class="grid-style" ui-grid="PmtDetailBSHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:200px;height:200px;width:100%;max-width:1567px;">
+                            </div>
+                            <div class="grid-style" ui-grid="PmtDetailDetailHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:200px;height:200px;width:100%;max-width:1567px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="4" select="alertptpHis()">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Promise To Pay
+                </uib-tab-heading>
+                <div id="collapseThree" class="panel-collapse collapse in">
+                    <div style="height:40px; margin-bottom:10px; padding: 10px;">
+                        <div style="float:right">
+                            <button type="button" class="btn-filter" ng-click="ptpOpenFilter()">
+                                <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                            </button>
+                        </div>
+                    </div>
+                    <div id="ptpDataSearch" class="tag col-md-12" style="display:none">
+                        <em style="left: auto;right: 45px;"></em>
+                        <div class="row" style="height:5px"></div>
+                        <div class="form-group col-md-12">
+                            <div class="row">
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab3_legalEntity" style="font-size:12px;">
+                                        LegalEntity
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab3_legalEntity" class="form-control input-sm" ng-model="$parent.$parent.tab3_legalEntity" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab3_customerNum" style="font-size:12px;">
+                                        Customer
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab3_customerNum" class="form-control input-sm" ng-model="$parent.$parent.tab3_customerNum" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab3_customerCurrency" style="font-size:12px;">
+                                        Func Currency
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab3_customerCurrency" class="form-control input-sm" ng-model="$parent.$parent.tab3_customerCurrency" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab3_invCurrency" style="font-size:12px;">
+                                        Inv Currency
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab3_invCurrency" class="form-control input-sm" ng-model="$parent.$parent.tab3_invCurrency" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab3_amt" style="font-size:12px;">
+                                        Amount:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab3_amt" class="form-control input-sm" type="number" ng-model="$parent.$parent.tab3_amt" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="tab3_localAmt" style="font-size:12px;">
+                                        FXRate Amount:
+                                    </label>
+                                    <div style="width:180px">
+                                        <input id="tab3_localAmt" class="form-control input-sm" type="number" ng-model="$parent.$parent.tab3_localAmt" />
+                                    </div>
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="ptpDateF" style="font-size:12px;">
+                                        PTP Date From:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.ptpDateF" readonly="true" />
+                                </div>
+                                <div style="float:left; padding-right:10px;">
+                                    <label for="ptpDateT" style="font-size:12px;">
+                                        PTP Date To:
+                                    </label>
+                                    <div style="width:180px" datetimepicker value="$parent.$parent.ptpDateT" readonly="true" />
+                                </div>
+                                <div style="float:left;padding-left:10px">
+                                    <label style="height:12px"></label>
+                                    <div>
+                                        <button type="button" class="filter-button" ng-click="tab3_resetSearch()">
+                                            Clear
+                                        </button>
+                                        <button type="button" class="filter-button" ng-click="tab3_init()">
+                                            Search
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        </div>
+                    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                        <div class="grid-style" ui-grid="ptpHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:100%;max-width:1567px;">
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+
+
+</div>
+
+
+
+
+
+

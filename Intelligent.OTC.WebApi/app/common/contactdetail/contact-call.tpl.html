@@ -1,0 +1,42 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{callInstance.title}}</h3>
+</div>
+<div class="modal-body form-horizontal" >
+    <div class="form-group">
+        <label class="col-md-2 control-label">BeginTime:</label>
+        <div class="col-sm-4">
+            <div datetimepicker value="callInstance.beginTime"  minView="minute" startView="minute" format="yyyy-mm-dd hh:ii" readonly="true"/>
+            
+        </div>
+        <!--<label class="col-md-1 control-label" >EndTime:</label>
+        <div class="col-sm-4" >
+            <div datetimepicker value="callInstance.beginTime" minview="minute" startview="minute" format="yyyy-mm-dd hh:ii" readonly="true"/>
+        </div>-->
+    </div>
+    <div class="form-group">
+            <label class="col-md-2 control-label">Contact:</label>
+        <div class="col-sm-9">
+            <input id="txtContact" class="form-control" ng-model="callInstance.contacterId" readonly/>
+        </div>
+        <div class="col-md-1" style="height:34px">
+            <div style="height:10px"></div>
+            <div>
+                <img ng-click="pickupToAddress()" id="imgContactor" src="~/../Content/images/331.png" style="text-align:left">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+            <label class="col-md-2 control-label">Comments:</label>
+        <div class="col-sm-9">
+            <textarea id="txtComments" class="form-control" style="height:150px" ng-model="callInstance.comments"></textarea>
+        </div>
+   </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:5px">
+       <button type="button" class="btn btn-primary" ng-click="closeWindow()"> Close</button>
+      <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()"> Submit</button>
+      <button type="button" id="btnSaveCall" class="btn btn-primary" ng-click="submit()">Save</button>
+       
+    </div>
+</div>

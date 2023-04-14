@@ -1,0 +1,157 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">CA Customer Attribute Information</h4>
+</div>
+<div class="modal-body">
+    <div>
+        <form name="contform" novalidate>
+            <div class="row">
+                <label for="customeR_NUM" class="control-label col-md-4">* Customer Num</label>
+                <div class="col-md-7">
+                    <input type="text" id="customeR_NUM" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="customeR_NUM" ng-model="cont.customeR_NUM">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="legalEntity" class="control-label col-md-4">* LegalEntity</label>
+                <div class="col-md-7">
+                    <input type="text" id="legalEntity" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="legalEntity" ng-model="cont.legalEntity">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="isEntryAndWiteOff" class="control-label col-md-4">* isEntryAndWiteOff</label>
+                <div class="col-md-7">
+                    <select id="isEntryAndWiteOff" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="isEntryAndWiteOff" ng-model="cont.isEntryAndWiteOff" ng-options="t.name as t.name for t in typeList" required></select>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="IsFactoring" class="control-label col-md-4">* IsFactoring</label>
+                <div class="col-md-7">
+                    <input type="checkbox" ng-checked="cont.isFactoring" ng-model="cont.isFactoring" ng-click="isFactoringFixed()" />
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="isFixedBankCharge" class="control-label col-md-4">* isFixedBankCharge</label>
+                <div class="col-md-7">
+                    <input type="checkbox" ng-checked="cont.isFixedBankCharge" ng-model="cont.isFixedBankCharge" ng-click="isFixed()" />
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="bankCustomerName" class="control-label col-md-4">* BankChargeFrom</label>
+                <div class="col-md-7">
+                    <input type="text" id="bankChargeFrom" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="bankChargeFrom" ng-model="cont.bankChargeFrom" ng-change="synBankCharge()">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="bankChargeTo" class="control-label col-md-4">* BankChargeTo</label>
+                <div class="col-md-7">
+                    <input type="text" id="bankChargeTo" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="bankChargeTo" ng-model="cont.bankChargeTo" ng-readonly="readonlyFlag">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="isJumpBankStatement" class="control-label col-md-4">* isJumpBankStatement</label>
+                <div class="col-md-7">
+                    <input type="checkbox" ng-checked="cont.isJumpBankStatement" ng-model="cont.isJumpBankStatement" />
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="isJumpSiteUseId" class="control-label col-md-4">* isJumpSiteUseId</label>
+                <div class="col-md-7">
+                    <input type="checkbox" ng-checked="cont.isJumpSiteUseId" ng-model="cont.isJumpSiteUseId" />
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="isMustPMTDetail" class="control-label col-md-4">* isMustPMTDetail</label>
+                <div class="col-md-7">
+                    <select id="isMustPMTDetail" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="isMustPMTDetail" ng-model="cont.isMustPMTDetail" ng-options="t.name as t.name for t in typeList" required></select>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="isMustSiteUseIdApply" class="control-label col-md-4">* isMustSiteUseIdApply</label>
+                <div class="col-md-7">
+                    <input type="checkbox" ng-checked="cont.isMustSiteUseIdApply" ng-model="cont.isMustSiteUseIdApply" />
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row" style="height:10px;"></div>
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="IsNeedVat" class="control-label col-md-4">* IsNeedVat</label>
+                <div class="col-md-7">
+                    <input type="checkbox" ng-checked="cont.isNeedVat" ng-model="cont.isNeedVat" />
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="isNeedRemittance" class="control-label col-md-4">* isNeedRemittance</label>
+                <div class="col-md-7">
+                    <select id="isNeedRemittance" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="isNeedRemittance" ng-model="cont.isNeedRemittance" ng-options="t.name as t.name for t in typeList" required></select>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row" style="height:10px;"></div>
+
+            <div class="row" style="height:10px;"></div>
+            <div class="row">
+                <label for="funcCurrency" class="control-label col-md-4">* Func Currency</label>
+                <div class="col-md-7">
+                    <input type="text" id="funcCurrency" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="funcCurrency" ng-model="cont.func_Currency">
+                </div>
+            </div>
+            <div class="row" style="height:10px;"></div>
+
+
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div style="float:right; margin:10px">
+            <button type="button" class="btn btn-primary" ng-click="closeModal()" style="float:right; margin-left:5px;">Close</button>
+            <button type="button" class="btn btn-primary save" ng-click="save()" style="float:right;">Save</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+﻿<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <editpartial controller-name='floatmenuListCtrl' template-url='app/common/floatmenu/floatMenu-list.tpl.html' params='floatMenuOwner'></editpartial>
+      </div>
+    <div id="page-content-wrapper">
+    <i class="fa fa-bars" style="float:left;font-size:20px;color:cornflowerblue;cursor:pointer;margin-right:30px;" aria-hidden="true" ng-click="menuToggle()"></i>
+    <div style="height:30px; margin-bottom:10px; float:right;">
+        <button type="button" class="btn-filter" ng-click="openFilter()">
+            <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+        </button>
+    </div>
+    <div id="divAgingSearch" class="tag col-md-12" style="display:none">
+        <em></em>
+        <div class="row" style="height:5px"></div>
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputCustName" style="font-size:12px;">
+                        Customer Name
+                    </label>
+                    <div style="width:180px">
+                        <input id="inputCustName" class="form-control input-sm" ng-model="custName" />
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="lblIssueReason" style="font-size:12px;">
+                        Issue Reason
+                    </label>
+                    <div style="width:180px">
+                        <select id="IssueReason" class="form-control input-sm" ng-model="issueReason" ng-options="c.detailName as c.detailName for c in issueReasonList">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="lblStatus" style="font-size:12px;">
+                        Status
+                    </label>
+                    <div style="width:180px">
+                        <select id="Status" class="form-control input-sm" ng-model="status" ng-options="c.detailName as c.detailName for c in statusList">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+                </div>
+                <!--2016-01-07-->
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputcustomerNo" style="font-size:12px;">
+                        Customer NO.
+                    </label>
+                    <div style="width:180px">
+                        <input id="inputcustomerNo" class="form-control input-sm" ng-model="customerNo" />
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputsiteUseId" style="font-size:12px;">
+                        Site Use Id
+                    </label>
+                    <div style="width:180px">
+                        <input id="inputsiteUseId" class="form-control input-sm" ng-model="siteUseId" />
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <div style="float:left; padding-right:10px;">
+                        <label for="inputEB" style="font-size:12px;">
+                            EB Name
+                        </label>
+                        <div style="width:180px">
+                            <select id="EB" class="form-control input-sm" ng-model="eb" ng-options="d.eb as d.eb for d in ebList">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="disId" style="font-size:12px;">
+                            ID
+                        </label>
+                        <div style="width:180px">
+                            <input id="disId" class="form-control input-sm" ng-model="disId" ng-change="checkNum()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="row">
+                <!--2016-01-05-->
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputInvoiceStates" style="font-size:12px;">
+                        Invoice Status
+                    </label>
+                    <div style="width:180px">
+                        <select id="inputInvoiceStates" class="form-control input-sm" ng-model="states" ng-options="a.detailValue as a.detailName for a in istatuslist">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputInvoiceTrackStates" style="font-size:12px;">
+                        Invoice Track Status
+                    </label>
+                    <div style="width:180px">
+                        <select id="inputInvoiceTrackStates" class="form-control input-sm" ng-model="trackStates" ng-options="a.detailValue as a.detailName for a in invoiceTrackStates">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputInvoiceNum" style="font-size:12px;">
+                        Invoice Number
+                    </label>
+                    <div style="width:180px">
+                        <input id="inputInvoiceNum" class="form-control input-sm" ng-model="invoiceNum" />
+                    </div>
+                </div>
+
+                <!--2016-01-05-->
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputFrom" style="font-size:12px;">
+                        From
+                    </label>
+                    <div style="width:180px">
+                        <div style="width:180px" datetimepicker value="from" readonly="true" />
+                    </div>
+                </div>
+                <div style="float:left; padding-right:10px;">
+                    <label for="inputTo" style="font-size:12px;">
+                        To
+                    </label>
+                    <div style="width:180px">
+                        <div style="width:180px" datetimepicker value="to" readonly="true" />
+                    </div>
+                </div>
+                <div style="float:left">
+                    <label style="height:14px"></label>
+                    <div style="width:180px; font-size:12px;">
+                        <input type="checkbox" name="cancel" ng-model="cancelled" /> Cancelled  &nbsp;&nbsp;
+                        <input type="checkbox" name="close" ng-model="closed" />  Closed
+                    </div>
+                </div>
+                <!--2016-01-07-->
+                <div style="float:left">
+                    <label style="height:12px"></label>
+                    <div>
+                        <button type="button" class="filter-button" ng-click="resetSearch()">
+                            Clear
+                        </button>
+                        <button type="button" class="filter-button" ng-click="searchCollection()">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+        <div class="grid-style" ui-grid="disputeTrackingList" ui-grid-resize-columns ui-grid-selection>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="row">
+            <div style="float:left; margin-right:20px;">
+                <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{fromItem}}</span>&nbsp;to&nbsp;<span>{{toItem}}</span>&nbsp;of&nbsp;<span>{{totalNum}}</span>&nbsp;items</label>
+            </div>
+            <div style="float:left">
+                <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                            ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" boundary-links="true"></ul>
+            </div>
+            <div style="float:right">
+                <div style="float:left">
+                    <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                </div>
+                <div style="float:left">
+                    <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                            ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,767 @@
+﻿<div id="uploadarea" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updcolor}}">
+                <label id="updAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('upload')">
+                    <i class="fa fa-plus-square-o">&nbsp;UPLOAD AREA</i>
+                </label>
+                <label id="updAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('upload')">
+                    <i class="fa fa-minus-square-o">&nbsp;UPLOAD AREA</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadArea" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Account Level File</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updAccountFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updAccountFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Invoice Level File</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updInvoiceFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updInvoiceFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--<tr style="height:50px" hidden="hidden">
+                            <td>
+                                <label for="File">Invoice Detail File</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updOneYearSalesFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updOneYearSalesFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>-->
+                        <!--add start-->
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateLevel()">&nbsp;Upload</button>
+                                <button id="btnSubmit" class="btn-submit fa fa-exchange" ng-click="submit('Aging')">&nbsp;Submit</button>
+                            </td>
+                        </tr>
+
+
+                        <!--add SAP Invoice -->
+                        <tr style="height:10px">
+                            <td style="height:10px">
+                                <hr style="height:6px;margin:0px" />
+                            </td>
+                        </tr>
+                        <tr style="height:50px">
+                            <td>
+                                <label for="File">SAP Invoice File</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updSAPInvoiceFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updSAPInvoiceFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateSAPInvoice()">&nbsp;Upload</button>
+                                <button id="btnSubmit" class="btn-submit fa fa-exchange" ng-click="submit('SAPInvoice')">&nbsp;Submit</button>
+                            </td>
+                        </tr>
+                        <tr style="height:10px">
+                            <td style="height:10px">
+                                <hr style="height:6px;margin:0px" />
+                            </td>
+                        </tr>
+                        <!--add Invoice Detai
+                        <tr style="height:10px">
+                            <td style="height:10px">
+                                <hr style="height:6px;margin:0px" />
+                            </td>
+                        </tr>
+                        <tr style="height:50px">
+                            <td>
+                                <label for="File">Invoice Detail File</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updInvoiceDetailFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updInvoiceDetailFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateInvoiceDetail()">&nbsp;Upload</button>
+                                <button id="btnSubmit" class="btn-submit fa fa-exchange" ng-click="submit('InvoiceDetail')">&nbsp;Submit</button>
+                            </td>
+                        </tr>
+                        <tr style="height:10px">
+                            <td style="height:10px">
+                                <hr style="height:6px;margin:0px" />
+                            </td>
+                        </tr> -->
+                        <tr style="height:50px">
+                            <td>
+                                <label for="File">VAT File</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="vatFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('vatFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateVat()">&nbsp;Upload</button>
+                                <!--<button id="btnSubmit" class="btn-submit fa fa-exchange" ng-click="submit('Vat')">&nbsp;Submit</button>-->
+                            </td>
+                        </tr>
+
+
+                    </table>
+                </td>
+                <td style="width:50%; padding-right:20px; padding-bottom:10px; padding-top:10px;">
+                    <!--<span>Current Period:</span>-->
+                    <label id="currentPeriodTime" style="display:none"></label>
+                    <table>
+                        <tr ng-show="false">
+                            <td>
+                                <div>
+                                    <label for="btnDateStatus" class="col-md-2 control-label-period" style="width:120px;">
+                                        Upload&nbsp;Date:
+                                    </label>
+                                    <div class="col-md-6" style="margin-left:-20px">
+                                        <!--<div datetimepicker value="dateStatus" readonly="true" />-->
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" uib-datepicker-popup ng-model="legalDate" is-open="popupPromissDate.opened" datepicker-options="legalDateOptions" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="openPromissDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button name="btnDateStatus" class="btn btn-primary form-control" ng-click="dateStatusSearch()">Search</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <label for="btnDateStatus" class="col-md-2 control-label-period" style="width:120px;">
+                                        Upload&nbsp;State:
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="smallgrid-style" style="height:171px;margin-top:10px;width:559px" ui-grid="legalEntityCount" ui-grid-resize-columns>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--
+<div id="uploadVar" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updVarcolor}}">
+                <label id="updVarAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('uploadVar')">
+                    <i class="fa fa-plus-square-o">&nbsp;VAR DATA UPLOAD</i>
+                </label>
+                <label id="updVarAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('uploadVar')">
+                    <i class="fa fa-minus-square-o">&nbsp;VAR DATA UPLOAD</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadVar" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Var Data Upload</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updVarFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updVarFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateVar()">&nbsp;Upload</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div> -->
+
+
+<div id="uploadCreditHold" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updCHcolor}}">
+                <label id="updCreditHoldAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('uploadCreditHold')">
+                    <i class="fa fa-plus-square-o">&nbsp;CREDIT HOLD UPLOAD</i>
+                </label>
+                <label id="updCreditHoldAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('uploadCreditHold')">
+                    <i class="fa fa-minus-square-o">&nbsp;CREDIT HOLD UPLOAD</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadCreditHold" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">CREDIT HOLD Upload</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updCreditHoldFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updCreditHoldFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateCreditHold()">&nbsp;Upload</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="uploadCurrencyAmount" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updCAcolor}}">
+                <label id="updCurrencyAmountAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('uploadCurrencyAmount')">
+                    <i class="fa fa-plus-square-o">&nbsp;Currency Amount(HK)</i>
+                </label>
+                <label id="updCurrencyAmountAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('uploadCurrencyAmount')">
+                    <i class="fa fa-minus-square-o">&nbsp;Currency Amount(HK)</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadCurrencyAmount" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Currency Amount Upload(HK)</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updCurrencyAmountFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updCurrencyAmountFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateCurrencyAmount()">&nbsp;Upload</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="uploadTWCurrencyAmount" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updCATcolor}}">
+                <label id="updTWCurrencyAmountAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('uploadTWCurrencyAmount')">
+                    <i class="fa fa-plus-square-o">&nbsp;Currency Amount(TW)</i>
+                </label>
+                <label id="updTWCurrencyAmountAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('uploadTWCurrencyAmount')">
+                    <i class="fa fa-minus-square-o">&nbsp;Currency Amount(TW)</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadTWCurrencyAmount" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Currency Amount Upload(TW)</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updTWCurrencyAmountFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('uploadTWCurrencyAmount')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateTWCurrencyAmount()">&nbsp;Upload</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="uploadATMCurrencyAmount" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updCATcolor}}">
+                <label id="updATMCurrencyAmountAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('uploadATMCurrencyAmount')">
+                    <i class="fa fa-plus-square-o">&nbsp;Currency Amount(ATM)</i>
+                </label>
+                <label id="updATMCurrencyAmountAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('uploadATMCurrencyAmount')">
+                    <i class="fa fa-minus-square-o">&nbsp;Currency Amount(ATM)</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadATMCurrencyAmount" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Currency Amount Upload(ATM)</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updATMCurrencyAmountFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('uploadATMCurrencyAmount')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateATMCurrencyAmount()">&nbsp;Upload</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="uploadConsignmentNumber" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updCATcolor}}">
+                <label id="updConsignmentNumberAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('uploadConsignmentNumber')">
+                    <i class="fa fa-plus-square-o">&nbsp;Consignment Number</i>
+                </label>
+                <label id="updConsignmentNumberAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('uploadConsignmentNumber')">
+                    <i class="fa fa-minus-square-o">&nbsp;Consignment Number</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadConsignmentNumber" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Consignment Number Upload</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updConsignmentNumberFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updConsignmentNumberFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateConsignmentNumber()">&nbsp;Upload</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="uploadCustomerLocalize" style="padding-bottom:10px;">
+    <div>
+        <div>
+            <h4 style="color:{{updCustcolor}}">
+                <label id="updCustAreaShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('uploadCust')">
+                    <i class="fa fa-plus-square-o">&nbsp;CUSTOMER LOCALIZE UPLOAD</i>
+                </label>
+                <label id="updCustAreaHide" class="modal-title" style="cursor:pointer;" ng-click="hide('uploadCust')">
+                    <i class="fa fa-minus-square-o">&nbsp;CUSTOMER LOCALIZE UPLOAD</i>
+                </label>
+            </h4>
+        </div>
+        <table id="tblUploadCust" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+            <tr>
+                <td style="width:50%">
+                    <table style="margin-left:20px;">
+                        <tr style="height:45px">
+                            <td>
+                                <label for="File">Customer Localize Upload</label>
+                                <div>
+                                    <div style="float:left">
+                                        <input type="file" id="updCustFile" style="width:300px" nv-file-select="" uploader="uploader" />
+                                    </div>
+                                    <div style="float:left">
+                                        <a style="text-decoration:underline" ng-click="clearInfo('updCustFile')">Clear</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:40px">
+                            <td>
+                                <button type="button" class="btn-dpupload fa fa-upload" ng-click="updateCust()">&nbsp;Upload</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="submitarea" style="padding-bottom:10px;">
+    <div>
+        <h4 style="color:{{submitcolor}}">
+            <label id="updSubmitComfirmShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('submit')">
+                <i class="fa fa-plus-square-o">&nbsp;SUBMIT COMFIRM</i>
+            </label>
+            <label id="updSubmitComfirmHide" class="modal-title" style="cursor:pointer;" ng-click="hide('submit')">
+                <i class="fa fa-minus-square-o">&nbsp;SUBMIT COMFIRM</i>
+            </label>
+        </h4>
+    </div>
+    <table id="tblSubmitComfirm" style="border: 1px #ececec solid; background-color: white; width:1140px;">
+        <tr>
+            <td>
+                <div style="width:100%; height:50px;">
+                    <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:20px; margin-top:10px;">
+                        <!--<label class="btn btn-primary" ng-model="isAging" ng-click="showAging()" btn-checkbox>Aging Report</label>
+                        <label class="btn btn-primary" ng-model="isOneYear" ng-click="showOneYear()" btn-checkbox>One-Year Sales</label>-->
+                        <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            {{dropdownvalue}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li id="liaging"><a href="" ng-click="showAging()">Aging Report</a></li>
+                            <!--<li id="lione"><a href="" ng-click="showInvoiceDetail()">Invoice Detail File</a></li>
+                            <li id="lione"><a href="" ng-click="showVat()">Vat File</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div id="search" ng-show="isShow">
+                    <div style="padding-bottom:10px; margin-left:20px; margin-right:20px;">
+                        <table style="width:1120px;">
+                            <tr>
+                                <td style="width:50%" ng-show="false">
+                                    <table style="background-color:#ececec; width:97%;">
+                                        <tr>
+                                            <td style="height:40px; padding-left:10px;">
+                                                <label for="inputCustCode">Customer No.</label>
+                                                <div>
+                                                    <input id="inputCustCode" class="form-control input-sm" ng-model="custCode" />
+                                                </div>
+                                            </td>
+                                            <td style="height:40px; padding-left:10px;">
+                                                <label for="inputCustName">Customer Name</label>
+                                                <div>
+                                                    <input id="inputCustName" class="form-control input-sm" ng-model="custName" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="padding-top:20px; padding-left:10px;">
+                                                    <button id="btnSearch" class="filter-button" ng-click="search()">Search</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height:40px; padding-left:10px;">
+                                                <label for="inputLegal">Legal Entity</label>
+                                                <div>
+                                                    <select id="Legal" class="form-control input-sm" ng-model="legal" ng-options="d.legalEntity as d.legalEntity for d in legallist">
+                                                        <option value="">All</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td style="height:40px; padding-left:10px;">
+                                                <label for="inputStatus">Account Status</label>
+                                                <select id="inputStatus" class="form-control input-sm" ng-model="status" ng-options="a.detailValue as a.detailName for a in bdHoldstatus">
+                                                    <option value="">All</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height:40px; padding-left:10px;">
+                                                <input id="ckbMasterData" type="checkbox" name="missMasterData" />
+                                                <label for="checkMissMasterData" style="font-size:15px">Miss Master Data</label>
+                                            </td>
+                                            <!--<td style="height:40px; padding-right:10px;" colspan="2">
+                                                <input id="ckbAccountData" type="checkbox" name="missAccountData">
+                                                    <lable for="checkMissAccountData" style="font-size:15px">Miss Account Data</lable>
+                                                </input>
+                                            </td>-->
+                                            <td style="height:40px; padding-left:10px;">
+                                                <input id="ckbInvoiceData" type="checkbox" name="missInvoiceData" />
+                                                <label for="checkMissInvoiceData" style="font-size:15px">Miss Invoice Data</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height:40px; padding-left:10px;" colspan="2">
+                                                <input id="ckbTotalAmountNotEqual" type="checkbox" name="totalAmountNotEqual" />
+                                                <label for="checkTotalAmountNotEqual" style="font-size:15px">Total Amount Not Equal</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:50%; float:left;">
+                                    <div class="smallgrid-style" style="height:120px; width:560px;" ui-grid="submitDatasCount" ui-grid-resize-columns>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="margin-left:20px; margin-right:20px;">
+                        <div class="grid-style" ui-grid="griddatas" ui-grid-resize-columns>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="col-md-11" style="text-align:right">
+                            <button id="btnSubmit" class="btn btn-primary" ng-click="submit('Aging')">Submit</button>
+                        </div>
+                    </div>-->
+                    <div class="form-group col-md-12">
+                        <div class="row" style="padding-left:20px; padding-right:20px;">
+                            <div style="float:left; margin-right:20px;">
+                                <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{agingFromItem}}</span>&nbsp;to&nbsp;<span>{{agingToItem}}</span>&nbsp;of&nbsp;<span>{{agingTotalNum}}</span>&nbsp;items</label>
+                            </div>
+                            <div style="float:left">
+                                <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                                    ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" boundary-links="true"></ul>
+                            </div>
+
+                            <div style="float:right">
+                                <div style="float:left">
+                                    <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                                </div>
+                                <div style="float:left">
+                                    <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                                            ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="isOneYearShow" style="padding-top:10px; margin-left:20px; margin-right:20px;">
+                    <div class="row" style="text-align:right">
+                        <!--<label for="oneYearSales" style="padding-right:80px;">One Year Sales</label>-->
+                        <!--<label for="oneYearSales" style="padding-right:80px;">Invoice Detail File</label>
+                        <label for="reportDate" style="padding-right:80px;">Report Date</label>-->
+                    </div>
+                    <div class="row" style="text-align:right">
+                        <!--<label id="oneYearSalesValue" style="padding-right:40px;"></label>
+                        <label id="reportDateValue" style="padding-right:80px;"></label>-->
+                    </div>
+                    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                        <div class="grid-style" ui-grid="oneYear" ui-grid-resize-columns>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="col-md-11" style="text-align:right">
+                            <button id="btnOneYearSubmit" class="btn btn-primary" ng-click="submit('OneYearSalse')">Submit</button>
+                        </div>
+                    </div>-->
+                    <div class="form-group col-md-12">
+                        <div class="row">
+                            <div style="float:left; margin-right:20px;">
+                                <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{oneYearFromItem}}</span>&nbsp;to&nbsp;<span>{{oneYearToItem}}</span>&nbsp;of&nbsp;<span>{{oneYearTotalNum}}</span>&nbsp;items</label>
+                            </div>
+                            <div style="float:left">
+                                <ul uib-pagination max-size="oneyearmaxSize" items-per-page="oneyearitemsperpage" total-items="oneyeartotalItems"
+                                    ng-model="oneyearcurrentPage" ng-change="oneyearpageChanged(oneyearcurrentPage)" class="pagination-sm" boundary-links="true"></ul>
+                            </div>
+                            <div style="float:right">
+                                <div style="float:left">
+                                    <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                                </div>
+                                <div style="float:left">
+                                    <select id="oneYearPageSize" name="oneYearPageSize" ng-model="selectedOneYearLevel" ng-options="s.id as s.levelName for s in levelList"
+                                            ng-change="oneyearpagesizechange(selectedOneYearLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="isVat" style="padding-top:10px; margin-left:20px; margin-right:20px;">
+                    <div class="row" style="text-align:right">
+                        <button id="btnBatch" class="btn-filter" ng-click="Batch()" ng-show="false">
+                            <img src="~/../Content/images/Execute.png" />&nbsp;&nbsp;Batch
+                        </button>
+                    </div>
+                    <div class="row" style="text-align:right">
+
+                    </div>
+                    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                        <div class="grid-style" ui-grid="vatGrid" ui-grid-resize-columns>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="row">
+                            <div style="float:left; margin-right:20px;">
+                                <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{vatFromItem}}</span>&nbsp;to&nbsp;<span>{{vatToItem}}</span>&nbsp;of&nbsp;<span>{{vatTotalNum}}</span>&nbsp;items</label>
+                            </div>
+                            <div style="float:left">
+                                <ul uib-pagination max-size="vatmaxSize" items-per-page="vatitemsperpage" total-items="vattotalItems"
+                                    ng-model="vatcurrentPage" ng-change="vatpageChanged(vatcurrentPage)" class="pagination-sm" boundary-links="true"></ul>
+                            </div>
+                            <div style="float:right">
+                                <div style="float:left">
+                                    <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                                </div>
+                                <div style="float:left">
+                                    <select id="vatPageSize" name="vatPageSize" ng-model="selectedvatLevel" ng-options="s.id as s.levelName for s in levelList"
+                                            ng-change="vatpagesizechange(selectedvatLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="downloadarea">
+    <div>
+        <h4 style="color:{{dlhcolor}}">
+            <label id="downloadHisShow" class="modal-title" style="display:none; cursor:pointer;" ng-click="show('download')">
+                <i class="fa fa-plus-square-o">&nbsp;UPLOAD HISTORY</i>
+            </label>
+            <label id="downloadHisHide" class="modal-title" style="cursor:pointer;" ng-click="hide('download')">
+                <i class="fa fa-minus-square-o">&nbsp;UPLOAD HISTORY</i>
+            </label>
+        </h4>
+    </div>
+    <table id="tblDownloadArea" style="border: 1px #ececec solid; background-color: white; width: 1160px;">
+        <!--<tr>
+            <td>
+                <div style="padding-bottom:10px">
+                    <h4 class="modal-title" style="color:red;">Download history</h4>
+                </div>
+                <div style="margin-left:20px; margin-top:10px;">
+                    <button id="refresh" class="btn-filter" style="width:220px;" ng-click="resetSearch()">
+                        <i class="glyphicon glyphicon-stats"></i>&nbsp;&nbsp;Generate Consolidate Report
+                    </button>
+                </div>
+            </td>
+        </tr>-->
+        <tr>
+            <td>
+                <div style="margin-left:20px; margin-top:10px;">
+                    <label for="btnDownloadHistory" class="col-md-2 control-label-period" style="width:120px;">
+                        Upload&nbsp;Date:
+                    </label>
+                    <div class="col-md-3" style="margin-left:-20px">
+                        <!--<div datetimepicker value="downloadHistoryDate" readonly="true" />-->
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup ng-model="legalDateHis" is-open="popupPromissDateHis.opened" datepicker-options="legalDateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="openPromissDateHis()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="btnDownloadHistory" class="btn btn-primary form-control" ng-click="downloadHistorySearch()">Search</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div style="padding-top:10px; margin-left:20px; margin-right:20px;">
+                    <div class="smallgrid-style" style="min-height:200px;" ui-grid="hisArea" ui-grid-resize-columns>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="row">
+                            <div style="float:left; margin-right:20px;">
+                                <label style="margin-top:27px; margin-bottom:14px; height:29px;">Show&nbsp;<span>{{hisFromItem}}</span>&nbsp;to&nbsp;<span>{{hisToItem}}</span>&nbsp;of&nbsp;<span>{{hisTotalNum}}</span>&nbsp;items</label>
+                            </div>
+                            <div style="float:left">
+                                <ul uib-pagination max-size="hisareamaxSize" items-per-page="hisareaitemsperpage" total-items="hisareatotalItems"
+                                    ng-model="hisareacurrentPage" ng-change="hisareapageChanged()" class="pagination-sm" boundary-links="true"></ul>
+                            </div>
+                            <div style="float:right">
+                                <div style="float:left">
+                                    <label style="margin-top: 27px; margin-bottom: 14px; margin-right:2px;">Page size:</label>
+                                </div>
+                                <div style="float:left">
+                                    <select id="hisAreaPageSize" name="hisAreaPageSize" ng-model="selectedHisAreaLevel" ng-options="s.id as s.levelName for s in levelList"
+                                            ng-change="hisareapagesizechange(selectedHisAreaLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

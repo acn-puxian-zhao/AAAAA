@@ -1,0 +1,70 @@
+﻿<div class="form-group col-md-12" style="border:1px solid; height:80px">
+<div class="row" style="height:30px"></div>
+    <div class="row" >
+        <label for="dealName" class="col-md-1 control-label-period" style="width:50px;">
+            Deal:
+        </label>
+        <div class="col-md-1" style="width:50px;">
+            <label class="control-label-period" id="dealName">{{dealName}}</label>
+        </div>
+
+        <!--<label for="periodEndDate" class="col-md-2 control-label-period" style="width:120px;">
+            Payment Date:
+        </label>
+        <div class="col-md-3" style="margin-left:-20px">
+            <div datetimepicker value="paymentDate" readonly="true" />
+        </div>-->
+        <label for="periodStartDate" class="col-md-2 control-label-period" style="width:150px;">
+            New Period Start Date:
+        </label>
+        <div class="col-md-3" style="margin-left:-20px">
+            <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup ng-model="periodStartDate" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                <!--<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="periodEndDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />-->
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+
+        <label for="periodEndDate" class="col-md-2 control-label-period" style="width:150px;">
+            New Period End Date:</label>
+       <div class="col-md-3" style="margin-left:-20px">
+           <p class="input-group">
+               <input type="text" class="form-control" uib-datepicker-popup ng-model="periodEndDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+               <!--<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="periodEndDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />-->
+               <span class="input-group-btn">
+                   <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+               </span>
+           </p>
+        </div>
+
+        <div class="col-md-1">
+            <button name="newPeriod" class="btn btn-primary form-control" ng-click="addPeriod()">New</button>
+        </div>
+        <div class="col-md-1">
+            <button name="editPeriod" class="btn btn-primary form-control" ng-click="editPeriod()">Edit</button>
+        </div>
+        <div class="col-md-1">
+            <button name="deletePeriod" class="btn btn-primary form-control" ng-click="deletePeriod()">Delete</button>
+        </div>
+    </div>
+</div>    
+
+<div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;" >
+    
+        <div  class="grid-style" ui-grid="periodList"  ui-grid-resize-columns ui-grid-selection >
+        </div>
+  
+</div>
+<div class="form-group col-md-10">
+    <div class="row" >
+        <div class="col-md-2">
+            <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                ng-change="pagesizechange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+            </select>
+        </div>
+        <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+            ng-model="currentPage" ng-change="pageChanged()"></ul>
+    </div>
+</div>

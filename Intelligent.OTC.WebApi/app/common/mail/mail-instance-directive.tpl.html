@@ -1,0 +1,156 @@
+﻿<div>
+    <div class="modal-header" style="height:50px;" ng-show="showCancelImg()">
+        <div style="float:left">
+            <h4 class="modal-title">{{mailInstance.title}}</h4>
+        </div>
+        <div style="float:right">
+            <button type="button" class="close" aria-label="Close" ng-click="cancel()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <div class="modal-body form-horizontal">
+        <div style="text-align:center; width:100%; height:25px; margin:auto;">
+            <div style="width:98%; margin:auto;">
+                <div style="width:10%; float:left;">
+                    <!--<label for="emailAddressFrom" class="col-md-2 control-label">
+                        From:
+                    </label>-->
+                    <input type="text" class="form-control" style="text-align:center; height:25px; padding-bottom:0px; padding-top:0px;" value="From" readonly />
+                </div>
+                <div style="width:90%; float:left">
+                    <input type="text" class="form-control" style="height:25px; padding-bottom:0px; padding-top:0px;" id="txtFrom" name="emailAddressFrom" ng-model="mailInstance.from" title="{{mailInstance.from}}" readonly />
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; width:100%; height:25px; margin:auto;">
+            <div style="width:98%; margin:auto;">
+                <div style="width:10%; float:left;">
+                    <input type="text" class="form-control" style="text-align:center; background-color:white; height:25px; padding-bottom:0px; padding-top:0px;" value="To" readonly />
+                </div>
+                <div style="width:83%; float:left">
+                    <input type="text" id="txtTo" class="form-control" style="height:25px; padding-bottom:0px; padding-top:0px;" name="emailAddressTo" ng-model="mailInstance.to" title="{{mailInstance.to}}" />
+                </div>
+                <div style="width:7%; float:left">
+                    <!--<input type="image" id="imgContactor" class="form-control" style="text-align:center; background-color:white; height:25px; padding-bottom:0px; padding-top:0px;" src="~/../Content/images/Contact_List_small.png" ng-click="pickupToAddress()" />-->
+                    <button type="button" id="imgContactor" class="form-control" style="text-align:center; background-color:white; height:25px; padding-bottom:0px; padding-top:0px;" ng-click="pickupToAddress()"><i class="fa fa-address-card-o fa-px"></i></button>
+                    <!--<img id="imgContactor" style="height:25px;" src="~/../Content/images/Contact_List.png" ng-click="pickupToAddress()" /fa-address-book-o>-->
+                </div>
+            </div>
+            <!--<label for="emailAddressTo" class="col-md-1 control-label">
+                To:
+            </label>-->
+            <!--<div style="width:90%; float:left">
+
+                    <img ng-click="pickupToAddress()" id="imgContactor" src="~/../Content/images/331.png" style="text-align:left">
+            </div>-->
+        </div>
+        <div style="text-align:center; width:100%; height:25px; margin:auto;">
+            <div style="width:98%; margin:auto;">
+                <div style="width:10%; float:left;">
+                    <input type="text" class="form-control" style="text-align:center; background-color:white; height:25px; padding-bottom:0px; padding-top:0px;" value="Cc" readonly />
+                </div>
+                <div style="width:90%; float:left">
+                    <input type="text" class="form-control" style="height:25px; padding-bottom:0px; padding-top:0px;" id="txtCc" name="Cc" ng-model="mailInstance.cc" title="{{mailInstance.cc}}" class="required email" />
+                </div>
+            </div>
+            <!--<label for="txtCc" class="col-md-1 control-label">
+                Cc:
+            </label>-->
+            <!--<div class="col-md-10">
+                <input type="text" class="form-control" id="txtCc" name="Cc" ng-model="mailInstance.cc" title="{{mailInstance.cc}}" class="required email" />
+            </div>-->
+        </div>
+        <div style="text-align:center; width:100%; height:25px; margin:auto; margin-bottom:10px;">
+            <div style="width:98%; margin:auto;">
+                <div style="width:10%; float:left;">
+                    <input type="text" class="form-control" style="text-align:center; background-color:white; height:25px; padding-bottom:0px; padding-top:0px;" value="Subject" readonly />
+                </div>
+                <div style="width:83%; float:left">
+                    <input type="text" class="form-control" style="height:25px; padding-bottom:0px; padding-top:0px;" name="subject" ng-model="mailInstance.subject" title="{{mailInstance.subject}}" />
+                </div>
+                <div style="width:7%; float:left">
+                    <button type="button" id="btnChsTemplate" class="form-control"style="text-align:center; background-color:white; height:25px; padding-bottom:0px; padding-top:0px;"ng-click="chooseTemp()"><i class="fa fa-language fa-px"></i></button>
+                </div>
+            </div>
+            <!--<label class="col-md-1 control-label">
+                Subject:
+            </label>-->
+            <!--<div class="col-md-10">
+                <input type="text" class="form-control" name="subject" ng-model="mailInstance.subject" title="{{mailInstance.subject}}" />
+            </div>-->
+        </div>
+        <!--<div id="btnChooseTemplate" style="width:100%; height:25px; margin:auto;">
+            <div style="float:left; padding-left:10px;">
+                <input type="image" id="btnChsTemplate" title="Template" src="~/../Content/images/Template.png" ng-click="chooseTemp()" />
+            </div>
+        </div>-->
+
+        <div style="text-align:center; width:100%; margin-bottom:10px; ">
+
+            <!--<div style="width:98%; margin:auto; float:right; position:absolute; z-index:9999">
+                <input type="image" id="btnChooseTemplate" style="float:right; margin-right:10px; margin-top:7px;" title="Template" src="~/../Content/images/Template.png" ng-click="chooseTemp()" />
+            </div>-->
+
+            <!--<label for="mainbody" class="col-sm-1 control-label">Body:</label>-->
+            <div style="width:98%; margin:auto;" ng-hide="mailInstance.title=='Mail View'">
+                <textarea ui-tinymce="{trusted: true}" id="mainbody" class="form-control" style="height:350px" required
+                          ng-model="mailInstance.body"></textarea>
+            </div>
+
+            <div style="width:98%; margin:auto;" ng-show="mailInstance.title=='Mail View'">
+                <div class="form-control" style="height:350px; margin:auto; text-align:left;overflow-y:auto" ng-bind-html="mailInstance.viewBody"></div>
+            </div>
+            <!--upload-->
+            <div class="main_div">
+                <!--<div style="width:90%; margin:auto;">-->
+                <div style="float:left;">
+                    <label for="divUpload" ng-show="showUpload" title="Attachment">
+                        <!--<img src="~/../Content/images/Attachment.png" />-->
+                        <input type="image" src="~/../Content/images/Attachment.png" onclick="upAddattachment.click()" />
+                        <input id="upAddattachment" type="file" style="display:none" nv-file-select-common uploader="uploader" multiple accept="true" />
+                    </label>
+                </div>
+                <div style="float:left;">
+                    <ul>
+                        <li style="list-style:none" ng-repeat="f in attachments"><a ng-click="fileClicked(f.fileId)">{{f.fileName}}</a><span>&nbsp;&nbsp;</span> <a id="deletehide" ng-click="removeFile(f, $index);" ng-show="deleteshow" class="glyphicon glyphicon-trash"></a></li>
+                        <li style="list-style:none" ng-repeat="item in uploader.queue">
+                            <div class="progress" style="margin-bottom: 0; width:100px">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' };">{{item.file.name}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--</div>-->
+            </div>
+            <!--<div style="width:100%; margin:auto;">
+                <label></label>
+                <div>
+                    <ul>
+                        <li ng-repeat="f in attachments"><a ng-click="fileClicked(f.fileId)">{{f.fileName}}</a><span>&nbsp;&nbsp;</span> <a id="deletehide" ng-click="removeFile(f, $index);" ng-show="deleteshow" style="color:red">Delete</a></li>
+                        <li ng-repeat="item in uploader.queue">
+                            <div class="progress" style="margin-bottom: 0; width:100px">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' };">{{item.file.name}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+            <!--upload-->
+
+        </div>
+        <div class="modal-footer">
+            <div class="row" style="margin-right:5px">
+                <button type="button" class="btn btn-primary" ng-click="cancel()" ng-show="showCancelBtn()">
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="save()" ng-show="enableSave()">
+                    Save
+                </button>
+                <button type="button" id="btnSend" class="btn btn-primary" ng-click="send()">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

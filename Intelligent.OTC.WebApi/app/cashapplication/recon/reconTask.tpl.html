@@ -1,0 +1,136 @@
+﻿<div class="panel-group" id="accordion">
+    <div style="height:30px; margin-bottom:10px;">
+        <div style="float:left;margin-right: 20px;">
+            <img src="~/../Content/images/PrevHoverIcon.png" ng-click="goback()" style="height: 27px; margin-left: 10px;cursor:pointer" />
+        </div>
+        <div style="height:30px; margin-bottom:10px;">
+            <div style="float:right">
+                <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                    <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Action
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li id="Wave1"><a href="" ng-click="toUploadPage()">Upload Files</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave1"><a style="color:#ccc">Identify Customer</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">PMT Detail Advisor</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Unknown Cash Advisor</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Unknown Adjustment</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Recon</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Recon Adjustment</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Request PMT Detail</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Post</a></li>
+                        <li id="Wave2"><a style="color:#ccc">Clear</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave1"><a style="color:#ccc">Historical Task</a></li>
+                        <li id="Wave1"><a href="" ng-click="actiontask()">Action Task</a></li>
+                        <li style="border: 1px dashed #d4d4d4;"></li>
+                        <li id="Wave2"><a style="color:#ccc">Export</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="float:right">
+                <button type="button" class="btn-filter" ng-click="taskOpenFilter()">
+                    <img src="~/../Content/images/Search.png" />&nbsp;&nbsp;Search
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+
+        <div id="taskSearch" class="tag col-md-12" style="display:none">
+            <em style="left: auto;right: 45px;"></em>
+            <div class="row" style="height:5px"></div>
+            <div class="form-group col-md-12">
+                <div class="row">
+
+                </div>
+                <br />
+                <div class="row">
+                    <div style="float:left; padding-right:10px;">
+                        <label for="taskType" style="font-size:12px;">
+                            Task Type:
+                        </label>
+                        <div style="width:180px">
+                            <select id="taskType" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="taskType" ng-model="taskType" ng-options="t.detailValue as t.detailName for t in taskTypeList"></select>
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="status" style="font-size:12px;">
+                            Status:
+                        </label>
+                        <div style="width:180px">
+                            <select id="status" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty" name="status" ng-model="status" ng-options="t.detailValue as t.detailName for t in statusList">
+                            </select>
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="taskName" style="font-size:12px;">
+                            Task Name:
+                        </label>
+                        <div style="width:180px">
+                            <input id="taskName" class="form-control input-sm" ng-model="taskName" />
+                        </div>
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="dateF" style="font-size:12px;">
+                             Date From:
+                        </label>
+                        <div style="width:180px" datetimepicker value="dateF" readonly="true" />
+                    </div>
+                    <div style="float:left; padding-right:10px;">
+                        <label for="dateT" style="font-size:12px;">
+                             Date To:
+                        </label>
+                        <div style="width:180px" datetimepicker value="dateT" readonly="true" />
+                    </div>
+
+                    <div style="float:right;padding-left:10px;padding-top:10px;">
+                        <label for="tab1_inputValueDateT" style="font-size:12px;"> </label>
+                        <div>
+                            <button type="button" class="filter-button" ng-click="resetSearch()">
+                                Clear
+                            </button>
+                            <button type="button" class="filter-button" ng-click="init()">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+            <div class="grid-style" ui-grid="taskDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:100%;max-width:1567px;">
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <div class="row">
+                <div class="col-md-2">
+                    <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                            ng-change="pageSizeChange(selectedLevel)" class="form-control input-sm" style="margin-top: 20px; margin-bottom: 20px;">
+                    </select>
+                </div>
+                <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems"
+                    ng-model="currentPage" ng-change="pageChanged()"></ul>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+

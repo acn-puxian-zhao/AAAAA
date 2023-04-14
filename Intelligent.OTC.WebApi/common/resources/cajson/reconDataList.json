@@ -1,0 +1,53 @@
+﻿{
+  "dataRows": [
+    {
+      "bank_transactionNumber": "1",
+      "bank_transactionAmount": "10000",
+      "bank_reference2": "xxxx",
+      "bank_agentCustomerNumber": "1001",
+      "bank_siteUseId": "100101",
+      "bank_agentCustomerName": "HW",
+      "bank_valueDate": "2019-01-01",
+      "gName": "A_1TO1_1",
+      "ar_systemInvoiceNumber": "1",
+      "ar_transactionAmount": "10000",
+      "ar_customerNumber": "1001",
+      "ar_siteUseId": "100101",
+      "ar_customerName": "HW",
+      "ar_dueDate": "2019-01-01"
+    },
+    {
+      "bank_transactionNumber": "1",
+      "bank_transactionAmount": "10000",
+      "bank_reference2": "xxxx",
+      "bank_agentCustomerNumber": "1001",
+      "bank_siteUseId": "100101",
+      "bank_agentCustomerName": "HW",
+      "bank_valueDate": "2019-01-01",
+      "gName": "A_1TO1_1",
+      "ar_systemInvoiceNumber": "1",
+      "ar_transactionAmount": "10000",
+      "ar_customerNumber": "1001",
+      "ar_siteUseId": "100101",
+      "ar_customerName": "HW",
+      "ar_dueDate": "2019-01-01"
+    },
+    {
+      "bank_transactionNumber": "1",
+      "bank_transactionAmount": "10000",
+      "bank_reference2": "xxxx",
+      "bank_agentCustomerNumber": "1001",
+      "bank_siteUseId": "100101",
+      "bank_agentCustomerName": "HW",
+      "bank_valueDate": "2019-01-01",
+      "gName": "A_1TO1_1",
+      "ar_systemInvoiceNumber": "1",
+      "ar_transactionAmount": "10000",
+      "ar_customerNumber": "1001",
+      "ar_siteUseId": "100101",
+      "ar_customerName": "HW",
+      "ar_dueDate": "2019-01-01"
+    }
+  ],
+  "count": 3
+}

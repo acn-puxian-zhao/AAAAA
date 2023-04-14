@@ -1,0 +1,47 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Payer Info</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <div class="form-group">
+        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+            <div class="smallgrid-style" ui-grid="bankGidOptions" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="height:105px;min-height:105px;margin-left:28px;width:1050px;">
+            </div>
+        </div>
+
+        <div class="col-md-12" style="">
+            <div style="float:left;margin-right:20px">
+                <label><input type="radio" name="gender" ng-model="type" ng-value="1" ng-checked="true" ng-change="typeChanged()">Like</label>
+                <label><input type="radio" name="gender" ng-model="type" ng-value="2" ng-change="typeChanged()">All</label>
+            </div>
+        </div>
+        <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+            <div class="smallgrid-style" ui-grid="gridOptions" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="height:220px;margin-left:28px;width:1050px;">
+            </div>
+        </div>
+        <div class="form-group col-md-10" style="margin-left:13px;">
+            <div class="row">
+                <div class="col-md-2">
+                    <select id="pagesize" name="pagesize" ng-model="selectedLevel" ng-options="s.id as s.levelName for s in levelList"
+                            ng-change="pageSizeChange(selectedLevel)" class="form-control input-sm" style="margin-top: 0px; margin-bottom: 0px;"></select>
+                </div>
+                <ul uib-pagination max-size="maxSize" items-per-page="itemsperpage" total-items="totalItems" style="margin-top: 0px; margin-bottom: 0px;"
+                    ng-model="currentPage" ng-change="pageChanged()"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row" style="margin-right:0px">
+        <div class="col-md-8" style="text-align:left">
+            
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" ng-click="cancel()">
+                Close
+            </button>
+            <button type="button" id="btnSubmit" class="btn btn-primary" ng-click="submit()">
+                Submit
+            </button>
+        </div>
+    </div>
+</div>

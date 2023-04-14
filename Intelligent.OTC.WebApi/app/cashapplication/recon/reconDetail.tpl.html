@@ -1,0 +1,99 @@
+﻿<div class="panel-group" id="accordion">
+    <div style="height:30px; margin-bottom:10px;">
+        <div style="float:left">
+            <img src="~/../Content/images/PrevHoverIcon.png" style="height: 27px; margin-left: 10px; cursor:pointer" ng-click="goback()"/>
+        </div>
+        <div style="float:right">
+            <div id="buttonMenu" class="btn-group" data-toggle="buttons" style="float:left; margin-left:10px; margin-top:0px;">
+                <button class="btn-soadrop dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Action
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li id="Wave1"><a href="" ng-click="toUploadPage()">Upload Files</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave1"><a style="color:#ccc">Identify Customer</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a style="color:#ccc">PMT Detail Advisor</a></li>
+                    <li id="Wave2"><a style="color:#ccc">Unknown Cash Advisor</a></li>
+                    <li id="Wave2"><a style="color:#ccc">Unknown Adjustment</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a style="color:#ccc">Recon</a></li>
+                    <li id="Wave2"><a style="color:#ccc">Recon Adjustment</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a href="" ng-click="SendPmtDetailMail()">Request PMT Detail</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a style="color:#ccc">Post</a></li>
+                    <li id="Wave2"><a style="color:#ccc">Clear</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave1"><a href="" ng-click="toTaskListPage()">Historical Task</a></li>
+                    <li id="Wave1"><a href="" ng-click="actiontask()">Action Task</a></li>
+                    <li style="border: 1px dashed #d4d4d4;"></li>
+                    <li id="Wave2"><a href="" ng-click="export()">Export</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <uib-tabset active="active" type="tabs">
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Reconciled
+                </uib-tab-heading>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div style="float:right">
+                        <button type="button" class="btn-filter" ng-click="ungroup()">
+                            UnGroup
+                        </button>
+                    </div>                    
+                    <div class="form-group col-md-12" style="padding-left:0px; padding-right:0px;">
+                        <div class="grid-style" ui-grid="reconDataList" ui-grid-resize-columns ui-grid-selection ui-grid-pinning style="min-height:400px;height:400px;width:100%;max-width:1567px;">
+                        </div>
+                    </div>
+                    
+                </div>
+            </uib-tab>
+            <uib-tab index="2" select="reconBankGridInit()">
+                <uib-tab-heading>
+                    <i class="fa fa-list"></i> Unreconciled
+                </uib-tab-heading>
+                <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="form-group col-md-6" style="padding-left:0px; padding-right:5px;">
+                        <div style="float:left;height:30px;">
+                            <label style="line-height:30px">Sum Bank Amount: {{sumBank | currency:""}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Sum AR Amount: {{sumAr | currency:""}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Sum AR Local Amount: {{sumLocalAr | currency:""}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Dif Amount: {{difAr | currency:""}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Dif Local Amount: {{difLocalAr | currency:""}}</label>
+                        </div>
+                        <div class="grid-style" ui-grid="bankHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-pinning style="min-height:400px;height:400px;width:735px;max-width:1567px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" style="padding-left:5px; padding-right:0px;">
+                        <div style="float:left;height:30px;">
+                            <label style="line-height:30px"></label>
+                        </div>
+                        <div style="float:right">
+                            <button type="button" class="btn-filter" ng-click="groupExport()">
+                                Export
+                            </button>
+                            <button type="button" class="btn-filter" ng-click="group()">
+                                Group
+                            </button>
+                        </div>
+                        <div class="grid-style" ui-grid="arHisDataList" ui-grid-resize-columns ui-grid-selection ui-grid-move-columns ui-grid-pinning style="min-height:400px;height:400px;width:735px;max-width:1567px;">
+                        </div>
+                    </div>
+
+                </div>
+            </uib-tab>
+            
+        </uib-tabset>
+    </div>
+
+
+</div>
+
+
+
+
+
+
