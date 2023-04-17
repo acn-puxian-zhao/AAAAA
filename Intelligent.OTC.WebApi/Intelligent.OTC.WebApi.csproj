@@ -1210,14 +1210,6 @@
     <Content Include="Scripts\metronic\vendors\base\fonts\summernote\summernote.eot" />
     <Content Include="Scripts\metronic\vendors\base\fonts\summernote\summernote.ttf" />
     <Content Include="Scripts\metronic\vendors\base\fonts\summernote\summernote.woff" />
-    <Content Include="Scripts\popperjs\esm\popper-utils.js.map" />
-    <Content Include="Scripts\popperjs\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\popperjs\esm\popper.js.map" />
-    <Content Include="Scripts\popperjs\esm\popper.min.js.map" />
-    <Content Include="Scripts\popperjs\umd\popper-utils.js.map" />
-    <Content Include="Scripts\popperjs\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\popperjs\umd\popper.js.map" />
-    <Content Include="Scripts\popperjs\umd\popper.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <None Include="Scripts\tinymce\langs\readme.md" />
