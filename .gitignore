@@ -22,3 +22,6 @@
 /.vs
 /packages
 /publish
+/Intelligent.OTC.MailService/Intelligent.OTC.MailService.csproj.user
+/Intelligent.OTC.RemoteScheduler/Intelligent.OTC.RemoteScheduler.csproj.user
+/Intelligent.OTC.WebApi/Properties/PublishProfiles/FolderProfile.pubxml.user
