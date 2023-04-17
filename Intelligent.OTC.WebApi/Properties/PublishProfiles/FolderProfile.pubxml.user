@@ -885,46 +885,46 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/23/2015 15:57:48</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Business.dll">
-      <publishTime>04/17/2023 13:42:59</publishTime>
+      <publishTime>04/17/2023 15:16:29</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Business.dll.config">
       <publishTime>04/17/2023 11:07:08</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Business.pdb">
-      <publishTime>04/17/2023 13:42:59</publishTime>
+      <publishTime>04/17/2023 15:16:29</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Common.dll">
-      <publishTime>04/17/2023 13:42:55</publishTime>
+      <publishTime>04/17/2023 15:16:27</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Common.dll.config">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Common.pdb">
-      <publishTime>04/17/2023 13:42:55</publishTime>
+      <publishTime>04/17/2023 15:16:27</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Domain.dll">
-      <publishTime>04/17/2023 13:42:56</publishTime>
+      <publishTime>04/17/2023 15:16:27</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Domain.dll.config">
       <publishTime>04/14/2023 19:07:17</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Domain.pdb">
-      <publishTime>04/17/2023 13:42:56</publishTime>
+      <publishTime>04/17/2023 15:16:27</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Job.dll">
-      <publishTime>04/17/2023 13:43:00</publishTime>
+      <publishTime>04/17/2023 15:16:30</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Job.dll.config">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.Job.pdb">
-      <publishTime>04/17/2023 13:43:00</publishTime>
+      <publishTime>04/17/2023 15:16:30</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.WebApi.dll">
-      <publishTime>04/17/2023 13:43:01</publishTime>
+      <publishTime>04/17/2023 15:55:54</publishTime>
     </File>
     <File Include="bin/Intelligent.OTC.WebApi.pdb">
-      <publishTime>04/17/2023 13:43:01</publishTime>
+      <publishTime>04/17/2023 15:55:54</publishTime>
     </File>
     <File Include="bin/it/Microsoft.OData.Core.resources.dll">
       <publishTime>07/21/2015 11:00:40</publishTime>
@@ -1136,6 +1136,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="common/directives/mailinstance.js">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
+    <File Include="common/directives/timeline.js">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
     <File Include="common/directives/wcOverlay.js">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
@@ -1176,6 +1179,36 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="common/resources/caHisDataProxy.js">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/allUserDataList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/arHisDataList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/bankHisDataList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/likeUserDataList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/ptpHisDataList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/reconArList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/reconBankList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/reconDataList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/reHisDataList.json">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="common/resources/cajson/taskDataList.json">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="common/resources/cashCollectedProxy.js">
@@ -1331,6 +1364,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="common/resources/taskProxy.js">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
+    <File Include="common/resources/testPagingProxy.js">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
     <File Include="common/resources/unholdCustomerProxy.js">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
@@ -1442,19 +1478,91 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/adImg.jpg">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/All_task_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/All_task_default.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Attachment.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/banner.jpg">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/bg_black.jpg">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/Break_PTP_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Break_PTP_default.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/BusinessExcellenceIcon.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Call_log.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/CancelHoldAlert.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/ChangeStatus.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/commandCenterIcon.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/ConfirmBreakPTP.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Contact.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Contact_customer_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Contact_customer_default.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Contact_List.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Contact_List_small.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/dispute.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Dispute_tracking_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Dispute_tracking_default.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Dunning_Reminder_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Dunning_Reminder_default.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/error_404.jpg">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Execute.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/head_bg.jpg">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/HoldCustomer.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Hold_customer_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Hold_customer_default.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/home_page_icons.png">
@@ -1466,7 +1574,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/IntelligentOTC.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/IntelligentTE.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/masterDataIcon.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/My_mailbox_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/My_mailbox_default.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/New_mail.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/NextHoverIcon.png">
@@ -1475,7 +1595,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/NextIcon.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/Notice.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/notready.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Payment.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/PaymentCalendar.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/PrevHoverIcon.png">
@@ -1484,10 +1613,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/PrevIcon.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/PTP.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/ready.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/refresh.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/refreshBg.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/Search.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/SendBreakLetter.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/SendMail.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/SOA_actived.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/SOA_actived_noar.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/SOA_default.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/spinner.gif">
@@ -1499,10 +1652,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/systemSetting.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Content/images/Template.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Content/images/TEUtility.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/Transaction_Icon.png">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Content/images/UnholdCustomer.png">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Content/images/workShopIcon.png">
@@ -1754,6 +1913,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/angular.min.js.map">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
+    <File Include="Scripts/arrowemail-list.html">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Scripts/arrowemail.js">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
     <File Include="Scripts/bootstrap-datetimepicker.js">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
@@ -1770,6 +1935,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Scripts/console-sham.min.js">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Scripts/echarts.min.js">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Scripts/echarts/echarts-all.js">
@@ -1791,6 +1959,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Scripts/jquery-ui.min-1.11.1.js">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery.jqtimeline.js">
+      <publishTime>04/14/2023 19:04:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timelinr-0.9.6.js">
       <publishTime>04/14/2023 19:04:03</publishTime>
     </File>
     <File Include="Scripts/metronic/app/js/dashboard.js">
@@ -2954,10 +3128,67 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Template/ARReport.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
+    <File Include="Template/ARReportNew.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/BankStatementExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/Batch Change INC.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/BSReportExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CadaliyResult.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CAPMTDetail%28Batch%29.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CAPMTDetail-CN-Clear.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CAPMTDetail-CN.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CAPMTDetail.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CashApplicationCountResult.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ClearTemplete.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CollectorStatisticReportTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CommentsFromSalesExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
     <File Include="Template/ContactCustomerInvoiceExport.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Template/ContactorExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ContactorReplaceExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CustomerAttributeExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CustomerMappingExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/CustomerStatisticReportTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/DailyAgingReport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/DailyAgingReportNew.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Template/DisputeReport.xlsx">
@@ -2969,22 +3200,91 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Template/DSO Report.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
+    <File Include="Template/EBSetting.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ForwarderListExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/MasterDataCommentExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
     <File Include="Template/MasterDataExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/MasterDataImport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/NewCustomerReminding.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/NoCsSalesReminding.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Template/OverDueReport.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
+    <File Include="Template/Payment Calender.csv">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/PmtDetailExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/PostClearResultExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/PostClearTemplete.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/PostTemplete.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ReconArTemplete.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ReconExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
     <File Include="Template/Report-template.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
+    <File Include="Template/ReportFeedbackByCsTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ReportFeedbackBySalesTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ReportFeedbackDetailTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ReportFeedbackTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
     <File Include="Template/ReportODTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ReportPTPTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/ReportUnApplyTemplate.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SendPMTReminding.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SendSOAReminding.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA Sample for Arrow   VAT CN 0.7 -With Phone.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Template/SOA Sample for Arrow   VAT CN 0.7%28Streamline%29.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Template/SOA Sample for Arrow   VAT CN 0.7.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA Sample for Arrow  Non VAT CN 0.7 -With Phone.xlsx">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Template/SOA Sample for Arrow  Non VAT CN 0.7%28Streamline%29.xlsx">
@@ -2994,6 +3294,123 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Template/SOA-template.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SoaDateExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿电子中国有限公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿电子香港有限公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿电子（深圳）有限公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿（上海）贸易有限公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿（中国）电子贸易有限公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿（中国）电子贸易有限公司北京分公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿（中国）电子贸易有限公司南京分公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿（中国）电子贸易有限公司深圳分公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOAImage/艾睿（中国）电子贸易有限公司苏州分公司.gif">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_ASEANConsignment_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_ASEANConsignment_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_ASEAN_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_ASEAN_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_ATMSZ_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_ATMSZ_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_AU_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_AU_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_CN_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_CN_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_HK_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_HK_WAV%28296%29.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_HK_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_KR_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_KR_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_NZ_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_NZ_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_SAP_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_SAP_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_TW_PMT.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SOA_TW_WAV.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/SourceSql.txt">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/StatusReportExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/TaskExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/TaskPMTExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Template/TaskPTPExport.xlsx">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Views/Error/HttpError.cshtml">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Views/Error/NotFound.cshtml">
+      <publishTime>04/14/2023 19:04:04</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Views/Views/Error/HttpError.cshtml">
@@ -3006,7 +3423,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2023 19:04:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/17/2023 13:43:03</publishTime>
+      <publishTime>04/17/2023 15:55:14</publishTime>
     </File>
   </ItemGroup>
 </Project>

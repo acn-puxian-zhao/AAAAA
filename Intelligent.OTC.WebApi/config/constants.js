@@ -7,6 +7,7 @@ angular.module('constants.message')
     .constant('APPSETTING',
         {
             'serverUrl': 'http://localhost:55209/',
+           // 'serverUrl': 'http://localhost/ArrowSite/', 发布到的网站地址（太他吗的坑了）
         'ignoreAuth': 'true',
         'loginUrl': 'http://vrtdlcws2001:8090/Portal/User/Logout',
         'xcceleratorUrl': 'http://vrtdlcws2001:8090/Portal',
